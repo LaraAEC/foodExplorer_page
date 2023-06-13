@@ -4,7 +4,7 @@ export const Container = styled.header`
   grid-area: header; 
 
   height: 114px;
-  width: 100%;
+  width: 428px;
 
   padding: 56px 28px 24px 28px;
 
@@ -28,6 +28,11 @@ export const Container = styled.header`
       display: flex;
       flex-direction: row;
       gap: 8px;
+
+      font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+      font-weight: 700;
+      font-size: 21px;
+      line-height: 25px;
     
     }
 
