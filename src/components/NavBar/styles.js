@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.header`
   grid-area: header; 
 
-  height: 114px;
+  height: 11.4rem;
   width: 100%;
 
-  padding: 56px 28px 24px 28px;
+  padding: 5.6rem 2.8rem 2.4rem 2.8rem;
 
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
   
@@ -15,28 +15,25 @@ export const Container = styled.header`
     flex-direction: row;
     align-items: center;
 
-    gap: 16px;
+    gap: 1.6rem;
 
-    padding: 0px;
+    padding: 0rem;
     
-    width: 372px;
-    height: 34px;
+    width: 37.2rem;
+    height: 3.4rem;
 
     justify-content: space-between;
 
     > #title {
       display: flex;
       flex-direction: row;
-      gap: 8px;
+      gap: 0.8rem;
 
       font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
       font-weight: 700;
-      font-size: 21px;
-      line-height: 25px;
+      font-size: 2.1rem;
+      line-height: 2.5rem;
     
     }
-
   }
-
-
-  `;
+ `;

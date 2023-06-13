@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-export function ButtonSign({ title, loading = false, ...rest }) {
+export function Button({ title, loading = false, ...rest }) {
 
   return(
     <Container

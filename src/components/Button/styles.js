@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
-  width: 316px;
-  height: 48px;
+  width: 100%;
+  height: 4.8rem;
 
   background-color: ${({ theme }) => theme.COLORS.RED_100};
   color: ${({ theme }) => theme.COLORS.WHITE_100};
-  padding: 12px 24px;
+  padding: 1.2rem 2.4rem;
 
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 500;
  
   border: 0;
-  border-radius: 5px;
+  border-radius: 0.5rem;
  
   &:disabled {
     opacity: 0.5;

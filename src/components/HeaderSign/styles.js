@@ -7,15 +7,15 @@ export const Container = styled.header`
   align-items: center;
   justify-content: center;
 
-  gap: 11px;
+  gap: 1.1rem;
 
-  padding: 0px;
+  padding: 0rem;
   
-  width: 380px;
-  height: 44px;
+  width: 38rem;
+  height: 4.4rem;
 
   font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
   font-weight: 700;
-  font-size: 25px;
-  line-height: 44px;
+  font-size: 2.5rem;
+  line-height: 4.4rem;
   `;
