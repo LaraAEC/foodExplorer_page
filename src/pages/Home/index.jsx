@@ -1,16 +1,14 @@
 import { Container } from './styles';
 
-
 import { NavBar } from '../../components/NavBar';
 
-import { Button } from '../../components/Button';
 
-export function Details() {
+export function Home() {
   return (
     <Container>
        <NavBar />
       
-      <Button title="incluir" loading />
+      
     </Container>
   )
 }
