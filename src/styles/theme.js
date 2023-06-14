@@ -9,6 +9,7 @@ export default {
     GRAY_600: "#76797B",
     GRAY_700: "#4D585E",
 
+    DARK: "#1E1E1E",
     BACKGROUND_100: "#000405",
     BACKGROUND_200: "#00070A",
     BACKGROUND_300: "#000204",
