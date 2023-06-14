@@ -9,6 +9,8 @@ export const Container = styled.div `
   color: ${({ theme }) => theme.COLORS.GRAY_300};
 
   margin-top: 0.8rem;
+  margin-bottom: 2.8rem;
+
   border-radius: 0.8rem;
 
   > input {
@@ -22,7 +24,13 @@ export const Container = styled.div `
     border: 0;
 
     &::placeholder {
-      color:  ${({ theme }) => theme.COLORS.GRAY_500};
+      font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+      font-weight: 400;
+      font-size: 1.2rem;
+
+      color: ${({ theme }) => theme.COLORS.GRAY_500};
+
+      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
     }
   }
 

@@ -8,19 +8,21 @@ export default createGlobalStyle `
   }
 
   :root{
-    font-size: 62,5%; /* 10px */ 
+    font-size: 62,5%; /* 10px - responsividade*/ 
   }
 
   body {
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
     color: ${({ theme }) => theme.COLORS.WHITE_100};
 
+    font-size: 1.6rem; /*responsividade - tamanho de fonte relativo*/
+
     -webkit-font-smoothing: antialiased;
   }
 
   body, input, button, textarea {
     font-family: ${({ theme }) => theme.FONTS.FONT_PRIMARY};
-    font-size: 16px;
+    font-size: 1.6rem;
     outline: none; 
   }
 

@@ -8,7 +8,7 @@ export const Container = styled.button`
   color: ${({ theme }) => theme.COLORS.WHITE_100};
   padding: 1.2rem 2.4rem;
 
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 500;
  
   border: 0;

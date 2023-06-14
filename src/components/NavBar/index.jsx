@@ -14,12 +14,14 @@ export function NavBar() {
         />
 
         <div id="title">
-        <img
-          src={PolygonSvg}
-          alt="Imagem de 'polígono azul'."
-        />
-        <h1>food explorer</h1>
-        </div>
+          <img
+            src={PolygonSvg}
+            alt="Imagem de 'polígono azul'."
+          />
+          
+            <h1>food explorer</h1>
+
+        </div> 
 
         <img
           src={ReceiptSvg}

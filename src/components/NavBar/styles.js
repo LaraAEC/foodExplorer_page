@@ -4,7 +4,6 @@ export const Container = styled.header`
   grid-area: header; 
 
   height: 11.4rem;
-  width: 100%;
 
   padding: 5.6rem 2.8rem 2.4rem 2.8rem;
 
@@ -13,13 +12,11 @@ export const Container = styled.header`
   #box {
     display: flex;
     flex-direction: row;
+    
     align-items: center;
 
     gap: 1.6rem;
-
-    padding: 0rem;
     
-    width: 37.2rem;
     height: 3.4rem;
 
     justify-content: space-between;
@@ -30,10 +27,10 @@ export const Container = styled.header`
       gap: 0.8rem;
 
       font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+      font-style: normal;
       font-weight: 700;
-      font-size: 2.1rem;
-      line-height: 2.5rem;
-    
+      font-size: 1rem;
+      line-height: 2rem; 
     }
   }
  `;
