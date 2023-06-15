@@ -14,11 +14,21 @@ export const Container = styled.header`
 
   font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
   font-weight: 700;
-  font-size: 1.6rem;
-  line-height: 4rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
 
   img {
-      width: 4.5rem;
-      height: 4.5rem;
-  }
+      width: 2.5rem;
+      height: 2.5rem;
+    
+      @media (min-width: 768px) {
+        width: 4.5rem;
+        height: 4.5rem;
+
+        font-size: 1.6rem;
+        line-height: 3rem;
+      }
+  } 
+
+
   `;

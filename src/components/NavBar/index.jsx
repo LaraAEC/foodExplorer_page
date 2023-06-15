@@ -1,7 +1,7 @@
 import { Container } from './styles';
 
 import MenuSvg from '../../assets/menu.svg';
-import PolygonSvg from '../../assets/polygon.svg';
+import LogoSvg from '../../assets/logo.svg';
 import ReceiptSvg from '../../assets/receipt.svg';
 
 export function NavBar() {
@@ -9,13 +9,13 @@ export function NavBar() {
     <Container>
       <div id="box">
         <img
-          src={MenuSvg}
+          src={ MenuSvg }
           alt="Imagem de 'menu'."
         />
 
         <div id="title">
           <img
-            src={PolygonSvg}
+            src={ LogoSvg }
             alt="Imagem de 'polígono azul'."
           />
           
@@ -24,7 +24,7 @@ export function NavBar() {
         </div> 
 
         <img
-          src={ReceiptSvg}
+          src={ ReceiptSvg }
           alt="Imagem de 'recibo/recebido/pedido'."
         />
       </div>

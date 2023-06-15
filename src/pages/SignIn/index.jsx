@@ -13,8 +13,9 @@ export function SignIn() {
 
         <div className="columnLogin">
           <Form>
-            <h2>Faça login</h2>
+            
             <div className="wrap">
+              <h2>Faça login</h2>
               <span>Email</span>
               <Input
                 placeholder="Exemplo: exemplo@exemplo.com.br"
@@ -32,13 +33,13 @@ export function SignIn() {
               />
             </div>
               
-          <div className="wrap">
-            <Button title="Entrar"  /*onClick={handleSignIn}*//> 
-          </div>
-
-            <a href="#">
-              Criar uma conta
-            </a>
+            <div className="wrap">
+              <Button title="Entrar"  /*onClick={handleSignIn}*//> 
+              <a href="#">
+                Criar uma conta
+              </a>
+            </div>
+            
           </Form>
         </div>
       

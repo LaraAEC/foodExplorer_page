@@ -1,12 +1,12 @@
 import { Container } from './styles';
 
-import PolygonBiggerSvg from '../../assets/polygonBigger.svg';
+import LogoSvg from '../../assets/logo.svg';
 
 export function HeaderSign() {
   return (
     <Container>
         <img
-          src={PolygonBiggerSvg}
+          src={ LogoSvg }
           alt="Imagem de 'polígono azul'."
         />
         <h1>food explorer</h1>

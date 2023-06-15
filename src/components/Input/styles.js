@@ -8,16 +8,13 @@ export const Container = styled.div `
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   color: ${({ theme }) => theme.COLORS.GRAY_300};
 
-  margin-top: 0.8rem;
-  margin-bottom: 2.8rem;
-
-  border-radius: 0.8rem;
+  border-radius: 0.4rem;
 
   > input {
-    height: 4.8rem;
+    height: 3.5rem;
     width: 100%;
 
-    padding: 1.2rem 1.4rem;
+    padding: 1rem 1.2rem;
     
     color: ${({ theme }) => theme.COLORS.WHITE_100};
     background: transparent;
@@ -37,9 +34,10 @@ export const Container = styled.div `
   > svg {
     margin-left: 1.6rem;
   }
-`;
 
-//width:100% me dá uma largura de 100% de onde o elemento estiver, ele ocupa 100% da onde ele está.
-//Colocamos o background do input transparente para aproveitar o background que colocamos no Container.
-//Colocamos a borda do input zero para dar a sensação de que o ícone (que está ao lado) é parte dele.
-//estilizamos o placeholder desse input com &: (para acessar a propriedade placeholder)
+  > input:focus {
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+  }
+ 
+`;
