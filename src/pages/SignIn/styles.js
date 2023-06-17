@@ -27,7 +27,6 @@ export const Container = styled.div`
 
     align-items: center;
     justify-content: space-between;
-  
   }
 
   @media (min-width: 1124px) {
@@ -75,26 +74,6 @@ export const Form = styled.form `
 
     background: transparent;
 
-    > h2 {
-      font-weight: 500;
-      font-size: 32px;
-
-      color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
-
-    @media (min-width: 768px) {
-      background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
-
-      color: ${({ theme }) => theme.COLORS.WHITE_100};
-
-      margin: 0 auto;  
-  }
-
-    @media (min-width: 1124px) {
-      background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
-
-      color: ${({ theme }) => theme.COLORS.WHITE_100};
-   }
-  }
     > a {
       font-family:  font-family: ${({ theme }) => theme.FONTS.FONT_PRIMARY};
       font-weight: 500;
@@ -119,6 +98,23 @@ export const Form = styled.form `
     @media (min-width: 1124px) {
       width: 25rem;
       padding: 0rem;
+    }
+  }
+
+  > .wrap #loginIn {
+    margin: 0 auto; 
+
+    > h2 {
+      font-weight: 500;
+      font-size: 32px;
+
+      color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
+      background: ${({ theme }) => theme.COLORS.BACKGROUND_400};
+     
+    @media (min-width: 768px) {
+      background: ${({ theme }) => theme.COLORS.BACKGROUND_400};
+      color: ${({ theme }) => theme.COLORS.WHITE_100}; 
+      }
     }
   }
 
