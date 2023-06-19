@@ -39,6 +39,7 @@ export default {
 
 FONTS: {
     FONT_PRIMARY: "'Poppins', sans-serif",
-    FONT_SECONDARY: "'Roboto', sans-serif" 
+    FONT_SECONDARY: "'Roboto', sans-serif",
+    FONT_COPYRIGHT: "'DM Sans', sans-serif" 
   }
 }
