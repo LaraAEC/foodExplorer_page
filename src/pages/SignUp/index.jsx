@@ -14,7 +14,7 @@ export function SignUp() {
         <div className="columnLogin">
           <Form>   
             <div className="wrap">
-              <div id="loginIn">
+              <div id="makeYourAccount">
                 <h2>Crie sua conta</h2>
               </div>
 

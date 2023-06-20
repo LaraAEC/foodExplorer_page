@@ -4,7 +4,6 @@ export const Container = styled.div`
   max-width: 100%;
   height: 100vh;
 
-
   margin: 0 auto;
 
   display: flex;
@@ -30,7 +29,6 @@ export const Container = styled.div`
   max-width: 102.4rem;
   gap: 17rem;
 }
-
 `;
 
 export const Form = styled.form `
@@ -73,7 +71,7 @@ export const Form = styled.form `
     background: ${({ theme }) => theme.COLORS.BACKGROUND_400};
 
     > a {
-      font-family:  font-family: ${({ theme }) => theme.FONTS.FONT_PRIMARY};
+      font-family: ${({ theme }) => theme.FONTS.FONT_PRIMARY};
       font-weight: 500;
       font-size: 1.4rem;
       line-height: 2.4rem;
@@ -113,10 +111,10 @@ export const Form = styled.form `
       color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
       background: ${({ theme }) => theme.COLORS.BACKGROUND_400};
      
-    @media (min-width: 768px) {
-      background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
-      color: ${({ theme }) => theme.COLORS.WHITE_100}; 
-      }
+      @media (min-width: 768px) {
+        background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+        color: ${({ theme }) => theme.COLORS.WHITE_100}; 
+        }
     }
   }
 
