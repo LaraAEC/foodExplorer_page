@@ -2,7 +2,7 @@ import { Container } from './styles';
 
 import { FiSearch } from 'react-icons/fi';
 
-import { Footer } from '../../components/Footer' 
+import { Footer } from '../../components/Footer'; 
 import { Input } from '../../components/Input';
 
 import CloseSvg from '../../assets/close.svg';

@@ -4,11 +4,8 @@ export const Container = styled.div`
   width:100%;
   height: 100vh;
 
-  display: grid;
-  grid-template-rows: 11.4rem auto;
-  grid-template-areas:
-  "header"
-  "content";
+  display: flex;
+  flex-direction: column;
   
   max-width: 42.8rem;
 
