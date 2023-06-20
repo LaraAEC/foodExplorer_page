@@ -2,23 +2,23 @@ import styled from 'styled-components';
 
 export const Container = styled.footer`
   width: 100%;
-  height: 5rem;
+  height: 6.6rem;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 
-  gap: 2.5rem;
+  gap: 0.8rem;
 
-  padding: 2rem 1.8rem;
+  padding: 2.4rem 2.7rem;
 
 
   background: ${({ theme }) => theme.COLORS.BACKGROUND_600};
 
   #logo {
     display: flex;
-    gap: 1px;
+    gap: 0.6rem;
     justify-content: center;
     align-items: center;
     
@@ -26,16 +26,16 @@ export const Container = styled.footer`
     > p {
       font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
       font-weight: 700;
-      font-size: 1rem;
-      line-height: 1rem;
+      font-size: 1.52rem;
+      line-height: 1.4rem;
 
       color: ${({ theme }) => theme.COLORS.GRAY_700};
     }
   }
 
   img {
-      width: 1.5rem;
-      height: 1.2rem;
+      width: 2.2rem;
+      height: 1.8rem;
   } 
 
   #copyright {
@@ -43,8 +43,8 @@ export const Container = styled.footer`
     > p {
       font-family: ${({ theme }) => theme.FONTS.FONT_COPYRIGHT};
       font-weight: 400;
-      font-size: 0.7rem;
-      line-height: 1rem;
+      font-size: 1.2rem;
+      line-height: 1.4rem;
 
       color: ${({ theme }) => theme.COLORS.WHITE_200};
     }

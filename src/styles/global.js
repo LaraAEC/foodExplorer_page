@@ -8,7 +8,7 @@ export default createGlobalStyle `
   }
 
   :root{
-    font-size: 62,5%; /* 10px - responsividade*/ 
+    font-size: 62.5%; /* 10px - responsividade*/ 
   }
 
   body {
@@ -20,7 +20,7 @@ export default createGlobalStyle `
     -webkit-font-smoothing: antialiased;
   }
 
-  body, input, button, textarea {
+  body, input, button, a, textarea {
     font-family: ${({ theme }) => theme.FONTS.FONT_PRIMARY};
     font-size: 1.6rem;
     outline: none; 

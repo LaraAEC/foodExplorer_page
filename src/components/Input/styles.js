@@ -8,13 +8,13 @@ export const Container = styled.div `
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   color: ${({ theme }) => theme.COLORS.GRAY_300};
 
-  border-radius: 0.4rem;
+  border-radius: 0.5rem;
 
   > input {
     height: 3.5rem;
     width: 100%;
 
-    padding: 1rem 1.2rem;
+    padding: 1.2rem 1.4rem;
     
     color: ${({ theme }) => theme.COLORS.WHITE_100};
     background: transparent;
@@ -23,21 +23,19 @@ export const Container = styled.div `
     &::placeholder {
       font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
       font-weight: 400;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
 
       color: ${({ theme }) => theme.COLORS.GRAY_500};
-
-      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
     }
   }
 
   > svg {
-    margin-left: 1.6rem;
+    margin-left: 1.4rem;
   }
 
   > input:focus {
     border: 1px solid #FFFFFF;
-    border-radius: 5px;
+    border-radius: 0.5rem;
   }
  
 `;

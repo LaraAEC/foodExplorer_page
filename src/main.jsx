@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/global';
 import theme from './styles/theme'; 
 
-import { Menu } from './pages/Menu'
+import { SignIn } from './pages/SignIn'
 
 
 
@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Menu />
+      <SignIn />
     </ThemeProvider>
     
   </React.StrictMode>,
