@@ -32,8 +32,10 @@ export function SignIn() {
                     type="password"
                     //onChange={e => setPassword(e.target.value)}
                 />
-        
-                <Button title="Entrar"  /*onClick={handleSignIn}*//> 
+                <div id="buttonSignIn">
+                  <Button title="Entrar"  /*onClick={handleSignIn}*//> 
+                </div>
+                
                 <a href="#">
                   Criar uma conta
                 </a>

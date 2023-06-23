@@ -65,24 +65,32 @@ export const Form = styled.form `
     border-radius: 1rem;
    }
 
-  > .wrap {
-  display: flex;
-  flex-direction: column;
+  .wrap {
+    display: flex;
+    flex-direction: column;
 
-  align-items: start;
+    align-items: start;
 
-  background: ${({ theme }) => theme.COLORS.BACKGROUND_400};
+    background: ${({ theme }) => theme.COLORS.BACKGROUND_400};
+
+    > #buttonSignUp {
+      width: 31.6rem;
+      height: 4.8rem;
+      
+      margin: 0 auto;
+      margin-bottom: 3.2rem;
+    }
 
   > a {
-    font-family: ${({ theme }) => theme.FONTS.FONT_PRIMARY};
-    font-weight: 500;
-    font-size: 1.4rem;
-    line-height: 2.4rem;
+      font-family: ${({ theme }) => theme.FONTS.FONT_PRIMARY};
+      font-weight: 500;
+      font-size: 1.4rem;
+      line-height: 2.4rem;
 
-    margin: 0 auto;
-    margin-top: 3.2rem;
-    
-    color:  ${({ theme }) => theme.COLORS.WHITE_100}; 
+      margin: 0 auto;
+      margin-top: 3.2rem;
+      
+      color:  ${({ theme }) => theme.COLORS.WHITE_100}; 
      
     @media (min-width: 768px) {
         margin: 0 auto;

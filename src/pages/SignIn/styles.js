@@ -70,6 +70,14 @@ export const Form = styled.form `
 
     background: ${({ theme }) => theme.COLORS.BACKGROUND_400};
 
+    #buttonSignIn {
+      width: 31.6rem;
+      height: 4.8rem;
+
+      margin: 0 auto;
+      margin-bottom: 3.2rem;
+    }
+
     > a {
       font-family: ${({ theme }) => theme.FONTS.FONT_PRIMARY};
       font-weight: 500;

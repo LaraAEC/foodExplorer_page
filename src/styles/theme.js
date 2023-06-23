@@ -33,7 +33,6 @@ export default {
 
     BLUE_100: "#82F3FF",
     BLUE_200: "#065E7C"
-  
   },
 
 FONTS: {
