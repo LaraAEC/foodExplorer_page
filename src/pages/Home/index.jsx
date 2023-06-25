@@ -31,6 +31,8 @@ export function Home() {
           <Section title="Refeições">
             <DishCard title="Salada Ravanello" />
             <DishCard title="Peixe à Delícia" />
+            <DishCard title="Salada Ravanello" />
+            <DishCard title="Peixe à Delícia" />
           </Section>
 
           <Section title="Sobremesas">
@@ -38,9 +40,15 @@ export function Home() {
             <DishCard title="Filé ao molho Madeira" />
           </Section>
 
+          <Section title="Bebidas">
+            <DishCard title="Espresso" />
+            <DishCard title="Suco de Maracujá" />
+          </Section>
+
         </Content>
 
         <Footer />
+
       </main>
 
     </Container>

@@ -9,34 +9,96 @@ export const Container = styled.div`
   
   max-width: 42.8rem;
 
+  background: ${({ theme }) => theme.COLORS.DARK_200};
 
   @media (min-width: 768px) {
-    background: pink;
+    max-width: 76.8rem;
+    margin: 0 auto;
   }
 
-  
-  > main {
-    overflow-y: scroll;
-    padding: 4.4rem 0 0 0;
-    background: black;
-   }
+  @media (min-width: 1024px) {
+    max-width: 144.0rem;
+  }
 
-   #Banner {
+  > main {
+    padding-top: 4.4rem;
+    overflow-y: scroll;
+    background: pink;
+
+
+    ::-webkit-scrollbar-track {
+        background-color: red;
+    }
+
+    ::-webkit-scrollbar {
+        background: blue;
+        width: 80px;    
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: green;
+        
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+   }
+`;
+
+export const Content = styled.div`
+  max-width: 550px;
+
+  margin: 0 1rem 0 2rem;
+
+  @media (min-width: 768px) {
+    margin: 0 2rem 0 3rem; 
+  }
+ 
+  @media (min-width: 1024px) {
+    margin: 0 2rem 0 3rem; 
+  }
+
+  @media (min-width: 1300px) {
+    margin: 0 2rem 0 4.5rem; 
+  }
+
+  #Banner {
     display: flex;
     align-items: end;
   
     width: 37.6rem;
     height: 12.0rem; 
 
-    margin: 0 auto;
-
     background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
 
-    border-radius: 2.91696px;
+    border-radius: 3px;
+    background: green;
+
+    @media (min-width: 768px) {
+      width: 69.5rem;
+      height: 15.0rem; 
+    }
+
+    @media (min-width: 1024px) {
+      width: 95.6rem;
+      height: 20.0rem;
+    }
+
+    @media (min-width: 1300px) {
+      width: 128.8rem;
+      height: 26.0rem;
+    }
+
 
     > img {  
-      margin-left: -3rem;
-      
+      margin-left: -3rem;  
+
+      @media (min-width: 768px) {
+        width: 25.0rem;
+      }
+
+      @media (min-width: 1024px) {
+        width: 32.0rem;
+      }
     }
 
     > .wrapperBanner {
@@ -49,8 +111,15 @@ export const Container = styled.div`
 
         color: ${({ theme }) => theme.COLORS.WHITE_300};
 
+        @media (min-width: 768px) {
+          
       }
 
+        @media (min-width: 1024px) {
+       
+      }
+      }
+      
       > p {
         font-weight: 400;
         font-size: 1.2rem;
@@ -60,10 +129,5 @@ export const Container = styled.div`
       }
     }
    }
-`;
-
-export const Content = styled.div`
-  max-width: 550px;
-  margin: 0 auto;
 `;
 
