@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  margin: 2.8rem 2.4rem;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
-    margin: 2.8rem 0;
+    margin: 0 auto;
     }
 
   h2 {
-    margin-bottom: 2rem;
+    margin: 2rem 3rem;
 
     color: ${({ theme }) => theme.COLORS.WHITE_300};
     
@@ -16,11 +16,23 @@ export const Container = styled.section`
     font-weight: 500;
     font-size: 1.8rem;
     line-height: 140%;
+
+    @media (min-width: 768px) {
+      margin: 2rem 4rem;
+    }
+
+    @media (min-width: 1440px) {
+      margin: 2rem 7rem; 
+    }
+
   }
 
   .Carousel {
+    margin: 0 auto;
+
     display: flex;
     gap: 1.6rem;
+    
     overflow: hidden;
 
     @media (min-width: 768px) {

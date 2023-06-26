@@ -23,9 +23,7 @@ export const Container = styled.div`
   > main {
     padding-top: 4.4rem;
     overflow-y: scroll;
-    background: pink;
-
-
+    
     ::-webkit-scrollbar-track {
         background-color: red;
     }
@@ -45,23 +43,16 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  max-width: 550px;
-
-  margin: 0 1rem 0 2rem;
+  max-width: 100%;
+  background: black;
 
   @media (min-width: 768px) {
-    margin: 0 2rem 0 3rem; 
+    max-width: 100%;
   }
- 
-  @media (min-width: 1024px) {
-    margin: 0 2rem 0 3rem; 
-  }
-
-  @media (min-width: 1300px) {
-    margin: 0 2rem 0 4.5rem; 
-  }
-
+  
   #Banner {
+    margin: 0 auto;
+
     display: flex;
     align-items: end;
   
@@ -71,11 +62,11 @@ export const Content = styled.div`
     background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
 
     border-radius: 3px;
-    background: green;
-
+  
     @media (min-width: 768px) {
       width: 69.5rem;
       height: 15.0rem; 
+
     }
 
     @media (min-width: 1024px) {
@@ -85,7 +76,6 @@ export const Content = styled.div`
 
     @media (min-width: 1300px) {
       width: 128.8rem;
-      height: 26.0rem;
     }
 
 

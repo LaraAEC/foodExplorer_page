@@ -33,11 +33,15 @@ export function Home() {
             <DishCard title="Peixe à Delícia" />
             <DishCard title="Salada Ravanello" />
             <DishCard title="Peixe à Delícia" />
+            <DishCard title="Salada Ravanello" />
+            <DishCard title="Peixe à Delícia" />
+      
+          
           </Section>
 
           <Section title="Sobremesas">
-            <DishCard title="Salada Ravanello" />
-            <DishCard title="Filé ao molho Madeira" />
+            <DishCard title="Mousse de morango" />
+            <DishCard title="Pudim" />
           </Section>
 
           <Section title="Bebidas">
