@@ -21,16 +21,19 @@ export const Container = styled.header`
 
     justify-content: space-between;
 
-    > #title {
-      display: flex;
-      flex-direction: row;
-      gap: 0.8rem;
+  #title {
+    display: flex;
+    flex-direction: row;
 
-      font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
-      font-style: normal;
-      font-weight: 700;
-      font-size: 1rem;
-      line-height: 2rem; 
-    }
+    gap: 0.8rem;
+    
+    align-items: center;
+
+    font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 2rem; 
+  }
   }
  `;

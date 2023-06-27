@@ -17,27 +17,34 @@ export function SignUp() {
               <div id="makeYourAccount">
                 <h2>Crie sua conta</h2>
               </div>
-
-              <span>Seu nome</span>
+            
+              <div className="Data">
+                <span>Seu nome</span>
                 <Input
                   placeholder="Exemplo: Juliana Frazão"
                   type="text"
                   //onChange={e => setEmail(e.target.value)} // capturando a mudança no 'e' e colocando o valor dela no método que configura estado como parâmetro e executando ele
-              />
+                />
+              </div>
+              
+              <div className="Data">  
+                <span>Email</span>
+                  <Input
+                    placeholder="Exemplo: exemplo@exemplo.com.br"
+                    type="text"
+                    //onChange={e => setEmail(e.target.value)} // capturando a mudança no 'e' e colocando o valor dela no método que configura estado como parâmetro e executando ele
+                  />
+              </div>
+          
+              <div className="Data">  
+                  <span>Senha</span>
+                    <Input
+                      placeholder="No mínimo 6 caracteres"
+                      type="password"
+                      //onChange={e => setPassword(e.target.value)}
+                  />
+              </div>
 
-              <span>Email</span>
-              <Input
-                placeholder="Exemplo: exemplo@exemplo.com.br"
-                type="text"
-                //onChange={e => setEmail(e.target.value)} // capturando a mudança no 'e' e colocando o valor dela no método que configura estado como parâmetro e executando ele
-              /> 
-         
-              <span>Senha</span>
-                <Input
-                  placeholder="No mínimo 6 caracteres"
-                  type="password"
-                  //onChange={e => setPassword(e.target.value)}
-              />
               <div id="buttonSignUp">
                 <Button title="Criar conta"  /*onClick={handleSignIn}*//> 
               </div>

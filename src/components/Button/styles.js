@@ -17,7 +17,6 @@ export const Container = styled.button`
   border: 0;
   border-radius: 0.5rem;
 
- 
   &:disabled {
     opacity: 0.5;
   }

@@ -4,7 +4,7 @@ import MenuSvg from '../../assets/menu.svg';
 import LogoSvg from '../../assets/logo.svg';
 import ReceiptSvg from '../../assets/receipt.svg';
 
-export function NavBar() {
+export function HeaderUserMobile() {
   return (
     <Container>
       <div id="box">
@@ -28,7 +28,6 @@ export function NavBar() {
           alt="Imagem de 'recibo/recebido/pedido'."
         />
       </div>
-
     </Container>
   );
 }

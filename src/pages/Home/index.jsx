@@ -2,7 +2,8 @@ import { Container, Content } from './styles';
 
 import BannerSvg from '../../assets/banner.svg';
 
-import { NavBar } from '../../components/NavBar';
+import { HeaderUserMobile } from '../../components/HeaderUserMobile';
+import { HeaderUserDesktop } from '../../components/HeaderUserDesktop';
 import { Section } from '../../components/Section';
 import { DishCard } from '../../components/DishCard'; 
 import { Footer } from '../../components/Footer'; 
@@ -12,7 +13,7 @@ export function Home() {
   return (
     <Container>
 
-      <NavBar />
+      <HeaderUserMobile/>
 
       <main>
 
