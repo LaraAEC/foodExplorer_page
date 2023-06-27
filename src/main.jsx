@@ -1,11 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+import { useMediaQuery } from 'react-responsive';
+
 
 import { ThemeProvider } from 'styled-components'; 
 import GlobalStyles from './styles/global';
 import theme from './styles/theme'; 
 
-import { SignUp } from './pages/SignUp'
+import { UserHome } from './pages/UserHome'
 
 
 
@@ -14,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <SignUp />
+      <UserHome />
     </ThemeProvider>
     
   </React.StrictMode>,

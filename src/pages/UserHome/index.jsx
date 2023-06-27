@@ -2,18 +2,24 @@ import { Container, Content } from './styles';
 
 import BannerSvg from '../../assets/banner.svg';
 
-import { HeaderUserMobile } from '../../components/HeaderUserMobile';
-import { HeaderUserDesktop } from '../../components/HeaderUserDesktop';
+import { useMediaQuery } from 'react-responsive';
+
+import { UserMobileHeader } from '../../components/UserMobileHeader';
+import { UserDesktopHeader } from '../../components/UserDesktopHeader';
 import { Section } from '../../components/Section';
 import { DishCard } from '../../components/DishCard'; 
 import { Footer } from '../../components/Footer'; 
 
 
-export function Home() {
+
+export function UserHome() {
+
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   return (
     <Container>
 
-      <HeaderUserMobile/>
+      {isMobile ? <UserMobileHeader /> : <UserDesktopHeader />}
 
       <main>
 
@@ -30,24 +36,15 @@ export function Home() {
           </div>
 
           <Section title="Refeições">
-            <DishCard title="Salada Ravanello" />
-            <DishCard title="Peixe à Delícia" />
-            <DishCard title="Salada Ravanello" />
-            <DishCard title="Peixe à Delícia" />
-            <DishCard title="Salada Ravanello" />
-            <DishCard title="Peixe à Delícia" />
-      
-          
+         
           </Section>
 
           <Section title="Sobremesas">
-            <DishCard title="Mousse de morango" />
-            <DishCard title="Pudim" />
+          
           </Section>
 
           <Section title="Bebidas">
-            <DishCard title="Espresso" />
-            <DishCard title="Suco de Maracujá" />
+         
           </Section>
 
         </Content>

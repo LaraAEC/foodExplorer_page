@@ -4,17 +4,14 @@ export const Container = styled.div`
   width:100%;
   height: 100vh;
 
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   
-  max-width: 42.8rem;
+  max-width: 76.7rem;
 
   background: ${({ theme }) => theme.COLORS.DARK_200};
-
-  @media (min-width: 768px) {
-    max-width: 76.8rem;
-    margin: 0 auto;
-  }
 
   @media (min-width: 1024px) {
     max-width: 144.0rem;
@@ -45,10 +42,6 @@ export const Container = styled.div`
 export const Content = styled.div`
   max-width: 100%;
   background: black;
-
-  @media (min-width: 768px) {
-    max-width: 100%;
-  }
   
   #Banner {
     margin: 0 auto;
@@ -56,7 +49,7 @@ export const Content = styled.div`
     display: flex;
     align-items: end;
   
-    width: 37.6rem;
+    width: 38rem;
     height: 12.0rem; 
 
     background: linear-gradient(180deg, #091E26 0%, #00131C 100%);

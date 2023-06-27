@@ -6,7 +6,7 @@ import SearchSvg from '../../assets/search.svg';
 import SignOutSvg from '../../assets/signOut.svg';
 
 
-export function HeaderUserDesktop() {
+export function UserDesktopHeader() {
   return (
     <Container>
       <div id="box">
