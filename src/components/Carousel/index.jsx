@@ -1,6 +1,7 @@
 import { Container } from './styles';
 import { DishCard } from '../DishCard';
 
+
 import { useState } from 'react';
 
 export function Carousel() {
@@ -9,19 +10,19 @@ export function Carousel() {
   const slides = [
     /* Conteúdo dos slides */
     <div>
-      <DishCard />
+      <h3>Slide 1</h3>
     </div>,
 
     <div>
-      <DishCard />
+      <h3>Slide 2</h3>
     </div>,
     
     <div>
-      <DishCard />
+      <h3>Slide 3</h3>
     </div>,
 
     <div>
-      <DishCard />
+      <h3>Slide 4</h3>
     </div>,
 
     <div>
