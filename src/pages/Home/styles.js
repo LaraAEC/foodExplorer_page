@@ -65,17 +65,22 @@ export const Content = styled.div`
   
     @media (min-width: 768px) {
       width: 69.5rem;
-      height: 15.0rem; 
+      height: 15.0rem;
 
+      gap: 9rem;
     }
 
     @media (min-width: 1024px) {
       width: 95.6rem;
       height: 20.0rem;
+
+      gap: 18rem;
     }
 
     @media (min-width: 1300px) {
       width: 128.8rem;
+
+      gap: 26rem;
     }
 
 
@@ -102,12 +107,17 @@ export const Content = styled.div`
         color: ${({ theme }) => theme.COLORS.WHITE_300};
 
         @media (min-width: 768px) {
-          
-      }
+          font-weight: 500;
+          font-size: 3rem;
+        }
 
         @media (min-width: 1024px) {
-       
-      }
+          font-size: 4rem;
+        }
+
+        @media (min-width: 1300px) {
+          font-size: 6rem;
+        }
       }
       
       > p {
@@ -116,8 +126,20 @@ export const Content = styled.div`
         line-height: 140%;
 
         color: ${({ theme }) => theme.COLORS.WHITE_300};
-      }
+
+        @media (min-width: 768px) {
+          font-weight: 400;
+          font-size: 1.4rem;
+          line-height: 100%; 
+
+          font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+        }
+
+         @media (min-width: 1300px) {
+          font-size: 1.6rem;
+        }
     }
    }
+  }
 `;
 
