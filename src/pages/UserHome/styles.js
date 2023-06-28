@@ -159,11 +159,38 @@ export const Content = styled.div`
     }
    }
   }
+  > section {
+    position: relative;
+    margin: 0 auto;
+    max-width: 90rem;
+
+    > div {
+      display: flex;
+      align-items: center;
+      overflow-x: hidden;
+      flex-direction: row;
+      gap: 1.5rem;
+
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+    }
+  }
 `;
 
-export const Card = styled.div`
-  width: 210px;
-  
-  display: flex;
-  gap: 16px;
+export const Arrow = styled.button`
+    position: absolute;
+    top: 53.5%;
+    transform: translateY(-50%);
+    border: none;
+    filter: opacity(0.7);
+    height: 33.5rem;
+    color: ${({ theme }) => theme.COLORS.WHITE_100};
+    font-size: 3.5rem;
+    background: transparent;
+   
+    ${({ direction }) => direction === 'prev' ? ` 
+        left: -2rem;
+    `: ` 
+        right: -2rem;
+`}
 `;

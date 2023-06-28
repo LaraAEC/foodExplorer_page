@@ -21,30 +21,4 @@ export const Container = styled.section`
       margin: 2rem 7rem; 
     }
   }
-
-  .Carousel {
-    margin: 0 auto;
-
-    display: flex;
-    gap: 1.6rem;
-    
-    overflow: hidden;
-
-    width: 38rem;
-    height: 30.0rem; 
-
-    @media (min-width: 768px) {
-      width: 69.5rem;
-      height: 30.0rem;
-    }
-
-    @media (min-width: 1024px) {
-      width: 93rem;
-      height: 30.0rem;
-    }
-
-    @media (min-width: 1300px) {
-      width: 127.0rem;  
-    }
-  }
 `;

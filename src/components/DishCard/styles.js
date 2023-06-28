@@ -1,20 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
- 
   width:100%;
   height: 100%;
 
-  padding: 24px;
+  padding: 2.4rem;
 
   background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 
   position: relative;
-
+  
   main {
     display: flex;
-    align-items: ;
-  
+    
     margin: 0 auto;
   
     width: 21.0rem;
