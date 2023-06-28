@@ -1,11 +1,14 @@
 import { Container } from "./styles";
-import { Carousel } from '../../components/Carousel';
 
-export function Section({ title }) {
+export function Section({ title, children }) {
   return (
     <Container>
+      
       <h2>{title}</h2>
-      <Carousel />
+      
+      <div className="Carousel">
+        {children}
+      </div>
     </Container>
   );
 }

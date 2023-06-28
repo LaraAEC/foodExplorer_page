@@ -15,12 +15,26 @@ export const Container = styled.div`
 
   @media (min-width: 1024px) {
     max-width: 144.0rem;
+
   }
 
   > main {
     padding-top: 4.4rem;
     overflow-y: scroll;
-    
+
+    @media (min-width: 768px) {
+      padding-top: 7rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding-top: 10rem;
+    }
+
+    @media (min-width: 1300px) {
+      padding-top: 14.5rem;
+     
+    }
+
     ::-webkit-scrollbar-track {
         background-color: red;
     }
@@ -58,39 +72,60 @@ export const Content = styled.div`
   
     @media (min-width: 768px) {
       width: 69.5rem;
-      height: 15.0rem;
+      height: 16.5rem;
 
-      gap: 9rem;
+      gap: 5rem;
     }
 
     @media (min-width: 1024px) {
-      width: 95.6rem;
-      height: 20.0rem;
+      width: 93rem;
+      height: 21.0rem;
 
-      gap: 18rem;
+      gap: 6rem;
     }
 
     @media (min-width: 1300px) {
-      width: 128.8rem;
+      width: 127.0rem;
+      height: 30rem;
 
-      gap: 26rem;
+      gap: 8rem;
     }
-
 
     > img {  
       margin-left: -3rem;  
 
       @media (min-width: 768px) {
-        width: 25.0rem;
+        width: 28.0rem;
       }
 
       @media (min-width: 1024px) {
-        width: 32.0rem;
+        width: 45.0rem;
+        margin-left: -5rem;
+      }
+
+      @media (min-width: 1300px) {
+        width: 60.0rem;
+        height: 42rem;
+
+        margin-left: -6rem;
       }
     }
 
     > .wrapperBanner {
       margin-bottom: 2.2rem;
+
+      @media (min-width: 768px) {
+        margin-bottom: 4.5rem;
+      }
+
+      @media (min-width: 1024px) {
+        margin-bottom: 7.5rem;
+      }
+
+      @media (min-width: 1300px) {
+        margin-bottom: 10rem;
+        
+      }
 
       > h2 {
         font-weight: 600;
@@ -102,6 +137,8 @@ export const Content = styled.div`
         @media (min-width: 768px) {
           font-weight: 500;
           font-size: 3rem;
+
+          white-space: nowrap;
         }
 
         @media (min-width: 1024px) {
@@ -109,7 +146,7 @@ export const Content = styled.div`
         }
 
         @media (min-width: 1300px) {
-          font-size: 6rem;
+          font-size: 5.5rem;
         }
       }
       
@@ -124,6 +161,8 @@ export const Content = styled.div`
           font-weight: 400;
           font-size: 1.4rem;
           line-height: 100%; 
+
+          white-space: nowrap;
 
           font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
         }

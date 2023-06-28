@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.section`
   margin: 0 auto;
 
+ 
+
   h2 {
     margin: 2rem 3rem;
 
@@ -22,5 +24,28 @@ export const Container = styled.section`
     }
   }
 
- 
+  .Carousel {
+    margin: 0 auto;
+
+    display: flex;
+    gap: 1.6rem;
+    
+    overflow: hidden;
+
+    width: 69rem;
+
+    @media (min-width: 768px) {
+      width: 69.5rem;
+      height: 30.0rem;
+    }
+
+    @media (min-width: 1024px) {
+      width: 93rem;
+      height: 30.0rem;
+    }
+
+    @media (min-width: 1300px) {
+      width: 127.0rem;  
+    }
+  }
 `;
