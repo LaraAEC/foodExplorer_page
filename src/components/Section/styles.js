@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.section`
   margin: 0 auto;
 
- 
-
   h2 {
     margin: 2rem 3rem;
 
@@ -32,7 +30,8 @@ export const Container = styled.section`
     
     overflow: hidden;
 
-    width: 69rem;
+    width: 38rem;
+    height: 30.0rem; 
 
     @media (min-width: 768px) {
       width: 69.5rem;

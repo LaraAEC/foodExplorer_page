@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width:100%;
-  height: 100vh;
-
   margin: 0 auto;
 
   display: flex;
@@ -11,16 +9,17 @@ export const Container = styled.div`
   
   max-width: 76.7rem;
 
-  background: ${({ theme }) => theme.COLORS.DARK_200};
+  background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 
   @media (min-width: 1024px) {
     max-width: 144.0rem;
-
   }
 
-  > main {
+  main { 
     padding-top: 4.4rem;
-    overflow-y: scroll;
+
+    overflow-y: auto;
+    scrollbar-color: transparent transparent; 
 
     @media (min-width: 768px) {
       padding-top: 7rem;
@@ -35,28 +34,16 @@ export const Container = styled.div`
      
     }
 
-    ::-webkit-scrollbar-track {
-        background-color: red;
+    &::-webkit-scrollbar {
+        background: transparent;
     }
 
-    ::-webkit-scrollbar {
-        background: blue;
-        width: 80px;    
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: green;
-        
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
-    }
    }
 `;
 
 export const Content = styled.div`
   max-width: 100%;
-  background: black;
-  
+
   #Banner {
     margin: 0 auto;
 
@@ -91,7 +78,7 @@ export const Content = styled.div`
       gap: 8rem;
     }
 
-    > img {  
+    img {  
       margin-left: -3rem;  
 
       @media (min-width: 768px) {
@@ -111,7 +98,7 @@ export const Content = styled.div`
       }
     }
 
-    > .wrapperBanner {
+    .wrapperBanner {
       margin-bottom: 2.2rem;
 
       @media (min-width: 768px) {
@@ -123,8 +110,7 @@ export const Content = styled.div`
       }
 
       @media (min-width: 1300px) {
-        margin-bottom: 10rem;
-        
+        margin-bottom: 10rem; 
       }
 
       > h2 {
@@ -175,3 +161,9 @@ export const Content = styled.div`
   }
 `;
 
+export const Card = styled.div`
+  width: 210px;
+  
+  display: flex;
+  gap: 16px;
+`;

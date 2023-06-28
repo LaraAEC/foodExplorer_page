@@ -1,4 +1,4 @@
-import { Container, Content } from './styles';
+import { Container, Content, Card } from './styles';
 
 import MobileBannerPng from '../../assets/mobileBanner.png';
 import DesktopBannerPng from '../../assets/desktopBanner.png';
@@ -38,21 +38,28 @@ export function UserHome() {
             </div>
           </div>
 
-          <Section title="Refeições">
-            <DishCard title="Salada Ravanello" />
-            <DishCard title="Peixe à Delícia" />
-            <DishCard title="Salada Ravanello" />
-            <DishCard title="Peixe à Delícia" />
+          <Section title="Refeições">  
+            <Card>
+              <DishCard title="Salada Ravanello" />
+              <DishCard title="Peixe à Delícia" />
+              <DishCard title="Salada Ravanello" />
+              <DishCard title="Peixe à Delícia" />
+            </Card>
           </Section>
 
           <Section title="Sobremesas">
-            <DishCard title="Mousse de morango" />
-            <DishCard title="Pudim" />
+            <Card>
+              <DishCard title="Salada Ravanello" />
+              <DishCard title="Peixe à Delícia" />
+              <DishCard title="Salada Ravanello" />
+            </Card>
           </Section>
 
           <Section title="Bebidas">
-            <DishCard title="Espresso" />
-            <DishCard title="Suco de Maracujá" />
+            <Card>
+              <DishCard title="Salada Ravanello" />
+              <DishCard title="Peixe à Delícia" />
+            </Card>
           </Section>
 
         </Content>

@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { useMediaQuery } from 'react-responsive';
-
 
 import { ThemeProvider } from 'styled-components'; 
 import GlobalStyles from './styles/global';

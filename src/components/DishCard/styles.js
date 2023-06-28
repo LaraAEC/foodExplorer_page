@@ -5,9 +5,6 @@ export const Container = styled.div`
   width:100%;
   height: 100%;
 
-  width: 21.0rem;
-  height: 29.2rem;
-
   padding: 24px;
 
   background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
@@ -32,7 +29,7 @@ export const Container = styled.div`
     left: 170px;
     top: 16px;
   }
-  }
+}
  
 `;
 
@@ -44,14 +41,13 @@ export const Content = styled.div`
  
   gap: 1rem;
 
-  background: ${({ theme }) => theme.COLORS.DARK_200};
+  background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 
   img {
     width: 8.8rem;
     height: 8.8rem;
   }
 
-  
   p {
     display: flex;
     align-items: center;

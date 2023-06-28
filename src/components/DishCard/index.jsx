@@ -7,7 +7,7 @@ import { FiChevronRight } from 'react-icons/fi';
 
 import { Button } from '../../components/Button';
 
-import { ButtonAmount } from '../../components/buttonAmount';
+import { ButtonAmount } from '../../components/ButtonAmount';
 
 export function DishCard({ title }) {
   return (

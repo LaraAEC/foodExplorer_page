@@ -11,9 +11,9 @@ export const Container = styled.footer`
 
   gap: 0.8rem;
 
+  margin-top: 2.4rem;
   padding: 2.4rem 2.7rem;
-
-
+  
   background: ${({ theme }) => theme.COLORS.BACKGROUND_600};
 
   #logo {
@@ -22,7 +22,6 @@ export const Container = styled.footer`
     justify-content: center;
     align-items: center;
     
-
     > p {
       font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
       font-weight: 700;
@@ -38,8 +37,7 @@ export const Container = styled.footer`
       height: 1.8rem;
   } 
 
-  #copyright {
-    
+  #copyright {  
     > p {
       font-family: ${({ theme }) => theme.FONTS.FONT_COPYRIGHT};
       font-weight: 400;
@@ -49,5 +47,4 @@ export const Container = styled.footer`
       color: ${({ theme }) => theme.COLORS.WHITE_200};
     }
   }
-
-  `;
+`;
