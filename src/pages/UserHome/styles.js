@@ -190,7 +190,19 @@ export const Content = styled.div`
   > section {
     position: relative;
     margin: 0 auto;
-    max-width: 90rem;
+    max-width: 36rem;
+
+    @media (min-width: 768px) {
+      max-width: 67rem;
+    }
+
+    @media (min-width: 1024px) {
+      max-width: 90rem;
+    }
+
+    @media (min-width: 1300px) {
+      max-width: 123rem;
+    }
 
     > div {
       display: flex;
