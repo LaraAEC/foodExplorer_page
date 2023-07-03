@@ -36,6 +36,7 @@ export function DishCard({ title }) {
         </Content>
 
         <img
+          className="heart"
           src={ LikeSvg }
           alt="Imagem de 'coração de 'curtidas''."
         />

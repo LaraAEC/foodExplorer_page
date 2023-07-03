@@ -1,34 +1,20 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width:100%;
-  height: 100%;
+  position: relative;
 
-  padding: 2.4rem;
+  width: 20rem;
+  flex: 1;
+
+  height: 29rem;
 
   background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 
-  position: relative;
-  
-  main {
-    display: flex;
-    
-    margin: 0 auto;
-  
-    width: 21.0rem;
-    height: 29.2rem;
-
-    > img {
-    width: 2.4rem;
-    height: 2.2rem;
-    background: transparent;
-
+  .heart {
     position: absolute;
-    left: 170px;
-    top: 16px;
+    top: 7%;
+    right: 5%;
   }
-}
- 
 `;
 
 export const Content = styled.div`
@@ -38,8 +24,8 @@ export const Content = styled.div`
   align-items: center;
  
   gap: 1rem;
+  padding: 3rem 2rem 1rem;
 
-  background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 
   img {
     width: 8.8rem;

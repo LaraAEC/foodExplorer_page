@@ -4,23 +4,38 @@ export const Container = styled.div`
   width:100%;
   margin: 0 auto;
 
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-areas:
+  "header"
+  "main"
+  "footer";
+
+  height: 100vh;
   
-  max-width: 76.7rem;
+  overflow-y: hidden;
+  
+  /*max-width: 76.7rem;*/
 
   background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 
-  @media (min-width: 1024px) {
+  /*@media (min-width: 1024px) {
     max-width: 144.0rem;
-  }
+  }*/
 
-  main { 
+
+  > main { 
+    grid-area: main;
+
+    margin: 0 auto;
+
     padding-top: 4.4rem;
-
+    
+    overflow-x: hidden;
     overflow-y: auto;
-    scrollbar-color: transparent transparent; 
 
+    scrollbar-color: transparent transparent; 
+    
     @media (min-width: 768px) {
       padding-top: 7rem;
     }
@@ -38,7 +53,20 @@ export const Container = styled.div`
         background: transparent;
     }
 
+    @media (min-width: 1024px) {
+    max-width: 144.0rem;
+  }
    }
+
+   > header {
+    grid-area: header;
+    width: 100%;
+  }
+
+  > footer {
+    grid-area: footer;
+    width: 100%;
+  }
 `;
 
 export const Content = styled.div`

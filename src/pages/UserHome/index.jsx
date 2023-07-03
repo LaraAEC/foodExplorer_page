@@ -92,18 +92,22 @@ const handlePrevDrinkList = () => {
               <DishCard title="Peixe à Delícia" />
               <DishCard title="Salada Ravanello" />
               <DishCard title="Peixe à Delícia" />
+              <DishCard title="Salada Ravanello" />
+              <DishCard title="Peixe à Delícia" />
+              <DishCard title="Salada Ravanello" />
+              <DishCard title="Peixe à Delícia" />
             </div>
 
             <Arrow
               direction="prev"
-              onclick={handlePrevMealList}
+              onClick={handlePrevMealList}
             >
               <FiChevronLeft />
             </Arrow>
 
             <Arrow
               direction="next"
-              onclick={handleNextMealList}
+              onClick={handleNextMealList}
             >
               <FiChevronRight />
             </Arrow>
@@ -116,20 +120,26 @@ const handlePrevDrinkList = () => {
               <DishCard title="Peixe à Delícia" />
               <DishCard title="Salada Ravanello" />
               <DishCard title="Peixe à Delícia" />
+              <DishCard title="Salada Ravanello" />
+              <DishCard title="Peixe à Delícia" />
+              <DishCard title="Salada Ravanello" />
+              <DishCard title="Peixe à Delícia" />
             </div>
+
             <Arrow
               direction="prev"
-              onclick={handlePrevDessertList}
+              onClick={handlePrevDessertList}
             >
               <FiChevronLeft />
             </Arrow>
 
             <Arrow
               direction="next"
-              onclick={handleNextDessertList}
+              onClick={handleNextDessertList}
             >
               <FiChevronRight />
             </Arrow>
+
           </Section>
 
           <Section title="Bebidas">
@@ -138,18 +148,22 @@ const handlePrevDrinkList = () => {
               <DishCard title="Peixe à Delícia" />
               <DishCard title="Salada Ravanello" />
               <DishCard title="Peixe à Delícia" />
+              <DishCard title="Salada Ravanello" />
+              <DishCard title="Peixe à Delícia" />
+              <DishCard title="Salada Ravanello" />
+              <DishCard title="Peixe à Delícia" />
             </div>
 
             <Arrow
               direction="prev"
-              onclick={handlePrevDrinkList}
+              onClick={handlePrevDrinkList}
             >
               <FiChevronLeft />
             </Arrow>
 
             <Arrow
             direction="next"
-            onclick={handleNextDrinkList}
+            onClick={handleNextDrinkList}
             >
               <FiChevronRight />
             </Arrow>
@@ -157,9 +171,9 @@ const handlePrevDrinkList = () => {
 
         </Content>
 
-        <Footer />
-
       </main>
+
+      <Footer />
 
     </Container>
   )
