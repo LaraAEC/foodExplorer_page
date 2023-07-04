@@ -3,10 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background: transparent;
   
-  #Counter {
+  > .counter {
     display: flex;
-
-    margin-bottom: -3rem;
 
     button {
     border: none;
@@ -18,7 +16,7 @@ export const Container = styled.div`
     }
   }
 
-    input {
+    > input {
       color: ${({ theme }) => theme.COLORS.WHITE_300};
       font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
       font-weight: 400;

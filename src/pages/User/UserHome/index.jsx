@@ -3,17 +3,17 @@ import { useRef } from 'react';
 
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-import MobileBannerPng from '../../assets/mobileBanner.png';
-import DesktopBannerPng from '../../assets/desktopBanner.png';
+import MobileBannerPng from '../../../assets/mobileBanner.png';
+import DesktopBannerPng from '../../../assets/desktopBanner.png';
 
 import { useMediaQuery } from 'react-responsive';
 
-import { UserMobileHeader } from '../../components/UserMobileHeader';
-import { UserDesktopHeader } from '../../components/UserDesktopHeader';
+import { UserMobileHeader } from '../../../components/UserMobileHeader';
+import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
 
-import { Section } from '../../components/Section';
-import { DishCard } from '../../components/DishCard'; 
-import { Footer } from '../../components/Footer'; 
+import { Section } from '../../../components/Section';
+import { DishCard } from '../../../components/DishCard'; 
+import { Footer } from '../../../components/Footer'; 
 
 
 

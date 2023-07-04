@@ -41,9 +41,8 @@ export function DishCard({ title }) {
                 <ButtonAmount />
               </div>
 
-              <div className="buttonInclude">
-                <Button title="incluir" />
-              </div>
+              <Button title="incluir" />
+              
             </div>
           
         </Content>

@@ -37,10 +37,8 @@ export function SignIn() {
                   />
                </div>
                
-                <div id="buttonSignIn">
-                  <Button title="Entrar"  /*onClick={handleSignIn}*//> 
-                </div>
-                
+                <Button title="Entrar"  /*onClick={handleSignIn}*//> 
+               
                 <a href="#">
                   Criar uma conta
                 </a>

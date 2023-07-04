@@ -17,6 +17,10 @@ export const Container = styled.footer`
   
   background: ${({ theme }) => theme.COLORS.BACKGROUND_600};
 
+  @media (min-width: 1024px) {
+    justify-content: space-between;
+  }   
+
   #logo {
     display: flex;
     gap: 0.6rem;

@@ -45,10 +45,8 @@ export function SignUp() {
                   />
               </div>
 
-              <div id="buttonSignUp">
-                <Button title="Criar conta"  /*onClick={handleSignIn}*//> 
-              </div>
-             
+              <Button title="Criar conta"  /*onClick={handleSignIn}*//> 
+            
               <a href="#">
                 Já tenho uma conta
               </a>

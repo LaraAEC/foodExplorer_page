@@ -12,8 +12,6 @@ export const Container = styled.button`
   font-size: 1.4rem;
   font-weight: 500;
 
-  margin-top: 3.2rem;
- 
   border: 0;
   border-radius: 0.5rem;
 

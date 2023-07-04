@@ -65,12 +65,13 @@ export const Form = styled.form `
 
     gap: 2rem;
 
-    > #buttonSignUp {
+    > button {
       width: 31.6rem;
       height: 4.8rem;
       
       margin: 0 auto;
-      margin-bottom: 3.2rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
     }
 
   > a {
@@ -82,6 +83,8 @@ export const Form = styled.form `
       margin: 0 auto;
      
       color:  ${({ theme }) => theme.COLORS.WHITE_100}; 
+
+      margin-bottom: 2rem;
   }
 
   @media (min-width: 1024px) {

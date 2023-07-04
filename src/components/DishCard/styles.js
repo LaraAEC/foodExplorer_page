@@ -91,6 +91,7 @@ export const Content = styled.div`
   }
 
   > .dishDescription {
+    text-align: justify;
 
     @media (min-width: 1024px) {
       font-size: 1.4rem;
@@ -126,8 +127,9 @@ export const Content = styled.div`
     display:flex;
     flex-direction: column;
 
-    gap: 4rem;
+    gap: 1.6rem;
 
+    justify-content: center;
     align-items: center;
  
     @media (min-width: 1024px) {
@@ -138,23 +140,19 @@ export const Content = styled.div`
 
     > .amount {
       display: flex;
+    
+      align-items: center;
+      justify-content: center;
+
       width: 10.0rem;
       height: 3.2rem;
-
-      justify-content: center;
-      align-items: center;
     }
 
-    > .buttonInclude {
+    > button {
       width: 16.2rem;
       height: 3.2rem; 
 
-      align-content: center;
-
-      
       border-radius: 5px;
-
-      margin-top: -5rem;
 
       @media (min-width: 1024px) {
         width: 7.4rem;

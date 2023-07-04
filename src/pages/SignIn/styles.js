@@ -65,12 +65,13 @@ export const Form = styled.form `
    
     gap: 2rem;
 
-    #buttonSignIn {
+    button {
       width: 31.6rem;
       height: 4.8rem;
 
       margin: 0 auto;
-      margin-bottom: 3.2rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
     }
 
     > a {
@@ -80,6 +81,7 @@ export const Form = styled.form `
       line-height: 2.4rem;
 
       margin: 0 auto;
+      margin-bottom: 2.8rem;
       
       color:  ${({ theme }) => theme.COLORS.WHITE_100}; 
     }

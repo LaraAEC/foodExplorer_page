@@ -23,7 +23,7 @@ export const Container = styled.section`
 
     @media (min-width: 1024px) {
       margin-left: -2.6rem;
-      font-size: 3.2rem;
+      font-size: 3rem;
     }
   }
 `;

@@ -21,7 +21,7 @@ export function ButtonAmount() {
 
   return (
     <Container>
-      <div id="Counter">
+      <div className="counter">
         <button onClick={() => Decrement(number)}>
           <img
             src={ LessSvg }

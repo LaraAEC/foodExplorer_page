@@ -2,13 +2,13 @@ import { Container } from './styles';
 
 import { FiSearch } from 'react-icons/fi';
 
-import { Footer } from '../../components/Footer'; 
-import { Input } from '../../components/Input';
+import { Footer } from '../../../components/Footer'; 
+import { Input } from '../../../components/Input';
 
-import CloseSvg from '../../assets/close.svg';
+import CloseSvg from '../../../assets/close.svg';
 
 
-export function Menu() {
+export function UserMenu() {
    return (
       <Container>
         <div id="closeMenu">
