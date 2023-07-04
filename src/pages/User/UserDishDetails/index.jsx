@@ -58,7 +58,7 @@ export function UserDishDetails() {
           <div className="versionDesktopColumnTwo">
             <div className="details">
               <h2>Salada Ravanello</h2>
-              <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
+              <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</p>
               <div className="wrapperTags">
                 <Tag title="alface"/>
                 <Tag title="alface"/>
@@ -86,9 +86,9 @@ export function UserDishDetails() {
   
         </Content>
 
-        <Footer />
-
       </main>
+
+      <Footer />
 
     </Container>
   )

@@ -2,29 +2,54 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width:100%;
-  height: 100vh;
+  margin: 0 auto;
 
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-areas:
+  "header"
+  "main"
+  "footer";
+
+  height: 100vh;
   
-  max-width: 76.7rem;
+  overflow-y: hidden;
 
   background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 
-  @media (min-width: 1024px) {
-    max-width: 144.0rem;
-  }
 
-  > main {
+  > main { 
+    grid-area: main;
+
+    margin: 0 auto;
+
+    overflow-x: hidden;
     overflow-y: auto;
-    scrollbar-width: thin;
+
     scrollbar-color: transparent transparent; 
 
     &::-webkit-scrollbar {
         background: transparent;
-        width: 8px;    
     }
-   }
+
+    @media (min-width: 1024px) {
+      max-width: 102.4rem;
+    }
+
+    @media (min-width: 1300px) {
+      max-width: 142.4rem;
+    }
+  }
+
+  > header {
+    grid-area: header;
+    width: 100%;
+  }
+
+  > footer {
+    grid-area: footer;
+    width: 100%;
+  }
 `;
 
 export const Content = styled.div`
@@ -33,17 +58,24 @@ export const Content = styled.div`
 
   gap: 1.6rem;
 
-  align-items: center;
-
+  align-items: end;
+  justify-content: center;
 
   padding: 3.6rem 5.6rem;
 
 
   @media (min-width: 1024px) {
-    flex-direction: row;
-    justify-content: center;
-    gap: 5rem;
+    width: 110rem;
 
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 3.6rem 0rem;
+  }
+
+  @media (min-width: 1300px) {
+      max-width: 142.4rem;
+      
   }
 
   > .versionDesktopColumnOne {
@@ -55,7 +87,7 @@ export const Content = styled.div`
     align-items: center;
 
     @media (min-width: 1024px) {
-      gap: 4.2rem;
+      gap: 2rem;
     }
 
     > .wrapperBack {
@@ -70,8 +102,8 @@ export const Content = styled.div`
       height: 26.4rem;
 
       @media (min-width: 1024px) {
-        width: 39.0rem;
-        height: 38.9rem;
+        width: 36.0rem;
+        height: 32.9rem;
     }
     }
   }
@@ -84,9 +116,10 @@ export const Content = styled.div`
     height: 32.0rem;
 
     @media (min-width: 1024px) {
-      width: 68.7rem;
+      width: 58.7rem;
       height: 30.0rem;
     }
+
    
     > .details {
     display: flex;
@@ -99,6 +132,11 @@ export const Content = styled.div`
     @media (min-width: 1024px) {
       align-items: start;
     }
+
+    @media (min-width: 1300px) {
+      width: 48.7rem;
+      height: 20.0rem; 
+  }
 
     > h2 {
       font-size: 2.7rem;
