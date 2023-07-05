@@ -8,12 +8,12 @@ import { useMediaQuery } from 'react-responsive';
 import { FiChevronRight } from 'react-icons/fi';
 
 import { Button } from '../../components/Button';
-
 import { ButtonAmount } from '../../components/ButtonAmount';
+import { TextArea } from '../TextArea';
 
-export function DishCard({ title }) {
+export function DishCard({ title, visibility }) {
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  const dishDescription = isMobile ? "" : "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim";
+  const dishDescription = isMobile ? "" : <TextArea/>;
   
   return (
     <Container>
@@ -30,9 +30,18 @@ export function DishCard({ title }) {
               <FiChevronRight />
             </h2>
 
-            <p className="dishDescription">
-              {dishDescription}
-            </p>
+            <div className="textArea">
+              {
+              isMobile ? ""
+              : 
+              <TextArea
+              value="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial. Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial. Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial. Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
+              "
+              readOnly={true}
+              />
+              }
+            </div>
+           
 
             <p className="price">R$ 49,97</p>
 

@@ -11,7 +11,7 @@ padding: 2rem;
 
 font-size: 1.6rem;
 font-weight: 400;
-line-height: 140%;
+line-height: 170%;
 
 border: none;
 box-shadow: none;
@@ -34,15 +34,4 @@ cursor: default;
    padding: 0rem;
   }
 
-
-> .visible {
-  overflow: hidden;
-}
-
-> .not-visible {
-  white-space: normal;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} 
 `;

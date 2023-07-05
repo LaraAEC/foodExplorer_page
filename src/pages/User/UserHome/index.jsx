@@ -88,14 +88,14 @@ const handlePrevDrinkList = () => {
 
           <Section title="Refeições">  
             <div ref={scrollMealList}>
-              <DishCard title="Salada Ravanello" />
-              <DishCard title="Peixe à Delícia" />
-              <DishCard title="Salada Ravanello" />
-              <DishCard title="Peixe à Delícia" />
-              <DishCard title="Salada Ravanello" />
-              <DishCard title="Peixe à Delícia" />
-              <DishCard title="Salada Ravanello" />
-              <DishCard title="Peixe à Delícia" />
+              <DishCard title="Salada Ravanello" visibility="not-visible" />
+              <DishCard title="Peixe à Delícia" visibility="not-visible"/>
+              <DishCard title="Salada Ravanello" visibility="not-visible"/>
+              <DishCard title="Peixe à Delícia" visibility="not-visible"/>
+              <DishCard title="Salada Ravanello" visibility="not-visible"/>
+              <DishCard title="Peixe à Delícia" visibility="not-visible"/>
+              <DishCard title="Salada Ravanello" visibility="not-visible"/>
+              <DishCard title="Peixe à Delícia" visibility="not-visible"/>
             </div>
 
             <Arrow
@@ -116,14 +116,14 @@ const handlePrevDrinkList = () => {
 
           <Section title="Sobremesas">
             <div ref={scrollDessertList}>
-              <DishCard title="Salada Ravanello" />
-              <DishCard title="Peixe à Delícia" />
-              <DishCard title="Salada Ravanello" />
-              <DishCard title="Peixe à Delícia" />
-              <DishCard title="Salada Ravanello" />
-              <DishCard title="Peixe à Delícia" />
-              <DishCard title="Salada Ravanello" />
-              <DishCard title="Peixe à Delícia" />
+              <DishCard title="Salada Ravanello" visibility="not-visible" />
+              <DishCard title="Peixe à Delícia" visibility="not-visible"/>
+              <DishCard title="Salada Ravanello" visibility="not-visible"/>
+              <DishCard title="Peixe à Delícia" visibility="not-visible"/>
+              <DishCard title="Salada Ravanello" visibility="not-visible"/>
+              <DishCard title="Peixe à Delícia" visibility="not-visible"/>
+              <DishCard title="Salada Ravanello" visibility="not-visible"/>
+              <DishCard title="Peixe à Delícia" visibility="not-visible"/>
             </div>
 
             <Arrow
@@ -144,14 +144,14 @@ const handlePrevDrinkList = () => {
 
           <Section title="Bebidas">
             <div ref={scrollDrinkList}>
-              <DishCard title="Salada Ravanello" />
-              <DishCard title="Peixe à Delícia" />
-              <DishCard title="Salada Ravanello" />
-              <DishCard title="Peixe à Delícia" />
-              <DishCard title="Salada Ravanello" />
-              <DishCard title="Peixe à Delícia" />
-              <DishCard title="Salada Ravanello" />
-              <DishCard title="Peixe à Delícia" />
+              <DishCard title="Salada Ravanello" visibility="visible" />
+              <DishCard title="Peixe à Delícia" visibility="visible"/>
+              <DishCard title="Salada Ravanello" visibility="visible"/>
+              <DishCard title="Peixe à Delícia" visibility="visible"/>
+              <DishCard title="Salada Ravanello" visibility="visible"/>
+              <DishCard title="Peixe à Delícia" visibility="visible"/>
+              <DishCard title="Salada Ravanello" visibility="visible"/>
+              <DishCard title="Peixe à Delícia" visibility="visible"/>
             </div>
 
             <Arrow

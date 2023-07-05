@@ -15,9 +15,7 @@ export const Container = styled.div`
   
   overflow-y: hidden;
   
-
   background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
-  background: green;
 
   > main { 
     grid-area: main;
@@ -41,7 +39,6 @@ export const Container = styled.div`
 
     @media (min-width: 1300px) {
       padding-top: 14.5rem;
-      background: pink;
     }
 
     &::-webkit-scrollbar {

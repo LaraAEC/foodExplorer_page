@@ -66,8 +66,6 @@ export function UserDishDetails() {
                readOnly={true}
               
                />
-             
-             
               <div className="wrapperTags">
                 <Tag title="alface"/>
                 <Tag title="alface"/>

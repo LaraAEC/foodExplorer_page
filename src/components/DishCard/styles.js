@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.button`
   position: relative;
+  border: none;
+  cursor: pointer;
 
   background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 
@@ -45,12 +47,11 @@ export const Content = styled.div`
   height: 29.2rem;
 
   @media (min-width: 1024px) {
- 
     height: 46.2rem;
     width: 28rem;
-  
-  }
 
+    gap: 1.8rem;
+  }
 
   > .dish {
     width: 8.8rem;
@@ -90,8 +91,19 @@ export const Content = styled.div`
     }
   }
 
+  > .textArea {
+    width: 100%;
+    height: 4.7rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
   > .dishDescription {
     text-align: justify;
+    background: blue;
 
     @media (min-width: 1024px) {
       font-size: 1.4rem;
