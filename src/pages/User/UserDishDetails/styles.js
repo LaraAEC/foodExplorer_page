@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width:100%;
+  height: 100vh;
+
   margin: 0 auto;
 
   display: grid;
@@ -11,8 +13,6 @@ export const Container = styled.div`
   "main"
   "footer";
 
-  height: 100vh;
-  
   overflow-y: hidden;
 
   background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
@@ -20,7 +20,7 @@ export const Container = styled.div`
 
   > main { 
     grid-area: main;
-
+   
     margin: 0 auto;
 
     overflow-x: hidden;
@@ -34,11 +34,19 @@ export const Container = styled.div`
 
     @media (min-width: 1024px) {
       max-width: 102.4rem;
+      height: 525px;
     }
 
     @media (min-width: 1300px) {
-      max-width: 142.4rem;
+      max-width: 140.0rem;
+      height: 438px;
     }
+
+    @media (min-width: 1400px) {
+      max-width: 140.0rem;
+      height: 735px;
+    }
+
   }
 
   > header {
@@ -61,6 +69,8 @@ export const Content = styled.div`
   align-items: end;
   justify-content: center;
 
+  max-width: 100%;
+
   padding: 3.6rem 5.6rem;
 
 
@@ -70,13 +80,16 @@ export const Content = styled.div`
     flex-direction: row;
     justify-content: space-between;
 
-    padding: 3.6rem 0rem;
+    padding: 3.6rem 2rem;
   }
 
   @media (min-width: 1300px) {
-      max-width: 142.4rem;
-      
+      max-width: 142.4rem; 
   }
+
+  @media (min-width: 1370px) {
+    padding: 18rem 5.6rem;
+    }
 
   > .versionDesktopColumnOne {
     display: flex;

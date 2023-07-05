@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width:100%;
+  height: 100vh;
+  
   margin: 0 auto;
 
   display: grid;
@@ -10,19 +12,12 @@ export const Container = styled.div`
   "header"
   "main"
   "footer";
-
-  height: 100vh;
   
   overflow-y: hidden;
   
-  /*max-width: 76.7rem;*/
 
   background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
-
-  /*@media (min-width: 1024px) {
-    max-width: 144.0rem;
-  }*/
-
+  background: green;
 
   > main { 
     grid-area: main;
@@ -46,7 +41,7 @@ export const Container = styled.div`
 
     @media (min-width: 1300px) {
       padding-top: 14.5rem;
-     
+      background: pink;
     }
 
     &::-webkit-scrollbar {
@@ -55,7 +50,10 @@ export const Container = styled.div`
 
     @media (min-width: 1024px) {
       max-width: 102.4rem;
-  }
+    }
+    @media (min-width: 1300px) {
+      max-width: 140.0rem;
+    }
    }
 
    > header {

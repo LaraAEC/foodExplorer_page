@@ -9,8 +9,8 @@ import SignOutSvg from '../../assets/signOut.svg';
 export function UserDesktopHeader() {
   return (
     <Container>
-      <div id="box">
-        <div id="title">
+      <div className="box">
+        <div className="title">
           <img
             src={ LogoSvg }
             alt="Imagem de 'polígono azul'."
@@ -18,7 +18,7 @@ export function UserDesktopHeader() {
           <h1>food explorer</h1>
         </div> 
 
-        <div className="Search">
+        <div className="search">
           <img
             src={ SearchSvg }
             alt="Imagem de 'lupa'."
@@ -29,21 +29,24 @@ export function UserDesktopHeader() {
           />
         </div>
         
-        <div className="OrderButton">
-          <img
+        <div className="orderButton">
+          <img className="receiptSvg"
             src={ ReceiptSvg }
             alt="Imagem de 'recibo/recebido'."
           />
-        <button>
-          <p>Pedidos (0)</p>
-        </button> 
+          <button className="orderButtonButton"
+          type="button"
+          >
+            <p>Pedidos (0)</p>
+          </button> 
         </div>
 
-        <img
-          src={SignOutSvg}
-          alt="Imagem de 'colchete com seta indicando para fora'."
+        <button type="button" className="signOutButton">
+          <img className="signOutSvg"
+            src={SignOutSvg}
+            alt="Imagem de 'colchete com seta indicando para fora'."
           />
-
+        </button>
       </div>
     </Container>
   );

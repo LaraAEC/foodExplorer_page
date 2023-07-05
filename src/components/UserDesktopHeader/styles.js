@@ -9,7 +9,7 @@ export const Container = styled.header`
 
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
   
-  #box {
+ > .box {
     display: flex;
     flex-direction: row;
     
@@ -23,75 +23,82 @@ export const Container = styled.header`
   
     justify-content: center;
 
-  .Search {
-    display: flex;
-    align-items: center;
-    gap: 1.4rem;
+    > .search {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
 
-    justify-content: center;
+      justify-content: center;
 
-    height: 4.5rem;
-    width: 45%;
+      height: 4.5rem;
+      width: 45%;
 
-    padding: 1.2rem 1.4rem;
-    
+      padding: 1.2rem 1.4rem;
+      
 
-    color: ${({ theme }) => theme.COLORS.GRAY_300};
-    background: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
+      background: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
-    border: 0;
+      border: 0;
 
-    border-radius: 0.5rem;
-  }
+      border-radius: 0.5rem;
+    }
 
-  #title {
-    display: flex;
-    flex-direction: row;
+    > .title {
+      display: flex;
+      flex-direction: row;
 
-    gap: 0.8rem;
+      gap: 0.8rem;
 
-    align-items: center;
+      align-items: center;
 
-    font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
-    font-style: normal;
-    font-weight: 700;
-    font-size: 2.4rem;
-    line-height: 2rem; 
+      font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+      font-style: normal;
+      font-weight: 700;
+      font-size: 2.4rem;
+      line-height: 2rem; 
 
-    @media (max-width: 1024px) {
+      @media (max-width: 1024px) {
+        font-size: 1.4rem;
+      }
+
+      > .receiptSvg {
+        width: 3.0rem;
+        height: 3.0rem;
+      }
+
+    }
+
+    > .orderButton {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 1.2rem 3.2rem;
+
+      border-radius: 0.5rem;
+      background-color: ${({ theme }) => theme.COLORS.RED_100};
+
+      > .orderButtonButton {
+      background-color: ${({ theme }) => theme.COLORS.RED_100};
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
+
+      padding: 0rem auto;
+
       font-size: 1.4rem;
+      font-weight: 500;
+
+      border: none; 
+      }
     }
+    > .signOutButton{
+      border: none;
+      background: transparent;
 
-    > img {
-      width: 3.0rem;
-      height: 3.0rem;
-    }
+      cursor: pointer;
 
-  }
-
-  .OrderButton {
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-
-    padding: 1.2rem 3.2rem;
-
-    border-radius: 0.5rem;
-    background-color: ${({ theme }) => theme.COLORS.RED_100};
-  }
-
-  button {
-    background-color: ${({ theme }) => theme.COLORS.RED_100};
-    color: ${({ theme }) => theme.COLORS.WHITE_100};
-
-    padding: 0rem auto;
-
-    font-size: 1.4rem;
-    font-weight: 500;
-
-    border: none; 
-  }
+    }  
 }
 `;
 
@@ -103,7 +110,7 @@ export const Search = styled.input`
   font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
   line-height: 100%;
   
-  color: ${({ theme }) => theme.COLORS.GRAY_300};
+  color: ${({ theme }) => theme.COLORS.WHITE_200};
   background: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
   border: 0;

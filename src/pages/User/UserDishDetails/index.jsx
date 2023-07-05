@@ -85,10 +85,10 @@ export function UserDishDetails() {
           </div>
   
         </Content>
-
+    
       </main>
 
-      <Footer />
+     <Footer /> 
 
     </Container>
   )
