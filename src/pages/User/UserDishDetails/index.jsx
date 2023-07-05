@@ -19,6 +19,7 @@ import { Tag } from '../../../components/Tag';
 import { Footer } from '../../../components/Footer'; 
 import { ButtonAmount } from './../../../components/ButtonAmount';
 import { Button } from '../../../components/Button';
+import { TextArea } from '../../../components/TextArea';
 
 
 export function UserDishDetails() {
@@ -30,7 +31,7 @@ export function UserDishDetails() {
     navigate(-1); //para ser usado no botão de voltar e colocar o usuário na rota anterior
   }*/
 
-
+  
   return (
     <Container>
 
@@ -58,7 +59,15 @@ export function UserDishDetails() {
           <div className="versionDesktopColumnTwo">
             <div className="details">
               <h2>Salada Ravanello</h2>
-              <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</p>
+
+              <TextArea
+               value="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial. Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial. Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial. Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
+               "
+               readOnly={true}
+              
+               />
+             
+             
               <div className="wrapperTags">
                 <Tag title="alface"/>
                 <Tag title="alface"/>

@@ -66,7 +66,7 @@ export const Content = styled.div`
 
   gap: 1.6rem;
 
-  align-items: end;
+  align-items: center;
   justify-content: center;
 
   max-width: 100%;
@@ -133,22 +133,23 @@ export const Content = styled.div`
       height: 30.0rem;
     }
 
-   
     > .details {
     display: flex;
     flex-direction: column;
 
     align-items: center;
     
-    gap: 24px;
-
+    gap: 2.4rem;
+   
     @media (min-width: 1024px) {
       align-items: start;
     }
 
     @media (min-width: 1300px) {
-      width: 48.7rem;
-      height: 20.0rem; 
+      width: 60rem;
+      height: 40.0rem; 
+
+      gap: 0rem;
   }
 
     > h2 {
@@ -157,24 +158,19 @@ export const Content = styled.div`
       line-height: 140%;
 
       color: ${({ theme}) => theme.COLORS.WHITE_300};
+     
+      @media (min-width: 1300px) {
+        margin-bottom: 2rem;
     }
-
-    > p {
-      text-align: justify;
-
-      font-size: 1.6rem;
-      font-weight: 400;
-      line-height: 140%;
-
-      color: ${({ theme}) => theme.COLORS.WHITE_300};
     }
 
     > .wrapperTags {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-      padding-left: 1.5rem;
 
+      padding-left: 1.5rem;
+      
       margin-bottom: 4.8rem;
 
       @media (min-width: 1024px) {
