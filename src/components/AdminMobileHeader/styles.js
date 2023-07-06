@@ -19,7 +19,11 @@ export const Container = styled.header`
     
     height: 3.4rem;
 
-    justify-content: space-between;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+      gap: 30rem;
+    }
 
   .title {
     display: flex;
@@ -29,11 +33,30 @@ export const Container = styled.header`
     
     align-items: center;
 
+    padding: 0 6.5rem;
+
     font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
     font-style: normal;
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 2rem; 
+
+    line-height: 2rem;
+
+    > h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
+    }
+
+    > p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      
+      line-height: 140%;
+
+      text-align: center;
+
+      color: ${({ theme }) => theme.COLORS.BLUE_100};
+    }
   }
   }
  `;

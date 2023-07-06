@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-export const Container = styled.button`
+export const Container = styled.div`
   position: relative;
   border: none;
-  cursor: pointer;
-
+ 
   background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 
   .heart {
@@ -63,31 +62,37 @@ export const Content = styled.div`
     }
   }
 
-  > .titleDish {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  > .titleDishButton {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    
+    > .titleDish {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    font-weight: 500;
-    font-size: 1.4rem;
-    line-height: 2.4rem;
+      font-weight: 500;
+      font-size: 1.4rem;
+      line-height: 2.4rem;
 
-    text-align: center;
+      text-align: center;
 
-    color: ${({ theme }) => theme.COLORS.WHITE_300}; 
+      color: ${({ theme }) => theme.COLORS.WHITE_300}; 
 
-    white-space: nowrap;
+      white-space: nowrap;
 
-    margin:0;
+      margin:0;
 
-    svg {
-      margin-right: 0;
-    }
+      svg {
+        margin-right: 0;
+      }
 
-    @media (min-width: 1024px) {
-      font-size: 2.4rem;
-      font-weight: 700;
-      line-height: 140%;
+      @media (min-width: 1024px) {
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 140%;
+      }
     }
   }
 

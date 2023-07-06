@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/global';
 import theme from './styles/theme'; 
 
-import { AdminMenu } from './pages/Admin/AdminMenu'
+import { AdminHome } from './pages/Admin/AdminHome'
 
 
 
@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <AdminMenu />
+      <AdminHome />
     </ThemeProvider>
     
   </React.StrictMode>,

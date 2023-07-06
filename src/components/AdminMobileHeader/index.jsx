@@ -4,29 +4,26 @@ import MenuSvg from '../../assets/menu.svg';
 import LogoSvg from '../../assets/logo.svg';
 import ReceiptSvg from '../../assets/receipt.svg';
 
-export function UserMobileHeader() {
+export function AdminMobileHeader() {
   return (
     <Container>
       <div className="box">
-        <img
+        <img className="menuSvg"
           src={ MenuSvg }
           alt="Imagem de 'menu'."
         />
 
         <div className="title">
-          <img
+          <img className="logoSvg"
             src={ LogoSvg }
             alt="Imagem de 'polígono azul'."
           />
           
-            <h1>food explorer</h1>
+          <h1>food explorer</h1>
+          <p>admin</p>
 
         </div> 
 
-        <img
-          src={ ReceiptSvg }
-          alt="Imagem de 'recibo/recebido/pedido'."
-        />
       </div>
     </Container>
   );

@@ -75,7 +75,7 @@ const handlePrevDrinkList = () => {
       <main>
 
         <Content>
-          <div id="Banner">
+          <div className="Banner">
             <img
                 src={imageUrl}
                 alt="Imagem de 'polígono azul'."

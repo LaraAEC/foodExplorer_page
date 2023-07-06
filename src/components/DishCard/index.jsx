@@ -25,10 +25,12 @@ export function DishCard({ title, visibility }) {
               alt="Imagem de 'salada verde'."
             />
 
-            <h2 className="titleDish">
-              {title}
-              <FiChevronRight />
-            </h2>
+            <button type="button" className="titleDishButton">
+              <h2 className="titleDish">
+                {title}
+                <FiChevronRight />
+              </h2>
+            </button>
 
             <div className="textArea">
               {

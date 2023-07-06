@@ -102,6 +102,7 @@ export const Container = styled.header`
 }
 `;
 
+ 
 export const Search = styled.input`
   width: 45%;
 
