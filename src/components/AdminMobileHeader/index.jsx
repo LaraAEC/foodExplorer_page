@@ -18,9 +18,11 @@ export function AdminMobileHeader() {
             src={ LogoSvg }
             alt="Imagem de 'polígono azul'."
           />
-          
-          <h1>food explorer</h1>
-          <p>admin</p>
+
+          <div className="wrapper">
+            <h1>food explorer</h1>
+            <p>admin</p>
+          </div>
 
         </div> 
 

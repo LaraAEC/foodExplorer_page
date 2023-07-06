@@ -35,28 +35,38 @@ export const Container = styled.header`
 
     padding: 0 6.5rem;
 
-    font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
-    font-style: normal;
+    > .wrapper {
+      display: flex;
+      flex-direction: row;
 
-    line-height: 2rem;
+      gap: 0.8rem;
 
-    > h1 {
+      align-items: center;
+
+      font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+      font-style: normal;
+
+      line-height: 2rem;
+    
+      > h1 {
       font-size: 2.1rem;
       font-weight: 700;
 
       color: ${({ theme }) => theme.COLORS.WHITE_100};
-    }
+      }
 
-    > p {
-      font-size: 1.2rem;
-      font-weight: 400;
-      
-      line-height: 140%;
+      > p {
+        font-size: 1.2rem;
+        font-weight: 400;
+        
+        line-height: 140%;
 
-      text-align: center;
+        text-align: center;
 
-      color: ${({ theme }) => theme.COLORS.BLUE_100};
+        color: ${({ theme }) => theme.COLORS.BLUE_100};
+      }
+
     }
   }
-  }
+}
  `;
