@@ -10,13 +10,19 @@ export function AdminDesktopHeader() {
   return (
     <Container>
       <div className="box">
+
         <div className="title">
-          <img
+          <img className="logoSvg"
             src={ LogoSvg }
             alt="Imagem de 'polígono azul'."
           />
-          <h1>food explorer</h1>
+
+          <div className="wrapper">
+            <h1>food explorer</h1>
+            <p>admin</p>
+          </div>
         </div> 
+
 
         <div className="search">
           <img
@@ -29,17 +35,13 @@ export function AdminDesktopHeader() {
           />
         </div>
         
-        <div className="orderButton">
-          <img className="receiptSvg"
-            src={ ReceiptSvg }
-            alt="Imagem de 'recibo/recebido'."
-          />
-          <button className="orderButtonButton"
+        
+          <button className="orderButton"
           type="button"
           >
-            <p>Pedidos (0)</p>
+            <p>Novo prato</p>
           </button> 
-        </div>
+       
 
         <button type="button" className="signOutButton">
           <img className="signOutSvg"

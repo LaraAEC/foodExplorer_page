@@ -23,6 +23,7 @@ export const Container = styled.header`
   
     justify-content: center;
 
+
     > .search {
       display: flex;
       align-items: center;
@@ -44,67 +45,85 @@ export const Container = styled.header`
       border-radius: 0.5rem;
     }
 
-    > .title {
+  > .title {
+    display: flex;
+    flex-direction: row;
+
+    gap: 0.8rem;
+    
+    align-items: center;
+
+    padding: 0 6.5rem;
+  
+    align-items: start;
+
+    > .wrapper {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
 
       gap: 0.8rem;
 
-      align-items: center;
+      align-items: end;
 
       font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
       font-style: normal;
-      font-weight: 700;
+
+      line-height: 2.4rem;
+    
+      > h1 {
       font-size: 2.4rem;
-      line-height: 2rem; 
+      font-weight: 700;
 
-      @media (max-width: 1024px) {
-        font-size: 1.4rem;
-      }
+      white-space: nowrap;
 
-      > .receiptSvg {
-        width: 3.0rem;
-        height: 3.0rem;
-      }
-
-    }
-
-    > .orderButton {
-      display: flex;
-      align-items: center;
-
-      gap: 12px;
-
-      padding: 1.2rem 3.2rem;
-
-      border-radius: 0.5rem;
-      background-color: ${({ theme }) => theme.COLORS.RED_100};
-
-      > .orderButtonButton {
-      background-color: ${({ theme }) => theme.COLORS.RED_100};
       color: ${({ theme }) => theme.COLORS.WHITE_100};
+      }
 
-      padding: 0rem auto;
+      > p {
+        font-size: 1.2rem;
+        font-weight: 400;
+        
+        line-height: 140%;
 
-      font-size: 1.4rem;
-      font-weight: 500;
+        text-align: center;
 
-      border: none; 
+        color: ${({ theme }) => theme.COLORS.BLUE_100};
       }
     }
+  }
+
+    > .receiptSvg {
+      width: 3.0rem;
+      height: 3.0rem;
+    }
+
+      > .orderButton {
+        white-space: nowrap;
+        
+        font-size: 1.4rem;
+        font-weight: 500;
+
+        padding: 1.2rem 7.2rem;
+
+        border: none;
+        border-radius: 0.5rem;
+
+        color: ${({ theme }) => theme.COLORS.WHITE_100};
+        background-color: ${({ theme }) => theme.COLORS.RED_100};
+      }
+
     > .signOutButton{
       border: none;
       background: transparent;
 
       cursor: pointer;
-
     }  
 }
 `;
 
  
 export const Search = styled.input`
-  width: 45%;
+  width: 90%;
 
   font-size: 1.6rem;
   font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
