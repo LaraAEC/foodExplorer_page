@@ -11,7 +11,7 @@ import { Button } from '../../components/Button';
 import { ButtonAmount } from '../../components/ButtonAmount';
 import { TextArea } from '../TextArea';
 
-export function DishCard({ title, visibility }) {
+export function UserDishCard({ title, visibility }) {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const dishDescription = isMobile ? "" : <TextArea/>;
   
