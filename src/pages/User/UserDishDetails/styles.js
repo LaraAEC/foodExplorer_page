@@ -90,8 +90,9 @@ export const Content = styled.div`
   > .box {
     display: flex;
     flex-direction: column;
+
     @media (min-width: 320px) {
-      width:24rem;
+      width: 19.1rem;
 
       gap: 1.6rem;
 
