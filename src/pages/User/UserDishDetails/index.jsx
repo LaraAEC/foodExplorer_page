@@ -1,8 +1,5 @@
 import { Container, Content } from './styles';
 
-import MobileBannerPng from '../../../assets/mobileBanner.png';
-import DesktopBannerPng from '../../../assets/desktopBanner.png';
-
 import { FiChevronLeft } from 'react-icons/fi';
 
 import SaladSvg from '../../../assets/salad.svg';
@@ -36,61 +33,62 @@ export function UserDishDetails() {
     <Container>
 
       {isMobile ? <UserMobileHeader /> : <UserDesktopHeader />}
-
+      
       <main>
 
         <Content>
-          <div className="versionDesktopColumnOne">
-            <div className="wrapperBack">
-                <ButtonText
-                  title="Voltar"
-                  icon={FiChevronLeft }
-                  //onClick={handleBack} 
+          <div className="box">
+            <div className="versionDesktopColumnOne">
+              <div className="wrapperBack">
+                  <ButtonText
+                    title="Voltar"
+                    icon={FiChevronLeft }
+                    //onClick={handleBack} 
+                  />
+                </div>
+
+                <img
+                className="photoDish"
+                src={SaladSvg}
+                alt="Foto do prato escolhido." 
                 />
-              </div>
-
-              <img
-              className="photoDish"
-              src={SaladSvg}
-              alt="Foto do prato escolhido." 
-              />
-          </div>
-
-          <div className="versionDesktopColumnTwo">
-            <div className="details">
-              <h2>Salada Ravanello</h2>
-
-              <TextArea
-               value="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial. Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial. Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial. Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
-               "
-               readOnly={true}
-              
-               />
-              <div className="wrapperTags">
-                <Tag title="alface"/>
-                <Tag title="alface"/>
-                <Tag title="alface"/>
-                <Tag title="alface"/>
-                <Tag title="alface"/>
-                <Tag title="alface"/>
-              </div> 
             </div>
 
-            <div className="order">
-              <ButtonAmount />
-              <div className="wrapperButton">
-                <img className="receipt"
-                  src={ ReceiptSvg }
-                  alt="Imagem de 'recibo/recebido/pedido'."
-                />
-                <Button
-                title="pedir - R$ 25,00"
-                />
-              </div>
-            </div>
+            <div className="versionDesktopColumnTwo">
+              <div className="details">
+                <h2>Salada Ravanello</h2>
 
+                <TextArea
+                value="Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial. Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial. Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial. Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
+                "
+                readOnly={true}
+                
+                />
+                <div className="wrapperTags">
+                  <Tag title="alface"/>
+                  <Tag title="alface"/>
+                  <Tag title="alface"/>
+                  <Tag title="alface"/>
+                  <Tag title="alface"/>
+                  <Tag title="alface"/>
+                </div> 
+              </div>
+
+              <div className="order">
+                <ButtonAmount />
+                <div className="wrapperButton">
+                  <img className="receipt"
+                    src={ ReceiptSvg }
+                    alt="Imagem de 'recibo/recebido/pedido'."
+                  />
+                  <Button
+                  title="pedir - R$ 25,00"
+                  />
+                </div>
+              </div>
+
+            </div>
           </div>
-  
         </Content>
     
       </main>

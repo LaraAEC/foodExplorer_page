@@ -34,19 +34,11 @@ export const Container = styled.div`
 
     @media (min-width: 1024px) {
       max-width: 102.4rem;
-      height: 525px;
     }
 
     @media (min-width: 1300px) {
       max-width: 140.0rem;
-      height: 438px;
     }
-
-    @media (min-width: 1400px) {
-      max-width: 140.0rem;
-      height: 735px;
-    }
-
   }
 
   > header {
@@ -61,6 +53,8 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
+  max-width: 100%;
+  
   display: flex;
   flex-direction: column;
 
@@ -69,26 +63,85 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
 
-  max-width: 100%;
-
   padding: 3.6rem 5.6rem;
+  padding-bottom: 0;
 
+  @media (min-width: 768px) {
+    padding-top: 6.6rem;
+    }
 
+  @media (min-width: 912px) {
+    padding: 8.6rem;
+    padding-bottom: 1rem;
+  }
+  
   @media (min-width: 1024px) {
-    width: 110rem;
-
-    flex-direction: row;
-    justify-content: space-between;
-
-    padding: 3.6rem 2rem;
+    padding: 3.6rem;
+    padding-bottom: 1rem;
   }
 
   @media (min-width: 1300px) {
-      max-width: 142.4rem; 
+    padding: 1rem;
   }
 
-  @media (min-width: 1370px) {
-    padding: 18rem 5.6rem;
+  @media (min-width: 1400px) {
+    padding: 0rem;
+  }
+
+  > .box {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 320px) {
+      width:24rem;
+
+      gap: 1.6rem;
+
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 412px) {
+      height:70rem;
+    }
+
+    @media (min-width: 500px) {
+      align-items: start;
+      justify-content: start;
+    }
+
+    @media (min-width: 768px) {
+      height:100rem;
+    }
+
+    @media (min-width: 912px) {
+      height:115rem;
+    }
+
+    @media (min-width: 1024px) {
+      display: flex;
+      flex-direction: row;
+
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 2rem;
+
+      width: 100rem;
+      height: 48rem;
+    }
+
+    @media (min-width: 1280px) {
+      width: 110rem;
+      height: 58rem;
+    }
+
+    @media (min-width: 1400px) {
+      width: 120.0rem; 
+      height: 77rem;
+
+      padding: 5.6rem;
+
+      align-items: center;
     }
 
   > .versionDesktopColumnOne {
@@ -100,7 +153,7 @@ export const Content = styled.div`
     align-items: center;
 
     @media (min-width: 1024px) {
-      gap: 2rem;
+      gap: 6rem;
     }
 
     > .wrapperBack {
@@ -139,10 +192,11 @@ export const Content = styled.div`
 
     align-items: center;
     
-    gap: 2.4rem;
+    gap: 1.5rem;
    
     @media (min-width: 1024px) {
       align-items: start;
+      gap: 0.5rem;
     }
 
     @media (min-width: 1300px) {
@@ -174,67 +228,33 @@ export const Content = styled.div`
       margin-bottom: 4.8rem;
 
       @media (min-width: 1024px) {
+        margin-bottom: 3rem;
         padding-left: 0rem;
     }
 
     }
   }
-  > .order {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    gap: 1.6rem;
-
-    @media (min-width: 768px) {
-      align-self: center;
-    }
-
-    @media (min-width: 1024px) {
-      align-self: start;
-    }
-
-    > .wrapperButton {
-      display: flex;
-      justify-content: center;
-      align-items: center; 
-
-      gap: 0.8rem;
-
-      padding: 1.2rem 3rem;
+    > .buttonEdit {
+      padding-bottom: 4rem;
       
-      font-size: 1.2rem;
-      font-weight: 500;
-
-      line-height: 2px;
-
-      border-radius: 5px;
-
-      background-color: ${({ theme }) => theme.COLORS.RED_100};
-      color: ${({ theme }) => theme.COLORS.WHITE_100};
-      
-
-      @media (min-width: 768px) {
-        width: 22.8rem;
-        height: 1.39rem;
-        padding: 2rem 3rem;
-      }
-
-      > .receipt {
-        width: 2.1rem;
-        height: 2.1rem;
-      }
-
       > button {
-      text-align: center;
-      font-size: 1.2rem;
-      
-      font-weight: 500;
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: 500;
 
-      line-height: 2px;
-    }
+        line-height: 2.4px;
+
+        padding: 2.4rem;
+
+        @media (min-width: 1024px) {
+          width: 13.6rem;
+          height: 4rem;
+          padding: 2.4rem;
+        }
+      }
+    } 
   }
-}
 } 
 `;
 

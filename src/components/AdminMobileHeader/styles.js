@@ -35,6 +35,16 @@ export const Container = styled.header`
 
     padding: 0 6.5rem;
 
+    > .logoSvg {
+      width: 1.8rem;
+      height: 1.8rem;
+
+      @media (min-width: 425px) {
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+    }
+
     > .wrapper {
       display: flex;
       flex-direction: row;
@@ -46,17 +56,29 @@ export const Container = styled.header`
       font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
       font-style: normal;
 
-      line-height: 2rem;
+      line-height: 1rem;
     
       > h1 {
-      font-size: 2.1rem;
+      font-size: 1.38rem;
       font-weight: 700;
 
+      white-space: nowrap;
+
       color: ${({ theme }) => theme.COLORS.WHITE_100};
+      
+      @media (min-width: 375px) {
+        font-size: 1.38rem;
+        line-height: 2rem;
+      }
+
+      @media (min-width: 425px) {
+        font-size: 2.1rem;
+      }
+
       }
 
       > p {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
         font-weight: 400;
         
         line-height: 140%;
@@ -64,6 +86,10 @@ export const Container = styled.header`
         text-align: center;
 
         color: ${({ theme }) => theme.COLORS.BLUE_100};
+
+        @media (min-width: 425px) {
+        font-size: 1.2rem;
+        }
       }
 
     }

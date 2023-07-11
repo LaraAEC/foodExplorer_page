@@ -2,7 +2,6 @@ import { Container } from './styles';
 
 import MenuSvg from '../../assets/menu.svg';
 import LogoSvg from '../../assets/logo.svg';
-import ReceiptSvg from '../../assets/receipt.svg';
 
 export function AdminMobileHeader() {
   return (
