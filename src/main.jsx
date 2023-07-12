@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/global';
 import theme from './styles/theme'; 
 
-import { UserDishDetails } from './pages/User/UserDishDetails'
+import { AdminNewDish } from './pages/Admin/AdminNewDish'
 
 
 
@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <UserDishDetails />
+      <AdminNewDish />
     </ThemeProvider>
     
   </React.StrictMode>,

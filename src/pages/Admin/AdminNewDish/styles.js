@@ -91,7 +91,7 @@ export const Content = styled.div`
   > .box {
     display: flex;
     flex-direction: column;
-
+   
     @media (min-width: 320px) {
       width:24rem;
 
@@ -146,17 +146,6 @@ export const Content = styled.div`
       align-items: center;
     }
 
-  > .versionDesktopColumnOne {
-    display: flex;
-    flex-direction: column;
-
-    gap: 1.6rem;
-
-    align-items: center;
-
-    @media (min-width: 1024px) {
-      gap: 6rem;
-    }
 
     > .wrapperBack {
     width: 31.6rem;
@@ -174,39 +163,6 @@ export const Content = styled.div`
         height: 32.9rem;
     }
     }
-  }
-
-  > .versionDesktopColumnTwo {
-    display: flex;
-    flex-direction: column;
-    
-    width: 31.6rem;
-    height: 32.0rem;
-
-    @media (min-width: 1024px) {
-      width: 58.7rem;
-      height: 30.0rem;
-    }
-
-    > .details {
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    
-    gap: 1.5rem;
-   
-    @media (min-width: 1024px) {
-      align-items: start;
-      gap: 0.5rem;
-    }
-
-    @media (min-width: 1300px) {
-      width: 60rem;
-      height: 40.0rem; 
-
-      gap: 0rem;
-  }
 
     > h2 {
       font-size: 2.7rem;
@@ -235,7 +191,6 @@ export const Content = styled.div`
     }
 
     }
-  }
 
     > .buttonEdit {
       padding-bottom: 4rem;
@@ -256,7 +211,50 @@ export const Content = styled.div`
         }
       }
     } 
-  }
 } 
+`;
+
+export const Avatar = styled.div`
+  position: relative;
+  margin: -124px auto 32px;
+
+  width: 186px;
+  height: 186px;
+
+  > img {
+    width: 186px;
+    height: 186px;
+
+    border-radius: 50%;
+  }
+
+  > label {
+    width: 48px;
+    height: 48px;
+
+    background-color: ${({ theme }) => theme.COLORS.SALMON};
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+
+    cursor: pointer;
+
+    input {
+      display: none;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      color: ${({ theme }) => theme.COLORS.SMOKE};
+    }
+  }
+  
 `;
 

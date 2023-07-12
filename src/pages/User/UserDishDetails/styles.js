@@ -35,8 +35,8 @@ export const Container = styled.div`
       max-width: 102.4rem;
     }
 
-    @media (min-width: 1300px) {
-      max-width: 140.0rem;
+    @media (min-width: 1280px) {
+      max-width: 128.0rem;
     }
   }
 
@@ -79,7 +79,7 @@ export const Content = styled.div`
     padding-bottom: 1rem;
   }
 
-  @media (min-width: 1300px) {
+  @media (min-width: 1280px) {
     padding: 1rem;
   }
 
@@ -90,14 +90,14 @@ export const Content = styled.div`
   > .box {
     display: flex;
     flex-direction: column;
-
+  
     @media (min-width: 320px) {
       width: 19.1rem;
 
-      gap: 1.6rem;
-
       align-items: center;
       justify-content: center;
+
+      gap: 1.6rem;
     }
 
     @media (min-width: 412px) {
@@ -132,6 +132,8 @@ export const Content = styled.div`
     @media (min-width: 1280px) {
       width: 110rem;
       height: 58rem;
+
+      padding-top: 0rem;
     }
 
     @media (min-width: 1400px) {
@@ -198,7 +200,7 @@ export const Content = styled.div`
         gap: 0.5rem;
       }
 
-      @media (min-width: 1300px) {
+      @media (min-width: 1280px) {
         width: 60rem;
         height: 40.0rem; 
 
@@ -212,7 +214,7 @@ export const Content = styled.div`
 
         color: ${({ theme}) => theme.COLORS.WHITE_300};
       
-        @media (min-width: 1300px) {
+        @media (min-width: 1280px) {
           margin-bottom: 2rem;
       }
       }

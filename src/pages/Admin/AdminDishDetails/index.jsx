@@ -3,7 +3,6 @@ import { Container, Content } from './styles';
 import { FiChevronLeft } from 'react-icons/fi';
 
 import SaladSvg from '../../../assets/salad.svg';
-import ReceiptSvg from '../../../assets/receipt.svg';
 
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +13,6 @@ import { AdminDesktopHeader } from '../../../components/AdminDesktopHeader';
 import { ButtonText } from '../../../components/ButtonText';
 import { Tag } from '../../../components/Tag';
 import { Footer } from '../../../components/Footer'; 
-import { ButtonAmount } from './../../../components/ButtonAmount';
 import { Button } from '../../../components/Button';
 import { TextArea } from '../../../components/TextArea';
 
