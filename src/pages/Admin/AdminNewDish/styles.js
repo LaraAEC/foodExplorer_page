@@ -76,7 +76,7 @@ export const Content = styled.div`
   }
   
   @media (min-width: 1024px) {
-    padding: 3.6rem;
+    padding-top: 3.6rem;
     padding-bottom: 1rem;
   }
 
@@ -88,18 +88,18 @@ export const Content = styled.div`
     padding: 0rem;
   }
 
-  > .box {
+  > form {
     display: flex;
     flex-direction: column;
+
+    align-items: start;
+    justify-content: start;
+
+    background: transparent;
+
+    gap: 2.4rem;
    
-    @media (min-width: 320px) {
-      width:24rem;
-
-      gap: 1.6rem;
-
-      align-items: center;
-      justify-content: center;
-    }
+    width: 100%;
 
     @media (min-width: 412px) {
       height:70rem;
@@ -119,15 +119,9 @@ export const Content = styled.div`
     }
 
     @media (min-width: 1024px) {
-      display: flex;
-      flex-direction: row;
-
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 2rem;
-
       width: 100rem;
       height: 48rem;
+      padding: 0rem 12rem 0rem 12rem;
     }
 
     @media (min-width: 1280px) {
@@ -146,54 +140,212 @@ export const Content = styled.div`
       align-items: center;
     }
 
-
     > .wrapperBack {
-    width: 31.6rem;
-   
-    display: flex;
-    justify-content: start;
+      width: 100%;
+      > button {
+        color: ${({ theme}) => theme.COLORS.WHITE_300};
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 140%;
+      }
     }
 
-    > .photoDish {
-      width: 26.4rem;
-      height: 26.4rem;
+    > .wrapperTitle {
+      width: 100%;
 
-      @media (min-width: 1024px) {
-        width: 36.0rem;
-        height: 32.9rem;
-    }
-    }
-
-    > h2 {
-      font-size: 2.7rem;
-      font-weight: 500;
-      line-height: 140%;
-
-      color: ${({ theme}) => theme.COLORS.WHITE_300};
-     
-      @media (min-width: 1300px) {
-        margin-bottom: 2rem;
-    }
-    }
-
-    > .wrapperTags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-
-      padding-left: 1.5rem;
+      > h2 {
+        font-size: 2.7rem;
+        font-weight: 500;
+        line-height: 140%;
+    
+        color: ${({ theme}) => theme.COLORS.WHITE_300};
       
-      margin-bottom: 4.8rem;
+        @media (min-width: 1300px) {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+    
+    > .rowVersionDesktopOne {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      gap: 2.4rem;
+
+      width: 100%;
 
       @media (min-width: 1024px) {
-        margin-bottom: 3rem;
-        padding-left: 0rem;
-    }
+      display: flex;
+      flex-direction: row;
 
     }
 
-    > .buttonEdit {
+      > .selectImg {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    
+        > p {
+          color: ${({ theme}) => theme.COLORS.GRAY_400};
+
+          font-family: ${({ theme}) => theme.FONTS.FONT_SECONDARY};
+          font-size: 1.6rem;
+          font-weight: 400;
+          line-height: 100%;
+        } 
+      }
+
+      > .wrapperName, .wrapperCategory {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+       
+        color: ${({ theme}) => theme.COLORS.GRAY_400};
+
+        font-family: ${({ theme}) => theme.FONTS.FONT_SECONDARY};
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 100%;
+
+        @media (min-width: 1024px) {
+          width: 33%;
+        }
+     }
+
+     > .wrapperCategory {
+     
+      > select {
+        border: none;
+        text-decoration: none;
+
+        padding: 1.6rem;
+          
+        color: ${({ theme}) => theme.COLORS.GRAY_400};
+        background: ${({ theme}) => theme.COLORS.BACKGROUND_800};
+
+      }
+     }
+    }
+
+    > .rowVersionDesktopTwo {
+      display: flex;
+      flex-direction: column;
+
+      gap: 2.4rem;
+
+      width: 100%;
+
+      @media (min-width: 1024px) {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .wrapperIngredients, .wrapperPrice {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+
+      color: ${({ theme}) => theme.COLORS.GRAY_400};
+
+      font-family: ${({ theme}) => theme.FONTS.FONT_SECONDARY};
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 100%;
+    }
+
+      > .wrapperIngredients {
+          > .wrapperTags {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 1rem;
+
+            width: 100%;
+            
+            border-radius: 0.8rem;
+
+            background: ${({ theme}) => theme.COLORS.BACKGROUND_800};
+        
+            > .span {
+            
+            }
+
+            @media (min-width: 1024px) {
+            margin-bottom: 3rem;
+            padding-left: 0rem;
+            }
+        }
+
+      } 
+    }
+
+    > .wrapperDescription  {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+
+      width: 100%;
+
+      color: ${({ theme}) => theme.COLORS.GRAY_400};
+      
+      font-family: ${({ theme}) => theme.FONTS.FONT_SECONDARY};
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 100%;
+
+      > textarea {
+        border-radius: 0.8rem;
+
+        width: 100%;
+
+        padding: 1.4rem;
+
+        text-align: justify;
+
+        font-family: ${({ theme}) => theme.FONTS.FONT_SECONDARY};
+        line-height: 100%;
+        font-size: 1.6rem;
+
+        weight: 400;
+        height: 10rem;
+
+        border: none;
+        box-shadow: none;
+        outline: none;
+
+        resize: none;
+        overflow-y: auto;
+
+        color: ${({ theme }) => theme.COLORS.WHITE_100};
+        background: ${({ theme}) => theme.COLORS.BACKGROUND_800};
+
+        overflow-y: auto;
+
+        scrollbar-color: transparent transparent; 
+
+        &::-webkit-scrollbar {
+            background: transparent;
+        }
+
+        @media (min-width: 425px) {
+          height: 12rem;
+          padding: 2.4rem;
+        }
+
+        @media (min-width: 768px) {
+          height: 20rem;
+          padding: 2.4rem;
+        }
+
+      }
+    }
+
+    > .buttonSave {
+      display: flex;
+      justify-content: end;
       padding-bottom: 4rem;
+      width: 100%;
       
       > button {
         text-align: center;
@@ -205,55 +357,64 @@ export const Content = styled.div`
         padding: 2.4rem;
 
         @media (min-width: 1024px) {
-          width: 13.6rem;
+          width: 23.6rem;
           height: 4rem;
           padding: 2.4rem;
+         
         }
       }
     } 
-} 
+}
 `;
 
-export const Avatar = styled.div`
-  position: relative;
-  margin: -124px auto 32px;
+export const DishImgInput = styled.div`
+display: flex;
 
-  width: 186px;
-  height: 186px;
+align-items: center;
 
-  > img {
-    width: 186px;
-    height: 186px;
+gap: 0.8rem; 
 
-    border-radius: 50%;
-  }
+height: 3.5rem;
+width: 100%;
+
+padding: 1.2rem 1.4rem;
+
+border-radius: 0.8rem;
+
+background: ${({ theme}) => theme.COLORS.BACKGROUND_800};
 
   > label {
-    width: 48px;
-    height: 48px;
-
-    background-color: ${({ theme }) => theme.COLORS.SALMON};
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: absolute;
-    bottom: 7px;
-    right: 7px;
-
+   
     cursor: pointer;
 
-    input {
+    > .share {
+      display: flex;
+      flex-direction: row;
+      gap: 0.8rem;
+
+      width: 100%;
+      background: transparent;
+
+      > .share-icon {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+
+      > span {
+        color: ${({ theme}) => theme.COLORS.WHITE_100};
+        text-align: center;
+
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 2.4rem; 
+      }
+
+    }
+
+    > input {
       display: none;
     }
 
-    svg {
-      width: 20px;
-      height: 20px;
-      color: ${({ theme }) => theme.COLORS.SMOKE};
-    }
   }
   
 `;

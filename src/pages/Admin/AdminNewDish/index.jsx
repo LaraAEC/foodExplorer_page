@@ -1,4 +1,4 @@
-import { Container, Content, Avatar } from './styles';
+import { Container, Content, DishImgInput } from './styles';
 
 import { FiChevronLeft, FiShare } from 'react-icons/fi';
 
@@ -15,7 +15,7 @@ import { Tag } from '../../../components/Tag';
 import { Footer } from '../../../components/Footer'; 
 import { Button } from '../../../components/Button';
 import { Input } from '../../../components/Input';
-import { TextArea } from '../../../components/TextArea';
+import { DishItem } from '../../../components/DishItem';
 
 
 export function AdminNewDish() {
@@ -37,7 +37,7 @@ export function AdminNewDish() {
       <main>
 
         <Content>
-          <div className="box">
+          <form>
             
               <div className="wrapperBack">
                   <ButtonText
@@ -47,72 +47,122 @@ export function AdminNewDish() {
                   />
               </div>
 
-              <h2>Novo Prato</h2>
-
-              <p>Imagem do prato</p>
-              <Avatar>
-                <label htmlFor="dishImg">
-                  <div className="share">
-                    <FiShare className="share-icon" />
-                    <span>Selecione Imagem</span>
-                  </div>
-  
-                  <input
-                    id="dishImg"
-                    type="file"
-                    style={{ display: 'none' }}
-                      //onChange={handleChangeAvatar}
-                  />
-                </label>
-              </Avatar>
-
-              <label htmlFor="dishInput">Nome:</label>    
-              <Input
-              id="dishInput"
-              type="text"
-              placeholder="Exemplo: Salada Ceasar" 
-              onChange={e => setDish(e.target.value)}
-              />  
-
-              <label htmlFor="categorySelect">Categoria:</label>
-              <select id="categorySelect">
-              <option value="meals">Refeições</option>
-              <option value="desserts">Sobremesas</option>
-              <option value="drinks">Bebidas</option>
-              </select>
-
-              <p>Ingredientes</p>
-              <div className="wrapperTags">
-                <Tag title="pão naan"/>
-                <Tag title="alface"/>
-                <Tag title="camarão"/>
-                <Tag title="tomates"/>
+              <div className="wrapperTitle">
+                <h2>Novo Prato</h2>
               </div>
 
-              <label htmlFor="priceInput">Preço:</label>    
-              <Input
-              id="priceInput"
-              type="text"
-              placeholder="R$ 00,00" 
-              onChange={e => setDish(e.target.value)}
-              /> 
+              <div className="rowVersionDesktopOne">
+                <div className="selectImg">
+                  <p>Imagem do prato</p>
+                  <DishImgInput>
+                    <label htmlFor="dishImg">
+                      <div className="share">
+                        <FiShare className="share-icon" />
+                        <span>Selecione Imagem</span>
+                      </div>
+      
+                      <input
+                        id="dishImg"
+                        type="file"
+                        //onChange={handleChangeAvatar}
+                      />
+                    </label>
+                  </DishImgInput>
+                </div>
+               
+                <div className="wrapperName">
+                  <label htmlFor="dishInput">Nome:</label>    
+                  <Input
+                  id="dishInput"
+                  type="text"
+                  placeholder="Exemplo: Salada Ceasar" 
+                  onChange={e => setDish(e.target.value)}
+                  /> 
+                </div>
 
+                <div className="wrapperCategory">
+                  <label htmlFor="categorySelect">Categoria:</label>
+                  <select id="categorySelect">
+                  <option value="meals">Refeições</option>
+                  <option value="desserts">Sobremesas</option>
+                  <option value="drinks">Bebidas</option>
+                  </select>
+                </div>
+                
+              </div>
+             
+              <div className="rowVersionDesktopTwo">
+                <div className="wrapperIngredients">
+                  <p>Ingredientes</p>
+                  <div className="wrapperTags">
+                   
+                    < DishItem
+                      isNew={false}
+                      value={"Pão Naan"}
+                      //onChange={e => setNewTag(e.target.value)}
+                      //value={newTag}
+                      //onClick={handleAddTag}
+                    />
+
+                    < DishItem
+                      isNew={false}
+                      value={"Pão Naan"}
+                      //onChange={e => setNewTag(e.target.value)}
+                      //value={newTag}
+                      //onClick={handleAddTag}
+                    />
+
+                    < DishItem
+                      isNew={false}
+                      value={"Pão Naan"}
+                      //onChange={e => setNewTag(e.target.value)}
+                      //value={newTag}
+                      //onClick={handleAddTag}
+                    />
+
+                    < DishItem
+                      isNew
+                      placeholder="Adicionar"
+                      //onChange={e => setNewTag(e.target.value)}
+                      //value={newTag}
+                      //onClick={handleAddTag}
+                    />
+                    
+                   
+                  </div>
+                </div>
+
+                <div className="wrapperPrice">
+                  <label htmlFor="priceInput">Preço:</label>    
+                  <Input
+                  id="priceInput"
+                  type="text"
+                  placeholder="R$ 00,00" 
+                  onChange={e => setDish(e.target.value)}
+                  /> 
+                </div>
+              
+              </div>
+
+              <div className="wrapperDescription">
               <p>Descrição</p>
-              <TextArea
-              type="text"
-              value=""
-              readOnly={false}
-              placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-              onChange={e => setDescription(e.target.value)}
-              />
-
-              <div className="buttonEdit">
+                <textarea
+                  type="text"
+                  //value=""
+                  readOnly={false}
+                  placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                  onChange={e => setDescription(e.target.value)}>
+                </textarea>
+                
+              </div>
+             
+              <div className="buttonSave">
                 <Button
                 title="Salvar alterações"
                 />
               </div>
 
-          </div>
+          </form>
         </Content>
     
       </main>

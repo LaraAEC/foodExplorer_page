@@ -7,11 +7,11 @@ overflow-wrap: break-word;
 width: 100%;
 height: auto;
 
-padding: 2rem;
+padding: 1rem;
 
 font-size: 1.6rem;
 font-weight: 400;
-line-height: 170%;
+line-height: 160%;
 
 border: none;
 box-shadow: none;
@@ -29,6 +29,8 @@ rows: 1;
 pointer-events: none;
 user-select: none;
 cursor: default;
+
+
 
 @media (min-width: 1024px) {
    padding: 0rem;
