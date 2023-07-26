@@ -5,11 +5,11 @@ display: flex;
 align-items: center;
 width: 100%;
 
-background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.GRAY_600};
+background-color: ${({ theme, isnew }) => isnew== 'true' ? "transparent" : theme.COLORS.GRAY_600};
 color: ${({ theme }) => theme.COLORS.WHITE_100};
 
 
-border: ${({ theme, isNew }) => isNew ? `1px dashed ${theme.COLORS.GRAY_400}` : "none"};
+border: ${({ theme, isnew }) => isnew== 'true' ? `1px dashed ${theme.COLORS.GRAY_400}` : "none"};
 
 margin-bottom: 0.8rem;
 border-radius: 1rem;

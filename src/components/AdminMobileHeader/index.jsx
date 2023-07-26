@@ -1,17 +1,28 @@
+import { useNavigate } from 'react-router-dom';
+
 import { Container } from './styles';
 
 import MenuSvg from '../../assets/menu.svg';
 import LogoSvg from '../../assets/logo.svg';
 
 export function AdminMobileHeader() {
+  const navigate = useNavigate();
+
+  function handleOpenMenu() { //funcionalidade de voltar com o botão 'voltar'
+    navigate("/menu"); //para ser usado no botão de voltar e colocar o usuário na rota anterior
+  }
+
   return (
     <Container>
       <div className="box">
-        <img className="menuSvg"
-          src={ MenuSvg }
-          alt="Imagem de 'menu'."
-        />
-
+        <button>
+          <img className="menuSvg"
+            src={ MenuSvg }
+            alt="Imagem de 'menu'."
+            onClick={handleOpenMenu}
+          />
+        </button>
+        
         <div className="title">
           <img className="logoSvg"
             src={ LogoSvg }

@@ -1,3 +1,9 @@
+import{ useNavigate } from 'react-router-dom';
+
+import { useState } from 'react';
+
+import { useAuth } from '../../hooks/auth';
+
 import { Container, Form } from './styles';
 
 import { HeaderSign } from '../../components/HeaderSign' 
@@ -5,6 +11,22 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
 export function SignIn() {
+  //estruturando, criando estados, capturando os dados do input
+  const [email, setEmail] = useState(""); //nome do estado, função que o modifica e valor do estado inicial.
+  const [password, setPassword] = useState("");  //nome do estado, função que o modifica e valor do estado inicial.
+  
+  const { signIn } = useAuth(); //hook criado para inicializar e selecionar contexto e desestruturação da function SigIn de dentro do contexto inicializado e selecionado. Retirando dele a função que foi passada no provider.
+
+  const navigate = useNavigate();
+
+  function handleRegister() {
+    navigate("/register");
+  }
+
+  function handleSignIn() {
+    signIn({ email, password });
+  }
+
    return (
       <Container>
      
@@ -24,7 +46,7 @@ export function SignIn() {
                   <Input
                     placeholder="Exemplo: exemplo@exemplo.com.br"
                     type="text"
-                    //onChange={e => setEmail(e.target.value)} // capturando a mudança no 'e' e colocando o valor dela no método que configura estado como parâmetro e executando ele
+                    onChange={e => setEmail(e.target.value)} // capturando a mudança no 'e' e colocando o valor dela no método que configura estado como parâmetro e executando ele
                   /> 
               </div>
 
@@ -33,15 +55,15 @@ export function SignIn() {
                   <Input
                       placeholder="No mínimo 6 caracteres"
                       type="password"
-                      //onChange={e => setPassword(e.target.value)}
+                      onChange={e => setPassword(e.target.value)}
                   />
                </div>
                
-                <Button title="Entrar"  /*onClick={handleSignIn}*//> 
+                <Button title="Entrar"  onClick={handleSignIn} /> 
                
-                <a href="#">
+                <button type="button" className="buttonSignUp" onClick={handleRegister}>
                   Criar uma conta
-                </a>
+                </button>
               </div>
             </Form>
           </div> 

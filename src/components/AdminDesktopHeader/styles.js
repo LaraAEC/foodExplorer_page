@@ -97,7 +97,7 @@ export const Container = styled.header`
       height: 3.0rem;
     }
 
-      > .orderButton {
+      > .newDishButton {
         white-space: nowrap;
         
         font-size: 1.4rem;

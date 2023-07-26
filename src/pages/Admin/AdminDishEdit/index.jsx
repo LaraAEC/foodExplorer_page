@@ -23,11 +23,11 @@ export function AdminDishEdit() {
 
   const dishImg = {SaladSvg};
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   
-  /*function handleBack() { //funcionalidade de voltar com o botão 'voltar'
+  function handleBack() { //funcionalidade de voltar com o botão 'voltar'
     navigate(-1); //para ser usado no botão de voltar e colocar o usuário na rota anterior
-  }*/
+  }
 
   return (
     <Container>
@@ -43,7 +43,7 @@ export function AdminDishEdit() {
                   <ButtonText
                     title="Voltar"
                     icon={ FiChevronLeft }
-                    //onClick={handleBack} 
+                    onClick={handleBack} 
                   />
               </div>
 

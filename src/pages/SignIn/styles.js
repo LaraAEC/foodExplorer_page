@@ -74,8 +74,11 @@ export const Form = styled.form `
       margin-bottom: 2rem;
     }
 
-    > a {
-      font-family: ${({ theme }) => theme.FONTS.FONT_PRIMARY};
+    > .buttonSignUp {
+      border: none;
+      background: none;
+      cursor: pointer;
+      
       font-weight: 500;
       font-size: 1.4rem;
       line-height: 2.4rem;

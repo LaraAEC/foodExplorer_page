@@ -23,11 +23,11 @@ export function AdminNewDish() {
 
   const dishImg = {SaladSvg};
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   
-  /*function handleBack() { //funcionalidade de voltar com o botão 'voltar'
+  function handleBack() { //funcionalidade de voltar com o botão 'voltar'
     navigate(-1); //para ser usado no botão de voltar e colocar o usuário na rota anterior
-  }*/
+  }
 
   return (
     <Container>
@@ -43,7 +43,7 @@ export function AdminNewDish() {
                   <ButtonText
                     title="Voltar"
                     icon={ FiChevronLeft }
-                    //onClick={handleBack} 
+                    onClick={handleBack} 
                   />
               </div>
 
@@ -121,7 +121,7 @@ export function AdminNewDish() {
                     />
 
                     < DishItem
-                      isNew
+                      isNew={true}
                       placeholder="Adicionar"
                       //onChange={e => setNewTag(e.target.value)}
                       //value={newTag}

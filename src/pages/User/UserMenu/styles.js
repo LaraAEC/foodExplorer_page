@@ -14,7 +14,7 @@ export const Container = styled.div`
   margin: 0 auto;
 
 
-  > #closeMenu {
+  > .closeMenu {
     display: flex;
     gap: 1.6rem;
 
@@ -23,19 +23,27 @@ export const Container = styled.div`
 
     background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
  
-   > img {
-    width: 1.8rem;
-    height: 1.8rem;
+    > .buttonCloseMenu {
+      border: none;
+      background: none;
+      cursor: pointer;
+
+      > img {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
+
+    > span {
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 140%;
+
+    color: ${({ theme }) => theme.COLORS.WHITE_300};
+
+    border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
    }
    
-   > a {
-    font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
-    font-weight: 400;
-    font-size: 2.11rem;
-    line-height: 2.5rem;
-
-    color: ${({ theme }) => theme.COLORS.WHITE_100};
-   }
   }
 
   .page {
@@ -50,15 +58,22 @@ export const Container = styled.div`
 
     gap: 3.6rem;
 
-    > a {
-    font-weight: 300;
-    font-size: 2.4rem;
-    line-height: 140%;
+    > .buttonSignOut {
+      border: none;
+      background: none;
+      cursor: pointer;
 
-    color: ${({ theme }) => theme.COLORS.WHITE_300};
+      font-weight: 300;
+      font-size: 2.4rem;
+      line-height: 140%;
 
-    border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
+      text-align: start;
+
+      color: ${({ theme }) => theme.COLORS.WHITE_300};
+
+      border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
    }
+   
   }
 
 `;

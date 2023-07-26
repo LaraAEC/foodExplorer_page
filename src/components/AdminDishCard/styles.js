@@ -7,6 +7,10 @@ export const Container = styled.div`
   background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 
   .pencil {
+    border: none;
+    background: none;
+    cursor: pointer;
+    
     position: absolute;
     top: 7%;
     right: 5%;

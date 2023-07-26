@@ -1,3 +1,6 @@
+import { useAuth } from '../../hooks/auth';
+import{ useNavigate } from 'react-router-dom';
+
 import { Container, Search } from './styles';
 
 import LogoSvg from '../../assets/logo.svg';
@@ -7,6 +10,14 @@ import SignOutSvg from '../../assets/signOut.svg';
 
 
 export function UserDesktopHeader() {
+  const { signOut } = useAuth(); //desestruturando a função de logout de dentro do meu contexto
+  const navigate = useNavigate();
+
+  function handleSignOut() { //função disparada com interação do usuário
+    navigate("/"); //levando o usuário para a tela inicial
+    signOut(); //deslogar o usuário
+  }
+
   return (
     <Container>
       <div className="box">
@@ -41,7 +52,7 @@ export function UserDesktopHeader() {
           </button> 
         </div>
 
-        <button type="button" className="signOutButton">
+        <button type="button" className="signOutButton" onClick={handleSignOut}>
           <img className="signOutSvg"
             src={SignOutSvg}
             alt="Imagem de 'colchete com seta indicando para fora'."

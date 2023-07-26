@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { Container, Content } from './styles';
 
 import EditSvg from '../../assets/edit.svg';
@@ -14,6 +16,11 @@ import { TextArea } from '../TextArea';
 export function AdminDishCard({ title, visibility }) {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const dishDescription = isMobile ? "" : <TextArea/>;
+
+  const navigate = useNavigate();
+  function handleButtonDishEdit() {
+    navigate("/edit/:id");
+  }
   
   return (
     <Container>
@@ -36,11 +43,14 @@ export function AdminDishCard({ title, visibility }) {
           
         </Content>
 
+        <button type='button' className="pencil" onClick={handleButtonDishEdit}>
         <img
-          className="pencil"
           src={ EditSvg }
           alt="Imagem de 'coração de 'curtidas''."
         />
+
+        </button>
+      
       </main>
     </Container>
   )

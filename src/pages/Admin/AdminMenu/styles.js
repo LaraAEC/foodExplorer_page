@@ -24,22 +24,30 @@ export const Container = styled.div`
     padding: 5.6rem 2.8rem 2.4rem 2.8rem;
 
     background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
- 
-   > img {
-    width: 1.8rem;
-    height: 1.8rem;
-   }
-   
-   > a {
-    font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
-    font-weight: 400;
-    font-size: 2.11rem;
-    line-height: 2.5rem;
 
-    color: ${({ theme }) => theme.COLORS.WHITE_100};
+    > .buttonCloseMenu {
+      border: none;
+      background: none;
+      cursor: pointer;
+
+      > img {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
+
+    > span {
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 140%;
+
+    color: ${({ theme }) => theme.COLORS.WHITE_300};
+
+    border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
    }
   }
-
+ 
+ 
   .page {
     width: 100%;
     height: 100vh;
@@ -52,14 +60,34 @@ export const Container = styled.div`
 
     gap: 3.6rem;
 
-    > a {
-    font-weight: 300;
-    font-size: 2.4rem;
-    line-height: 140%;
+    > .buttonNewDish {
+      border: none;
+      background: transparent;
+      cursor: pointer;
 
-    color: ${({ theme }) => theme.COLORS.WHITE_300};
+      font-weight: 300;
+      font-size: 2.4rem;
+      line-height: 140%;
 
-    border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
+      text-align:start;
+
+      color: ${({ theme }) => theme.COLORS.WHITE_300};
+
+      border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
+   }
+
+   > .buttonSignOut {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+
+      font-weight: 300;
+      font-size: 2.4rem;
+      line-height: 140%;
+
+      text-align:start;
+
+      color: ${({ theme }) => theme.COLORS.WHITE_300};
    }
   }
 `;

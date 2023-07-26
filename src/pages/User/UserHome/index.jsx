@@ -16,7 +16,6 @@ import { UserDishCard } from '../../../components/UserDishCard';
 import { Footer } from '../../../components/Footer'; 
 
 
-
 export function UserHome() {
   const scrollMealList = useRef(null);
   const scrollDrinkList = useRef(null);

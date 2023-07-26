@@ -1,3 +1,9 @@
+import { useState } from 'react'; //importando o hook de estado
+
+import{ useNavigate } from 'react-router-dom';
+
+import { api } from "../../services/api";
+
 import { Container, Form } from './styles';
 
 import { HeaderSign } from '../../components/HeaderSign' 
@@ -5,6 +11,40 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
 export function SignUp() {
+  const [name, setName] = useState(""); //hook que cria um estado, o de nome. Inicia com string vazia.
+  const [email, setEmail] = useState(""); //hook que cria um estado, o de email. Inicia com string vazia.
+  const [password, setPassword] = useState(""); //hook que cria um estado, o de senha. Inicia com string vazia.
+
+  const navigate = useNavigate();
+
+  function handleBack() {
+    navigate(-1);
+  }
+
+  function handleSignUp(){ //Função que envia os dados cadastrados para o BD, utilizada no Button Criar Conta
+    if(!name || !email || !password) {
+      return alert("Preencha todos os campos"); //return além do alerta pois preciso parar a função caso não tenha sido preenchido algum campo
+    }
+
+    if (password.length < 6) {
+      return alert("Password precisa ter no mínimo 6 caracteres");
+    }
+
+    api.post("/users", { name, email, password })
+    .then(() => {
+      alert("Usuário cadastrado com sucesso!");
+      navigate("/"); //levando o usuário para a tela de login
+    })
+    .catch(error => {
+      if(error.response){ //se o erro tiver uma resposta do backend
+        alert(error.response.data.message); //dá um alerta na mensagem dessa resposta desse erro, trazendo para o frontend a mensagem de AppError do backend
+      } else { //se não houver nenhuma mensagem específica
+        alert("Não foi possível cadastrar o usuário"); //dou uma mensagem mais genérica
+      }
+    });
+
+  };
+
    return (
       <Container>
         <div className="columnTitle">
@@ -23,7 +63,7 @@ export function SignUp() {
                 <Input
                   placeholder="Exemplo: Juliana Frazão"
                   type="text"
-                  //onChange={e => setEmail(e.target.value)} // capturando a mudança no 'e' e colocando o valor dela no método que configura estado como parâmetro e executando ele
+                  onChange={e => setName(e.target.value)} // capturando a mudança no 'e' e colocando o valor dela no método que configura estado como parâmetro e executando ele
                 />
               </div>
               
@@ -32,7 +72,7 @@ export function SignUp() {
                   <Input
                     placeholder="Exemplo: exemplo@exemplo.com.br"
                     type="text"
-                    //onChange={e => setEmail(e.target.value)} // capturando a mudança no 'e' e colocando o valor dela no método que configura estado como parâmetro e executando ele
+                    onChange={e => setEmail(e.target.value)} //onChange={e => setEmail(e.target.value)} // capturando a mudança no 'e' e colocando o valor dela no método que configura estado como parâmetro e executando ele
                   />
               </div>
           
@@ -41,15 +81,15 @@ export function SignUp() {
                     <Input
                       placeholder="No mínimo 6 caracteres"
                       type="password"
-                      //onChange={e => setPassword(e.target.value)}
+                      onChange={e => setPassword(e.target.value)} //onChange={e => setPassword(e.target.value)}
                   />
               </div>
 
-              <Button title="Criar conta"  /*onClick={handleSignIn}*//> 
+              <Button title="Criar conta"  onClick={handleSignUp} /> 
             
-              <a href="#">
+              <button type="button" className="buttonBack" onClick={handleBack}>
                 Já tenho uma conta
-              </a>
+              </button>
             </div>
           </Form>
         </div> 
