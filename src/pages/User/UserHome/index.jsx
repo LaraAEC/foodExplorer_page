@@ -1,12 +1,18 @@
-import { Container, Content, Arrow } from './styles';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { api } from '../../../services/api';
+
 import { useRef } from 'react';
+
+import { useMediaQuery } from 'react-responsive';
+
+
+import { Container, Content, Arrow } from './styles';
 
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import MobileBannerPng from '../../../assets/mobileBanner.png';
 import DesktopBannerPng from '../../../assets/desktopBanner.png';
-
-import { useMediaQuery } from 'react-responsive';
 
 import { UserMobileHeader } from '../../../components/UserMobileHeader';
 import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
@@ -17,12 +23,28 @@ import { Footer } from '../../../components/Footer';
 
 
 export function UserHome() {
+ 
   const scrollMealList = useRef(null);
   const scrollDrinkList = useRef(null);
   const scrollDessertList = useRef(null);
 
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const imageUrl = isMobile ? MobileBannerPng : DesktopBannerPng;
+
+  const navigate = useNavigate();
+
+  const [dishes, setDishes] = useState([]); //criando meu estado dos pratos e será um array
+
+  useEffect(() => { //Buscando os pratos
+    async function fetchDishes(){ //buscando os pratos sem filtro 
+      const response = await api.get("/dishes"); //buscando no backend na rota '/notes', e enviando através de uma query o nome do title passando o conteúdo do search e as tags com o conteúdo das tags selecionadas
+      setDishes(response.data); //passando os dados da resposta do backend sobre os pratos
+    }
+
+    fetchDishes(); //executando a função acima declarada, foi declarada neste escopo pois só aqui será usada
+   
+  }, []);
+
 
   const handlePrevMealList = () => {
     scrollMealList.current.scrollBy({
@@ -85,16 +107,27 @@ const handlePrevDrinkList = () => {
             </div>
           </div>
 
+
           <Section title="Refeições">  
             <div ref={scrollMealList}>
-              <UserDishCard title="Salada Ravanello" visibility="not-visible" />
-              <UserDishCard title="Peixe à Delícia" visibility="not-visible"/>
-              <UserDishCard title="Salada Ravanello" visibility="not-visible"/>
-              <UserDishCard title="Peixe à Delícia" visibility="not-visible"/>
-              <UserDishCard title="Salada Ravanello" visibility="not-visible"/>
-              <UserDishCard title="Peixe à Delícia" visibility="not-visible"/>
-              <UserDishCard title="Salada Ravanello" visibility="not-visible"/>
-              <UserDishCard title="Peixe à Delícia" visibility="not-visible"/>
+              {
+                dishes.map(dish => {
+                  if(dish.category == "Refeições") {
+                    return ( 
+                      <UserDishCard
+                      key={String(dish.id)}
+                      data={dish}
+                      onClick={() => handleDetails(dish.id)}
+                      title={dish.title}
+                      value={dish.description}
+                      float={dish.price}
+                      type="text"
+                      visibility="not-visible"
+                      />
+                    )
+                  }
+                })   
+              }
             </div>
 
             <Arrow
@@ -115,14 +148,25 @@ const handlePrevDrinkList = () => {
 
           <Section title="Sobremesas">
             <div ref={scrollDessertList}>
-              <UserDishCard title="Salada Ravanello" visibility="not-visible" />
-              <UserDishCard title="Peixe à Delícia" visibility="not-visible"/>
-              <UserDishCard title="Salada Ravanello" visibility="not-visible"/>
-              <UserDishCard title="Peixe à Delícia" visibility="not-visible"/>
-              <UserDishCard title="Salada Ravanello" visibility="not-visible"/>
-              <UserDishCard title="Peixe à Delícia" visibility="not-visible"/>
-              <UserDishCard title="Salada Ravanello" visibility="not-visible"/>
-              <UserDishCard title="Peixe à Delícia" visibility="not-visible"/>
+            {
+                dishes.map(dish => {
+                  if(dish.category == "Sobremesas") {
+                    return ( 
+                      <UserDishCard
+                      key={String(dish.id)}
+                      data={dish}
+                      onClick={() => handleDetails(dish.id)}
+                      title={dish.title}
+                      value={dish.description}
+                      float={dish.price}
+                      type="text"
+                      visibility="not-visible"
+                      />
+                    )
+
+                  }
+                })   
+              }
             </div>
 
             <Arrow
@@ -143,14 +187,25 @@ const handlePrevDrinkList = () => {
 
           <Section title="Bebidas">
             <div ref={scrollDrinkList}>
-              <UserDishCard title="Salada Ravanello" visibility="visible" />
-              <UserDishCard title="Peixe à Delícia" visibility="visible"/>
-              <UserDishCard title="Salada Ravanello" visibility="visible"/>
-              <UserDishCard title="Peixe à Delícia" visibility="visible"/>
-              <UserDishCard title="Salada Ravanello" visibility="visible"/>
-              <UserDishCard title="Peixe à Delícia" visibility="visible"/>
-              <UserDishCard title="Salada Ravanello" visibility="visible"/>
-              <UserDishCard title="Peixe à Delícia" visibility="visible"/>
+            {
+                dishes.map(dish => {
+                  if(dish.category == "Bebidas") {
+                    return ( 
+                      <UserDishCard
+                      key={String(dish.id)}
+                      data={dish}
+                      onClick={() => handleDetails(dish.id)}
+                      title={dish.title}
+                      value={dish.description}
+                      float={dish.price}
+                      type="text"
+                      visibility="not-visible"
+                      />
+                    )
+
+                  }
+                })   
+              }
             </div>
 
             <Arrow
