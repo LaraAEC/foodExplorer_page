@@ -120,7 +120,7 @@ const handlePrevDrinkList = () => {
                       onClick={() => handleDetails(dish.id)}
                       title={dish.title}
                       value={dish.description}
-                      float={dish.price}
+                      price={`R$ ${dish.price}`}
                       type="text"
                       visibility="not-visible"
                       />
@@ -158,7 +158,7 @@ const handlePrevDrinkList = () => {
                       onClick={() => handleDetails(dish.id)}
                       title={dish.title}
                       value={dish.description}
-                      float={dish.price}
+                      price={`R$ ${dish.price}`}
                       type="text"
                       visibility="not-visible"
                       />
@@ -197,7 +197,7 @@ const handlePrevDrinkList = () => {
                       onClick={() => handleDetails(dish.id)}
                       title={dish.title}
                       value={dish.description}
-                      float={dish.price}
+                      price={`R$ ${dish.price}`}
                       type="text"
                       visibility="not-visible"
                       />

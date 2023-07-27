@@ -16,13 +16,17 @@ import { Button } from '../../components/Button';
 import { ButtonAmount } from '../../components/ButtonAmount';
 import { TextArea } from '../TextArea';
 
-export function UserDishCard({ title, value, float, data, visibility, readyOnly, ...rest  }) {
+export function UserDishCard({ title, key, value, price, data, visibility, readyOnly, ...rest  }) {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const dishDescription = isMobile ? "" : <TextArea/>;
 
   const navigate = useNavigate();
 
   const [dishes, setDishes] = useState([]); //criando meu estado dos pratos e será um array
+
+  function handleDetails(id) {
+    navigate(`/details/${id}`); //levando o usuário para a tela de details e mandando um parâmetro na rota
+  }
 
   useEffect(() => { //Buscando os pratos
     async function fetchDishes(){ //buscando os pratos sem filtro 
@@ -44,7 +48,7 @@ export function UserDishCard({ title, value, float, data, visibility, readyOnly,
               alt="Imagem de 'salada verde'."
             />
 
-            <button type="button" className="titleDishButton">
+            <button type="button" className="titleDishButton" onClick={() => handleDetails(key)}>
               <h2 className="titleDish">
                 {title}
                 <FiChevronRight />
@@ -65,7 +69,7 @@ export function UserDishCard({ title, value, float, data, visibility, readyOnly,
             </div>
            
 
-            <p className="price" > {float} </p>
+            <p className="price" > {price} </p>
 
             <div className="wrapperAmountInclude">
               <div className="amount">

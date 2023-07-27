@@ -5,7 +5,8 @@ import { FiChevronLeft } from 'react-icons/fi';
 import SaladSvg from '../../../assets/salad.svg';
 
 import { useMediaQuery } from 'react-responsive';
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { api } from '../../../services/api';
 
 import { AdminMobileHeader } from '../../../components/AdminMobileHeader';
 import { AdminDesktopHeader } from '../../../components/AdminDesktopHeader';
@@ -20,11 +21,12 @@ import { TextArea } from '../../../components/TextArea';
 export function AdminDishDetails() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
+  const params = useParams(); 
   
-  /*function handleBack() { //funcionalidade de voltar com o botão 'voltar'
+  function handleBack() { //funcionalidade de voltar com o botão 'voltar'
     navigate(-1); //para ser usado no botão de voltar e colocar o usuário na rota anterior
-  }*/
+  }
 
   return (
     <Container>
@@ -40,7 +42,7 @@ export function AdminDishDetails() {
                   <ButtonText
                     title="Voltar"
                     icon={FiChevronLeft }
-                    //onClick={handleBack} 
+                    onClick={handleBack} 
                   />
                 </div>
 

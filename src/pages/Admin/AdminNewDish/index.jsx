@@ -26,7 +26,7 @@ export function AdminNewDish() {
   const [photoFile, setPhotoFile] = useState(null); ////criando o estado do arquivo selecionado, setando como nulo para receber avatar selecionado. Guarda o arquivo selecionado.
 
   const [title, setTitle] = useState(""); //hook que cria um estado, o de nome
-  const [category, setCategory] = useState(""); //hook que cria o estado da categoria do prato
+  const [category, setCategory] = useState("Refeições"); //hook que cria o estado da categoria do prato
   const [price, setPrice] = useState(0); //hook que cria o estado do preço do prato
   const [description, setDescription] = useState("");
 
@@ -40,6 +40,8 @@ export function AdminNewDish() {
   }
 
   async function handleCreateDish(){ //Função que envia os dados cadastrados do prato para a tabela Dishes
+    console.log(title, description, price, category, ingredients);
+    
     if (!title) { 
       return alert("Precisa inserir um nome. Por favor, informe o nome do Prato.");
     }
@@ -68,8 +70,6 @@ export function AdminNewDish() {
     });
 
     alert('Prato criado com sucesso!'); //em dando tudo certo dar alerta
-
-      console.log(title, description, price, category, ingredients);
 
     navigate("/"); //levando o usuário para a tela home
 

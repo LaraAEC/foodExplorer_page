@@ -1,5 +1,7 @@
 import { Container, Content, Arrow } from './styles';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
+
+import { api } from '../../../services/api';
 
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
@@ -24,6 +26,8 @@ export function AdminHome() {
 
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const imageUrl = isMobile ? MobileBannerPng : DesktopBannerPng;
+
+  const [dishes, setDishes] = useState([]);
 
   const handlePrevMealList = () => {
     scrollMealList.current.scrollBy({
@@ -67,6 +71,15 @@ const handlePrevDrinkList = () => {
     });
   }
 
+  useEffect(() => { 
+    async function fetchDishes(){ 
+      const response = await api.get("/dishes"); 
+      setDishes(response.data); 
+    }
+
+    fetchDishes();
+  }, []);
+
   return (
     <Container>
 
@@ -88,14 +101,24 @@ const handlePrevDrinkList = () => {
 
           <Section title="Refeições">  
             <div ref={scrollMealList}>
-              <AdminDishCard title="Salada Ravanello" visibility="not-visible" />
-              <AdminDishCard title="Peixe à Delícia" visibility="not-visible"/>
-              <AdminDishCard title="Salada Ravanello" visibility="not-visible"/>
-              <AdminDishCard title="Peixe à Delícia" visibility="not-visible"/>
-              <AdminDishCard title="Salada Ravanello" visibility="not-visible"/>
-              <AdminDishCard title="Peixe à Delícia" visibility="not-visible"/>
-              <AdminDishCard title="Salada Ravanello" visibility="not-visible"/>
-              <AdminDishCard title="Peixe à Delícia" visibility="not-visible"/>
+            {
+              dishes.map(dish => {
+                if(dish.category == "Refeições") {
+                  return (
+                    <AdminDishCard 
+                    key={String(dish.id)}
+                    data={dish}
+                    onClick={() => handleDetails(dish.id)}
+                    title={dish.title}
+                    value={dish.description}
+                    price={`R$ ${dish.price}`}
+                    type="text"
+                    visibility="not-visible"
+                    />
+                  )
+                }
+              })
+            } 
             </div>
 
             <Arrow
@@ -116,14 +139,24 @@ const handlePrevDrinkList = () => {
 
           <Section title="Sobremesas">
             <div ref={scrollDessertList}>
-              <AdminDishCard title="Salada Ravanello" visibility="not-visible" />
-              <AdminDishCard title="Peixe à Delícia" visibility="not-visible"/>
-              <AdminDishCard title="Salada Ravanello" visibility="not-visible"/>
-              <AdminDishCard title="Peixe à Delícia" visibility="not-visible"/>
-              <AdminDishCard title="Salada Ravanello" visibility="not-visible"/>
-              <AdminDishCard title="Peixe à Delícia" visibility="not-visible"/>
-              <AdminDishCard title="Salada Ravanello" visibility="not-visible"/>
-              <AdminDishCard title="Peixe à Delícia" visibility="not-visible"/>
+            {
+              dishes.map(dish => {
+                if(dish.category == "Refeições") {
+                  return (
+                    <AdminDishCard 
+                    key={String(dish.id)}
+                    data={dish}
+                    onClick={() => handleDetails(dish.id)}
+                    title={dish.title}
+                    value={dish.description}
+                    price={`R$ ${dish.price}`}
+                    type="text"
+                    visibility="not-visible"
+                    />
+                  )
+                }
+              })
+            }
             </div>
 
             <Arrow
@@ -144,14 +177,24 @@ const handlePrevDrinkList = () => {
 
           <Section title="Bebidas">
             <div ref={scrollDrinkList}>
-              <AdminDishCard title="Salada Ravanello" visibility="visible" />
-              <AdminDishCard title="Peixe à Delícia" visibility="visible"/>
-              <AdminDishCard title="Salada Ravanello" visibility="visible"/>
-              <AdminDishCard title="Peixe à Delícia" visibility="visible"/>
-              <AdminDishCard title="Salada Ravanello" visibility="visible"/>
-              <AdminDishCard title="Peixe à Delícia" visibility="visible"/>
-              <AdminDishCard title="Salada Ravanello" visibility="visible"/>
-              <AdminDishCard title="Peixe à Delícia" visibility="visible"/>
+            {
+              dishes.map(dish => {
+                if(dish.category == "Refeições") {
+                  return (
+                    <AdminDishCard 
+                    key={String(dish.id)}
+                    data={dish}
+                    onClick={() => handleDetails(dish.id)}
+                    title={dish.title}
+                    value={dish.description}
+                    price={`R$ ${dish.price}`}
+                    type="text"
+                    visibility="not-visible"
+                    />
+                  )
+                }
+              })
+            }
             </div>
 
             <Arrow

@@ -13,11 +13,16 @@ import { Button } from '../../components/Button';
 import { ButtonAmount } from '../../components/ButtonAmount';
 import { TextArea } from '../TextArea';
 
-export function AdminDishCard({ title, visibility }) {
+export function AdminDishCard({ title, key, value, price, data, visibility, ...rest }) {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const dishDescription = isMobile ? "" : <TextArea/>;
 
   const navigate = useNavigate();
+
+  function handleDetails(id) {
+    navigate(`/details/${id}`); //levando o usuário para a tela de details e mandando um parâmetro na rota
+  }
+
   function handleButtonDishEdit() {
     navigate("/edit/:id");
   }
@@ -32,14 +37,14 @@ export function AdminDishCard({ title, visibility }) {
               alt="Imagem de 'salada verde'."
             />
 
-            <button type="button" className="titleDishButton">
+            <button type="button" className="titleDishButton" onClick={() => handleDetails(key)}>
               <h2 className="titleDish">
                 {title}
                 <FiChevronRight />
               </h2>
             </button>
  
-            <p className="price">R$ 49,97</p>
+            <p className="price">{price}</p>
           
         </Content>
 
