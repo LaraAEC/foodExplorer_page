@@ -19,7 +19,7 @@ export function AdminDesktopHeader() {
   }
 
   function handleNewDishButton() { //função disparada com interação do usuário
-    navigation("/new"); //levando o usuário para a tela de criar novo prato
+    navigate("/new"); //levando o usuário para a tela de criar novo prato
   }
 
   return (
