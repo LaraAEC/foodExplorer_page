@@ -1,5 +1,6 @@
 import { Container, Content, Arrow } from './styles';
 import { useRef, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { api } from '../../../services/api';
 
@@ -27,7 +28,10 @@ export function AdminHome() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const imageUrl = isMobile ? MobileBannerPng : DesktopBannerPng;
 
+  const navigate = useNavigate();
+
   const [dishes, setDishes] = useState([]);
+
 
   const handlePrevMealList = () => {
     scrollMealList.current.scrollBy({
@@ -71,6 +75,10 @@ const handlePrevDrinkList = () => {
     });
   }
 
+  function handleDetails(id) {
+    navigate(`/details/${id}`); 
+  }
+
   useEffect(() => { 
     async function fetchDishes(){ 
       const response = await api.get("/dishes"); 
@@ -102,22 +110,20 @@ const handlePrevDrinkList = () => {
           <Section title="Refeições">  
             <div ref={scrollMealList}>
             {
-              dishes.map(dish => {
-                if(dish.category == "Refeições") {
-                  return (
-                    <AdminDishCard 
-                    key={String(dish.id)}
-                    data={dish}
-                    onClick={() => handleDetails(dish.id)}
-                    title={dish.title}
-                    value={dish.description}
-                    price={`R$ ${dish.price}`}
-                    type="text"
-                    visibility="not-visible"
-                    />
-                  )
-                }
-              })
+                dishes.filter(dish => dish.category === "Refeições").map(dish => (
+                  <AdminDishCard 
+                  key={String(dish.id)}
+                  data={dish}
+                  onClick={() => handleDetails(dish.id)}
+                  title={dish.title}
+                  value={dish.description}
+                  price={`R$ ${dish.price}`}
+                  type="text"
+                  visibility="not-visible"
+                  image={dish.photo}
+                  />
+                )
+              )
             } 
             </div>
 
@@ -134,29 +140,26 @@ const handlePrevDrinkList = () => {
             >
               <FiChevronRight />
             </Arrow>
-
           </Section>
 
           <Section title="Sobremesas">
             <div ref={scrollDessertList}>
             {
-              dishes.map(dish => {
-                if(dish.category == "Refeições") {
-                  return (
-                    <AdminDishCard 
-                    key={String(dish.id)}
-                    data={dish}
-                    onClick={() => handleDetails(dish.id)}
-                    title={dish.title}
-                    value={dish.description}
-                    price={`R$ ${dish.price}`}
-                    type="text"
-                    visibility="not-visible"
-                    />
-                  )
-                }
-              })
-            }
+                dishes.filter(dish => dish.category === "Sobremesas").map(dish => (
+                  <AdminDishCard 
+                  key={String(dish.id)}
+                  data={dish}
+                  onClick={() => handleDetails(dish.id)}
+                  title={dish.title}
+                  value={dish.description}
+                  price={`R$ ${dish.price}`}
+                  type="text"
+                  visibility="not-visible"
+                  image={dish.photo}
+                  />
+                )
+              )
+            } 
             </div>
 
             <Arrow
@@ -172,29 +175,26 @@ const handlePrevDrinkList = () => {
             >
               <FiChevronRight />
             </Arrow>
-
           </Section>
 
           <Section title="Bebidas">
             <div ref={scrollDrinkList}>
             {
-              dishes.map(dish => {
-                if(dish.category == "Refeições") {
-                  return (
-                    <AdminDishCard 
-                    key={String(dish.id)}
-                    data={dish}
-                    onClick={() => handleDetails(dish.id)}
-                    title={dish.title}
-                    value={dish.description}
-                    price={`R$ ${dish.price}`}
-                    type="text"
-                    visibility="not-visible"
-                    />
-                  )
-                }
-              })
-            }
+                dishes.filter(dish => dish.category === "Bebidas").map(dish => (
+                  <AdminDishCard 
+                  key={String(dish.id)}
+                  data={dish}
+                  onClick={() => handleDetails(dish.id)}
+                  title={dish.title}
+                  value={dish.description}
+                  price={`R$ ${dish.price}`}
+                  type="text"
+                  visibility="not-visible"
+                  image={dish.photo}
+                  />
+                )
+              )
+            } 
             </div>
 
             <Arrow

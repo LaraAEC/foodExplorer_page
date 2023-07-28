@@ -1,14 +1,13 @@
+import { useNavigate } from 'react-router-dom';
+
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 
+import { useMediaQuery } from 'react-responsive';
 
 import { Container, Content } from './styles';
 
 import LikeSvg from '../../assets/like.svg';
-import SaladSvg from '../../assets/salad.svg';
-
-import { useMediaQuery } from 'react-responsive';
 
 import { FiChevronRight } from 'react-icons/fi';
 
@@ -16,27 +15,28 @@ import { Button } from '../../components/Button';
 import { ButtonAmount } from '../../components/ButtonAmount';
 import { TextArea } from '../TextArea';
 
-export function UserDishCard({ title, key, value, price, data, visibility, readyOnly, ...rest  }) {
+export function UserDishCard({ title, onClick, value, price, data, visibility, readyOnly, image, ...rest  }) {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const dishDescription = isMobile ? "" : <TextArea/>;
 
+  const [imageDish, setImageDish] = useState(null);
+
   const navigate = useNavigate();
 
-  const [dishes, setDishes] = useState([]); //criando meu estado dos pratos e será um array
+  const [dishes, setDishes] = useState([]); 
 
   function handleDetails(id) {
-    navigate(`/details/${id}`); //levando o usuário para a tela de details e mandando um parâmetro na rota
+    navigate(`/details/${id}`); 
   }
 
-  useEffect(() => { //Buscando os pratos
-    async function fetchDishes(){ //buscando os pratos sem filtro 
-      const response = await api.get("/dishes"); //buscando no backend na rota '/notes', e enviando através de uma query o nome do title passando o conteúdo do search e as tags com o conteúdo das tags selecionadas
-      setDishes(response.data); //passando os dados da resposta do backend sobre os pratos
+    useEffect(() => {
+    async function fetchImageDish () {
+        if(image) {
+            setImageDish(`${api.defaults.baseURL}/files/${image}`);
+        }
     }
-
-    fetchDishes(); //executando a função acima declarada, foi declarada neste escopo pois só aqui será usada
-
-  }, []);
+    fetchImageDish();
+}, [image])
 
   return (
     <Container>
@@ -44,11 +44,11 @@ export function UserDishCard({ title, key, value, price, data, visibility, ready
         <Content>
             <img
               className="dish"
-              src={ SaladSvg }
-              alt="Imagem de 'salada verde'."
+              src={imageDish}
+              alt="Imagem do prato."
             />
 
-            <button type="button" className="titleDishButton" onClick={() => handleDetails(key)}>
+            <button type="button" className="titleDishButton" onClick={onClick}>
               <h2 className="titleDish">
                 {title}
                 <FiChevronRight />
@@ -68,8 +68,7 @@ export function UserDishCard({ title, key, value, price, data, visibility, ready
               }
             </div>
            
-
-            <p className="price" > {price} </p>
+            <p className="price"> {price} </p>
 
             <div className="wrapperAmountInclude">
               <div className="amount">

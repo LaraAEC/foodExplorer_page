@@ -12,12 +12,12 @@ import CloseSvg from '../../../assets/close.svg';
 
 
 export function AdminMenu() {
-  const { signOut } = useAuth(); //desestruturando a função de logout de dentro do meu contexto
+  const { signOut } = useAuth(); 
   const navigate = useNavigate();
 
-  function handleSignOut() { //função disparada com interação do usuário
-    navigate("/"); //levando o usuário para a tela inicial
-    signOut(); //deslogar o usuário
+  function handleSignOut() { 
+    navigate("/"); 
+    signOut(); 
   }
 
   function handleNewDish() {

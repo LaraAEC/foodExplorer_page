@@ -54,52 +54,19 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   max-width: 100%;
+  height:100vh;
   
-  display: flex;
-  flex-direction: column;
-
-  gap: 1.6rem;
-
-  align-items: center;
-  justify-content: center;
-
-  padding: 3.6rem 5.6rem;
-  padding-bottom: 0;
-
-  @media (min-width: 768px) {
-    padding-top: 6.6rem;
-    }
-
-  @media (min-width: 912px) {
-    padding: 8.6rem;
-    padding-bottom: 1rem;
-  }
-  
-  @media (min-width: 1024px) {
-    padding: 3.6rem;
-    padding-bottom: 1rem;
-  }
-
-  @media (min-width: 1280px) {
-    padding: 1rem;
-  }
-
-  @media (min-width: 1400px) {
-    padding: 0rem;
-  }
-
   > .box {
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 320px) {
-      width:24rem;
+    gap: 1.6rem;
 
-      gap: 1.6rem;
+    padding-bottom: 0;
+    width: 30rem;
 
-      align-items: center;
-      justify-content: center;
-    }
+    align-items: center;
+    justify-content: center;
 
     @media (min-width: 412px) {
       height:70rem;
@@ -112,20 +79,23 @@ export const Content = styled.div`
 
     @media (min-width: 768px) {
       height:100rem;
+      padding-top: 6.6rem;
     }
 
     @media (min-width: 912px) {
       height:115rem;
+      padding: 8.6rem;
+      padding-bottom: 1rem;
     }
 
     @media (min-width: 1024px) {
       display: flex;
       flex-direction: row;
 
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 2rem;
+      align-items: end;
 
+      gap: 5.6rem;
+    
       width: 100rem;
       height: 48rem;
     }
@@ -134,7 +104,9 @@ export const Content = styled.div`
       width: 110rem;
       height: 58rem;
 
+      padding: 1rem;
       padding-top: 0;
+      
     }
 
     @media (min-width: 1400px) {
@@ -142,9 +114,11 @@ export const Content = styled.div`
       height: 77rem;
 
       padding: 5.6rem;
+      padding: 0rem;
 
       align-items: center;
     }
+
 
   > .versionDesktopColumnOne {
     display: flex;

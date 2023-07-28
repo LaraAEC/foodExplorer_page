@@ -1,31 +1,39 @@
 import { useNavigate } from 'react-router-dom';
 
-import { Container, Content } from './styles';
-
-import EditSvg from '../../assets/edit.svg';
-import SaladSvg from '../../assets/salad.svg';
+import { useState, useEffect } from 'react';
+import { api } from '../../services/api';
 
 import { useMediaQuery } from 'react-responsive';
 
+import { Container, Content } from './styles';
+
+import EditSvg from '../../assets/edit.svg';
+
 import { FiChevronRight } from 'react-icons/fi';
 
-import { Button } from '../../components/Button';
-import { ButtonAmount } from '../../components/ButtonAmount';
 import { TextArea } from '../TextArea';
 
-export function AdminDishCard({ title, key, value, price, data, visibility, ...rest }) {
+
+export function AdminDishCard({ title, onClick, value, price, data, visibility, image, ...rest }) {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const dishDescription = isMobile ? "" : <TextArea/>;
 
-  const navigate = useNavigate();
+  const [imageDish, setImageDish] = useState(null);
 
-  function handleDetails(id) {
-    navigate(`/details/${id}`); //levando o usuário para a tela de details e mandando um parâmetro na rota
-  }
+  const navigate = useNavigate();
 
   function handleButtonDishEdit() {
     navigate("/edit/:id");
   }
+
+  useEffect(() => {
+    async function fetchImageDish () {
+        if(image) {
+            setImageDish(`${api.defaults.baseURL}/files/${image}`);
+        }
+    }
+    fetchImageDish();
+}, [image])
   
   return (
     <Container>
@@ -33,11 +41,11 @@ export function AdminDishCard({ title, key, value, price, data, visibility, ...r
         <Content>
             <img
               className="dish"
-              src={ SaladSvg }
-              alt="Imagem de 'salada verde'."
+              src={imageDish}
+              alt="Imagem do prato."
             />
 
-            <button type="button" className="titleDishButton" onClick={() => handleDetails(key)}>
+            <button type="button" className="titleDishButton" onClick={onClick}>
               <h2 className="titleDish">
                 {title}
                 <FiChevronRight />
@@ -51,7 +59,7 @@ export function AdminDishCard({ title, key, value, price, data, visibility, ...r
         <button type='button' className="pencil" onClick={handleButtonDishEdit}>
         <img
           src={ EditSvg }
-          alt="Imagem de 'coração de 'curtidas''."
+          alt="Imagem de um 'lápis''."
         />
 
         </button>

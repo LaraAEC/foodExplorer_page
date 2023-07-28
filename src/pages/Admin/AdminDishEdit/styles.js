@@ -54,6 +54,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   max-width: 100%;
+  height: 100vh;
   
   display: flex;
   flex-direction: column;
@@ -65,28 +66,6 @@ export const Content = styled.div`
 
   padding: 3.6rem 5.6rem;
   padding-bottom: 0;
-
-  @media (min-width: 768px) {
-    padding-top: 6.6rem;
-    }
-
-  @media (min-width: 912px) {
-    padding: 8.6rem;
-    padding-bottom: 1rem;
-  }
-  
-  @media (min-width: 1024px) {
-    padding-top: 3.6rem;
-    padding-bottom: 1rem;
-  }
-
-  @media (min-width: 1280px) {
-    padding: 1rem;
-  }
-
-  @media (min-width: 1400px) {
-    padding: 0rem;
-  }
 
   > form {
     display: flex;
@@ -101,26 +80,40 @@ export const Content = styled.div`
    
     width: 100%;
 
-    @media (min-width: 412px) {
-      height:70rem;
+     margin-top: 18rem;
+
+   @media (min-width: 390px) {
+      height: 80rem;
+      margin-top: 0rem;
     }
 
     @media (min-width: 500px) {
       align-items: start;
       justify-content: start;
+
+      height: 65rem;
     }
 
     @media (min-width: 768px) {
-      height:100rem;
+      height: 100rem;
+      margin-top: 4rem;
+    }
+
+    @media (min-width: 820px) {
+      height:115rem;
+      margin-top: 6rem;
+      width: 70rem;
+      padding: 0rem 8rem 0rem 8rem;  
     }
 
     @media (min-width: 912px) {
-      height:115rem;
+      width: 85rem;
+      margin-top: 2rem;
     }
 
     @media (min-width: 1024px) {
       width: 100rem;
-      height: 48rem;
+      height: 150rem;
       padding: 0rem 12rem 0rem 12rem;
     }
 
@@ -128,12 +121,28 @@ export const Content = styled.div`
       width: 110rem;
       height: 58rem;
 
-      padding-top: 0;
+      margin-top: 0;
+    }
+
+    @media (min-width: 1300px) {
+      width: 110rem;
+      height: 78rem;
+
+      margin-top: 0;
+    }
+
+    @media (min-width: 1360px) {
+      width: 120.0rem; 
+      height: 70rem;
+
+      padding: 5.6rem;
+
+      align-items: center;
     }
 
     @media (min-width: 1400px) {
       width: 120.0rem; 
-      height: 77rem;
+      height: 97rem;
 
       padding: 5.6rem;
 
@@ -255,6 +264,7 @@ export const Content = styled.div`
     }
 
       > .wrapperIngredients {
+        width: 100%;
           > .wrapperTags {
             display: flex;
             flex-wrap: wrap;
@@ -266,14 +276,11 @@ export const Content = styled.div`
             border-radius: 0.8rem;
 
             background: ${({ theme}) => theme.COLORS.BACKGROUND_800};
-        
-            > .span {
-            
-            }
 
             @media (min-width: 1024px) {
             margin-bottom: 3rem;
             padding-left: 0rem;
+            width: 100%;
             }
         }
 

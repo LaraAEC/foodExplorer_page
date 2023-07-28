@@ -16,12 +16,9 @@ border-radius: 1rem;
 padding-right: 1.6rem;
 
 @media (min-width: 768px) {
-  width: 30%;
+  width: 25%;
 }
 
-@media (min-width: 1024px) {
-  width: 23%;
-}
 
 > button {
   border: none;
@@ -40,19 +37,23 @@ padding-right: 1.6rem;
   width: 100%;
   padding: 1rem 1.6rem;
 
-  font-size: 14px;
+  font-size: 10px;
 
   color: ${({ theme }) => theme.COLORS.WHITE_100};
   background: transparent;
 
   font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
-  font-size: 16px;
+
   font-weight: 400;
   line-height: 100%;
 
   border: none;
 
   text-align:center;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+}
 
   &::placeholder {
     color: ${({ theme }) => theme.COLORS.GRAY_500};

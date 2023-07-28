@@ -1,8 +1,9 @@
+import { useState } from 'react'; 
+import { api } from "../../../services/api";
+
 import { Container, Content, DishImgInput } from './styles';
 
 import { FiChevronLeft, FiShare } from 'react-icons/fi';
-
-import SaladSvg from '../../../assets/salad.svg';
 
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +12,7 @@ import { AdminMobileHeader } from '../../../components/AdminMobileHeader';
 import { AdminDesktopHeader } from '../../../components/AdminDesktopHeader';
 
 import { ButtonText } from '../../../components/ButtonText';
-import { Tag } from '../../../components/Tag';
+import { Ingredient } from '../../../components/Ingredient';
 import { Footer } from '../../../components/Footer'; 
 import { Button } from '../../../components/Button';
 import { Input } from '../../../components/Input';
@@ -21,12 +22,25 @@ import { DishItem } from '../../../components/DishItem';
 export function AdminDishEdit() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  const dishImg = {SaladSvg};
+  const [ ingredients, setIngredients ] = useState([]); 
+  const [ newIngredient, setNewIngredient ] = useState(""); 
+
+  //const dishImg = {SaladSvg};
 
   const navigate = useNavigate();
   
-  function handleBack() { //funcionalidade de voltar com o botão 'voltar'
-    navigate(-1); //para ser usado no botão de voltar e colocar o usuário na rota anterior
+  function handleBack() { 
+    navigate(-1); 
+  }
+
+  function handleAddIngredient() { //funcionalidade que adiciona a nova Tag, digita pelo usuário, na lista de tags
+    setIngredients(prevState => [...prevState, newIngredient]); //Setando meu array estado tags - mantenho o que tinha antes, mais a nova Tag, e com o spread operator tudo fica dentro de um único array, mesmo nível
+    setNewIngredient("");//Após usar o estado newTag na linha superior, eu zero ele para receber depois outra Tag, sem acúmulo nesta linha.
+  }
+
+  function handleRemoveIngredient(deleted) { //funcionalidade para remover tag, recebe como parâmetro o tag que deseja remover
+    setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted)); //filtrando na lista de tags atual (atual = prevState) a partir do tag que quero deletar, refazer a lista com todos os itens que são diferentes do tag que estou deletando
+    //Tudo sendo feito dentro de setTags, pois ele já vai me devolver a nova lista
   }
 
   return (
@@ -96,44 +110,30 @@ export function AdminDishEdit() {
                   <p>Ingredientes</p>
                   <div className="wrapperTags">
                    
-                    < DishItem
-                      isNew={false}
-                      value={"Pão Naan"}
-                      //onChange={e => setNewTag(e.target.value)}
-                      //value={newTag}
-                      //onClick={handleAddTag}
-                    />
-
-                    < DishItem
-                      isNew={false}
-                      value={"Pão Naan"}
-                      //onChange={e => setNewTag(e.target.value)}
-                      //value={newTag}
-                      //onClick={handleAddTag}
-                    />
-
-                    < DishItem
-                      isNew={false}
-                      value={"Pão Naan"}
-                      //onChange={e => setNewTag(e.target.value)}
-                      //value={newTag}
-                      //onClick={handleAddTag}
-                    />
-
-                    < DishItem
-                      isNew
-                      placeholder="Adicionar"
-                      //onChange={e => setNewTag(e.target.value)}
-                      //value={newTag}
-                      //onClick={handleAddTag}
-                    />
-                    
+                  {
+                    ingredients.map((ingredient, index) => (
+                      <DishItem
+                        isNew={false}
+                        key={String(index)}
+                        value={ingredient}
+                        onClick={() => handleRemoveIngredient(ingredient)}
+                      />  
+                    ))
+                  }
+            
+                  <DishItem
+                    isNew={true}
+                    placeholder="Adicionar"
+                    onChange={e => setNewIngredient(e.target.value)}
+                    value={newIngredient}
+                    onClick={handleAddIngredient}
+                  />
                    
                   </div>
                 </div>
 
                 <div className="wrapperPrice">
-                  <label htmlFor="priceInput">Preço:</label>    
+                  <label htmlFor="priceInput">Preço(R$):</label>    
                   <Input
                   id="priceInput"
                   type="text"

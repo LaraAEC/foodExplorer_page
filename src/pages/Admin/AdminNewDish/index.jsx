@@ -1,4 +1,4 @@
-import { useState } from 'react'; //importando o hook de estado
+import { useState } from 'react'; 
 
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
@@ -40,7 +40,6 @@ export function AdminNewDish() {
   }
 
   async function handleCreateDish(){ //Função que envia os dados cadastrados do prato para a tabela Dishes
-    console.log(title, description, price, category, ingredients);
     
     if (!title) { 
       return alert("Precisa inserir um nome. Por favor, informe o nome do Prato.");
@@ -61,13 +60,17 @@ export function AdminNewDish() {
     if (newIngredient) { //se houver newTag retornar esse alerta, e o próprio return pára a função, e ele será dao se cair no if, e cai no if se tiver algo nesse input de tag e só vai haver se não tiver clicado no mais, pois quando clica ele zera o input correspondente.
       return alert("Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio.");
     }
-    await api.post("/dishes", { //fazendo um post na nossa api enviando para essa rota o objeto que quero mandar com todos itens que quero enviar para o BD 
-      title,
-      description,
-      price,
-      category,
-      ingredients,
-    });
+
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("category", category);
+    formData.append("price", price);
+    formData.append("ingredients", ingredients);
+    formData.append("description", description);
+    formData.append("photo", photoFile);
+
+    await api.post("/dishes", formData); //Passando os dados para a tabela dishes
 
     alert('Prato criado com sucesso!'); //em dando tudo certo dar alerta
 
@@ -85,12 +88,7 @@ export function AdminNewDish() {
     //Tudo sendo feito dentro de setTags, pois ele já vai me devolver a nova lista
   }
 
-  function handleChangePhoto(event) {
-    const file = event.target.files[0]; //colocando dentro dessa constante o arquivo que foi selecionado pelo usuário, extraindo ele do evento que foi capturado pelo onChange
-
-  }
-
-
+  
   return (
     <Container>
 
@@ -126,7 +124,7 @@ export function AdminNewDish() {
                       <input
                         id="dishImg"
                         type="file"
-                        onChange={handleChangePhoto}
+                        onChange={e => setPhotoFile(e.target.files[0])}
                       />
                     </label>
                   </DishImgInput>

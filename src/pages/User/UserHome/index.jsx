@@ -33,19 +33,9 @@ export function UserHome() {
 
   const navigate = useNavigate();
 
-  const [dishes, setDishes] = useState([]); //criando meu estado dos pratos e será um array
+  const [dishes, setDishes] = useState([]); 
 
-  useEffect(() => { //Buscando os pratos
-    async function fetchDishes(){ //buscando os pratos sem filtro 
-      const response = await api.get("/dishes"); //buscando no backend na rota '/notes', e enviando através de uma query o nome do title passando o conteúdo do search e as tags com o conteúdo das tags selecionadas
-      setDishes(response.data); //passando os dados da resposta do backend sobre os pratos
-    }
-
-    fetchDishes(); //executando a função acima declarada, foi declarada neste escopo pois só aqui será usada
-   
-  }, []);
-
-
+  
   const handlePrevMealList = () => {
     scrollMealList.current.scrollBy({
     left: -120,
@@ -88,6 +78,19 @@ const handlePrevDrinkList = () => {
     });
   }
 
+    function handleDetails(id) {
+    navigate(`/details/${id}`); 
+  }
+
+  useEffect(() => { 
+    async function fetchDishes(){ 
+      const response = await api.get("/dishes"); 
+      setDishes(response.data); 
+    }
+
+    fetchDishes();
+  }, []);
+
   return (
     <Container>
 
@@ -110,24 +113,22 @@ const handlePrevDrinkList = () => {
 
           <Section title="Refeições">  
             <div ref={scrollMealList}>
-              {
-                dishes.map(dish => {
-                  if(dish.category == "Refeições") {
-                    return ( 
-                      <UserDishCard
-                      key={String(dish.id)}
-                      data={dish}
-                      onClick={() => handleDetails(dish.id)}
-                      title={dish.title}
-                      value={dish.description}
-                      price={`R$ ${dish.price}`}
-                      type="text"
-                      visibility="not-visible"
-                      />
-                    )
-                  }
-                })   
-              }
+             {
+                dishes.filter(dish => dish.category === "Refeições").map(dish => (
+                  <UserDishCard 
+                  key={String(dish.id)}
+                  data={dish}
+                  onClick={() => handleDetails(dish.id)}
+                  title={dish.title}
+                  value={dish.description}
+                  price={`R$ ${dish.price}`}
+                  type="text"
+                  visibility="not-visible"
+                  image={dish.photo}
+                  />
+                )
+              )
+            } 
             </div>
 
             <Arrow
@@ -143,30 +144,26 @@ const handlePrevDrinkList = () => {
             >
               <FiChevronRight />
             </Arrow>
-
           </Section>
 
           <Section title="Sobremesas">
             <div ref={scrollDessertList}>
             {
-                dishes.map(dish => {
-                  if(dish.category == "Sobremesas") {
-                    return ( 
-                      <UserDishCard
-                      key={String(dish.id)}
-                      data={dish}
-                      onClick={() => handleDetails(dish.id)}
-                      title={dish.title}
-                      value={dish.description}
-                      price={`R$ ${dish.price}`}
-                      type="text"
-                      visibility="not-visible"
-                      />
-                    )
-
-                  }
-                })   
-              }
+                dishes.filter(dish => dish.category === "Sobremesas").map(dish => (
+                  <UserDishCard 
+                  key={String(dish.id)}
+                  data={dish}
+                  onClick={() => handleDetails(dish.id)}
+                  title={dish.title}
+                  value={dish.description}
+                  price={`R$ ${dish.price}`}
+                  type="text"
+                  visibility="not-visible"
+                  image={dish.photo}
+                  />
+                )
+              )
+            } 
             </div>
 
             <Arrow
@@ -182,30 +179,26 @@ const handlePrevDrinkList = () => {
             >
               <FiChevronRight />
             </Arrow>
-
           </Section>
 
           <Section title="Bebidas">
             <div ref={scrollDrinkList}>
             {
-                dishes.map(dish => {
-                  if(dish.category == "Bebidas") {
-                    return ( 
-                      <UserDishCard
-                      key={String(dish.id)}
-                      data={dish}
-                      onClick={() => handleDetails(dish.id)}
-                      title={dish.title}
-                      value={dish.description}
-                      price={`R$ ${dish.price}`}
-                      type="text"
-                      visibility="not-visible"
-                      />
-                    )
-
-                  }
-                })   
-              }
+                dishes.filter(dish => dish.category === "Bebidas").map(dish => (
+                  <UserDishCard 
+                  key={String(dish.id)}
+                  data={dish}
+                  onClick={() => handleDetails(dish.id)}
+                  title={dish.title}
+                  value={dish.description}
+                  price={`R$ ${dish.price}`}
+                  type="text"
+                  visibility="not-visible"
+                  image={dish.photo}
+                  />
+                )
+              )
+            } 
             </div>
 
             <Arrow
