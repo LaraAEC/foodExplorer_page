@@ -75,4 +75,4 @@ function useAuth() {
   return context; //retorno meu contexto selecionado já inicializado
 }
 
-export { AuthProvider, useAuth }; //exportando minha function
+export { AuthProvider, useAuth }; 

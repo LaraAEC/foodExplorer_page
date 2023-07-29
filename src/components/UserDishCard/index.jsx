@@ -1,19 +1,18 @@
-import { useNavigate } from 'react-router-dom';
-
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 
 import { useMediaQuery } from 'react-responsive';
 
 import { Container, Content } from './styles';
+import { Button } from '../../components/Button';
+import { TextArea } from '../TextArea';
 
 import LikeSvg from '../../assets/like.svg';
-
+import LessSvg from '../../assets/less.svg';
+import MoreSvg from '../../assets/more.svg';
 import { FiChevronRight } from 'react-icons/fi';
 
-import { Button } from '../../components/Button';
-import { ButtonAmount } from '../../components/ButtonAmount';
-import { TextArea } from '../TextArea';
 
 export function UserDishCard({ title, onClick, value, price, data, visibility, readyOnly, image, ...rest  }) {
   const isMobile = useMediaQuery({ maxWidth: 768 });
@@ -21,13 +20,47 @@ export function UserDishCard({ title, onClick, value, price, data, visibility, r
 
   const [imageDish, setImageDish] = useState(null);
 
+  const [total, setTotal] = useState(price);
+ 
+ 
   const navigate = useNavigate();
 
-  const [dishes, setDishes] = useState([]); 
 
-  function handleDetails(id) {
-    navigate(`/details/${id}`); 
+  let [ number, setNumber ] = useState(0);
+
+  function Decrement(number) {
+    if(number == 0) {
+      setNumber(number);
+    } else {
+      setNumber(number - 1);
+    }
+  };
+
+  function Increment(number) {
+    setNumber(number + 1);
+  };
+
+ function handleInclude(number, id, price) {
+    if (number === 0) {
+      alert("É necessário selecionar a quantidade de itens.");
+    } 
+    else {
+      const amount = number;
+      const priceAsNumber = parseFloat(price.replace("R$", ""));
+      const total = priceAsNumber * amount; 
+
+      setTotal(total); 
+
+      const includedItem = {
+        amount,
+        dish_id: data.id,
+        price,
+        total
+      };
+     console.log(includedItem); 
+    }
   }
+
 
     useEffect(() => {
     async function fetchImageDish () {
@@ -37,6 +70,7 @@ export function UserDishCard({ title, onClick, value, price, data, visibility, r
     }
     fetchImageDish();
 }, [image])
+
 
   return (
     <Container>
@@ -72,11 +106,23 @@ export function UserDishCard({ title, onClick, value, price, data, visibility, r
 
             <div className="wrapperAmountInclude">
               <div className="amount">
-                <ButtonAmount />
+                <div className="counter">
+                  <button onClick={() => Decrement(number)}>
+                    <img
+                      src={ LessSvg }
+                      alt="Imagem 'símbolo de subtração."
+                    />
+                  </button>
+                  <input readOnly value={number.toString().padStart(2, '0')} />
+                  <button onClick={() => Increment(number)}>
+                    <img
+                      src={ MoreSvg }
+                      alt="Imagem 'símbolo de adição."
+                      />
+                  </button>
+                </div>
               </div>
-
-              <Button title="incluir" />
-              
+              <Button title="incluir" onClick={() => handleInclude(number, data.id, price)} />
             </div>
           
         </Content>

@@ -19,6 +19,7 @@ export function ButtonAmount() {
     setNumber(number + 1);
   };
 
+
   return (
     <Container>
       <div className="counter">

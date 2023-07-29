@@ -27,13 +27,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 )
 
 
-// Notas gerais deste arquivo:
-// Aqui é meu arquivo js principal onde faço toda a lógica de alternância da SPA acontecer.
-// Importo meus React e ReactDOM, este para usarmos a manipulação de elementos (DOM).
-// Importo Default (e por isso dei o nome que quis) minhas configurações CSS comuns da Aplicação da pasta styles.
-// Importo Default (e por isso dei o nome que quis) meu TEMA (paleta de cores) codada em CSS, que é comum em toda a Aplicação, da pasta styles.
-// Importei a página Details, e farei isso com todas as demais.
-// Manipulo com o ReactDOM os meus elementos HTML para inserção de conteúdo.
-// Uso a tag <React.StrictMode> do React.
-// Uso o tema de cores englobando tudo, e depois o CSS geral englobando o resto.
-// Insiro as páginas que irão alternar

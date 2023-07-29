@@ -47,6 +47,7 @@ export function UserDesktopHeader() {
           />
           <button className="orderButtonButton"
           type="button"
+          //onClick={handleButtonReceipt}
           >
             <p>Pedidos (0)</p>
           </button> 

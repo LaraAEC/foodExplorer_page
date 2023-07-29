@@ -141,6 +141,7 @@ export const Content = styled.div`
   }
 
   .wrapperAmountInclude {
+  
     display:flex;
     flex-direction: column;
 
@@ -163,6 +164,39 @@ export const Content = styled.div`
 
       width: 10.0rem;
       height: 3.2rem;
+
+
+      > .counter {
+        display: flex;
+
+        button {
+        border: none;
+        background: transparent;
+
+        > img {
+          width: 2rem;
+          height: 2rem;
+        }
+        }
+
+        > input {
+          color: ${({ theme }) => theme.COLORS.WHITE_300};
+          font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+          font-weight: 400;
+          font-size: 1.6rem;
+
+          width: 4rem;
+          height: 2rem;
+
+          display: flex;
+          align-items: center;
+
+          text-align: center;
+
+          border: none;
+          background: transparent;
+        }
+      }
     }
 
     > button {
