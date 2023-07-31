@@ -21,6 +21,8 @@ export function UserDishCard({ title, onClick, value, price, data, visibility, r
   const [imageDish, setImageDish] = useState(null);
 
   const [total, setTotal] = useState(price);
+
+  const [cart, setCart] = useState([]);
  
  
   const navigate = useNavigate();
@@ -57,10 +59,14 @@ export function UserDishCard({ title, onClick, value, price, data, visibility, r
         price,
         total
       };
-     console.log(includedItem); 
+     console.log(includedItem);
+    
+   
     }
+    
   }
 
+  
 
     useEffect(() => {
     async function fetchImageDish () {

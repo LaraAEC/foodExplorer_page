@@ -22,7 +22,6 @@ import { UserDishCard } from '../../../components/UserDishCard';
 import { Footer } from '../../../components/Footer'; 
 
 
-
 export function UserHome() {
  
   const scrollMealList = useRef(null);
@@ -36,7 +35,27 @@ export function UserHome() {
 
   const [dishes, setDishes] = useState([]); 
 
-  
+  const [searchQuery, setSearchQuery] = useState(''); // Novo estado para armazenar a busca
+
+  const handleSearch = (query) => {
+    setSearchQuery(query); // Atualiza o estado com o valor da busca
+  };
+
+
+
+// Filtrar pratos com base na busca feita no header
+useEffect(() => { 
+  async function fetchDishes(){ 
+    const response = await api.get(`/dishes?title=${searchQuery}`); 
+    setDishes(response.data); 
+  }
+
+  fetchDishes(); 
+
+}, [searchQuery]);
+
+
+ 
   const handlePrevMealList = () => {
     scrollMealList.current.scrollBy({
     left: -120,
@@ -92,11 +111,13 @@ const handlePrevDrinkList = () => {
     fetchDishes();
   }, []);
 
+
+
   return (
 
       <Container>
 
-        {isMobile ? <UserMobileHeader /> : <UserDesktopHeader />}
+        {isMobile ? <UserMobileHeader /> : <UserDesktopHeader onSearch={handleSearch}/>}
 
         <main>
 

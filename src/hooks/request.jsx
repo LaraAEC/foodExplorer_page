@@ -1,11 +1,17 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
+
+import { useAuth } from '../hooks/auth';
+
+import { api } from '../services/api';
 
 // Crie o contexto
-const DishContext = createContext();
+const RequestContext = createContext();
+
 
 // Crie o provedor do contexto
-export function DishProvider({ children }) {
-  
+export function RequestProvider({ children }) {
+ 
+  const { user } = useAuth();
   
   let [ number, setNumber ] = useState(0);
 
@@ -45,18 +51,22 @@ export function DishProvider({ children }) {
 
   }
 
+  
+
   // Passe o estado e as funções relevantes através do contexto
   const contextValue = {
-   
-    number
+    number,
+    Decrement,
+    Increment,
+    handleInclude
   
   };
 
   return (
-    <DishContext.Provider value={contextValue}>
+    <RequestContext.Provider value={contextValue}>
       {children}
-    </DishContext.Provider>
+    </RequestContext.Provider>
   );
 }
 
-export default DishContext;
+export default RequestContext;

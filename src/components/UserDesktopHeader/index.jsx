@@ -1,5 +1,8 @@
+import { useState, useEffect } from 'react';
+import{ useParams, useNavigate } from 'react-router-dom';
+
+import { api } from '../../services/api';
 import { useAuth } from '../../hooks/auth';
-import{ useNavigate } from 'react-router-dom';
 
 import { Container, Search } from './styles';
 
@@ -9,13 +12,24 @@ import SearchSvg from '../../assets/search.svg';
 import SignOutSvg from '../../assets/signOut.svg';
 
 
-export function UserDesktopHeader() {
-  const { signOut } = useAuth(); //desestruturando a função de logout de dentro do meu contexto
+export function UserDesktopHeader({onSearch}) {
+  const { signOut } = useAuth(); 
   const navigate = useNavigate();
 
-  function handleSignOut() { //função disparada com interação do usuário
-    navigate("/"); //levando o usuário para a tela inicial
-    signOut(); //deslogar o usuário
+  const [dishes, setDishes] = useState([]); //criando meu estado das notas e será um array
+  const [ingredients, setIngredients] = useState([]); //criando estado que recebe os ingredients digitados pelo usuário
+  
+  const [searchQuery, setSearchQuery] = useState(""); //criando meu estado que recebe o conteúdo digitado no input de pesquisa
+
+  const handleSearchChange = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query); // Atualiza o estado com o valor da busca
+    onSearch(query); // Chama a prop onSearch passando o valor da busca como argumento
+  };
+
+  function handleSignOut() { 
+    navigate("/"); 
+    signOut(); 
   }
 
   return (
@@ -35,8 +49,10 @@ export function UserDesktopHeader() {
             alt="Imagem de 'lupa'."
           />
           <Search
+            type="text"
             placeholder="Busque por pratos ou ingredientes"
-            //onChange={(e) => setSearch(e.target.value)}
+            value={searchQuery}
+            onChange={handleSearchChange}
           />
         </div>
         

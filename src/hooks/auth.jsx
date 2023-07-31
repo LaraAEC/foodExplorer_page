@@ -15,7 +15,7 @@ function AuthProvider({ children }) {
       const response = await api.post("/sessions", { email, password }); //enviando os dados para o BD e guardando sua resposta nesta constante
       const { user, token } = response.data; //desestruturando de dentro da response somente o que me interessa
 
-      localStorage.setItem("@rocketfood:user", JSON.stringify(user)); // definindo um novo conteúdo dentro do meu local storage, passando o nome da chave e seu valor, e já transforamndo com o stringfy o user de objeto para texto para poder ser lido e guardado no LocalStorage do navegador
+      localStorage.setItem("@rocketfood:user", JSON.stringify(user)); // definindo um novo conteúdo dentro do meu local storage, passando o nome da chave e seu valor, e já transformando com o stringify o user de objeto para texto para poder ser lido e guardado no LocalStorage do navegador
       localStorage.setItem("@rocketfood:token", token);// definindo um novo conteúdo dentro do meu local storage, passando o nome da chave e seu valor. Como o token já é texto  não preciso fazer nenhum parse.
 
 
@@ -29,7 +29,6 @@ function AuthProvider({ children }) {
       } else{
           alert("Não foi possível entrar.");
       }
-
     } 
   }
 
