@@ -38,23 +38,13 @@ export function UserHome() {
   const [searchQuery, setSearchQuery] = useState(''); // Novo estado para armazenar a busca
 
   const handleSearch = (query) => {
-    setSearchQuery(query); // Atualiza o estado com o valor da busca
+    if (query.startsWith('@')) {
+      const ingredientsQuery = query.substring(1).trim().split(',');
+      setSearchQuery({ title: '', ingredients: ingredientsQuery });
+    } else {
+      setSearchQuery({ title: query, ingredients: [] });
+    }
   };
-
-
-
-// Filtrar pratos com base na busca feita no header
-useEffect(() => { 
-  async function fetchDishes(){ 
-    const response = await api.get(`/dishes?title=${searchQuery}`); 
-    setDishes(response.data); 
-  }
-
-  fetchDishes(); 
-
-}, [searchQuery]);
-
-
  
   const handlePrevMealList = () => {
     scrollMealList.current.scrollBy({
@@ -102,14 +92,46 @@ const handlePrevDrinkList = () => {
     navigate(`/details/${id}`); 
   }
 
-  useEffect(() => { 
-    async function fetchDishes(){ 
-      const response = await api.get("/dishes"); 
-      setDishes(response.data); 
+  // Função para buscar os pratos
+  async function fetchDishes() {
+    let url = '/dishes';
+    const queryParams = [];
+  
+    if (searchQuery.title) {
+      queryParams.push(`title=${searchQuery.title}`);
+    }
+  
+    if (searchQuery.ingredients.length > 0) {
+      const ingredientsQuery = searchQuery.ingredients.join(',');
+      queryParams.push(`ingredients=${ingredientsQuery}`);
+    }
+  
+    if (queryParams.length > 0) {
+      url += `?${queryParams.join('&')}`;
+    }
+  
+    const response = await api.get(url);
+    setDishes(response.data);
+  }
+  
+
+  // useEffect para buscar os pratos iniciais sem filtro
+  useEffect(() => {
+  
+    async function fetchInitialDishes() {
+      const response = await api.get("/dishes");
+      setDishes(response.data);
     }
 
-    fetchDishes();
+    fetchInitialDishes();
   }, []);
+
+  // useEffect para buscar os pratos filtrados por título e/ou ingredientes
+  useEffect(() => {
+    if (searchQuery.ingredients !== undefined) {
+      fetchDishes(); // Chama a função para buscar os pratos filtrados
+    }
+  }, [searchQuery]); // O useEffect será executado sempre que o searchQuery mudar
 
 
 
