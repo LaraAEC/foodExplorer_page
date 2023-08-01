@@ -1,12 +1,15 @@
-import { useState } from 'react'; 
+import { useState, useEffect } from 'react'; 
+import { useParams, useNavigate } from 'react-router-dom';
+import { useAuth } from "../../../hooks/auth";
 import { api } from "../../../services/api";
 
-import { Container, Content, DishImgInput } from './styles';
-
-import { FiChevronLeft, FiShare } from 'react-icons/fi';
+import { toast } from "react-toastify";
+import { ThreeCircles } from "react-loader-spinner";
 
 import { useMediaQuery } from 'react-responsive';
-import { useNavigate } from 'react-router-dom';
+import { FiChevronLeft, FiShare } from 'react-icons/fi';
+
+import { Container, Content, DishImgInput } from './styles';
 
 import { AdminMobileHeader } from '../../../components/AdminMobileHeader';
 import { AdminDesktopHeader } from '../../../components/AdminDesktopHeader';
@@ -22,26 +25,110 @@ import { DishItem } from '../../../components/DishItem';
 export function AdminDishEdit() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
+  const { isLoading, setIsLoading } = useAuth();
+
+  const [data, setData] = useState(null);
+  const [image, setImage] = useState(null);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+
+  const [category, setCategory] = useState("Refeição");
+
   const [ ingredients, setIngredients ] = useState([]); 
   const [ newIngredient, setNewIngredient ] = useState(""); 
 
-  //const dishImg = {SaladSvg};
-
   const navigate = useNavigate();
+  const params = useParams();
   
   function handleBack() { 
     navigate(-1); 
   }
 
-  function handleAddIngredient() { //funcionalidade que adiciona a nova Tag, digita pelo usuário, na lista de tags
-    setIngredients(prevState => [...prevState, newIngredient]); //Setando meu array estado tags - mantenho o que tinha antes, mais a nova Tag, e com o spread operator tudo fica dentro de um único array, mesmo nível
-    setNewIngredient("");//Após usar o estado newTag na linha superior, eu zero ele para receber depois outra Tag, sem acúmulo nesta linha.
+  function handleAddIngredient() {
+    if(!newIngredient) {
+      return toast.error("Não é possível adicionar campo vazio.", {
+        position: toast.POSITION.TOP_RIGHT
+      })
+    }
+    setIngredients(prevState => [...prevState, newIngredient]);
+
+    setNewIngredient("");
   }
 
-  function handleRemoveIngredient(deleted) { //funcionalidade para remover tag, recebe como parâmetro o tag que deseja remover
-    setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted)); //filtrando na lista de tags atual (atual = prevState) a partir do tag que quero deletar, refazer a lista com todos os itens que são diferentes do tag que estou deletando
-    //Tudo sendo feito dentro de setTags, pois ele já vai me devolver a nova lista
+  function handleRemoveIngredient(deleted) {
+    setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted))
   }
+
+
+  async function handleDeleteDish () {
+    const confirm = window.confirm("Tem certeza que deseja excluir o prato ?");
+
+    if(confirm) {
+      setIsLoading(true);
+      await api.delete(`/dishes/${params.id}`);
+      setIsLoading(false);
+      navigate("/");
+    }
+  }
+
+  async function handleSaveDish () {
+    const formData = new FormData();
+
+    if(!image) {
+      return toast.error("Adicione uma nova imagem para o prato.", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+
+    if(!title || !price || !description || !ingredients ){
+      return toast.error("Preencha todos os campos para criar o prato.", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+    
+    if(newIngredient) {
+      return toast.error("Você deixou o campo de ingrediente incompleto, finalize ou apague o conteúdo para adicionar o ingrediente.", {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
+
+    formData.append("title", title);
+    formData.append("category", category);
+    formData.append("price", price);
+    //formData.append("ingredients", ingredients);
+    formData.append("description", description);
+    formData.append("photo", image);
+
+    try{
+      setIsLoading(true);
+      await api.put(`/dishes/${params.id}`, formData);
+      setIsLoading(false);
+      toast.success("Prato atualizado com sucesso.", {
+        position: toast.POSITION.TOP_CENTER
+      });
+      navigate("/");
+
+    } catch (error){
+      setIsLoading(false);
+      toast.error("Não foi possível atualizar o prato.", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
+
+  useEffect(() => {
+    async function fetchDishes () {
+      setIsLoading(true);
+      const response = await api.get(`/dishes/${params.id}`);
+      setData(response.data);
+      setIsLoading(false);
+    }
+
+    fetchDishes();
+  }, []);
+
+
 
   return (
     <Container>
@@ -51,6 +138,8 @@ export function AdminDishEdit() {
       <main>
 
         <Content>
+        {
+        data &&
           <form>
             
               <div className="wrapperBack">
@@ -64,7 +153,7 @@ export function AdminDishEdit() {
               <div className="wrapperTitle">
                 <h2>Editar Prato</h2>
               </div>
-
+              
               <div className="rowVersionDesktopOne">
                 <div className="selectImg">
                   <p>Imagem do prato</p>
@@ -78,7 +167,7 @@ export function AdminDishEdit() {
                       <input
                         id="dishImg"
                         type="file"
-                        //onChange={handleChangeAvatar}
+                        onChange={e => setImage(e.target.files[0])}
                       />
                     </label>
                   </DishImgInput>
@@ -89,27 +178,28 @@ export function AdminDishEdit() {
                   <Input
                   id="dishInput"
                   type="text"
-                  placeholder="Exemplo: Salada Ceasar" 
-                  onChange={e => setDish(e.target.value)}
+                  placeholder={data.title}
+                  onChange={e => setTitle(e.target.value)}
                   /> 
                 </div>
 
                 <div className="wrapperCategory">
                   <label htmlFor="categorySelect">Categoria:</label>
-                  <select id="categorySelect">
+                  <select id="categorySelect"  onChange={e => setCategory(e.target.value)}>
                   <option value="meals">Refeições</option>
                   <option value="desserts">Sobremesas</option>
                   <option value="drinks">Bebidas</option>
                   </select>
                 </div>
-                
+
               </div>
              
               <div className="rowVersionDesktopTwo">
                 <div className="wrapperIngredients">
-                  <p>Ingredientes</p>
-                  <div className="wrapperTags">
-                   
+                  <label htmlFor="ingredients">Ingredientes</label>
+                  {
+                    data.ingredients &&
+                    <div className="wrapperTags" id="ingredients">
                   {
                     ingredients.map((ingredient, index) => (
                       <DishItem
@@ -127,30 +217,31 @@ export function AdminDishEdit() {
                     onChange={e => setNewIngredient(e.target.value)}
                     value={newIngredient}
                     onClick={handleAddIngredient}
-                  />
-                   
+                  /> 
                   </div>
+                  }
+                  
                 </div>
 
                 <div className="wrapperPrice">
                   <label htmlFor="priceInput">Preço(R$):</label>    
                   <Input
                   id="priceInput"
-                  type="text"
-                  placeholder="R$ 40,00" 
-                  onChange={e => setDish(e.target.value)}
+                  type="number"
+                  placeholder={`R$ ${data.price}`}
+                  onChange={e => setPrice(e.target.value)}
                   /> 
                 </div>
               
               </div>
 
               <div className="wrapperDescription">
-              <p>Descrição</p>
+              <label htmlFor="textarea">Descrição</label>
                 <textarea
                   type="text"
-                  //value=""
+                  id="textarea" 
                   readOnly={false}
-                  placeholder="A Salada César é uma opção refrescante para o verão."
+                  placeholder={data.description}
                   onChange={e => setDescription(e.target.value)}>
                 </textarea>
                 
@@ -159,13 +250,16 @@ export function AdminDishEdit() {
               <div className="buttonSaveOrDelete">
                 <Button className="buttonExclude"
                 title="Excluir prato"
+                onClick={handleDeleteDish}
                 />
                 <Button
                 title="Salvar alterações"
+                onClick={handleSaveDish}
                 />
               </div>
-
+        
           </form>
+        }
         </Content>
     
       </main>

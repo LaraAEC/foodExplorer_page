@@ -50,7 +50,7 @@ export function UserDesktopHeader({onSearch}) {
           />
           <Search
             type="text"
-            placeholder="Busque por pratos ou ingredientes"
+            placeholder="Busque por pratos ou ingredientes(@ingrediente)"
             value={searchQuery}
             onChange={handleSearchChange}
           />

@@ -103,7 +103,7 @@ export const Container = styled.header`
 `;
 
 export const Search = styled.input`
-  width: 45%;
+  width: 85%;
 
   font-size: 1.6rem;
   font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};

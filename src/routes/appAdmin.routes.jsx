@@ -9,8 +9,6 @@ import { AdminMenu } from '../pages/Admin/AdminMenu';
 
 
 export function AppAdminRoutes() {
-  
-
   return (
     <Routes>
 

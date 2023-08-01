@@ -2,18 +2,22 @@ import { createContext, useContext, useState, useEffect } from 'react'; //import
 
 import { api } from '../services/api'; //importando minha api backend
 
+import { toast } from "react-toastify";
 
 const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
   const [data, setData] = useState({}); //criando um estado chamado de dados, de data, como um objeto vazio inicialmente
-
+  const [dataDishes, setDishes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function signIn({ email, password }) { //função de verificação de autenticação dos dados email e password
 
     try { //enviando os dados para o BD e guardando sua resposta nesta constante
+      setIsLoading(true);
       const response = await api.post("/sessions", { email, password }); //enviando os dados para o BD e guardando sua resposta nesta constante
       const { user, token } = response.data; //desestruturando de dentro da response somente o que me interessa
+      setIsLoading(false);
 
       localStorage.setItem("@rocketfood:user", JSON.stringify(user)); // definindo um novo conteúdo dentro do meu local storage, passando o nome da chave e seu valor, e já transformando com o stringify o user de objeto para texto para poder ser lido e guardado no LocalStorage do navegador
       localStorage.setItem("@rocketfood:token", token);// definindo um novo conteúdo dentro do meu local storage, passando o nome da chave e seu valor. Como o token já é texto  não preciso fazer nenhum parse.
@@ -23,13 +27,23 @@ function AuthProvider({ children }) {
       setData({ user, token }); //configurando, atualizando, alterando meu estado data para os valores de user e token acima desestruturados
 
 
-    } catch (error) {
-      if(error.response) {
-        alert(error.response.data.message);
-      } else{
-          alert("Não foi possível entrar.");
+      toast.success(`Bem vindo(a), ${user.name}!` , {
+        position: toast.POSITION.TOP_CENTER
+      });
+
+
+    } catch (error)  {
+      setIsLoading(false);
+      if (error.response){
+        toast.error(`${error.response.data.message}` , {
+          position: toast.POSITION.TOP_RIGHT
+        });
+      } else {
+        toast.error("Não foi possível entrar.", {
+          position: toast.POSITION.TOP_RIGHT
+        });
       }
-    } 
+    }
   }
 
   function signOut() { //função de fazer logout da page Home, da minha Aplicação
@@ -56,11 +70,22 @@ function AuthProvider({ children }) {
 
   }, []);
 
+  async function fetchDishes () {
+    setIsLoading(true);
+    const responseDish = await api.get("/dishes");
+    setIsLoading(false);
+    setDishes(responseDish.data);
+  }
+
   return (
     <AuthContext.Provider value={{
       signIn,
       signOut,
-      user: data.user
+      fetchDishes,
+      user: data.user,
+      dataDishes,
+      isLoading,
+      setIsLoading
       }}
       > 
       {children} 
