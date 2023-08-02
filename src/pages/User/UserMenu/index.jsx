@@ -1,17 +1,36 @@
+import { useState, useEffect } from 'react';
+import { api } from '../../../services/api';
+
 import { useAuth } from '../../../hooks/auth';
 import{ useNavigate } from 'react-router-dom';
 
-import { Container } from './styles';
-
+import CloseSvg from '../../../assets/close.svg';
 import { FiSearch } from 'react-icons/fi';
 
+import { Container } from './styles';
 import { Footer } from '../../../components/Footer'; 
 import { Input } from '../../../components/Input';
-
-import CloseSvg from '../../../assets/close.svg';
+import { UserDishCard } from '../../../components/UserDishCard'; 
 
 
 export function UserMenu() {
+  const [search, setSearch] = useState("")
+  const [dishes, setDishes] = useState([])
+
+  useEffect(() => {
+    if (search.length > 0) {
+    async function fetchDishes() {
+      const response = await api.get(`/dishes?title=${search}&ingredients=${search}`);
+      setDishes(response.data);
+    }
+
+    fetchDishes();
+  } else {
+    setDishes(false)
+  }
+  }, [search]);
+
+
   const { signOut } = useAuth(); //desestruturando a função de logout de dentro do meu contexto
     const navigate = useNavigate();
   
@@ -47,8 +66,30 @@ export function UserMenu() {
             placeholder="Busque por pratos ou ingredientes"
             type="text"
             icon={FiSearch}
-            //onChange={e => setEmail(e.target.value)} // capturando a mudança no 'e' e colocando o valor dela no método que configura estado como parâmetro e executando ele
-          /> 
+            onChange={e => setSearch(e.target.value)}
+              /> 
+              
+        <div className="dish-list">
+          <ul>
+              {dishes &&
+                dishes.map(dish => {
+                  return (
+                  <UserDishCard 
+                    key={String(dish.id)}
+                    data={dish}
+                    onClick={() => handleDetails(dish.id)}
+                    title={dish.title}
+                    value={dish.description}
+                    price={`R$ ${dish.price}`}
+                    type="text"
+                    visibility="not-visible"
+                    image={dish.photo} />
+                  )
+                })
+              }
+            </ul>
+        </div>
+
          <button className="buttonSignOut"
           type="button"
           onClick={handleSignOut}>

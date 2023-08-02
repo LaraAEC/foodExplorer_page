@@ -4,14 +4,13 @@ import { api } from '../../../services/api';
 import { useAuth } from '../../../hooks/auth';
 import{ useNavigate } from 'react-router-dom';
 
-import { Container } from './styles';
-
 import { FiSearch } from 'react-icons/fi';
+import CloseSvg from '../../../assets/close.svg';
 
+import { Container } from './styles';
 import { Footer } from '../../../components/Footer'; 
 import { Input } from '../../../components/Input';
-
-import CloseSvg from '../../../assets/close.svg';
+import { AdminDishCard } from '../../../components/AdminDishCard'; 
 
 
 export function AdminMenu() {
@@ -24,7 +23,6 @@ export function AdminMenu() {
       const response = await api.get(`/dishes?title=${search}&ingredients=${search}`);
       setDishes(response.data);
     }
-
     fetchDishes();
   } else {
     setDishes(false)
@@ -72,17 +70,27 @@ export function AdminMenu() {
             icon={ FiSearch }
             onChange={e => setSearch(e.target.value)} 
           />
-
-          <ul>
+          
+         <div className="dish-list">
+         <ul>
             {dishes &&
               dishes.map(dish => {
                 return (
-                <AdminDishCard key={dish.id} price={dish.price} title={dish.title} />
+                <AdminDishCard 
+                  key={String(dish.id)}
+                  data={dish}
+                  onClick={() => handleDetails(dish.id)}
+                  title={dish.title}
+                  value={dish.description}
+                  price={`R$ ${dish.price}`}
+                  type="text"
+                  visibility="not-visible"
+                  image={dish.photo} />
                 )
               })
             }
           </ul>
-
+         </div>
 
           <button className="buttonNewDish"
           type="button"

@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,7 +12,6 @@ export const Container = styled.div`
   max-width: 42.8rem;
 
   margin: 0 auto;
-
 
   > .closeMenu {
     display: flex;
@@ -46,7 +43,6 @@ export const Container = styled.div`
     border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
    }
   }
- 
  
   .page {
     width: 100%;
@@ -89,6 +85,17 @@ export const Container = styled.div`
 
       color: ${({ theme }) => theme.COLORS.WHITE_300};
    }
+
+   > .dish-list{
+      display: flex;
+      justify-content: center;
+      
+      > ul {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }  
+    }  
   }
 `;
 
