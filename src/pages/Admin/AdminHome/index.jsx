@@ -30,35 +30,43 @@ export function AdminHome() {
 
   const navigate = useNavigate();
 
-  const [dishes, setDishes] = useState([]);
+  const [dishes, setDishes] = useState([]); 
+  const [search, setSearch] = useState("");
 
+  useEffect(() => {
+    async function fetchDishes() {
+      const response = await api.get(`/dishes?title=${search}&ingredients=${search}`);
+      setDishes(response.data);
+    }
+    fetchDishes();
+  }, [search]);
 
   const handlePrevMealList = () => {
     scrollMealList.current.scrollBy({
     left: -120,
     behavior: 'smooth'
   });
-}
+  }
 
-const handleNextMealList = () => {
-    scrollMealList.current.scrollBy({
-    left: 120,
-    behavior: 'smooth'
-  });
-}
-
-const handlePrevDrinkList = () => {
-    scrollDrinkList.current.scrollBy({
-      left: -120,
+  const handleNextMealList = () => {
+      scrollMealList.current.scrollBy({
+      left: 120,
       behavior: 'smooth'
     });
   }
 
+  const handlePrevDrinkList = () => {
+      scrollDrinkList.current.scrollBy({
+        left: -120,
+        behavior: 'smooth'
+      });
+  }
+
   const handleNextDrinkList = () => {
-    scrollDrinkList.current.scrollBy({
-      left: 120,
-      behavior: 'smooth'
-    });
+      scrollDrinkList.current.scrollBy({
+        left: 120,
+        behavior: 'smooth'
+      });
   }
 
   const handlePrevDessertList = () => {
@@ -79,19 +87,11 @@ const handlePrevDrinkList = () => {
     navigate(`/details/${id}`); 
   }
 
-  useEffect(() => { 
-    async function fetchDishes(){ 
-      const response = await api.get("/dishes"); 
-      setDishes(response.data); 
-    }
-
-    fetchDishes();
-  }, []);
 
   return (
     <Container>
 
-      {isMobile ? <AdminMobileHeader /> : <AdminDesktopHeader />}
+      {isMobile ? <AdminMobileHeader /> : <AdminDesktopHeader onChange={e => setSearch(e.target.value)} />}
 
       <main>
 

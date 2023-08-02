@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   position: relative;
   border: none;
+  max-width: 28rem;
+  border-radius: 8px;
  
   background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 

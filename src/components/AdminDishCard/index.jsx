@@ -22,8 +22,8 @@ export function AdminDishCard({ title, onClick, value, price, data, visibility, 
 
   const navigate = useNavigate();
 
-  function handleButtonDishEdit() {
-    navigate("/edit/:id");
+  function handleButtonDishEdit(id) {
+    navigate(`/edit/${id}`);
   }
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export function AdminDishCard({ title, onClick, value, price, data, visibility, 
           
         </Content>
 
-        <button type='button' className="pencil" onClick={handleButtonDishEdit}>
+        <button type='button' className="pencil" onClick={() => handleButtonDishEdit(data.id)}>
         <img
           src={ EditSvg }
           alt="Imagem de um 'lápis''."

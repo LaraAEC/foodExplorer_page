@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react';
-import{ useParams, useNavigate } from 'react-router-dom';
+import{ useNavigate } from 'react-router-dom';
 
-import { api } from '../../services/api';
 import { useAuth } from '../../hooks/auth';
 
 import { Container, Search } from './styles';
@@ -12,20 +10,10 @@ import SearchSvg from '../../assets/search.svg';
 import SignOutSvg from '../../assets/signOut.svg';
 
 
-export function UserDesktopHeader({onSearch}) {
+export function UserDesktopHeader({ onChange }) {
   const { signOut } = useAuth(); 
   const navigate = useNavigate();
 
-  const [dishes, setDishes] = useState([]); //criando meu estado das notas e será um array
-  const [ingredients, setIngredients] = useState([]); //criando estado que recebe os ingredients digitados pelo usuário
-  
-  const [searchQuery, setSearchQuery] = useState(""); //criando meu estado que recebe o conteúdo digitado no input de pesquisa
-
-  const handleSearchChange = (event) => {
-    const query = event.target.value;
-    setSearchQuery(query); // Atualiza o estado com o valor da busca
-    onSearch(query); // Chama a prop onSearch passando o valor da busca como argumento
-  };
 
   function handleSignOut() { 
     navigate("/"); 
@@ -50,9 +38,8 @@ export function UserDesktopHeader({onSearch}) {
           />
           <Search
             type="text"
-            placeholder="Busque por pratos ou ingredientes(@ingrediente)"
-            value={searchQuery}
-            onChange={handleSearchChange}
+            placeholder="Busque por pratos ou ingredientes."
+            onChange={onChange}
           />
         </div>
         

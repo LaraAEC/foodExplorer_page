@@ -1,5 +1,8 @@
-import { useAuth } from '../../hooks/auth';
+import { useState, useEffect } from 'react';
 import{ useNavigate } from 'react-router-dom';
+
+import { useAuth } from '../../hooks/auth';
+
 
 import { Container, Search } from './styles';
 
@@ -9,13 +12,15 @@ import SearchSvg from '../../assets/search.svg';
 import SignOutSvg from '../../assets/signOut.svg';
 
 
-export function AdminDesktopHeader() {
+export function AdminDesktopHeader({ onChange }) {
   const { signOut } = useAuth(); //desestruturando a função de logout de dentro do meu contexto
   const navigate = useNavigate();
 
-  function handleSignOut() { //função disparada com interação do usuário
-    navigate("/"); //levando o usuário para a tela inicial
-    signOut(); //deslogar o usuário
+  
+
+  function handleSignOut() {
+    navigate("/"); 
+    signOut(); 
   }
 
   function handleNewDishButton() { //função disparada com interação do usuário
@@ -45,8 +50,9 @@ export function AdminDesktopHeader() {
             alt="Imagem de 'lupa'."
           />
           <Search
-            placeholder="Busque por pratos ou ingredientes"
-            //onChange={(e) => setSearch(e.target.value)}
+            type="text"
+            placeholder="Busque por pratos ou ingredientes."
+            onChange={onChange}
           />
         </div>
         

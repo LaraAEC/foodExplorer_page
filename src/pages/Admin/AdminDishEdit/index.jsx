@@ -32,11 +32,11 @@ export function AdminDishEdit() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-
   const [category, setCategory] = useState("Refeição");
-
   const [ ingredients, setIngredients ] = useState([]); 
   const [ newIngredient, setNewIngredient ] = useState(""); 
+
+  const [isString, setIsString] = useState(false);
 
   const navigate = useNavigate();
   const params = useParams();
@@ -51,7 +51,9 @@ export function AdminDishEdit() {
         position: toast.POSITION.TOP_RIGHT
       })
     }
-    setIngredients(prevState => [...prevState, newIngredient]);
+
+    const newIngredientObject = { id: null, name: newIngredient, dish_id: data.id }
+    setIngredients(prevState => [...prevState, newIngredientObject]);
 
     setNewIngredient("");
   }
@@ -93,12 +95,16 @@ export function AdminDishEdit() {
       });
     }
 
+    const ingredientNames = ingredients.map(item => item.name);
+
     formData.append("title", title);
     formData.append("category", category);
     formData.append("price", price);
-    //formData.append("ingredients", ingredients);
+    formData.append("ingredients", ingredientNames);
     formData.append("description", description);
     formData.append("photo", image);
+    formData.append("isString", isString);
+
 
     try{
       setIsLoading(true);
@@ -119,16 +125,31 @@ export function AdminDishEdit() {
 
   useEffect(() => {
     async function fetchDishes () {
-      setIsLoading(true);
-      const response = await api.get(`/dishes/${params.id}`);
-      setData(response.data);
-      setIsLoading(false);
+      try {
+        const response = await api.get(`/dishes/${params.id}`);
+        setData(response.data);
+        setImage(response.data.photo);
+        setTitle(response.data.title);
+        setDescription(response.data.description);
+        setPrice(response.data.price);
+        setCategory(response.data.category);
+        setIngredients(response.data.ingredients)
+      } catch (err) {
+        return console.error({ message: err.message })
+      }
     }
 
     fetchDishes();
-  }, []);
+  }, [params.id]);
 
-
+  useEffect(() => {
+    if (typeof(image) === 'string') {
+      setIsString(true)
+    }
+    else{
+      setIsString(false)
+    }
+  }, [image])
 
   return (
     <Container>
@@ -178,17 +199,21 @@ export function AdminDishEdit() {
                   <Input
                   id="dishInput"
                   type="text"
-                  placeholder={data.title}
+                  value={title}
                   onChange={e => setTitle(e.target.value)}
                   /> 
                 </div>
 
                 <div className="wrapperCategory">
                   <label htmlFor="categorySelect">Categoria:</label>
-                  <select id="categorySelect"  onChange={e => setCategory(e.target.value)}>
-                  <option value="meals">Refeições</option>
-                  <option value="desserts">Sobremesas</option>
-                  <option value="drinks">Bebidas</option>
+                  <select id="categorySelect"
+                  value={category}
+                  onChange={e => setCategory(e.target.value)}
+                  >
+                  <option value="">{category}</option>
+                  <option value="Refeições">Refeições</option>
+                  <option value="Sobremesas">Sobremesas</option>
+                  <option value="Bebidas">Bebidas</option>
                   </select>
                 </div>
 
@@ -205,7 +230,7 @@ export function AdminDishEdit() {
                       <DishItem
                         isNew={false}
                         key={String(index)}
-                        value={ingredient}
+                        value={ingredient.name}
                         onClick={() => handleRemoveIngredient(ingredient)}
                       />  
                     ))
@@ -227,8 +252,8 @@ export function AdminDishEdit() {
                   <label htmlFor="priceInput">Preço(R$):</label>    
                   <Input
                   id="priceInput"
-                  type="number"
-                  placeholder={`R$ ${data.price}`}
+                  type="text"
+                  value={`${price}`}
                   onChange={e => setPrice(e.target.value)}
                   /> 
                 </div>
@@ -241,7 +266,7 @@ export function AdminDishEdit() {
                   type="text"
                   id="textarea" 
                   readOnly={false}
-                  placeholder={data.description}
+                  value={description}
                   onChange={e => setDescription(e.target.value)}>
                 </textarea>
                 

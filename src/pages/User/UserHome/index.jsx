@@ -34,52 +34,50 @@ export function UserHome() {
   const navigate = useNavigate();
 
   const [dishes, setDishes] = useState([]); 
+  const [search, setSearch] = useState("");
 
-  const [searchQuery, setSearchQuery] = useState(''); // Novo estado para armazenar a busca
-
-  const handleSearch = (query) => {
-    if (query.startsWith('@')) {
-      const ingredientsQuery = query.substring(1).trim().split(',');
-      setSearchQuery({ title: '', ingredients: ingredientsQuery });
-    } else {
-      setSearchQuery({ title: query, ingredients: [] });
+  useEffect(() => {
+    async function fetchDishes() {
+      const response = await api.get(`/dishes?title=${search}&ingredients=${search}`);
+      setDishes(response.data);
     }
-  };
+    fetchDishes();
+  }, [search]);
  
   const handlePrevMealList = () => {
     scrollMealList.current.scrollBy({
     left: -120,
     behavior: 'smooth'
   });
-}
-
-const handleNextMealList = () => {
-    scrollMealList.current.scrollBy({
-    left: 120,
-    behavior: 'smooth'
-  });
-}
-
-const handlePrevDrinkList = () => {
-    scrollDrinkList.current.scrollBy({
-      left: -120,
-      behavior: 'smooth'
-    });
   }
 
-  const handleNextDrinkList = () => {
-    scrollDrinkList.current.scrollBy({
+  const handleNextMealList = () => {
+      scrollMealList.current.scrollBy({
       left: 120,
       behavior: 'smooth'
     });
   }
 
+  const handlePrevDrinkList = () => {
+      scrollDrinkList.current.scrollBy({
+        left: -120,
+        behavior: 'smooth'
+      });
+    }
+
+  const handleNextDrinkList = () => {
+      scrollDrinkList.current.scrollBy({
+        left: 120,
+        behavior: 'smooth'
+      });
+    }
+
   const handlePrevDessertList = () => {
-    scrollDessertList.current.scrollBy({
-      left: -120,
-      behavior: 'smooth'
-    });
-  }
+      scrollDessertList.current.scrollBy({
+        left: -120,
+        behavior: 'smooth'
+      });
+    }
 
   const handleNextDessertList = () => {
     scrollDessertList.current.scrollBy({
@@ -88,58 +86,16 @@ const handlePrevDrinkList = () => {
     });
   }
 
-    function handleDetails(id) {
-    navigate(`/details/${id}`); 
-  }
-
-  // Função para buscar os pratos
-  async function fetchDishes() {
-    let url = '/dishes';
-    const queryParams = [];
-  
-    if (searchQuery.title) {
-      queryParams.push(`title=${searchQuery.title}`);
-    }
-  
-    if (searchQuery.ingredients.length > 0) {
-      const ingredientsQuery = searchQuery.ingredients.join(',');
-      queryParams.push(`ingredients=${ingredientsQuery}`);
-    }
-  
-    if (queryParams.length > 0) {
-      url += `?${queryParams.join('&')}`;
-    }
-  
-    const response = await api.get(url);
-    setDishes(response.data);
-  }
-  
-
-  // useEffect para buscar os pratos iniciais sem filtro
-  useEffect(() => {
-  
-    async function fetchInitialDishes() {
-      const response = await api.get("/dishes");
-      setDishes(response.data);
-    }
-
-    fetchInitialDishes();
-  }, []);
-
-  // useEffect para buscar os pratos filtrados por título e/ou ingredientes
-  useEffect(() => {
-    if (searchQuery.ingredients !== undefined) {
-      fetchDishes(); // Chama a função para buscar os pratos filtrados
-    }
-  }, [searchQuery]); // O useEffect será executado sempre que o searchQuery mudar
-
+  function handleDetails(id) {
+  navigate(`/details/${id}`); 
+}
 
 
   return (
 
       <Container>
 
-        {isMobile ? <UserMobileHeader /> : <UserDesktopHeader onSearch={handleSearch}/>}
+        {isMobile ? <UserMobileHeader /> : <UserDesktopHeader onChange={e => setSearch(e.target.value)} />}
 
         <main>
 

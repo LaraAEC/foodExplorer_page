@@ -15,7 +15,6 @@ export const Container = styled.div`
   
   overflow-y: hidden;
   
-  background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 
   > main { 
     grid-area: main;

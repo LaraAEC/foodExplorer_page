@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react';
+import { api } from '../../../services/api';
+
 import { useAuth } from '../../../hooks/auth';
 import{ useNavigate } from 'react-router-dom';
 
@@ -12,6 +15,23 @@ import CloseSvg from '../../../assets/close.svg';
 
 
 export function AdminMenu() {
+  const [search, setSearch] = useState("")
+  const [dishes, setDishes] = useState([])
+
+  useEffect(() => {
+    if (search.length > 0) {
+    async function fetchDishes() {
+      const response = await api.get(`/dishes?title=${search}&ingredients=${search}`);
+      setDishes(response.data);
+    }
+
+    fetchDishes();
+  } else {
+    setDishes(false)
+  }
+  }, [search]);
+
+
   const { signOut } = useAuth(); 
   const navigate = useNavigate();
 
@@ -50,8 +70,19 @@ export function AdminMenu() {
             placeholder="Busque por pratos ou ingredientes"
             type="text"
             icon={ FiSearch }
-            //onChange={e => setEmail(e.target.value)} // capturando a mudança no 'e' e colocando o valor dela no método que configura estado como parâmetro e executando ele
+            onChange={e => setSearch(e.target.value)} 
           />
+
+          <ul>
+            {dishes &&
+              dishes.map(dish => {
+                return (
+                <AdminDishCard key={dish.id} price={dish.price} title={dish.title} />
+                )
+              })
+            }
+          </ul>
+
 
           <button className="buttonNewDish"
           type="button"

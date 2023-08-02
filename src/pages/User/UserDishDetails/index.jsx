@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import {  useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../../services/api';
 
 import { useMediaQuery } from 'react-responsive';
@@ -30,19 +30,33 @@ export function UserDishDetails() {
 
   const navigate = useNavigate();
   const params = useParams(); 
+
+  const [dishes, setDishes] = useState([]); 
+  const [searchQuery, setSearchQuery] = useState(''); // Novo estado para armazenar a busca
+
   
   function handleBack() {
     navigate(-1); 
   }
 
+  const handleSearch = (query) => {
+    if (query.startsWith('@')) {
+      const ingredientsQuery = query.substring(1).trim().split(',');
+      setSearchQuery({ title: '', ingredients: ingredientsQuery });
+    } else {
+      setSearchQuery({ title: query, ingredients: [] });
+    }
+    navigate("/");
+  };
+ 
   useEffect(() => {
     async function fetchDishes() {
         const response = await api.get(`/dishes/${params.id}`);
         setData(response.data);
     }
-
     fetchDishes();
 }, [])
+
 
 useEffect(() => {
     function fetchImage() {
@@ -58,7 +72,7 @@ useEffect(() => {
   return (
     <Container>
 
-      {isMobile ? <UserMobileHeader /> : <UserDesktopHeader />}
+      {isMobile ? <UserMobileHeader /> : <UserDesktopHeader onSearch={handleSearch}/>}
       
       <main>
 
