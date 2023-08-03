@@ -131,7 +131,7 @@ export const Container = styled.div`
 
 export const Arrow = styled.button`
   position: absolute;
-  top: 55.5%;
+  top: 45.5%;
   transform: translateY(-50%);
   border: none;
   filter: opacity(0.7);
