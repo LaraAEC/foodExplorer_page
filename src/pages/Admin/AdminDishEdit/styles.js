@@ -64,7 +64,7 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
 
-  padding: 3.6rem 5.6rem;
+  padding: 22rem 5.6rem;
   padding-bottom: 0;
 
   > form {
@@ -80,11 +80,12 @@ export const Content = styled.div`
    
     width: 100%;
 
-     margin-top: 18rem;
+    margin-top: 18rem;
 
    @media (min-width: 390px) {
       height: 80rem;
-      margin-top: 0rem;
+
+      margin-top: 10rem;
     }
 
     @media (min-width: 500px) {
@@ -92,43 +93,48 @@ export const Content = styled.div`
       justify-content: start;
 
       height: 65rem;
+
+      margin-top: -5rem;
     }
 
     @media (min-width: 768px) {
       height: 100rem;
-      margin-top: 4rem;
+
+      margin-top: 23.6rem;
     }
 
     @media (min-width: 820px) {
       height:115rem;
-      margin-top: 6rem;
       width: 70rem;
       padding: 0rem 8rem 0rem 8rem;  
     }
 
     @media (min-width: 912px) {
       width: 85rem;
-      margin-top: 2rem;
+
+      margin-top: 5.6rem;
     }
 
     @media (min-width: 1024px) {
       width: 100rem;
       height: 150rem;
-      padding: 0rem 12rem 0rem 12rem;
+      padding: 0rem 12rem;
+
+      margin-top: -16rem;
     }
 
     @media (min-width: 1280px) {
       width: 110rem;
       height: 58rem;
 
-      margin-top: 0;
+      margin-top: -42.6rem;
     }
 
     @media (min-width: 1300px) {
       width: 110rem;
       height: 78rem;
 
-      margin-top: 0;
+      margin-top: -22.6rem;
     }
 
     @media (min-width: 1360px) {
