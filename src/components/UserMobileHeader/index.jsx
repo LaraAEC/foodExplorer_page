@@ -30,7 +30,7 @@ export function UserMobileHeader() {
             alt="Imagem de 'polígono azul'."
           />
           
-            <h1>food explorer</h1>
+            <h1>Food explorer</h1>
 
         </div> 
 

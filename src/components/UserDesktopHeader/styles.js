@@ -55,32 +55,50 @@ export const Container = styled.header`
       font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
       font-style: normal;
       font-weight: 700;
-      font-size: 2.4rem;
-      line-height: 2rem; 
+      font-size: 2rem;
+      line-height: 3rem; 
 
       @media (max-width: 1024px) {
         font-size: 1.4rem;
       }
 
-      > .receiptSvg {
+      @media (min-width: 1200px) {
+        white-space: nowrap;
+      }
+
+      > img {
         width: 3.0rem;
         height: 3.0rem;
       }
 
     }
 
-    > .orderButton {
+    > .favoritesButton, .historicButton {
+    background-color: transparent;
+    color: ${({ theme }) => theme.COLORS.WHITE_100};
+
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+
+    white-space: nowrap;
+
+    border: none; 
+    cursor: pointer
+    }
+
+    > .requestButton {
       display: flex;
       align-items: center;
 
       gap: 12px;
 
-      padding: 1.2rem 3.2rem;
+      padding: 1.2rem;
 
       border-radius: 0.5rem;
       background-color: ${({ theme }) => theme.COLORS.RED_100};
 
-      > .orderButtonButton {
+      > .requestButtonButton {
       background-color: ${({ theme }) => theme.COLORS.RED_100};
       color: ${({ theme }) => theme.COLORS.WHITE_100};
 
@@ -89,23 +107,26 @@ export const Container = styled.header`
       font-size: 1.4rem;
       font-weight: 500;
 
+      white-space: nowrap;
+  
       border: none; 
+      cursor: pointer;
       }
     }
+    
     > .signOutButton{
       border: none;
       background: transparent;
 
       cursor: pointer;
-
     }  
 }
 `;
 
 export const Search = styled.input`
-  width: 85%;
+  width: 100%;
 
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
   line-height: 100%;
   

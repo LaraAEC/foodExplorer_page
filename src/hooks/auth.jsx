@@ -1,13 +1,15 @@
-import { createContext, useContext, useState, useEffect } from 'react'; //importando o que é necessário para criar e usar contexto e estado
+import { createContext, useContext, useState, useEffect } from 'react'; 
 
-import { api } from '../services/api'; //importando minha api backend
+import { api } from '../services/api'; 
 
 import { toast } from "react-toastify";
 
+//Crio o contexto
 const AuthContext = createContext({});
 
+//Crio o provedor do contexto
 function AuthProvider({ children }) {
-  const [data, setData] = useState({}); //criando um estado chamado de dados, de data, como um objeto vazio inicialmente
+  const [data, setData] = useState({}); 
   const [dataDishes, setDishes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -93,10 +95,11 @@ function AuthProvider({ children }) {
   )
 }
 
+//inicializando meu contexto e identificando qual contexto será usado
+//retorno meu contexto selecionado já inicializado
 function useAuth() {
-  const context = useContext(AuthContext); //inicializando meu contexto e identificando qual contexto será usado
-
-  return context; //retorno meu contexto selecionado já inicializado
+  const context = useContext(AuthContext); 
+  return context;
 }
 
 export { AuthProvider, useAuth }; 

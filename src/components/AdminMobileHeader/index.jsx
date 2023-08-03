@@ -8,8 +8,8 @@ import LogoSvg from '../../assets/logo.svg';
 export function AdminMobileHeader() {
   const navigate = useNavigate();
 
-  function handleOpenMenu() { //funcionalidade de voltar com o botão 'voltar'
-    navigate("/menu"); //para ser usado no botão de voltar e colocar o usuário na rota anterior
+  function handleOpenMenu() { 
+    navigate("/menu"); 
   }
 
   return (
@@ -30,7 +30,7 @@ export function AdminMobileHeader() {
           />
 
           <div className="wrapper">
-            <h1>food explorer</h1>
+            <h1>Food explorer</h1>
             <p>admin</p>
           </div>
 

@@ -28,7 +28,7 @@ export function UserDesktopHeader({ onChange }) {
             src={ LogoSvg }
             alt="Imagem de 'polígono azul'."
           />
-          <h1>food explorer</h1>
+          <h1>Food explorer</h1>
         </div> 
 
         <div className="search">
@@ -42,15 +42,31 @@ export function UserDesktopHeader({ onChange }) {
             onChange={onChange}
           />
         </div>
+
+        <button 
+        type="button" 
+        className="favoritesButon" 
+        //onClick={handleFavorites}
+        >
+          <p>Favoritos</p>
+        </button>
+
+        <button 
+        type="button" 
+        className="historicButton" 
+        //onClick={handleHistoric}
+        >
+          <p>Histórico de pedidos</p>
+        </button>
         
-        <div className="orderButton">
+        <div className="requestButton">
           <img className="receiptSvg"
             src={ ReceiptSvg }
             alt="Imagem de 'recibo/recebido'."
           />
-          <button className="orderButtonButton"
+          <button className="requestButtonButton"
           type="button"
-          //onClick={handleButtonReceipt}
+          //onClick={handleButtonRequest}
           >
             <p>Pedidos (0)</p>
           </button> 

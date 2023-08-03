@@ -7,7 +7,7 @@ import GlobalStyles from './styles/global';
 import theme from './styles/theme'; 
 
 import { AuthProvider } from './hooks/auth';
-import { RequestProvider } from './hooks/request';
+import { CartProvider } from './hooks/cart';
 
 import { Routes } from './routes'; 
 
@@ -21,11 +21,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <ToastContainer />
       <GlobalStyles />
       <AuthProvider>
-        <RequestProvider>
+        <CartProvider>
 
          <Routes />
 
-        </RequestProvider> 
+        </CartProvider> 
       </AuthProvider>
     </ThemeProvider>
 

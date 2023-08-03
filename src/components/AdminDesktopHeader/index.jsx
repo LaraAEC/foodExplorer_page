@@ -38,7 +38,7 @@ export function AdminDesktopHeader({ onChange }) {
           />
 
           <div className="wrapper">
-            <h1>food explorer</h1>
+            <h1>Food explorer</h1>
             <p>admin</p>
           </div>
         </div> 
@@ -55,16 +55,33 @@ export function AdminDesktopHeader({ onChange }) {
             onChange={onChange}
           />
         </div>
-        
-        
-          <button className="newDishButton" onClick={handleNewDishButton}
-          type="button"
-          >
-            <p>Novo prato</p>
-          </button> 
-       
 
-        <button type="button" className="signOutButton" onClick={handleSignOut}>
+        <button 
+        type="button"
+        className="newDishButton" 
+        onClick={handleNewDishButton} 
+        >
+          <p>Novo prato</p>
+        </button>
+        
+    
+        <div className="ordersButton">
+          <img className="receiptSvg"
+            src={ ReceiptSvg }
+            alt="Imagem de 'recibo/recebido'."
+          />
+          <button className="ordersButtonButton"
+          type="button"
+          //onClick={handleAllRequests}
+          >
+            <p>Pedidos (0)</p>
+          </button> 
+        </div>
+       
+        <button
+        type="button"
+        className="signOutButton"
+        onClick={handleSignOut}>
           <img className="signOutSvg"
             src={SignOutSvg}
             alt="Imagem de 'colchete com seta indicando para fora'."

@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { api } from '../../../services/api';
 
 import { useAuth } from '../../../hooks/auth';
 import{ useNavigate } from 'react-router-dom';
 
-import { FiSearch } from 'react-icons/fi';
+import { FiSearch, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import CloseSvg from '../../../assets/close.svg';
 
-import { Container } from './styles';
+
+import { Container, Arrow } from './styles';
 import { Footer } from '../../../components/Footer'; 
 import { Input } from '../../../components/Input';
 import { AdminDishCard } from '../../../components/AdminDishCard'; 
@@ -16,6 +17,22 @@ import { AdminDishCard } from '../../../components/AdminDishCard';
 export function AdminMenu() {
   const [search, setSearch] = useState("")
   const [dishes, setDishes] = useState([])
+
+  const scrollMealList = useRef(null);
+  
+  const handlePrevMealList = () => {
+    scrollMealList.current.scrollBy({
+    left: -120,
+    behavior: 'smooth'
+  });
+  }
+
+  const handleNextMealList = () => {
+      scrollMealList.current.scrollBy({
+      left: 120,
+      behavior: 'smooth'
+    });
+  }
 
   useEffect(() => {
     if (search.length > 0) {
@@ -70,26 +87,56 @@ export function AdminMenu() {
             icon={ FiSearch }
             onChange={e => setSearch(e.target.value)} 
           />
-          
-         <div className="dish-list">
-         <ul>
-            {dishes &&
-              dishes.map(dish => {
-                return (
-                <AdminDishCard 
-                  key={String(dish.id)}
-                  data={dish}
-                  onClick={() => handleDetails(dish.id)}
-                  title={dish.title}
-                  value={dish.description}
-                  price={`R$ ${dish.price}`}
-                  type="text"
-                  visibility="not-visible"
-                  image={dish.photo} />
-                )
-              })
+
+          { dishes &&
+            <>
+            <div className="closeSearch">
+              <button className="buttonCloseSearch"
+              type="button"
+              onClick={handleCloseMenu}>
+                <img
+                  src={ CloseSvg }
+                  alt="imagem de um 'X'."
+                />
+              </button>
+            </div> 
+            </>
             }
-          </ul>
+          
+          <div className="carousel">
+            <section>
+              <div ref={scrollMealList}>
+                  { dishes && (
+                    <div className="cards">
+                      {dishes.map(dish => (
+                        <AdminDishCard
+                          key={String(dish.id)}
+                          data={dish}
+                          onClick={() => handleDetails(dish.id)}
+                          title={dish.title}
+                          value={dish.description}
+                          price={`R$ ${dish.price}`}
+                          type="text"
+                          visibility="not-visible"
+                          image={dish.photo}
+                        />
+                      ))}
+                  </div>
+                )} 
+              </div>
+            </section>
+            
+          { dishes && (
+            <>
+              <Arrow direction="prev" onClick={handlePrevMealList}>
+                <FiChevronLeft />
+              </Arrow>
+
+              <Arrow direction="next" onClick={handleNextMealList}>
+                <FiChevronRight />
+              </Arrow>
+            </>
+          )}        
          </div>
 
           <button className="buttonNewDish"

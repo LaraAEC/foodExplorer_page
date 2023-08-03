@@ -17,33 +17,11 @@ export const Container = styled.header`
     
     height: 3.4rem;
 
-    gap: 3.2rem;
+    gap: 2rem;
 
     margin: 0 auto;
   
     justify-content: center;
-
-
-    > .search {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-
-      justify-content: center;
-
-      height: 4.5rem;
-      width: 45%;
-
-      padding: 1.2rem 1.4rem;
-      
-
-      color: ${({ theme }) => theme.COLORS.GRAY_300};
-      background: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-
-      border: 0;
-
-      border-radius: 0.5rem;
-    }
 
   > .title {
     display: flex;
@@ -53,7 +31,7 @@ export const Container = styled.header`
     
     align-items: center;
 
-    padding: 0 6.5rem;
+    padding: 0 2rem;
   
     align-items: start;
 
@@ -92,25 +70,73 @@ export const Container = styled.header`
     }
   }
 
+  > .search {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      justify-content: center;
+
+      height: 4.5rem;
+      width: 45%;
+
+      padding: 1.2rem 1.4rem;
+      
+
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
+      background: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+
+      border: 0;
+
+      border-radius: 0.5rem;
+    }
+
     > .receiptSvg {
       width: 3.0rem;
       height: 3.0rem;
     }
 
-      > .newDishButton {
-        white-space: nowrap;
-        
-        font-size: 1.4rem;
-        font-weight: 500;
+    > .newDishButton {
+    background-color: transparent;
+    color: ${({ theme }) => theme.COLORS.WHITE_100};
 
-        padding: 1.2rem 7.2rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
 
-        border: none;
-        border-radius: 0.5rem;
+    white-space: nowrap;
 
-        color: ${({ theme }) => theme.COLORS.WHITE_100};
-        background-color: ${({ theme }) => theme.COLORS.RED_100};
+    border: none; 
+    cursor: pointer
+    }
+
+
+    > .ordersButton {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 1.2rem;
+
+      border-radius: 0.5rem;
+      background-color: ${({ theme }) => theme.COLORS.RED_100};
+
+      > .ordersButtonButton {
+      padding: 0rem auto;
+
+      font-size: 1.4rem;
+      font-weight: 500;
+
+      white-space: nowrap;
+  
+      border: none; 
+      cursor: pointer;
+
+      background-color: ${({ theme }) => theme.COLORS.RED_100};
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
       }
+    }
 
     > .signOutButton{
       border: none;
@@ -125,7 +151,7 @@ export const Container = styled.header`
 export const Search = styled.input`
   width: 90%;
 
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
   line-height: 100%;
   

@@ -182,6 +182,7 @@ export const Content = styled.div`
     }
    }
   }
+  
   > section {
     position: relative;
     margin: 0 auto;
