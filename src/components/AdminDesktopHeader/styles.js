@@ -28,11 +28,9 @@ export const Container = styled.header`
     flex-direction: row;
 
     gap: 0.8rem;
-    
-    align-items: center;
 
     padding: 0 2rem;
-  
+    
     align-items: start;
 
     > .wrapper {

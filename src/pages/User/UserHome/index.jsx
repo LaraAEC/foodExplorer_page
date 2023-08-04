@@ -28,7 +28,7 @@ export function UserHome() {
   const scrollDrinkList = useRef(null);
   const scrollDessertList = useRef(null);
 
-  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isMobile = useMediaQuery({ maxWidth: 1023 });
   const imageUrl = isMobile ? MobileBannerPng : DesktopBannerPng;
 
   const navigate = useNavigate();

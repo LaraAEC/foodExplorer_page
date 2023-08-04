@@ -17,7 +17,7 @@ export const Container = styled.header`
     
     height: 3.4rem;
 
-    gap: 3.2rem;
+    gap: 2rem;
 
     margin: 0 auto;
   
@@ -26,7 +26,7 @@ export const Container = styled.header`
     > .search {
       display: flex;
       align-items: center;
-      gap: 1.4rem;
+      gap: 1rem;
 
       justify-content: center;
 
@@ -50,6 +50,8 @@ export const Container = styled.header`
 
       gap: 0.8rem;
 
+      padding: 0 2rem;
+
       align-items: center;
 
       font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
@@ -58,8 +60,10 @@ export const Container = styled.header`
       font-size: 2rem;
       line-height: 3rem; 
 
+
       @media (max-width: 1024px) {
         font-size: 1.4rem;
+        white-space: nowrap;
       }
 
       @media (min-width: 1200px) {
@@ -124,7 +128,7 @@ export const Container = styled.header`
 `;
 
 export const Search = styled.input`
-  width: 100%;
+  width: 90%;
 
   font-size: 1.3rem;
   font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};

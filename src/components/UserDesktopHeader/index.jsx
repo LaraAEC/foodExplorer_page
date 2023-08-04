@@ -45,7 +45,7 @@ export function UserDesktopHeader({ onChange }) {
 
         <button 
         type="button" 
-        className="favoritesButon" 
+        className="favoritesButton" 
         //onClick={handleFavorites}
         >
           <p>Favoritos</p>
