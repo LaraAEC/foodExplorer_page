@@ -36,6 +36,7 @@ export function UserHome() {
   const [dishes, setDishes] = useState([]); 
   const [search, setSearch] = useState("");
 
+
   useEffect(() => {
     async function fetchDishes() {
       const response = await api.get(`/dishes?title=${search}&ingredients=${search}`);

@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { api } from '../../../services/api';
 
 import { useAuth } from '../../../hooks/auth';
 import{ useNavigate } from 'react-router-dom';
 
 import CloseSvg from '../../../assets/close.svg';
-import { FiSearch } from 'react-icons/fi';
+import { FiSearch, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-import { Container } from './styles';
+import { Container, Arrow } from './styles';
 import { Footer } from '../../../components/Footer'; 
 import { Input } from '../../../components/Input';
 import { UserDishCard } from '../../../components/UserDishCard'; 
@@ -16,6 +16,21 @@ import { UserDishCard } from '../../../components/UserDishCard';
 export function UserMenu() {
   const [search, setSearch] = useState("")
   const [dishes, setDishes] = useState([])
+  const scrollMealList = useRef(null);
+  
+  const handlePrevMealList = () => {
+    scrollMealList.current.scrollBy({
+    left: -120,
+    behavior: 'smooth'
+  });
+  }
+
+  const handleNextMealList = () => {
+      scrollMealList.current.scrollBy({
+      left: 120,
+      behavior: 'smooth'
+    });
+  }
 
   useEffect(() => {
     if (search.length > 0) {
@@ -31,17 +46,20 @@ export function UserMenu() {
   }, [search]);
 
 
-  const { signOut } = useAuth(); //desestruturando a função de logout de dentro do meu contexto
+  const { signOut } = useAuth(); 
     const navigate = useNavigate();
   
-    function handleSignOut() { //função disparada com interação do usuário
-      navigate("/"); //levando o usuário para a tela inicial
-      signOut(); //deslogar o usuário
+    function handleSignOut() { 
+      navigate("/"); 
+      signOut(); 
     }
 
-  
     function handleCloseMenu() { 
       navigate("/"); 
+    }
+
+    function handleCloseSearch() { 
+      setDishes(false); 
     }
 
    return (
@@ -69,26 +87,56 @@ export function UserMenu() {
             onChange={e => setSearch(e.target.value)}
               /> 
               
-        <div className="dish-list">
-          <ul>
-              {dishes &&
-                dishes.map(dish => {
-                  return (
-                  <UserDishCard 
-                    key={String(dish.id)}
-                    data={dish}
-                    onClick={() => handleDetails(dish.id)}
-                    title={dish.title}
-                    value={dish.description}
-                    price={`R$ ${dish.price}`}
-                    type="text"
-                    visibility="not-visible"
-                    image={dish.photo} />
-                  )
-                })
-              }
-            </ul>
-        </div>
+              { dishes &&
+            <>
+            <div className="closeSearch">
+              <button className="buttonCloseSearch"
+              type="button"
+              onClick={handleCloseSearch}>
+                <img
+                  src={ CloseSvg }
+                  alt="imagem de um 'X'."
+                />
+              </button>
+            </div> 
+            </>
+            }
+          
+          <div className="carousel">
+            <section>
+              <div ref={scrollMealList}>
+                  { dishes && (
+                    <div className="cards">
+                      {dishes.map(dish => (
+                        <UserDishCard
+                          key={String(dish.id)}
+                          data={dish}
+                          onClick={() => handleDetails(dish.id)}
+                          title={dish.title}
+                          value={dish.description}
+                          price={`R$ ${dish.price}`}
+                          type="text"
+                          visibility="not-visible"
+                          image={dish.photo}
+                        />
+                      ))}
+                  </div>
+                )} 
+              </div>
+            </section>
+            
+          { dishes && (
+            <>
+              <Arrow direction="prev" onClick={handlePrevMealList}>
+                <FiChevronLeft />
+              </Arrow>
+
+              <Arrow direction="next" onClick={handleNextMealList}>
+                <FiChevronRight />
+              </Arrow>
+            </>
+          )}        
+         </div>
 
          <button className="buttonSignOut"
           type="button"

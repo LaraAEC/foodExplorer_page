@@ -62,6 +62,11 @@ export function AdminMenu() {
   function handleCloseMenu() { 
     navigate("/"); 
   }
+  
+  function handleCloseSearch() { 
+    setDishes(false); 
+  }
+
 
    return (
       <Container>
@@ -93,7 +98,7 @@ export function AdminMenu() {
             <div className="closeSearch">
               <button className="buttonCloseSearch"
               type="button"
-              onClick={handleCloseMenu}>
+              onClick={handleCloseSearch}>
                 <img
                   src={ CloseSvg }
                   alt="imagem de um 'X'."

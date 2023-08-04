@@ -95,7 +95,7 @@ export const Container = styled.div`
         border: none;
         position: absolute;
         top: 33%;
-        right: 0;
+        right: 2rem;
         transform: translateY(-50%);
         z-index: 1;
 

@@ -73,15 +73,70 @@ export const Container = styled.div`
       border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
    }
 
-    > .dish-list{
+   > .closeSearch {
       display: flex;
-      justify-content: center;
-      
-      > ul {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        position: absolute;
+        top: 39%;
+        right: 2rem;
+        transform: translateY(-50%);
+        z-index: 1;
+
+      > .buttonCloseSearch {
+        background: transparent;
+        border: none;
       }  
-    }  
+    }
+
+    > .carousel {
+      > section {
+        > div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: hidden;
+        
+        gap: 1rem;
+
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+
+        > .cards {
+          display: flex;
+          gap: 1rem;
+          flex-shrink: 0; 
+        }
+      }
+    }
+  }
+}
+`;
+
+export const Arrow = styled.button`
+  position: absolute;
+  top: 65.5%;
+  transform: translateY(-50%);
+  border: none;
+  filter: opacity(0.7);
+  height: 33.5rem;
+  color: ${({ theme }) => theme.COLORS.WHITE_100};
+  font-size: 3.5rem;
+  background: transparent;
+  
+  ${({ direction }) => direction === 'prev' ? ` 
+      left: -2rem;
+  `: ` 
+      right: -2rem;
+`}
+  @media (max-width: 500px) {
+    ${({ direction }) => direction === 'prev' ? ` 
+      left: 1rem;
+    ` : ` 
+      right: 1rem;
+    `}
   }
 `;
+
