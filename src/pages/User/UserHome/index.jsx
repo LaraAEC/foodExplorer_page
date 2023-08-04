@@ -23,7 +23,6 @@ import { Footer } from '../../../components/Footer';
 
 
 export function UserHome() {
- 
   const scrollMealList = useRef(null);
   const scrollDrinkList = useRef(null);
   const scrollDessertList = useRef(null);
@@ -115,7 +114,7 @@ export function UserHome() {
 
             <Section title="Refeições">  
               <div ref={scrollMealList}>
-              {
+                {
                   dishes.filter(dish => dish.category === "Refeições").map(dish => (
                     <UserDishCard 
                     key={String(dish.id)}

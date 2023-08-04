@@ -20,7 +20,7 @@ import { TextArea } from '../../../components/TextArea';
 
 
 export function AdminDishDetails() {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isMobile = useMediaQuery({ maxWidth: 1023 });
   const [data, setData] = useState(null);
   const [image, setImage] = useState(null);
 

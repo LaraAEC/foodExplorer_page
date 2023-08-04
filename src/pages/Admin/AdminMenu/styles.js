@@ -145,11 +145,12 @@ export const Arrow = styled.button`
   `: ` 
       right: -2rem;
 `}
-  @media (max-width: 500px) {
+
+   @media (min-width: 768px) {
     ${({ direction }) => direction === 'prev' ? ` 
-      left: 1rem;
+      left: 13rem;
     ` : ` 
-      right: 1rem;
+      right: 13rem;
     `}
   }
 `;

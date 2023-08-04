@@ -83,8 +83,9 @@ export const Content = styled.div`
     }
 
     @media (min-width: 912px) {
-      height:115rem;
-      padding: 8.6rem;
+      height:100%;
+      width: 100%;
+      padding: 8.6rem 0.5rem;
       padding-bottom: 1rem;
     }
 

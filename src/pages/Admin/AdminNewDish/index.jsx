@@ -21,7 +21,7 @@ import { DishItem } from '../../../components/DishItem';
 
 
 export function AdminNewDish() {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isMobile = useMediaQuery({ maxWidth: 1023 });
 
   const [photoFile, setPhotoFile] = useState(null); ////criando o estado do arquivo selecionado, setando como nulo para receber avatar selecionado. Guarda o arquivo selecionado.
 

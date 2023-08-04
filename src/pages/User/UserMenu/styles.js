@@ -127,15 +127,16 @@ export const Arrow = styled.button`
   background: transparent;
   
   ${({ direction }) => direction === 'prev' ? ` 
-      left: -2rem;
-  `: ` 
-      right: -2rem;
-`}
-  @media (max-width: 500px) {
-    ${({ direction }) => direction === 'prev' ? ` 
       left: 1rem;
-    ` : ` 
+  `: ` 
       right: 1rem;
+`}
+ 
+ @media (min-width: 768px) {
+    ${({ direction }) => direction === 'prev' ? ` 
+      left: 13rem;
+    ` : ` 
+      right: 13rem;
     `}
   }
 `;

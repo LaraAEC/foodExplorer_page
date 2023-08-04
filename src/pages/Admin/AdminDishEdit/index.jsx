@@ -23,7 +23,7 @@ import { DishItem } from '../../../components/DishItem';
 
 
 export function AdminDishEdit() {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isMobile = useMediaQuery({ maxWidth: 1023 });
 
   const { isLoading, setIsLoading } = useAuth();
 
