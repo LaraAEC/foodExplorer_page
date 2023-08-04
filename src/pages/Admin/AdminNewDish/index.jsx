@@ -1,9 +1,11 @@
 import { useState } from 'react'; 
-
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
-
 import { api } from "../../../services/api";
+
+import { useAuth } from "../../../hooks/auth";
+import { toast } from "react-toastify";
+import { ThreeCircles } from "react-loader-spinner";
 
 import { Container, Content, DishImgInput } from './styles';
 
@@ -22,6 +24,8 @@ import { DishItem } from '../../../components/DishItem';
 
 export function AdminNewDish() {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
+
+   const { isLoading, setIsLoading } = useAuth();
 
   const [photoFile, setPhotoFile] = useState(null); ////criando o estado do arquivo selecionado, setando como nulo para receber avatar selecionado. Guarda o arquivo selecionado.
 
@@ -42,23 +46,33 @@ export function AdminNewDish() {
   async function handleCreateDish(){ //Função que envia os dados cadastrados do prato para a tabela Dishes
     
     if (!title) { 
-      return alert("Precisa inserir um nome. Por favor, informe o nome do Prato.");
+      return toast.error("Precisa inserir um nome. Por favor, informe o nome do Prato.", {
+        position: toast.POSITION.TOP_RIGHT
+      })
     }
 
     if (!category) { 
-      return alert("Precisa inserir uma categoria. Por favor, informe a categoria do Prato.");
+      return toast.error("Precisa inserir uma categoria. Por favor, informe a categoria do Prato.", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
 
     if (!price) { 
-      return alert("Precisa inserir um valor de custo. Por favor, informe o preço do Prato.");
+      return toast.error("Precisa inserir um valor de custo. Por favor, informe o preço do Prato.", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
 
     if (!description) { 
-      return alert("Precisa inserir uma descrição. Por favor, informe a descrição do Prato.");
+      return toast.error("Precisa inserir uma descrição. Por favor, informe a descrição do Prato.", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
     
-    if (newIngredient) { //se houver newTag retornar esse alerta, e o próprio return pára a função, e ele será dao se cair no if, e cai no if se tiver algo nesse input de tag e só vai haver se não tiver clicado no mais, pois quando clica ele zera o input correspondente.
-      return alert("Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio.");
+    if (newIngredient) {
+      return toast.error("Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio.", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
 
     const formData = new FormData();
@@ -70,13 +84,26 @@ export function AdminNewDish() {
     formData.append("description", description);
     formData.append("photo", photoFile);
 
-    await api.post("/dishes", formData); //Passando os dados para a tabela dishes
 
-    alert('Prato criado com sucesso!'); //em dando tudo certo dar alerta
 
-    navigate("/"); //levando o usuário para a tela home
+    try{
+          setIsLoading(true);
+          await api.post("/dishes", formData); 
+          setIsLoading(false);
+          toast.success("Prato criado com sucesso.", {
+            position: toast.POSITION.TOP_CENTER
+          });
+          navigate("/");
 
-  };
+        } catch (error){
+          setIsLoading(false);
+          toast.error("Não foi possível criar o prato.", {
+            position: toast.POSITION.TOP_RIGHT
+          });
+        }
+      }
+
+
 
   function handleAddIngredient() { //funcionalidade que adiciona a nova Tag, digita pelo usuário, na lista de tags
     setIngredients(prevState => [...prevState, newIngredient]); //Setando meu array estado tags - mantenho o que tinha antes, mais a nova Tag, e com o spread operator tudo fica dentro de um único array, mesmo nível

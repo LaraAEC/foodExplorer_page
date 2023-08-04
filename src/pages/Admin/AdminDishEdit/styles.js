@@ -21,12 +21,16 @@ export const Container = styled.div`
 
     margin: 0 auto;
 
-    padding-top: 4.4rem;
+    padding-top: 5.4rem;
     
     overflow-x: hidden;
     overflow-y: auto;
 
     scrollbar-color: transparent transparent; 
+    
+    @media (min-width: 400px) {
+      padding-top: 0rem;
+    } 
     
     @media (min-width: 768px) {
       padding-top: 7rem;
@@ -34,21 +38,16 @@ export const Container = styled.div`
 
     @media (min-width: 1024px) {
       padding-top: 10rem;
+      max-width: 102.4rem;
     }
 
     @media (min-width: 1300px) {
       padding-top: 14.5rem;
+      max-width: 140.0rem;
     }
 
     &::-webkit-scrollbar {
         background: transparent;
-    }
-
-    @media (min-width: 1024px) {
-      max-width: 102.4rem;
-    }
-    @media (min-width: 1300px) {
-      max-width: 140.0rem;
     }
    }
 
@@ -75,8 +74,7 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
 
-  padding: 32rem 5.6rem;
-  padding-bottom: 0;
+  padding: 0rem 5.6rem;
 
   > form {
     display: flex;
@@ -91,68 +89,70 @@ export const Content = styled.div`
    
     width: 100%;
 
-    height: 90rem;
-
+    padding-top: 22rem;
 
     @media (min-width: 360px) {
-   
-      margin-top: -20rem;
+      padding-top: 6rem;
     }
 
-    @media (min-width: 375px) {
-        margin-top: 1rem;  
+    @media (min-width: 375px) and (min-height: 532px) {
+      padding-top: 22rem;
+      width: 290px;
     }
 
-    @media (min-width: 390px) {
-      margin-top: -30rem;
+    @media (min-width: 390px) and (min-height: 844px) {
+      padding-top: 0rem;
+      height: 90rem;
     }
 
     @media (min-width: 425px) {
-      margin-top: 1rem;
+      padding-top: 40rem;
     }
 
-    @media (min-width: 500px) {
-      align-items: start;
-      justify-content: start;
+    @media (min-width: 412px) and (min-height: 896px) {
+      padding-top: 0rem;
+      height: 80rem; 
+    }
 
+    @media (min-width: 540px) and (min-height: 720px) {
       height: 65rem;
+      width: 40rem;
+      padding-top: 1rem;
     }
 
-    @media (min-width: 768px) {
-      margin-top: -32rem;
-    }
-
-    @media (min-width: 820px) {
-      height:115rem;
-      margin-top: -36rem;
-      width: 70rem;
-      padding: 0rem 8rem 0rem 8rem;  
-    }
-
-    @media (min-width: 912px) {
-      width: 85rem;
-      margin-top: -46rem;
+    @media (min-width: 768px) { 
+      width: 52rem;
+      margin-top: -6rem;
     }
 
     @media (min-width: 1024px) {
       width: 100rem;
       height: 150rem;
       padding: 0rem 12rem 0rem 12rem;
-      margin-top: -40rem;
     }
 
-    @media (min-width: 1280px) {
-      width: 110rem;
-      height: 58rem;
+    @media (min-width: 820px) and (min-height: 1180px) {
+      height: 100rem;
+      width: 72rem;
+      padding: 0rem 8rem 0rem 8rem;  
+      margin-top: -14rem;
+    }
 
-      margin-top: -65rem;
+    @media (min-width: 912px) and (min-height: 1368px) {
+      width: 80rem;
+      margin-top: -32rem;
+    }
+
+    @media (min-width: 1280px) and (min-height: 800px) {
+      width: 110rem;
+      margin-top: -5rem;
     }
 
     @media (min-width: 1300px) {
       width: 110rem;
       height: 78rem;
 
-      margin-top: -60rem;
+      margin-top: -22rem;
     }
 
     @media (min-width: 1360px) {
@@ -163,7 +163,7 @@ export const Content = styled.div`
 
       align-items: center;
     }
-
+  
     @media (min-width: 1400px) {
       width: 120.0rem; 
       height: 97rem;
