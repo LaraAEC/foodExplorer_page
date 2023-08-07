@@ -151,6 +151,13 @@ export function AdminMenu() {
             Novo prato
           </button>
 
+          <button className="buttonOrders"
+          type="button"
+          //onClick={handleOrders}
+          >
+            Pedidos
+          </button>
+
           <button className="buttonSignOut"
           type="button"
           onClick={handleSignOut}>

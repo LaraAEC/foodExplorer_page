@@ -138,6 +138,20 @@ export function UserMenu() {
           )}        
          </div>
 
+         <button className="buttonRequest"
+          type="button"
+          //onClick={handleHistoricRequest}
+          >
+            Histórico de Pedidos
+          </button>
+
+          <button className="buttonFavorites"
+          type="button"
+          //onClick={handleFavorites}
+          >
+            Favoritos
+          </button>
+
          <button className="buttonSignOut"
           type="button"
           onClick={handleSignOut}>

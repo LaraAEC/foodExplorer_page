@@ -27,6 +27,10 @@ export const Container = styled.div`
     overflow-y: auto;
 
     scrollbar-color: transparent transparent; 
+
+    &::-webkit-scrollbar {
+        background: transparent;
+    }
     
     @media (min-width: 768px) {
       padding-top: 7rem;
@@ -38,10 +42,6 @@ export const Container = styled.div`
 
     @media (min-width: 1300px) {
       padding-top: 14.5rem;
-    }
-
-    &::-webkit-scrollbar {
-        background: transparent;
     }
 
     @media (min-width: 1024px) {

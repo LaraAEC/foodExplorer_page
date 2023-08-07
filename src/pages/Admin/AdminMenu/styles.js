@@ -57,7 +57,7 @@ export const Container = styled.div`
 
     gap: 3.6rem;
 
-    > .buttonNewDish {
+    > .buttonNewDish, .buttonOrders, .buttonSignOut {
       border: none;
       background: transparent;
       cursor: pointer;
@@ -72,20 +72,6 @@ export const Container = styled.div`
 
       border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
    }
-
-    > .buttonSignOut {
-        border: none;
-        background: transparent;
-        cursor: pointer;
-
-        font-weight: 300;
-        font-size: 2.4rem;
-        line-height: 140%;
-
-        text-align:start;
-
-        color: ${({ theme }) => theme.COLORS.WHITE_300};
-    }
 
     > .closeSearch {
       display: flex;

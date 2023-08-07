@@ -26,7 +26,11 @@ export const Container = styled.div`
     overflow-x: hidden;
     overflow-y: auto;
 
-    scrollbar-color: transparent transparent; 
+    scrollbar-color: transparent transparent;
+    
+    &::-webkit-scrollbar {
+        background: transparent;
+    }
     
     @media (min-width: 400px) {
       padding-top: 0rem;
@@ -45,11 +49,7 @@ export const Container = styled.div`
       padding-top: 14.5rem;
       max-width: 140.0rem;
     }
-
-    &::-webkit-scrollbar {
-        background: transparent;
-    }
-   }
+  }
 
   > header {
     grid-area: header;
@@ -89,58 +89,83 @@ export const Content = styled.div`
    
     width: 100%;
 
-    padding-top: 22rem;
+    @media (max-width: 280px) and (max-height: 653px) {
+      margin-top: 14rem;
+    }
 
-    @media (min-width: 360px) {
+    @media (max-width: 320px) {
       padding-top: 6rem;
     }
+
+    @media (min-width: 360px) {
+      padding-top: 14rem;
+    }
+
 
     @media (min-width: 375px) and (min-height: 532px) {
       padding-top: 22rem;
       width: 290px;
     }
 
+    @media (min-width: 375px) and (min-height: 834px) {
+      padding-top: 6rem;
+    }
+
+
     @media (min-width: 390px) and (min-height: 844px) {
       padding-top: 0rem;
       height: 90rem;
     }
 
-    @media (min-width: 425px) {
-      padding-top: 40rem;
+    @media (min-width: 412px) and (min-height: 892px) {
+      padding-top: 1rem;
+      height: 85rem; 
     }
 
-    @media (min-width: 412px) and (min-height: 896px) {
-      padding-top: 0rem;
-      height: 80rem; 
+    @media (min-width: 425px) and (min-height: 834px) {
+      padding-top: 18rem;
     }
 
     @media (min-width: 540px) and (min-height: 720px) {
       height: 65rem;
       width: 40rem;
-      padding-top: 1rem;
+      padding-top: 0rem;
     }
 
     @media (min-width: 768px) { 
       width: 52rem;
-      margin-top: -6rem;
+      margin-top: -25rem;
     }
 
-    @media (min-width: 1024px) {
-      width: 100rem;
-      height: 150rem;
-      padding: 0rem 12rem 0rem 12rem;
+    @media (min-width: 768px) and (min-height: 1024px) {
+      height: 100rem;
+      width: 72rem;
+      padding: 0rem 8rem 0rem 8rem;  
+      margin-top: -10rem;
     }
+
 
     @media (min-width: 820px) and (min-height: 1180px) {
       height: 100rem;
       width: 72rem;
       padding: 0rem 8rem 0rem 8rem;  
-      margin-top: -14rem;
+      margin-top: -20rem;
     }
 
     @media (min-width: 912px) and (min-height: 1368px) {
       width: 80rem;
       margin-top: -32rem;
+    }
+
+    @media (min-width: 1024px) {
+      height: 150rem;
+      width: 100rem;
+      padding: 0rem 12rem 0rem 12rem;
+    }
+
+    @media (min-width: 1024px) and (min-height: 600px) {
+      padding: 0rem 8rem 0rem 8rem;  
+      margin-top: 0rem;
     }
 
     @media (min-width: 1280px) and (min-height: 800px) {

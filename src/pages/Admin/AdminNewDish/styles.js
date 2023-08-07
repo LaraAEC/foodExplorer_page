@@ -28,6 +28,10 @@ export const Container = styled.div`
 
     scrollbar-color: transparent transparent; 
 
+    &::-webkit-scrollbar {
+        background: transparent;
+    }
+
     @media (min-width: 400px) {
       padding-top: 0rem;
     } 
@@ -44,10 +48,6 @@ export const Container = styled.div`
     @media (min-width: 1300px) {
       padding-top: 14.5rem;
       max-width: 140.0rem;
-    }
-
-    &::-webkit-scrollbar {
-        background: transparent;
     }
   }
 
@@ -89,7 +89,13 @@ export const Content = styled.div`
    
     width: 100%;
 
-    padding-top: 22rem;
+    @media (max-width: 280px) and (max-height: 653px) {
+      margin-top: 8rem;
+    }
+
+    @media (max-width: 320px) {
+      padding-top: 0rem;
+    }
 
     @media (min-width: 360px) {
       padding-top: 6rem;
@@ -100,18 +106,27 @@ export const Content = styled.div`
       width: 290px;
     }
 
+     @media (min-width: 375px) and (min-height: 834px) {
+      height: 90rem;
+      padding-top: 0rem;
+    }
+
     @media (min-width: 390px) and (min-height: 844px) {
       padding-top: 0rem;
       height: 90rem;
+    }
+
+    @media (min-width: 412px) and (min-height: 892px) {
+      padding-top: 0rem;
+      height: 80rem; 
     }
 
     @media (min-width: 425px) {
       padding-top: 40rem;
     }
 
-    @media (min-width: 412px) and (min-height: 896px) {
-      padding-top: 0rem;
-      height: 80rem; 
+    @media (min-width: 425px) and (min-height: 834px) {
+      padding-top: 4rem;
     }
 
     @media (min-width: 540px) and (min-height: 720px) {
@@ -120,15 +135,17 @@ export const Content = styled.div`
       padding-top: 1rem;
     }
 
-    @media (min-width: 768px) { 
-      width: 52rem;
-      margin-top: -6rem;
+
+    @media (min-width: 768px) and (min-height: 834px) {
+      height: 100rem;
+      width: 72rem;
+      padding: 0rem 8rem 0rem 8rem;  
+      margin-top: 3rem;
     }
 
-    @media (min-width: 1024px) {
-      width: 100rem;
-      height: 150rem;
-      padding: 0rem 12rem 0rem 12rem;
+    @media (min-width: 768px) and (min-height: 1024px) { 
+      width: 72rem;
+      margin-top: -6rem;
     }
 
     @media (min-width: 820px) and (min-height: 1180px) {
@@ -143,6 +160,12 @@ export const Content = styled.div`
       margin-top: -32rem;
     }
 
+    @media (min-width: 1024px) {
+      width: 100rem;
+      height: 150rem;
+      padding: 0rem 12rem 0rem 12rem;
+    }
+
     @media (min-width: 1280px) and (min-height: 800px) {
       width: 110rem;
       margin-top: -5rem;
@@ -151,25 +174,20 @@ export const Content = styled.div`
     @media (min-width: 1300px) {
       width: 110rem;
       height: 78rem;
-
       margin-top: -22rem;
     }
 
     @media (min-width: 1360px) {
       width: 120.0rem; 
       height: 70rem;
-
       padding: 5.6rem;
-
       align-items: center;
     }
   
     @media (min-width: 1400px) {
       width: 120.0rem; 
       height: 97rem;
-
       padding: 5.6rem;
-
       align-items: center;
     }
 

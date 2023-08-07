@@ -14,6 +14,9 @@ export function UserDesktopHeader({ onChange }) {
   const { signOut } = useAuth(); 
   const navigate = useNavigate();
 
+  function handleButtonRequest() { 
+    navigate("/request"); 
+  }
 
   function handleSignOut() { 
     navigate("/"); 
@@ -62,11 +65,11 @@ export function UserDesktopHeader({ onChange }) {
         <div className="requestButton">
           <img className="receiptSvg"
             src={ ReceiptSvg }
-            alt="Imagem de 'recibo/recebido'."
+            alt="Imagem de 'recibo'."
           />
           <button className="requestButtonButton"
           type="button"
-          //onClick={handleButtonRequest}
+          onClick={handleButtonRequest}
           >
             <p>Pedidos (0)</p>
           </button> 

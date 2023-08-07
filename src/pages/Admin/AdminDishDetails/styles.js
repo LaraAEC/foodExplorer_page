@@ -15,9 +15,6 @@ export const Container = styled.div`
 
   overflow-y: hidden;
 
-  background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
-
-
   > main { 
     grid-area: main;
    
@@ -32,11 +29,21 @@ export const Container = styled.div`
         background: transparent;
     }
 
+    @media (min-width: 400px) {
+      padding-top: 0rem;
+    } 
+    
+    @media (min-width: 768px) {
+      padding-top: 7rem;
+    }
+
     @media (min-width: 1024px) {
+      padding-top: 10rem;
       max-width: 102.4rem;
     }
 
     @media (min-width: 1300px) {
+      padding-top: 14.5rem;
       max-width: 140.0rem;
     }
   }
@@ -79,7 +86,7 @@ export const Content = styled.div`
 
     @media (min-width: 768px) {
       height:100rem;
-      padding-top: 6.6rem;
+      padding-top: 0rem;
     }
 
     @media (min-width: 912px) {
@@ -99,24 +106,24 @@ export const Content = styled.div`
     
       width: 100rem;
       height: 48rem;
+
+      padding: 0 10rem 0 14rem;
+      margin-top: -10rem;
     }
 
     @media (min-width: 1280px) {
       width: 110rem;
-      height: 58rem;
-
-      padding: 1rem;
-      padding-top: 0;
-      
+      height: 43rem;
+  
     }
 
     @media (min-width: 1400px) {
       width: 120.0rem; 
       height: 77rem;
 
-      padding: 5.6rem;
-      padding: 0rem;
-
+      padding: 0 20rem 0 22rem; 
+      margin-top: -16rem;
+ 
       align-items: center;
     }
 

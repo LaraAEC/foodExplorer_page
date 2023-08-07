@@ -68,7 +68,8 @@ export const Content = styled.div`
 
     align-items: center;
     justify-content: center;
-@media (min-width: 412px) {
+
+    @media (min-width: 412px) {
       height:70rem;
     }
 

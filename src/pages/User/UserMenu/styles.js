@@ -57,20 +57,21 @@ export const Container = styled.div`
 
     gap: 3.6rem;
 
-    > .buttonSignOut {
+    > .buttonRequests, .buttonFavorites, .buttonSignOut {
       border: none;
-      background: none;
+      background: transparent;
       cursor: pointer;
 
       font-weight: 300;
       font-size: 2.4rem;
       line-height: 140%;
 
-      text-align: start;
+      text-align:start;
 
       color: ${({ theme }) => theme.COLORS.WHITE_300};
 
       border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
+    }
    }
 
    > .closeSearch {
