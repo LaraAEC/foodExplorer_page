@@ -116,12 +116,14 @@ export const Content = styled.div`
             font-weight: 500;
             line-height: 160%;
           }
-
-          > h2 {
-            padding: 1.5rem;
-          }
         }
       }
+
+      > .total {
+        > h2 { 
+         padding-top: 2rem; 
+       }
+      }    
     }
 
     .columnRight {
@@ -150,22 +152,41 @@ export const Content = styled.div`
 
           th {
             width: 50%; 
-            .wrapperPayment {
+
+            &:hover {
+                background: ${({ theme }) => theme.COLORS.GRAY_700};
+              }
+
+            cursor: pointer;
+
+            .wrapperPaymentMethod {
               display: flex;
               align-items: center;
               justify-content: center;
 
-              .buttonPayment {
+              &:hover {
+                background: ${({ theme }) => theme.COLORS.GRAY_700};
+              }
+
+              cursor: pointer;
+
+            .buttonPaymentMethod {
               display: flex;
               align-items: center;
               justify-content: center;
               gap: 1rem;
 
               border: none;
-              background: transparent;
-              cursor: pointer;
+
               color: ${({ theme }) => theme.COLORS.WHITE_100};
+              background: transparent;            
+
+              &:hover {
+                background: ${({ theme }) => theme.COLORS.GRAY_700};
               }
+
+              cursor: pointer;
+              }   
             }  
           }
         }
@@ -177,33 +198,65 @@ export const Content = styled.div`
           tr {
             
             td {
-              padding: 4rem;
+              padding: 4rem 5.5rem;
               text-align: center;
               vertical-align: middle;
+
+              img {
+                width: 25rem;
+                height: 25rem;
+              }
             
               .cardDetails {
                 display: flex;
                 flex-direction: column;
-                gap: 2rem;
+                gap: 1.5rem;
 
                 padding: 0 1rem;
 
                 justify-content: start;
                 align-items: start;
-                max-width: 40rem; 
+                width: 33rem; 
                 
                 > .divCardDetails {
                   display: flex;
                   flex-direction: column;
                   align-items: start;
-                  width: 100%; 
-                }
+                  width: 100%;
 
+                  > input {
+                    background: transparent;
+                    border-radius: 5px;
+                    border: 1px solid #808080;
+                    
+                    width: 100%;
+                
+                    height: 3.5rem;
+                    padding: 1.2rem 1.4rem;
+                    
+                    color: ${({ theme }) => theme.COLORS.WHITE_100};
+                    background: transparent;
+
+                    &::placeholder {
+                      font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+                      font-weight: 400;
+                      font-size: 1.6rem;
+
+                      color: ${({ theme }) => theme.COLORS.GRAY_500};
+                    }
+
+                    &:focus {
+                      border: 1px solid var(--light-light-100, #FFF);
+                      border-radius: 0.5rem;
+                      }                  
+                   }                  
+                }
+              
                 > .expirationAndCvc {
                   display: flex;
                   gap: 1rem;
 
-                  width: 60%;
+                  width: 100%;
 
                   padding-bottom: 2rem;
 
@@ -216,26 +269,43 @@ export const Content = styled.div`
                     text-align: start;
 
                     > input {
-                      width: 50%;
-                    }
-                  }
-                }
+                      background: transparent;
+                      border-radius: 5px;
+                      border: 1px solid #808080;
+                      
+                      width: 100%;
+                  
+                      height: 3.5rem;
+                      padding: 1.2rem 1.4rem;
+                      
+                      color: ${({ theme }) => theme.COLORS.WHITE_100};
+                      background: transparent;
 
-                > .wrapperButtonPayment{
+                      &::placeholder {
+                        font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+                        font-weight: 400;
+                        font-size: 1.6rem;
+                        color: ${({ theme }) => theme.COLORS.GRAY_500};
+                      } 
+
+                      &:focus {
+                        border: 1px solid var(--light-light-100, #FFF);
+                        border-radius: 0.5rem;
+                        }
+                     }
+                    }
+              }
+
+              > .wrapperButtonCompletePayment{
                   width: 100%;
                   height: 4.6rem;
                 }
-              }
               
-              img {
-                width: 20rem;
-                height: 20rem;
-              }
            }
           }
         }
       }
     }
-  }  
+  }  }
 `;
 

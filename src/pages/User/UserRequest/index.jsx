@@ -46,6 +46,7 @@ export function UserRequest() {
 
           <Content>
             <div className="page">
+              
               <div className="wrapperBack">
                   <ButtonText
                   title="Voltar"
@@ -53,29 +54,37 @@ export function UserRequest() {
                   onClick={handleBack} 
                 />
               </div>
-  
-              <div className="pageTitle">
-                <h1>Meu pedido</h1>
-              </div>
 
-              <Section>
-
-                <div className="request">
-                  <p>Título do prato</p>
-                  <button
-                  type="button"
-                  className="buttonRemoveFavorite"
-                  //onClick={handleRemoveFavorite}
-                  >
-                    <p>Remover dos Favoritos</p>
-                  </button>
-                
-                  <h2>Total: R$ 103,30</h2>
+              <div className="container">
+                <div className="pageTitle">
+                  <h1>Meu pedido</h1>
                 </div>
 
+              <Section>
+                <div className="request">
+                  <p> photo 2 x Título do prato e botão remover</p>
+                  <p> photo 2 x Título do prato e botão remover</p>
+                  <p> photo 3 x Título do prato e botão remover</p>
+                  <p> photo 2 x Título do prato e botão remover</p>
+                  <p> photo 4 x Título do prato e botão remover</p>
+                  <p> photo 1 x Título do prato e botão remover</p>
+                  <p> photo 1 x Título do prato e botão remover</p>
+                  <p> photo 2 x Título do prato e botão remover</p>
+                  <p> photo 2 x Título do prato e botão remover</p>
+                  <p> photo 2 x Título do prato e botão remover</p>
+                  <p> photo 3 x Título do prato e botão remover</p>
+                  <p> photo 2 x Título do prato e botão remover</p>
+                  <p> photo 4 x Título do prato e botão remover</p>
+                  <p> photo 1 x Título do prato e botão remover</p>
+                  <p> photo 1 x Título do prato e botão remover</p>
+                  <p> photo 2 x Título do prato e botão remover</p>              
+                </div>
               </Section>
-                            
-             
+
+              <div className="total">
+                <h2>Total: R$ 103,30</h2>
+              </div>
+                                        
               <footer className="footerButton">
                 <div className="buttonNext">
                   <Button
@@ -87,7 +96,8 @@ export function UserRequest() {
                   </Button>
                 </div>
               </footer>
-              
+             </div>
+
             </div>
           </Content>
 

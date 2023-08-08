@@ -25,7 +25,16 @@ import { Footer } from '../../../components/Footer';
 export function UserPaymentMobile() {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
 
-  const [showQRCode, setShowQRCode] = useState(true);
+  const [showQrCode, setShowQrCode] = useState(false);
+
+  function handleShowQrCode(boolean) {
+    setShowQrCode(boolean);
+  }
+  
+
+  function handleButtonCompletePayment() {
+    navigate("/");
+  }
 
   const navigate = useNavigate();
 
@@ -63,8 +72,8 @@ export function UserPaymentMobile() {
                   <thead>
                     <tr>
                       <th>
-                        <div className="wrapperPayment">
-                          <button type= "button" className="buttonPayment"  onClick={() => setShowQRCode(true)}>
+                        <div className="wrapperPaymentMethod"> 
+                          <button type= "button" className="buttonPaymentMethod" onClick={() => handleShowQrCode(true)}>
                             <img
                               src={PixSvg}
                               alt="Símbolo do aplicativo 'pix'."
@@ -74,8 +83,8 @@ export function UserPaymentMobile() {
                         </div>
                       </th>
                       <th>
-                        <div className="wrapperPayment">
-                          <button type= "button" className="buttonPayment"  onClick={() => setShowQRCode(false)}>
+                        <div className="wrapperPaymentMethod">
+                          <button type= "button" className="buttonPaymentMethod" onClick={() => handleShowQrCode(false)}>
                             <img
                               src={CardSvg}
                               alt="Imagem de um 'cartão de crédito/débito'."
@@ -89,58 +98,64 @@ export function UserPaymentMobile() {
                   <tbody>
                     <tr>
                       <td className="TableContent" colSpan="2">
-                      {showQRCode ? (
+                      {showQrCode ? (
                             <img src={ImageQrCodePng} alt="Imagem de 'QRcode'." />
                           ) : (
                             <div className="cardDetails">
-                              <label htmlFor="cardName">
-                              Nome no Cartão
-                              </label>
-                              <Input
-                                type="text"
-                                id="cardName"
-                                placeholder="Marina V Andrade"
-                              />
-                              <label htmlFor="cardNumber">
-                              Número do Cartão
-                              </label>
-                              <Input
-                                type="text"
-                                id="cardNumber"
-                                placeholder="0000 0000 0000 0000"
-                              />
+                              <div className="divCardDetails">
+                                <label htmlFor="cardName">
+                                Nome no Cartão
+                                </label>
+                                <input
+                                  type="text"
+                                  id="cardName"
+                                  placeholder="Marina V Andrade"
+                                />
+                              </div>
+                              
+                              <div className="divCardDetails">
+                                <label htmlFor="cardNumber">
+                                Número do Cartão
+                                </label>
+                                <input
+                                  type="number"
+                                  id="cardNumber"
+                                  placeholder="0000 0000 0000 0000"
+                                />
+                              </div>
+                              
                               <div className="expirationAndCvc">
-                                <div>
+                                <div className="divExpirationAndCvc">
                                   <label htmlFor="expirationDate">
                                   Validade
                                   </label>
-                                  <Input
+                                  <input
                                     type="text"
                                     id="expirationDate"
                                     placeholder="07/25"
                                   />
                                 </div>
-                                <div>
-                                  <label htmlFor="cvc">
-                                    CVC
-                                  </label>
-                                  <Input
-                                    type="text"
-                                    id="cvc"
-                                    placeholder="000"
-                                  />
+                              <div className="divExpirationAndCvc">
+                                <label htmlFor="cvc">
+                                  CVC
+                                </label>
+                                <input
+                                  type="number"
+                                  id="cvc"
+                                  placeholder="000"
+                                />
                                 </div>
                               </div>
                 
-                            <div className="wrapperButtonPayment">
-                              <Button
-                              type="button"
-                              className="buttonPayment"
-                              title="Finalizar pagamento"
-                              onClick={handleButtonPayment}
-                              >
-                              </Button>
-                            </div>
+                              <div className="wrapperButtonCompletePayment">
+                                <Button
+                                type="button"
+                                className="buttonPayment"
+                                title="Finalizar pagamento"
+                                onClick={handleButtonCompletePayment}
+                                >
+                                </Button>
+                              </div>
                             </div>
                           )}
                       </td>

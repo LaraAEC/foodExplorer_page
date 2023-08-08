@@ -16,7 +16,6 @@ import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
 
 import { Container, Content } from './styles';
 import { Section } from '../../../components/Section';
-import { Input } from '../../../components/Input';
 import { ButtonText } from '../../../components/ButtonText';
 import { Button } from '../../../components/Button'; 
 import { Footer } from '../../../components/Footer'; 
@@ -25,7 +24,8 @@ import { Footer } from '../../../components/Footer';
 export function UserPaymentDesktop() {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
 
-  const [showQRCode, setShowQrCode] = useState(true);
+  const [showQrCode, setShowQrCode] = useState(false);
+
 
   const navigate = useNavigate();
 
@@ -36,6 +36,7 @@ export function UserPaymentDesktop() {
   function handleShowQrCode(boolean) {
     setShowQrCode(boolean);
   }
+  
 
   function handleButtonCompletePayment() {
     navigate("/");
@@ -53,6 +54,7 @@ export function UserPaymentDesktop() {
 
           <Content>
             <div className="page">
+
               <div className="wrapperBack">
                 <ButtonText
                 title="Voltar"
@@ -68,54 +70,28 @@ export function UserPaymentDesktop() {
 
                 <Section>
                   <div className="request">
-                    <p>quantidade x Título do prato</p>
-                    <button
-                    type="button"
-                    className="buttonRemoveFavorite"
-                    //onClick={handleRemoveFavorite}
-                    >
-                      <p>Remover dos Favoritos</p>
-                    </button>
-
-                    <p>quantidade x Título do prato</p>
-                    <button
-                    type="button"
-                    className="buttonRemoveFavorite"
-                    //onClick={handleRemoveFavorite}
-                    >
-                      <p>Remover dos Favoritos</p>
-                    </button>
-
-                    <p>quantidade x Título do prato</p>
-                    <button
-                    type="button"
-                    className="buttonRemoveFavorite"
-                    //onClick={handleRemoveFavorite}
-                    >
-                      <p>Remover dos Favoritos</p>
-                    </button>
-
-                    <p>quantidade x Título do prato</p>
-                    <button
-                    type="button"
-                    className="buttonRemoveFavorite"
-                    //onClick={handleRemoveFavorite}
-                    >
-                      <p>Remover dos Favoritos</p>
-                    </button>
-
-                    <p>quantidade x Título do prato</p>
-                    <button
-                    type="button"
-                    className="buttonRemoveFavorite"
-                    //onClick={handleRemoveFavorite}
-                    >
-                      <p>Remover dos Favoritos</p>
-                    </button>
-                  
-                    <h2>Total: R$ 103,30</h2>
+                    <p> photo 2 x Título do prato e botão remover</p>
+                    <p> photo 2 x Título do prato e botão remover</p>
+                    <p> photo 3 x Título do prato e botão remover</p>
+                    <p> photo 2 x Título do prato e botão remover</p>
+                    <p> photo 4 x Título do prato e botão remover</p>
+                    <p> photo 1 x Título do prato e botão remover</p>
+                    <p> photo 1 x Título do prato e botão remover</p>
+                    <p> photo 2 x Título do prato e botão remover</p>
+                    <p> photo 2 x Título do prato e botão remover</p>
+                    <p> photo 2 x Título do prato e botão remover</p>
+                    <p> photo 3 x Título do prato e botão remover</p>
+                    <p> photo 2 x Título do prato e botão remover</p>
+                    <p> photo 4 x Título do prato e botão remover</p>
+                    <p> photo 1 x Título do prato e botão remover</p>
+                    <p> photo 1 x Título do prato e botão remover</p>
+                    <p> photo 2 x Título do prato e botão remover</p>              
                   </div>
                 </Section>
+
+                <div className="total">
+                  <h2>Total: R$ 103,30</h2>
+                </div>
               </div>
 
               <div className="columnRight">
@@ -124,8 +100,8 @@ export function UserPaymentDesktop() {
                   <thead>
                     <tr>
                       <th>
-                        <div className="wrapperPayment">
-                          <button type= "button" className="buttonPayment"  onClick={() => handleShowQrCode(true)}>
+                        <div className="wrapperPaymentMethod"> 
+                          <button type= "button" className="buttonPaymentMethod" onClick={() => handleShowQrCode(true)}>
                             <img
                               src={PixSvg}
                               alt="Símbolo do aplicativo 'pix'."
@@ -135,8 +111,8 @@ export function UserPaymentDesktop() {
                         </div>
                       </th>
                       <th>
-                        <div className="wrapperPayment">
-                          <button type= "button" className="buttonPayment"  onClick={() => handleShowQrCode(false)}>
+                        <div className="wrapperPaymentMethod">
+                          <button type= "button" className="buttonPaymentMethod" onClick={() => handleShowQrCode(false)}>
                             <img
                               src={CardSvg}
                               alt="Imagem de um 'cartão de crédito/débito'."
@@ -150,7 +126,7 @@ export function UserPaymentDesktop() {
                   <tbody>
                     <tr>
                       <td className="TableContent" colSpan="2">
-                      {showQRCode ? (
+                      {showQrCode ? (
                             <img src={ImageQrCodePng} alt="Imagem de 'QRcode'." />
                           ) : (
                             <div className="cardDetails">
@@ -158,7 +134,7 @@ export function UserPaymentDesktop() {
                                 <label htmlFor="cardName">
                                 Nome no Cartão
                                 </label>
-                                <Input
+                                <input
                                   type="text"
                                   id="cardName"
                                   placeholder="Marina V Andrade"
@@ -169,8 +145,8 @@ export function UserPaymentDesktop() {
                                 <label htmlFor="cardNumber">
                                 Número do Cartão
                                 </label>
-                                <Input
-                                  type="text"
+                                <input
+                                  type="number"
                                   id="cardNumber"
                                   placeholder="0000 0000 0000 0000"
                                 />
@@ -181,33 +157,33 @@ export function UserPaymentDesktop() {
                                   <label htmlFor="expirationDate">
                                   Validade
                                   </label>
-                                  <Input
+                                  <input
                                     type="text"
                                     id="expirationDate"
                                     placeholder="07/25"
                                   />
                                 </div>
-                                <div className="divExpirationAndCvc">
-                                  <label htmlFor="cvc">
-                                    CVC
-                                  </label>
-                                  <Input
-                                    type="text"
-                                    id="cvc"
-                                    placeholder="000"
-                                  />
+                              <div className="divExpirationAndCvc">
+                                <label htmlFor="cvc">
+                                  CVC
+                                </label>
+                                <input
+                                  type="number"
+                                  id="cvc"
+                                  placeholder="000"
+                                />
                                 </div>
                               </div>
                 
-                            <div className="wrapperButtonPayment">
-                              <Button
-                              type="button"
-                              className="buttonPayment"
-                              title="Finalizar pagamento"
-                              onClick={handleButtonCompletePayment}
-                              >
-                              </Button>
-                            </div>
+                              <div className="wrapperButtonCompletePayment">
+                                <Button
+                                type="button"
+                                className="buttonPayment"
+                                title="Finalizar pagamento"
+                                onClick={handleButtonCompletePayment}
+                                >
+                                </Button>
+                              </div>
                             </div>
                           )}
                       </td>

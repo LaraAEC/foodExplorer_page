@@ -65,21 +65,17 @@ export const Content = styled.div`
     height: 100%;
 
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
    
     color: ${({ theme }) => theme.COLORS.WHITE_300};
 
-    > .wrapperBack {
-      grid-area: back;
-      width: 100%;
-      }
-
-
     .columnRight {
-      grid-area: right;
-
       display: flex;
       flex-direction: column;
-      align-items: start;
+      align-items: center;
+
+      gap: 1.5rem;
 
       > h1 {
         font-size: 3.2rem;
@@ -100,22 +96,41 @@ export const Content = styled.div`
 
           th {
             width: 50%; 
-            .wrapperPayment {
+
+            &:hover {
+                background: ${({ theme }) => theme.COLORS.GRAY_700};
+              }
+
+              cursor: pointer;
+
+              .wrapperPaymentMethod {
               display: flex;
               align-items: center;
               justify-content: center;
 
-              .buttonPayment {
+              &:hover {
+                background: ${({ theme }) => theme.COLORS.GRAY_700};
+              }
+
+              cursor: pointer;
+
+            .buttonPaymentMethod {
               display: flex;
               align-items: center;
               justify-content: center;
               gap: 1rem;
 
               border: none;
-              background: transparent;
-              cursor: pointer;
+
               color: ${({ theme }) => theme.COLORS.WHITE_100};
+              background: transparent;            
+
+              &:hover {
+                background: ${({ theme }) => theme.COLORS.GRAY_700};
               }
+
+              cursor: pointer;
+              }   
             }  
           }
         }
@@ -127,9 +142,14 @@ export const Content = styled.div`
           tr {
             
             td {
-              padding: 4rem;
+              padding: 2rem;
               text-align: center;
-              vertical-align: middle;
+              vertical-align: middle; 
+              
+              img {
+                width: 60%;
+                height: 60%;
+              }
             
               .cardDetails {
                 display: flex;
@@ -146,7 +166,34 @@ export const Content = styled.div`
                   display: flex;
                   flex-direction: column;
                   align-items: start;
-                  width: 100%; 
+                  width: 100%;
+                  
+                  > input {
+                    background: transparent;
+                    border-radius: 5px;
+                    border: 1px solid #808080;
+                    
+                    width: 100%;
+                
+                    height: 3.5rem;
+                    padding: 1.2rem 1.4rem;
+                    
+                    color: ${({ theme }) => theme.COLORS.WHITE_100};
+                    background: transparent;
+
+                    &::placeholder {
+                      font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+                      font-weight: 400;
+                      font-size: 1.6rem;
+
+                      color: ${({ theme }) => theme.COLORS.GRAY_500};
+                    }
+
+                    &:focus {
+                      border: 1px solid var(--light-light-100, #FFF);
+                      border-radius: 0.5rem;
+                      }                  
+                   } 
                 }
 
                 > .expirationAndCvc {
@@ -166,20 +213,37 @@ export const Content = styled.div`
                     text-align: start;
 
                     > input {
-                      width: 50%;
+                      background: transparent;
+                      border-radius: 5px;
+                      border: 1px solid #808080;
+                      
+                      width: 100%;
+                  
+                      height: 3.5rem;
+                      padding: 1.2rem 1.4rem;
+                      
+                      color: ${({ theme }) => theme.COLORS.WHITE_100};
+                      background: transparent;
+
+                      &::placeholder {
+                        font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+                        font-weight: 400;
+                        font-size: 1.6rem;
+                        color: ${({ theme }) => theme.COLORS.GRAY_500};
+                      } 
+
+                      &:focus {
+                        border: 1px solid var(--light-light-100, #FFF);
+                        border-radius: 0.5rem;
+                        }
                     }
                   }
                 }
 
-                > .wrapperButtonPayment{
+                > .wrapperButtonCompletePayment{
                   width: 100%;
                   height: 4.6rem;
                 }
-              }
-              
-              img {
-                width: 20rem;
-                height: 20rem;
               }
             }
           }    

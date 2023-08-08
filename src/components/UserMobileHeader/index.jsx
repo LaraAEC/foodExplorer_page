@@ -13,10 +13,14 @@ export function UserMobileHeader() {
     navigate("/menu"); //para ser usado no botão de voltar e colocar o usuário na rota anterior
   }
 
+  function handleButtonRequest() { 
+    navigate("/request"); 
+  }
+
   return (
     <Container>
       <div className="box">
-       <button>
+       <button className="buttonMenu">
           <img className="menuSvg"
             src={ MenuSvg }
             alt="Imagem de 'menu'."
@@ -34,10 +38,16 @@ export function UserMobileHeader() {
 
         </div> 
 
-        <img
+        <button className="requestButton"
+        type="button"
+        onClick={handleButtonRequest}
+        >
+          <img className="receiptSvg"
           src={ ReceiptSvg }
-          alt="Imagem de 'recibo/recebido/pedido'."
+          alt="Imagem de 'recibo'."
         />
+        </button> 
+       
       </div>
     </Container>
   );

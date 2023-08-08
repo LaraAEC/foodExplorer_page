@@ -32,15 +32,15 @@ export const Container = styled.div`
     }
     
     @media (min-width: 768px) {
-      padding-top: 7rem;
+      padding-top: 3rem;
     }
 
     @media (min-width: 1024px) {
-      padding-top: 10rem;
+      padding-top: 3rem;
     }
 
     @media (min-width: 1300px) {
-      padding-top: 14.5rem;
+      padding-top: 5rem;
     }
 
     @media (min-width: 1024px) {
@@ -67,20 +67,9 @@ export const Content = styled.div`
   height: 100vh;
 
   > .page {
-    display: grid;
-    grid-template-rows: 0.1fr auto auto 1fr;
-    grid-template-areas:
-    "back"
-    "title"
-    "section"
-    "footerButton";
-    
-    overflow-y: hidden;
-
-    max-width: 100%;
-    height: 100vh;
-
-    color: ${({ theme }) => theme.COLORS.WHITE_300};
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
 
     > .wrapperBack {
       grid-area: back;
@@ -89,59 +78,93 @@ export const Content = styled.div`
       display: flex;
       justify-content: start;
       }
-  
-    > .pageTitle {
-      grid-area: title;
-      width: 100%;
-      > h1 {
-        font-size: 3.2rem;
-        font-weight: 500;
-        line-height: 140%;  
-      }
-    }
 
-    > section {
-      grid-area: section;
-      width: 100%;
+    > .container {
+      display: grid;
+      grid-template-rows: 0.1fr auto auto 1fr 1fr;
+      grid-template-areas:
+      "back"
+      "title"
+      "section"
+      "total"
+      "footerButton";
       
-      overflow-x: hidden;
-      overflow-y: auto;
+      overflow-y: hidden;
 
-      scrollbar-color: transparent transparent; 
+      max-width: 100%;
+      height: 100vh;
 
-      &::-webkit-scrollbar {
-        background: transparent;
-      } 
-     
-      > .request {
+      color: ${({ theme }) => theme.COLORS.WHITE_300};
 
-        > p {
-          font-size: 2rem;
+      > .pageTitle {
+        grid-area: title;
+        width: 100%;
+        > h1 {
+          font-size: 3.2rem;
           font-weight: 500;
-          line-height: 160%;
-        }
-
-        > h2 {
-          padding: 2rem;
+          line-height: 140%;  
         }
       }
+
+      > section {
+        grid-area: section;
+        width: 100%;
+        
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        scrollbar-color: transparent transparent; 
+
+        &::-webkit-scrollbar {
+          background: transparent;
+        } 
+
+        > .request {
+          display: flex;
+          flex-wrap: wrap; 
+          gap: 1.5rem; 
+          width: 100%;
+          height: 80%;
+         
+          overflow-x: hidden;
+          overflow-y: auto;
+
+          scrollbar-color: transparent transparent; 
+
+          &::-webkit-scrollbar {
+            background: transparent;
+          } 
+
+          > p {
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 160%;
+          }
+        }
+      }
+
+      > .total {
+        grid-area:total;
+        font-family: Poppins;
+      }
+
+      > .footerButton {
+        grid-area: footerButton;
+        width: 100%;
+
+        display: flex;
+        align-items: end;
+        justify-content: end;
+
+        padding-bottom: 2rem;
+
+      
+        > .buttonNext {
+        width: 20rem;
+        height: 5rem;
+        }
+      }  
     }
-
-    > .footerButton {
-      grid-area: footerButton;
-      width: 100%;
-
-      display: flex;
-      align-items: end;
-      justify-content: end;
-
-    
-      > .buttonNext {
-      width: 20rem;
-      height: 5rem;
-      }
-
-    }  
   }  
 `;
 
