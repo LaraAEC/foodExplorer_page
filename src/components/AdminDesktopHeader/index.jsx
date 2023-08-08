@@ -13,7 +13,7 @@ import SignOutSvg from '../../assets/signOut.svg';
 
 
 export function AdminDesktopHeader({ onChange }) {
-  const { signOut } = useAuth(); //desestruturando a função de logout de dentro do meu contexto
+  const { signOut } = useAuth(); 
   const navigate = useNavigate();
 
   
@@ -23,8 +23,12 @@ export function AdminDesktopHeader({ onChange }) {
     signOut(); 
   }
 
-  function handleNewDishButton() { //função disparada com interação do usuário
-    navigate("/new"); //levando o usuário para a tela de criar novo prato
+  function handleNewDishButton() { 
+    navigate("/new"); 
+  }
+
+  function handleAllOrdersButton() { 
+    navigate("/orders"); 
   }
 
   return (
@@ -72,7 +76,7 @@ export function AdminDesktopHeader({ onChange }) {
           />
           <button className="ordersButtonButton"
           type="button"
-          //onClick={handleAllRequests}
+          onClick={handleAllOrdersButton}
           >
             <p>Pedidos (0)</p>
           </button> 

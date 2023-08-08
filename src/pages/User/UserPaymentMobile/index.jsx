@@ -170,4 +170,4 @@ export function UserPaymentMobile() {
         <Footer />
       </Container>    
   )
-}
+ }

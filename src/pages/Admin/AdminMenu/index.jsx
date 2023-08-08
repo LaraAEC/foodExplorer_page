@@ -59,6 +59,10 @@ export function AdminMenu() {
     navigate("/new"); 
   }
 
+  function handleAllOrdersButton() { 
+    navigate("/orders"); 
+  }
+
   function handleCloseMenu() { 
     navigate("/"); 
   }
@@ -67,7 +71,7 @@ export function AdminMenu() {
     setDishes(false); 
   }
 
-
+  
    return (
       <Container>
         <div className="closeMenu">
@@ -153,7 +157,7 @@ export function AdminMenu() {
 
           <button className="buttonOrders"
           type="button"
-          //onClick={handleOrders}
+          onClick={handleAllOrdersButton}
           >
             Pedidos
           </button>

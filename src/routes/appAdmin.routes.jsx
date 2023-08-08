@@ -5,6 +5,7 @@ import { AdminNewDish } from '../pages/Admin/AdminNewDish';
 import { AdminDishEdit} from '../pages/Admin/AdminDishEdit';
 import { AdminDishDetails } from '../pages/Admin/AdminDishDetails';
 import { AdminMenu } from '../pages/Admin/AdminMenu';
+import { AdminOrders } from '../pages/Admin/AdminOrders';
 
 
 
@@ -17,6 +18,7 @@ export function AppAdminRoutes() {
       <Route path="/edit/:id" element={ <AdminDishEdit />} />
       <Route path="/details/:id" element={ <AdminDishDetails />} />
       <Route path="/menu" element={ <AdminMenu />} />
+      <Route path="/orders" element={ <AdminOrders />} />
     
     </Routes>
   )
