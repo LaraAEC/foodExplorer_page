@@ -1,136 +1,160 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { api } from '../../../services/api';
+import { api } from "../../../services/api";
+import { useAuth } from "../../../hooks/auth";
 
 import { useRef } from 'react';
 
 import { useMediaQuery } from 'react-responsive';
 
 import { FiChevronLeft } from 'react-icons/fi';
-import RedEllipseSvg  from '../../../assets/redEllipse.svg';
-import OrangeEllipseSvg  from '../../../assets/orangeEllipse.svg'; 
-import GreenEllipseSvg  from '../../../assets/greenEllipse.svg';
-
-
-import { UserMobileHeader } from '../../../components/UserMobileHeader';
-import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
+import { AdminMobileHeader } from '../../../components/AdminMobileHeader';
+import { AdminDesktopHeader } from '../../../components/AdminDesktopHeader';
 
 import { Container, Content } from './styles';
 import { Section } from '../../../components/Section';
 import { ButtonText } from '../../../components/ButtonText';
 import { Button } from '../../../components/Button'; 
-import { Footer } from '../../../components/Footer'; 
+import { Footer } from '../../../components/Footer';
+import { StatusOrders } from "../../../components/StatusOrders";
+
+import { ThreeCircles } from "react-loader-spinner";
+import { toast } from "react-toastify";
 
 
 export function AdminOrders() {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
   const isDesktop = useMediaQuery({ minWidth: 1024 });
 
+  const { isLoading, setIsLoading } = useAuth();
+
   const navigate = useNavigate();
+
+  const [itemsOrder, setItemsOrder] = useState([]);
 
   function handleBack() {
     navigate(-1); 
   }
 
-  function handleButtonNext() {
-    if (isMobile) {
-      navigate("/paymentMob");
-    } else {
-      navigate("/paymentDesk");
-    } 
+  async function handleUpdateStatus(itemIds) {
+    setIsLoading(true);
+    await Promise.all(itemIds.map(itemId => {
+        const item = itemsOrder.find(item => item.id === itemId);
+        api.patch(`orders/${itemId}`, {status: item.status} );
+    setIsLoading(false);
+    }));
+
+    toast.success("Status atualizado com sucesso.", {
+        position: toast.POSITION.TOP_CENTER
+    });
   }
-  
+
+  useEffect(() => {
+    async function fetchOrders () {
+        setIsLoading(true);
+        const response = await api.get(`/orders`);
+        setItemsOrder(response.data.map(item => ({ ...item, status: item.status })));
+        setIsLoading(false);
+    }
+
+    fetchOrders();
+  }, []);
+
 
 
   return (
 
-      <Container>
+    <Container>
 
-        {isMobile ? <UserMobileHeader /> : <UserDesktopHeader onChange={e => setSearch(e.target.value)} />}
+      {isMobile ? <AdminMobileHeader /> : <AdminDesktopHeader onChange={e => setSearch(e.target.value)} />}
 
-        <main>
-
-          <Content>
-            <div className="page">
-              
-              <div className="wrapperBack">
-                  <ButtonText
-                  title="Voltar"
-                  icon={FiChevronLeft }
-                  onClick={handleBack} 
+      {
+            isLoading ?
+            (
+            <div className="loader">
+                <ThreeCircles
+                color="#126b37"
+                width="120"
+                height="100"
                 />
-              </div>
-
-              <div className="container">
-                <div className="pageTitle">
-                  <h1>Pedidos</h1>
-                </div>
-
-              <Section>
-                <div className="order">
-
-                {
-                    isDesktop &&
-                <div className="rowTitle">
-                  <span>
-                      Status
-                  </span>
-
-                  <span>
-                      Código
-                  </span>
-
-                  <span>
-                      Detalhamento
-                  </span>
-
-                  <span>
-                      Data e hora
-                  </span>
-                </div>
-
-                }
-
-                  <p>Aqui segue a descrição com quantidade e título dos pratos pedidos,
-                    o pedido completo de um carinho/request de um usuário.</p>
-
-                  <div className="wrapperStatus">
-                    <label htmlFor="statusSelect">Status:</label>
-                    <select id="statusSelect"
-                    //value={status}
-                    //onChange={e => setStatus(e.target.value)}
-                    >
-                 
-                    <option value="Pendente">Pendente</option>
-                    <option value="Preparando">Preparando</option>
-                    <option value="Entregue">Entregue</option>
-                    </select>
-                  </div>        
-                </div>
-
-              </Section>
-
-                                        
-              <footer className="footerButton">
-                <div className="buttonNext">
-                  <Button
-                  type="button"
-                  className="buttonUpdateStatus"
-                  title="Atualizar pedidos"
-                  //onClick={handleButtonUpdateStatus}
-                  >
-                  </Button>
-                </div>
-              </footer>
-             </div>
-
             </div>
-          </Content>
+            )
+            :
+            (
+    
+        <Content>
 
-        </main>
+          <ButtonText 
+            icon={FiArrowLeft}
+            title="Voltar"
+            onClick={handleBack}
+          />
+        
+          <Section title="Pedidos">
+            {
+                itemsOrder &&
+            <form>
 
-        <Footer />
+              {
+                  isDesktop &&
+              <nav>
+                <span>
+                    Status
+                </span>
 
-      </Container>    
+                <span>
+                    Código
+                </span>
+
+                <span>
+                    Detalhamento
+                </span>
+
+                <span>
+                    Data e hora
+                </span>
+              </nav>
+              }
+
+              {
+                itemsOrder.map((item, index) => (
+                  <StatusOrders
+                      key={index}
+                      data={{
+                          status: item.status,
+                          code: String(item.id).padStart(5, '0'),
+                          created_at: item.created_at
+                      }}
+                      value={item.status}
+                      details={item.items.map((i, index) => `${i.amount} x ${i.dish_title}${index > item.items.length -2 ? '': ', '}  `)}
+                      onChange={e => {
+                          const newStatus = e.target.value;
+                        setItemsOrder(prevItems => prevItems.map(prevItem => {
+                            if (prevItem.id === item.id) {
+                                return { ...prevItem, status: newStatus }
+                            } else {
+                                return prevItem;
+                            }
+                        }))
+                      }}  
+                  />
+                ))
+              }
+            </form>
+            }
+          </Section>
+
+          <Button 
+          title="Atualizar pedidos"
+          onClick={() => handleUpdateStatus(itemsOrder.map(item => item.id))}
+          />
+
+        </Content>
+        )
+      }
+ 
+      <Footer />
+
+    </Container>    
   )
 }

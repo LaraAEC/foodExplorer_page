@@ -21,8 +21,9 @@ import { Button } from '../../../components/Button';
 import { Footer } from '../../../components/Footer'; 
 
 
-export function UserPaymentDesktop() {
+export function UserPayment() {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
+  const isDesktop = useMediaQuery({ minWidth: 1023 });
 
   const [showQrCode, setShowQrCode] = useState(false);
 
@@ -63,6 +64,9 @@ export function UserPaymentDesktop() {
                 />
               </div>
 
+              {
+                isDesktop &&
+
               <div className='columnLeft'>
                 <div className="pageTitle">
                   <h1>Meu pedido</h1>
@@ -92,7 +96,21 @@ export function UserPaymentDesktop() {
                 <div className="total">
                   <h2>Total: R$ 103,30</h2>
                 </div>
+
+                
+
+                <div className="wrapperButtonCompletePayment">
+                    <Button
+                    type="button"
+                    className="buttonPayment"
+                    title="Finalizar pagamento"
+                    onClick={handleButtonCompletePayment}
+                    >
+                    </Button>               
+                </div>
+
               </div>
+            }
 
               <div className="columnRight">
                 <h1>Pagamento</h1>

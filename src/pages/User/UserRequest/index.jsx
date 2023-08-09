@@ -28,11 +28,7 @@ export function UserRequest() {
   }
 
   function handleButtonNext() {
-    if (isMobile) {
-      navigate("/paymentMob");
-    } else {
-      navigate("/paymentDesk");
-    } 
+      navigate("/payment"); 
   }
   
 
