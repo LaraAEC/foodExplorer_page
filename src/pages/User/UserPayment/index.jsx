@@ -95,19 +95,7 @@ export function UserPayment() {
 
                 <div className="total">
                   <h2>Total: R$ 103,30</h2>
-                </div>
-
-                
-
-                <div className="wrapperButtonCompletePayment">
-                    <Button
-                    type="button"
-                    className="buttonPayment"
-                    title="Finalizar pagamento"
-                    onClick={handleButtonCompletePayment}
-                    >
-                    </Button>               
-                </div>
+                </div>               
 
               </div>
             }
