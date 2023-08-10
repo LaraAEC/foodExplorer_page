@@ -1,6 +1,7 @@
 import{ useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/auth';
+import { useCart } from '../../hooks/cart';
 
 import { Container, Search } from './styles';
 
@@ -13,6 +14,8 @@ import SignOutSvg from '../../assets/signOut.svg';
 export function UserDesktopHeader({ onChange }) {
   const { signOut } = useAuth(); 
   const navigate = useNavigate();
+
+  const { cart } = useCart();
 
   function handleButtonRequest() { 
     navigate("/request"); 
@@ -71,7 +74,7 @@ export function UserDesktopHeader({ onChange }) {
           type="button"
           onClick={handleButtonRequest}
           >
-            <p>Pedidos (0)</p>
+            <p>Pedidos ({cart.length})</p>
           </button> 
         </div>
 

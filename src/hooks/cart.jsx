@@ -12,11 +12,10 @@ function CartProvider({ children }) {
 
   
   return (
-    <CartContext.Provider value={
-      
-      [cart, setCart]
-  
-      }
+    <CartContext.Provider value={ {
+      cart,
+      setCart
+    } }
       > 
       {children} 
     </CartContext.Provider>

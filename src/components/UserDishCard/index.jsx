@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
+import { useCart } from '../../hooks/cart'
 
 import { useMediaQuery } from 'react-responsive';
 
@@ -19,47 +20,43 @@ export function UserDishCard({ title, onClick, value, price, data, visibility, r
   const dishDescription = isMobile ? "" : <TextArea/>;
 
   const [imageDish, setImageDish] = useState(null);
-
-  const [total, setTotal] = useState(price);
+  
+  const  { cart, setCart } = useCart();
 
   const navigate = useNavigate();
 
+  const [ amount, setAmount ] = useState(1);
 
-  let [ amount, setAmount ] = useState(0);
+  function handleDecrement() {
+    if(amount === 1) {
+      return alert("O número mínimo de itens por pedido é um.")
 
-  function Decrement(amount) {
-    if(amount == 0) {
-      setAmount(amount);
     } else {
-      setAmount(amount - 1);
+      setAmount(prevState => prevState - 1);
     }
   };
 
-  function Increment(amount) {
-    setAmount(amount + 1);
+  function handleIncrement() {
+      setAmount(prevState => prevState + 1);
   };
 
-  function handleInclude() {
-      if (amount === 0) {
-        alert("É necessário selecionar a quantidade de itens.");
-      } 
-      else {
-        const priceAsNumber = parseFloat(price.replace("R$", ""));
-        const total = priceAsNumber * amount; 
+  function handleIncludeNewItem() {
+    const unit_price = data.price
 
-        setTotal(total); 
+     const newItem = {
+      id: data.id,
+      title: data.title,
+      photo: imageDish,
+      amount,
+      unit_price,
+      total_price: amount * unit_price,
+     }
 
-        const includedItem = {
-          amount,
-          dish_id: data.id,
-          price,
-          total
-        };
-      console.log(includedItem);
-
-      }
-      
+     setCart(prevState => [...prevState, newItem])
+     setAmount(1)
     }
+
+    console.log(cart);
 
     useEffect(() => {
     async function fetchImageDish () {
@@ -106,14 +103,14 @@ export function UserDishCard({ title, onClick, value, price, data, visibility, r
             <div className="wrapperAmountInclude">
               <div className="amount">
                 <div className="counter">
-                  <button onClick={() => Decrement(amount)}>
+                  <button onClick={() => handleDecrement()}>
                     <img
                       src={ LessSvg }
                       alt="Imagem 'símbolo de subtração."
                     />
                   </button>
                   <input readOnly value={amount.toString().padStart(2, '0')} />
-                  <button onClick={() => Increment(amount)}>
+                  <button onClick={() => handleIncrement()}>
                     <img
                       src={ MoreSvg }
                       alt="Imagem 'símbolo de adição."
@@ -121,7 +118,7 @@ export function UserDishCard({ title, onClick, value, price, data, visibility, r
                   </button>
                 </div>
               </div>
-              <Button title="incluir" onClick={handleInclude} />
+              <Button title="incluir" onClick={handleIncludeNewItem} />
             </div>
           
         </Content>
