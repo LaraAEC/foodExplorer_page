@@ -51,75 +51,59 @@ export function UserRequest() {
   
 
   return (
-
       <Container>
-
         {isMobile ? <UserMobileHeader /> : <UserDesktopHeader onChange={e => setSearch(e.target.value)} />}
-
         <main>
-
-          <Content>
-            <div className="page">
-              
-              <div className="wrapperBack">
+          <Content>            
+               <div className="wrapperBack">
                   <ButtonText
                   title="Voltar"
                   icon={FiChevronLeft }
                   onClick={handleBack} 
                 />
               </div>
-
-              <div className="container">
+              <div className="box">
                 <div className="pageTitle">
                   <h1>Meu pedido</h1>
                 </div>
-
-              <Section>
-                {cart && 
-
-                <ul className="request">
-                  {
-                    cart.map((item, index) => (
-                      <UserRequestCard
-                        key={index}
-                        data={{
-                          title: item.title,
-                          imageDish: item.photo,
-                          price: item.unit_price,
-                          amount: item.amount
-                        }}
-                      onClick = {() => handleRemoveItem(item.id)}
-                      />
-                    )) 
-                  }            
-                </ul>                          
-                }           
-              </Section>
-
-              <div className="total">
-                <h2>{`Total: R$ ${totalPrice}`}</h2>
-              </div>
-                                        
-              <footer className="footerButton">
-                <div className="buttonNext">
-                  <Button
-                  type="button"
-                  className="buttonNext"
-                  title="Avançar"
-                  onClick={handleButtonNext}
-                  >
-                  </Button>
-                </div>
-              </footer>
+                <Section>
+                  {cart && 
+                  <ul className="request">
+                    {
+                      cart.map((item, index) => (
+                        <UserRequestCard
+                          key={index}
+                          data={{
+                            title: item.title,
+                            imageDish: item.photo,
+                            price: item.unit_price,
+                            amount: item.amount
+                          }}
+                        onClick = {() => handleRemoveItem(item.id)}
+                        />
+                      )) 
+                    }            
+                  </ul>                          
+                  }  
+                  <div className="total">
+                    <h2>{`Total: R$ ${totalPrice}`}</h2>
+                  </div>         
+                </Section>                                    
+                <footer className="footerButton">
+                  <div className="buttonNext">
+                    <Button
+                    type="button"
+                    className="buttonNext"
+                    title="Avançar"
+                    onClick={handleButtonNext}
+                    >
+                    </Button>
+                  </div>
+                </footer>
              </div>
-
-            </div>
           </Content>
-
         </main>
-
         <Footer />
-
       </Container>    
   )
 }

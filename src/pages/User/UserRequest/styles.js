@@ -16,21 +16,23 @@ export const Container = styled.div`
   overflow-y: hidden;
   
   > main { 
+    background: blue;
     grid-area: main;
     width:100%;
 
     margin: 0 auto;
 
     padding: 4.4rem;
-    
+  
     overflow-x: hidden;
     overflow-y: auto;
 
     scrollbar-color: transparent transparent; 
     &::-webkit-scrollbar {
-        background: transparent;
-    }
+      background: transparent;
+    }   
     
+        
     @media (min-width: 768px) {
       padding-top: 3rem;
     }
@@ -51,7 +53,7 @@ export const Container = styled.div`
     }
    }
 
-   > header {
+  > header {
     grid-area: header;
     width: 100%;
   }
@@ -66,49 +68,72 @@ export const Content = styled.div`
   max-width: 100%;
   height: 100vh;
 
-  > .page {
+  display: flex;
+  flex-direction: column;
+   
+  > .wrapperBack {    
+    width: 31.6rem;
+    margin-bottom: 2rem;
+
     display: flex;
-    flex-direction: column;
-    gap: 5rem;
+    justify-content: start;
+    }
 
-    > .wrapperBack {
-      grid-area: back;
-      width: 31.6rem;
+  > .box {
+    display: grid;
+    grid-template-rows: auto auto auto auto; 
+    grid-template-areas:     
+    "title"
+    "section"
+    "total"
+    "footerButton";
     
-      display: flex;
-      justify-content: start;
-      }
+    overflow-y: hidden;
 
-    > .container {
-      display: grid;
-      grid-template-rows: 0.1fr auto auto 1fr 1fr;
-      grid-template-areas:
-      "back"
-      "title"
-      "section"
-      "total"
-      "footerButton";
-      
-      overflow-y: hidden;
+    max-width: 100%;
+    height: 100%;
 
-      max-width: 100%;
-      height: 100vh;
+    color: ${({ theme }) => theme.COLORS.WHITE_300};
+    background: orange;
 
-      color: ${({ theme }) => theme.COLORS.WHITE_300};
+    > .pageTitle {
+      grid-area: title;
+      width: 100%;
 
-      > .pageTitle {
-        grid-area: title;
-        width: 100%;
-        > h1 {
-          font-size: 3.2rem;
-          font-weight: 500;
-          line-height: 140%;  
+      > h1 {
+        font-size: 2.2rem;
+        font-weight: 500;
+        line-height: 140%; 
+        
+        @media (min-width: 500px) {
+          font-size: 4rem;
         }
       }
+    }
 
-      > section {
-        grid-area: section;
+    > section {
+      grid-area: section;
+      width: 100%;
+      
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      scrollbar-color: transparent transparent; 
+
+      &::-webkit-scrollbar {
+        background: transparent;
+      } 
+
+      > .request {
+        display: flex;
+        flex-wrap: wrap; 
+        align-items: center;
+        justify-content: start;
+
+        gap: 3.5rem; 
+
         width: 100%;
+        height: 60%;
         
         overflow-x: hidden;
         overflow-y: auto;
@@ -119,52 +144,51 @@ export const Content = styled.div`
           background: transparent;
         } 
 
-        > .request {
-          display: flex;
-          flex-wrap: wrap; 
-          gap: 1.5rem; 
-          width: 100%;
-          height: 80%;
-         
-          overflow-x: hidden;
-          overflow-y: auto;
-
-          scrollbar-color: transparent transparent; 
-
-          &::-webkit-scrollbar {
-            background: transparent;
-          } 
-
-          > p {
-            font-size: 2rem;
-            font-weight: 500;
-            line-height: 160%;
-          }
+        > p {
+          font-size: 2rem;
+          font-weight: 500;
+          line-height: 160%;
         }
       }
-
       > .total {
-        grid-area:total;
-        font-family: Poppins;
+      grid-area:total;
+      font-size: 1.1rem;
+      
+      margin-left: 2rem;
+
+      @media (min-width: 500px) {
+        font-size: 2rem;
       }
+    }
 
-      > .footerButton {
-        grid-area: footerButton;
-        width: 100%;
+    }
+ 
+    > .footerButton {
+      grid-area: footerButton;
+      width: 100%;
 
-        display: flex;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding-bottom: 2rem;
+      
+      @media (min-width: 1024px) {
         align-items: end;
         justify-content: end;
+      }
+   
+      > .buttonNext {
+      width: 15rem;
+      height: 3rem;
 
-        padding-bottom: 2rem;
-
-      
-        > .buttonNext {
+    
+      @media (min-width: 500px) {
         width: 20rem;
         height: 5rem;
-        }
-      }  
-    }
+      }
+      }
+    }  
   }  
 `;
 

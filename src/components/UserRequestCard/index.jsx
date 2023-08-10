@@ -13,38 +13,40 @@ export function UserRequestCard ({ data, onClick, loading, ...rest }) {
                     alt="imagem da refeição" 
                     />
                 }
-
                 </span>
 
                 <main>
-                    <div>
+                    <div className="requestDescription">
                         {
                             data.amount &&
-                    <h1>
-                        {`${data.amount}x`}
-                    </h1>
+                            <h1>
+                                {`${data.amount}x `}
+                            </h1>
                         }
 
-                    <h2>
-                    {data.title}
-                    </h2>
-
+                        
+                            
+                            <h2>
+                            {data.title}
+                            </h2>
+    
+                        
+                       
                         {
                             data.price && 
-                    <span>
-                        {`R$: ${data.price}`}
-                    </span>
+                            <span>
+                                {`R$: ${data.price}`}
+                            </span>
                         }
-
                     </div>
 
                     <footer>
-                    <ButtonText
-                        icon={AiOutlineDelete}
-                        title="Remover prato"
-                        onClick={onClick}
-                        disabled={loading}
-                    />
+                        <ButtonText
+                            icon={AiOutlineDelete}
+                            title="Excluir"
+                            onClick={onClick}
+                            disabled={loading}
+                        />
                     </footer>
                 </main>
         </Container>
