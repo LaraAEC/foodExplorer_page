@@ -4,7 +4,7 @@ export const Container = styled.button`
   display: flex;
   align-items: center;
 
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   font-weight: 500;
   line-height: 140%;
 
@@ -14,4 +14,8 @@ export const Container = styled.button`
   border: none;
 
   cursor: pointer;
+
+  @media (min-width: 412px) {
+    font-size: 2.4rem;   
+  }
 `;

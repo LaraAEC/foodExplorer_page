@@ -39,16 +39,6 @@ export function UserDishDetails() {
     navigate(-1); 
   }
 
-  const handleSearch = (query) => {
-    if (query.startsWith('@')) {
-      const ingredientsQuery = query.substring(1).trim().split(',');
-      setSearchQuery({ title: '', ingredients: ingredientsQuery });
-    } else {
-      setSearchQuery({ title: query, ingredients: [] });
-    }
-    navigate("/");
-  };
- 
   useEffect(() => {
     async function fetchDishes() {
         const response = await api.get(`/dishes/${params.id}`);
@@ -72,29 +62,29 @@ useEffect(() => {
   return (
     <Container>
 
-      {isMobile ? <UserMobileHeader /> : <UserDesktopHeader onSearch={handleSearch}/>}
+      {isMobile ? <UserMobileHeader /> : <UserDesktopHeader />}
       
       <main>
 
         <Content>
-          <div className="box">
+
+          <div className="wrapperBack">
+            <ButtonText
+              title="Voltar"
+              icon={FiChevronLeft }
+              onClick={handleBack} 
+            />
+          </div>
+
           {
             data &&
-
-            <div className="versionDesktopColumnOne">
-              <div className="wrapperBack">
-                  <ButtonText
-                    title="Voltar"
-                    icon={FiChevronLeft }
-                    onClick={handleBack} 
-                  />
-                </div>
-
-                <img
-                className="photoDish"
-                src={image}
-                alt="Foto do prato escolhido." 
-                />
+            
+            <div className="versionDesktopColumnOne">              
+              <img
+              className="photoDish"
+              src={image}
+              alt="Foto do prato escolhido." 
+              />
             </div>
 
           }
@@ -138,7 +128,7 @@ useEffect(() => {
 
             </div>
           }
-          </div>
+        
         </Content>
     
       </main>

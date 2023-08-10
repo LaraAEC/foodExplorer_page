@@ -15,8 +15,6 @@ export const Container = styled.div`
 
   overflow-y: hidden;
 
-  background: ${({ theme }) => theme.COLORS.BACKGROUND_200};
-
   > main { 
     grid-area: main;
    
@@ -31,13 +29,17 @@ export const Container = styled.div`
         background: transparent;
     }
 
-    @media (min-width: 1024px) {
-      max-width: 102.4rem;
-    }
+    display: flex;
+    flex-direction: column;
 
-    @media (min-width: 1280px) {
-      max-width: 128.0rem;
-    }
+    gap: 1.6rem;
+
+    width: 100%;
+    padding-bottom: 0;
+   
+    align-items: center;
+    justify-content: center;
+     
   }
 
   > header {
@@ -53,223 +55,221 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   max-width: 100%;
-   height:100vh;
+  height:100vh;
 
- 
+  padding: 2rem;
 
-  > .box {
+  @media (min-width: 820px) {
+    display: grid;
+    grid-template-columns: 2fr  3fr;
+    grid-template-rows: 2vh auto;
+    grid-template-areas:
+    "back back"
+    "one two";
+
+    gap: 4rem;
+  }
+
+  > .wrapperBack {
+    grid-area: back;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    
+    padding-top: 8rem;
+
+    @media (max-width: 280px) and (max-height: 653px) {
+      padding-top: 1rem;
+    }
+
+    @media (min-width: 360px) {
+      padding-top: 1rem;
+    }
+  
+    @media (min-width: 375px) and (min-height: 532px) {
+      padding-top: 8rem;  
+    }
+
+    @media (min-width: 375px) and (min-height: 667px) {
+      padding-top: 1rem;
+   
+    }
+
+    @media (min-width: 820px) {
+      padding: 1rem;
+    }
+  }
+   
+  > .versionDesktopColumnOne {
     display: flex;
     flex-direction: column;
 
     gap: 1.6rem;
 
-    padding-bottom: 0;
-    width: 30rem;
-
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
 
-    @media (min-width: 412px) {
-      height:70rem;
-    }
-
-    @media (min-width: 500px) {
-      align-items: start;
-      justify-content: start;
-    }
-
-    @media (min-width: 768px) {
-      height:100rem;
-      padding-top: 6.6rem;
-    }
-
-    @media (min-width: 912px) {
-      height:115rem;
-      padding: 8.6rem;
-      padding-bottom: 1rem;
-    }
+    grid-area: one;
 
     @media (min-width: 1024px) {
-      display: flex;
-      flex-direction: row;
+      gap: 6rem;
+    }
 
-      align-items: end;
+    > .photoDish {
+      width: 18rem;
+      height: 18rem;
+      padding: 2rem;
 
-      gap: 5.6rem;
+      @media (min-width: 412px) {
+        width: 26.4rem;
+        height: 22.4rem;
+      }
+
+      @media (min-width: 1024px) {
+        width: 36.0rem;
+        height: 32.9rem;
+      }
+    }
+  }
+
+  > .versionDesktopColumnTwo {
+    display: flex;
+    flex-direction: column;  
     
-      width: 100rem;
-      height: 48rem;
+    justify-content: center; 
+
+    grid-area: two;  
+  
+    > .details {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center; 
+    
+    gap: 1rem;
+  
+    @media (min-width: 412px) {
+      align-items: start;
+      gap: 1rem;
     }
 
-    @media (min-width: 1280px) {
-      width: 110rem;
-      height: 58rem;
+    > h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 100%;
 
-      padding: 1rem;
-      padding-top: 0;
+      padding-top: 1rem;
       
+      padding-left: 1.5rem;
+
+      color: ${({ theme}) => theme.COLORS.WHITE_300};
+
+      @media (min-width: 412px) {
+        font-size: 2.8rem;
+        font-weight: 500;
+        line-height: 140%;       
+      }
     }
 
-    @media (min-width: 1400px) {
-      width: 120.0rem; 
-      height: 77rem;
+    > textarea {
+      text-align: start; 
 
-      padding: 5.6rem;
-      padding: 0rem;
+      padding-left: 1.5rem;
 
-      align-items: center;
+      font-size: 1.2rem; 
+
+      @media (min-width: 412px) {
+        font-size: 2rem;      
+      }
+
     }
 
-    > .versionDesktopColumnOne {
+    > .wrapperTags {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      padding-left: 1.5rem;
+      
+      margin-bottom: 2rem;
+
+      @media (min-width: 820px) {
+        margin-bottom: 3rem;     
+      }    
+    }
+  }
+  
+    > .order {
+      display: flex;
+      align-items: center;
+      justify-content: start;
 
       gap: 1.6rem;
 
-      align-items: center;
+      padding-bottom: 2rem;
+      padding-left: 1.5rem;
 
-      @media (min-width: 1024px) {
-        gap: 6rem;
+      @media (min-width: 820px) {
+        margin-bottom: 4rem;     
       }
 
-      > .wrapperBack {
-        width: 31.6rem;
-      
+      > .wrapperButton {
         display: flex;
-        justify-content: start;
-      }
-
-      > .photoDish {
-        width: 26.4rem;
-        height: 26.4rem;
-
-        @media (min-width: 1024px) {
-          width: 36.0rem;
-          height: 32.9rem;
-        }
-      }
-    }
-
-    > .versionDesktopColumnTwo {
-      display: flex;
-      flex-direction: column;
-      
-      width: 31.6rem;
-      height: 32.0rem;
-
-      @media (min-width: 1024px) {
-        width: 58.7rem;
-        height: 30.0rem;
-      }
-
-      > .details {
-      display: flex;
-      flex-direction: column;
-
-      align-items: center;
-      
-      gap: 1.5rem;
-    
-      @media (min-width: 1024px) {
-        align-items: start;
-        gap: 0.5rem;
-      }
-
-      @media (min-width: 1280px) {
-        width: 60rem;
-        height: 40.0rem; 
-
-        gap: 0rem;
-    }
-
-      > h2 {
-        font-size: 2.7rem;
-        font-weight: 500;
-        line-height: 140%;
-
-        color: ${({ theme}) => theme.COLORS.WHITE_300};
-      
-        @media (min-width: 1280px) {
-          margin-bottom: 2rem;
-      }
-      }
-
-      > .wrapperTags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-
-        padding-left: 1.5rem;
-        
-        margin-bottom: 4.8rem;
-
-        @media (min-width: 1024px) {
-          margin-bottom: 3rem;
-          padding-left: 0rem;
-      }
-
-      }
-    }
-    
-      > .order {
-        display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center; 
 
-        gap: 1.6rem;
-        padding-bottom: 4rem;
+        gap: 0.8rem;
+       
+        padding: 1.2rem 2rem;
+        
+        font-size: 1.2rem;
+        font-weight: 500;
+
+        line-height: 2px;
+
+        border-radius: 5px;
+
+        background-color: ${({ theme }) => theme.COLORS.RED_100};
+        color: ${({ theme }) => theme.COLORS.WHITE_100};
+        display: flex;
 
         @media (min-width: 768px) {
-          align-self: center;
+          max-width: 22.8rem;
+          height: 1.39rem;
+
+          padding: 2rem 3rem;
         }
 
-        @media (min-width: 1024px) {
-          align-self: start;
-        }
+        > .receipt {
+          max-width: 1.6rem;
+          height: 1.6rem;
 
-        > .wrapperButton {
-          display: flex;
-          justify-content: center;
-          align-items: center; 
-
-          gap: 0.8rem;
-
-          padding: 1.2rem 3rem;
-          
+          @media (min-width: 370px) {
           font-size: 1.2rem;
-          font-weight: 500;
-
           line-height: 2px;
-
-          border-radius: 5px;
-
-          background-color: ${({ theme }) => theme.COLORS.RED_100};
-          color: ${({ theme }) => theme.COLORS.WHITE_100};
-          
-
-          @media (min-width: 768px) {
-            width: 22.8rem;
-            height: 1.39rem;
-            padding: 2rem 3rem;
-          }
-
-          > .receipt {
-            width: 2.1rem;
-            height: 2.1rem;
-          }
-
-          > button {
-          text-align: center;
-          font-size: 1.2rem;
-          
-          font-weight: 500;
-
-          line-height: 2px;
-
         }
+        }
+
+        > button {
+        text-align: center;
+        font-size: 10px;
+        
+        font-weight: 500;
+
+        line-height: 2.6px;
+      
+        white-space: wrap;
+
+        @media (max-width: 306px) {
+          line-height: 12px;
+        }
+        @media (min-width: 370px) {
+          font-size: 1.2rem;
+        }
+
       }
     }
-  }  
-} 
+  }
+}  
 `;
 

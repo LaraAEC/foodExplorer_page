@@ -223,7 +223,6 @@ export function UserHome() {
 
         <Footer />
 
-      </Container>
-      
+      </Container>      
   )
 }
