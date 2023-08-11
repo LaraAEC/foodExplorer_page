@@ -17,8 +17,8 @@ export const Container = styled.div`
             border-radius: 50%;
 
             @media (min-width: 500px) {
-                width: 10rem;
-                height: 10rem;
+                width: 7rem;
+                height: 7rem;
             }
         }
     }
@@ -56,7 +56,7 @@ export const Container = styled.div`
             color: ${({ theme }) => theme.COLORS.WHITE_300};
 
             @media (min-width: 500px) {
-                font-size: 2.5rem;
+                font-size: 2rem;
          }
         }
 
@@ -66,7 +66,7 @@ export const Container = styled.div`
             color: ${({ theme }) => theme.COLORS.WHITE_300};
 
             @media (min-width: 500px) {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
         }
 

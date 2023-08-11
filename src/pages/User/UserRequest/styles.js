@@ -16,23 +16,33 @@ export const Container = styled.div`
   overflow-y: hidden;
   
   > main { 
-    background: blue;
     grid-area: main;
     width:100%;
 
     margin: 0 auto;
 
-    padding: 4.4rem;
+    padding: 1rem;
   
     overflow-x: hidden;
     overflow-y: auto;
 
     scrollbar-color: transparent transparent; 
+
     &::-webkit-scrollbar {
-      background: transparent;
-    }   
-    
-        
+        background: transparent;
+    }
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.6rem;
+
+    width: 100%;
+    padding-bottom: 0;
+   
+    align-items: center;
+    justify-content: center; 
+           
     @media (min-width: 768px) {
       padding-top: 3rem;
     }
@@ -67,53 +77,68 @@ export const Container = styled.div`
 export const Content = styled.div`
   max-width: 100%;
   height: 100vh;
-
-  display: flex;
-  flex-direction: column;
    
-  > .wrapperBack {    
-    width: 31.6rem;
-    margin-bottom: 2rem;
+  display: grid;
+  
+  grid-template-rows: auto auto 1fr auto auto; 
 
-    display: flex;
-    justify-content: start;
-    }
+  grid-template-areas: 
+  "back"    
+  "title"
+  "section"
+  "total"
+  "footerButton";
+  
+  overflow-y: hidden;
 
-  > .box {
-    display: grid;
-    grid-template-rows: auto auto auto auto; 
-    grid-template-areas:     
-    "title"
-    "section"
-    "total"
-    "footerButton";
-    
-    overflow-y: hidden;
+  color: ${({ theme }) => theme.COLORS.WHITE_300};
 
-    max-width: 100%;
-    height: 100%;
+  > .wrapperBack {
+  grid-area: back;
+  display: flex;
+  align-items: start;
+  justify-content: start;    
+  }
 
-    color: ${({ theme }) => theme.COLORS.WHITE_300};
-    background: orange;
+  > .pageTitle {
+    grid-area: title;
+    width: 100%; 
 
-    > .pageTitle {
-      grid-area: title;
-      width: 100%;
-
-      > h1 {
-        font-size: 2.2rem;
-        font-weight: 500;
-        line-height: 140%; 
-        
-        @media (min-width: 500px) {
-          font-size: 4rem;
-        }
+    > h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      line-height: 140%; 
+      
+      @media (min-width: 500px) {
+        font-size: 3rem;
       }
     }
+  }
 
-    > section {
-      grid-area: section;
+  > section {
+    grid-area: section;
+    width: 100%;
+    height: 100%;
+    
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    scrollbar-color: transparent transparent; 
+      
+    &::-webkit-scrollbar {
+      background: transparent;
+    } 
+
+    > .request {
+      display: flex;
+      flex-wrap: wrap; 
+      align-items: center;
+      justify-content: start;
+
+      gap: 1rem; 
+
       width: 100%;
+      height: 60%;
       
       overflow-x: hidden;
       overflow-y: auto;
@@ -124,71 +149,48 @@ export const Content = styled.div`
         background: transparent;
       } 
 
-      > .request {
-        display: flex;
-        flex-wrap: wrap; 
-        align-items: center;
-        justify-content: start;
-
-        gap: 3.5rem; 
-
-        width: 100%;
-        height: 60%;
-        
-        overflow-x: hidden;
-        overflow-y: auto;
-
-        scrollbar-color: transparent transparent; 
-
-        &::-webkit-scrollbar {
-          background: transparent;
-        } 
-
-        > p {
-          font-size: 2rem;
-          font-weight: 500;
-          line-height: 160%;
-        }
-      }
-      > .total {
-      grid-area:total;
-      font-size: 1.1rem;
-      
-      margin-left: 2rem;
-
-      @media (min-width: 500px) {
+      > p {
         font-size: 2rem;
+        font-weight: 500;
+        line-height: 160%;
       }
-    }
+    }    
+  }
 
-    }
- 
-    > .footerButton {
-      grid-area: footerButton;
-      width: 100%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding-bottom: 2rem;
-      
-      @media (min-width: 1024px) {
-        align-items: end;
-        justify-content: end;
-      }
-   
-      > .buttonNext {
-      width: 15rem;
-      height: 3rem;
-
+  > .total {
+    grid-area: total;
+    font-size: 1.1rem;
     
-      @media (min-width: 500px) {
-        width: 20rem;
-        height: 5rem;
-      }
-      }
-    }  
+    @media (min-width: 500px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  > .footerButton {
+    grid-area: footerButton;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-bottom: 2rem;
+    
+    @media (min-width: 1024px) {
+      align-items: end;
+      justify-content: end;
+    }
+  
+    > .buttonNext {
+    width: 15rem;
+    height: 3rem;
+  
+    @media (min-width: 500px) {
+      width: 20rem;
+      height: 5rem;
+    }
+    }
   }  
+   
 `;
 
