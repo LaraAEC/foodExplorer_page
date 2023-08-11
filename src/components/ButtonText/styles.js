@@ -15,7 +15,7 @@ export const Container = styled.button`
 
   cursor: pointer;
 
-  @media (min-width: 412px) {
+  @media (min-width: 500px) {
     font-size: 2.4rem;   
   }
 `;

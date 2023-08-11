@@ -18,7 +18,6 @@ import { Section } from '../../../components/Section';
 import { ButtonText } from '../../../components/ButtonText';
 import { Button } from '../../../components/Button'; 
 import { Footer } from '../../../components/Footer'; 
-import { UserDishCard } from './../../../components/UserDishCard/index';
 import { UserRequestCard } from './../../../components/UserRequestCard';
 
 
@@ -26,7 +25,6 @@ export function UserRequest() {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
 
   const { cart, setCart } = useCart();
-
   const [totalPrice, setTotalPrice] = useState("")
 
   const navigate = useNavigate();
@@ -50,6 +48,7 @@ export function UserRequest() {
   }, [cart]);
   
 
+  
   return (
       <Container>
         {isMobile ? <UserMobileHeader /> : <UserDesktopHeader onChange={e => setSearch(e.target.value)} />}

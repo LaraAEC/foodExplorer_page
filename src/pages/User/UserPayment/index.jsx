@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../../services/api';
 
+import { useCart } from '../../../hooks/cart';
+
 import { useRef } from 'react';
 
 import { useMediaQuery } from 'react-responsive';
@@ -19,14 +21,17 @@ import { Section } from '../../../components/Section';
 import { ButtonText } from '../../../components/ButtonText';
 import { Button } from '../../../components/Button'; 
 import { Footer } from '../../../components/Footer'; 
+import { UserRequestCard } from './../../../components/UserRequestCard';
 
 
 export function UserPayment() {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
-  const isDesktop = useMediaQuery({ minWidth: 1023 });
+  const isDesktop = useMediaQuery({ minWidth: 768 });
 
   const [showQrCode, setShowQrCode] = useState(false);
 
+  const { cart, setCart } = useCart();
+  const [totalPrice, setTotalPrice] = useState("")
 
   const navigate = useNavigate();
 
@@ -42,9 +47,19 @@ export function UserPayment() {
   function handleButtonCompletePayment() {
     navigate("/");
   }
+
+  function handleRemoveItem(deleted) {
+    setCart(state => state.filter(item => item.id !== deleted))
+  }
+
+  useEffect(() => {
+    const carts = cart.map(item => item.total_price);
+    const sum = carts.reduce((acc, curr) => acc + curr, 0);
+    setTotalPrice(sum.toFixed(2));
+  }, [cart]);
+  
  
   
-
   return (
 
       <Container>
@@ -73,25 +88,25 @@ export function UserPayment() {
                 </div>
 
                 <Section>
-                  <div className="request">
-                    <p> photo 2 x Título do prato e botão remover</p>
-                    <p> photo 2 x Título do prato e botão remover</p>
-                    <p> photo 3 x Título do prato e botão remover</p>
-                    <p> photo 2 x Título do prato e botão remover</p>
-                    <p> photo 4 x Título do prato e botão remover</p>
-                    <p> photo 1 x Título do prato e botão remover</p>
-                    <p> photo 1 x Título do prato e botão remover</p>
-                    <p> photo 2 x Título do prato e botão remover</p>
-                    <p> photo 2 x Título do prato e botão remover</p>
-                    <p> photo 2 x Título do prato e botão remover</p>
-                    <p> photo 3 x Título do prato e botão remover</p>
-                    <p> photo 2 x Título do prato e botão remover</p>
-                    <p> photo 4 x Título do prato e botão remover</p>
-                    <p> photo 1 x Título do prato e botão remover</p>
-                    <p> photo 1 x Título do prato e botão remover</p>
-                    <p> photo 2 x Título do prato e botão remover</p>              
-                  </div>
-                </Section>
+              {cart && 
+              <ul className="request">
+                {
+                  cart.map((item, index) => (
+                    <UserRequestCard
+                      key={index}
+                      data={{
+                        title: item.title,
+                        imageDish: item.photo,
+                        price: item.unit_price,
+                        amount: item.amount
+                      }}
+                    onClick = {() => handleRemoveItem(item.id)}
+                    />
+                  )) 
+                }            
+              </ul>                          
+              }                          
+            </Section> 
 
                 <div className="total">
                   <h2>Total: R$ 103,30</h2>
@@ -135,8 +150,8 @@ export function UserPayment() {
                       {showQrCode ? (
                             <img src={ImageQrCodePng} alt="Imagem de 'QRcode'." />
                           ) : (
-                            <div className="cardDetails">
-                              <div className="divCardDetails">
+                            <form className="cardDetails">
+                              <div className="divCardInputs">
                                 <label htmlFor="cardName">
                                 Nome no Cartão
                                 </label>
@@ -147,7 +162,7 @@ export function UserPayment() {
                                 />
                               </div>
                               
-                              <div className="divCardDetails">
+                              <div className="divCardInputs">
                                 <label htmlFor="cardNumber">
                                 Número do Cartão
                                 </label>
@@ -190,7 +205,7 @@ export function UserPayment() {
                                 >
                                 </Button>
                               </div>
-                            </div>
+                            </form>
                           )}
                       </td>
                     </tr>

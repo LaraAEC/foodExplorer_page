@@ -134,9 +134,13 @@ export const Content = styled.div`
       align-items: start;
 
       > h1 {
-        font-size: 3.2rem;
+        font-size: 2.2rem;
         font-weight: 500;
         line-height: 140%; 
+  
+        @media (min-width: 500px) {
+          font-size: 3rem;
+        }
       }
       
       > table {
@@ -198,13 +202,23 @@ export const Content = styled.div`
           tr {
             
             td {
-              padding: 4rem 5.5rem;
+              padding: 2rem 3rem;
               text-align: center;
               vertical-align: middle;
 
+              
+              @media (min-width: 500px) {
+                padding: 4rem 5.5rem;
+              }
+
               img {
-                width: 25rem;
-                height: 25rem;
+                width: 10rem;
+                height: 10rem;
+
+                @media (min-width: 500px) {
+                  width: 22rem;
+                  height: 22rem;
+                }
               }
             
               .cardDetails {
@@ -212,13 +226,20 @@ export const Content = styled.div`
                 flex-direction: column;
                 gap: 1.5rem;
 
-                padding: 0 1rem;
+                width: 18rem;
 
                 justify-content: start;
                 align-items: start;
-                width: 33rem; 
-                
-                > .divCardDetails {
+
+                @media (min-width: 768px) {
+                  width: 20rem;              
+                }
+
+                @media (min-width: 820px) {
+                  width: 28rem;               
+                }
+                              
+                > .divCardInputs {
                   display: flex;
                   flex-direction: column;
                   align-items: start;
