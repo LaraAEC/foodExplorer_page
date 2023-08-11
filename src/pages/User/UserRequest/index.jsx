@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../../services/api';
 
+import { useAuth } from '../../../hooks/auth';
 import { useCart } from '../../../hooks/cart';
 
 import { useRef } from 'react';
@@ -20,9 +21,14 @@ import { Button } from '../../../components/Button';
 import { Footer } from '../../../components/Footer'; 
 import { UserRequestCard } from './../../../components/UserRequestCard';
 
+import { toast } from "react-toastify";
+import { Rings } from "react-loader-spinner";
+
 
 export function UserRequest() {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
+ 
+  const { isLoading, setIsLoading } = useAuth();
 
   const { cart, setCart } = useCart();
   const [totalPrice, setTotalPrice] = useState("")
@@ -34,8 +40,13 @@ export function UserRequest() {
   }
 
   function handleButtonNext() {
-      navigate("/payment"); 
-  }
+    if(cart.length <= 0) {
+      return toast.error("Atenção, carrinho vazio.", {
+          position: toast.POSITION.TOP_RIGHT
+      });
+    }
+    navigate("/payment");
+    }
 
   function handleRemoveItem(deleted) {
     setCart(state => state.filter(item => item.id !== deleted))
@@ -56,8 +67,8 @@ export function UserRequest() {
           <Content>            
             <div className="wrapperBack">
               <ButtonText
-              title="Voltar"
-              icon={FiChevronLeft }
+                title="Voltar"
+                icon={FiChevronLeft }
                 onClick={handleBack} 
               />
             </div>            

@@ -3,17 +3,10 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../../services/api';
 
-import { useMediaQuery } from 'react-responsive';
+import { useCart } from "../../../hooks/cart";
+import { useAuth } from "../../../hooks/auth";
 
 import { Container, Content } from './styles';
-
-import { FiChevronLeft } from 'react-icons/fi';
-
-import ReceiptSvg from '../../../assets/receipt.svg';
-
-import { UserMobileHeader } from '../../../components/UserMobileHeader';
-import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
-
 import { ButtonText } from '../../../components/ButtonText';
 import { Ingredient } from '../../../components/Ingredient';
 import { Footer } from '../../../components/Footer'; 
@@ -21,20 +14,68 @@ import { ButtonAmount } from './../../../components/ButtonAmount';
 import { Button } from '../../../components/Button';
 import { TextArea } from '../../../components/TextArea';
 
+import { FiChevronLeft } from 'react-icons/fi';
+import ReceiptSvg from '../../../assets/receipt.svg';
 
-export function UserDishDetails() {
+import { useMediaQuery } from 'react-responsive';
+import { UserMobileHeader } from '../../../components/UserMobileHeader';
+import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
+
+import { toast } from "react-toastify";
+import { Rings } from "react-loader-spinner";
+
+
+export function UserDishDetails({ ...rest }) {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
 
+  const { isLoading, setIsLoading } = useAuth();
+
+  const  { cart, setCart } = useCart();
   const [data, setData] = useState(null);
   const [image, setImage] = useState(null);
+  const [dishes, setDishes] = useState([]); 
 
   const navigate = useNavigate();
   const params = useParams(); 
 
-  const [dishes, setDishes] = useState([]); 
-  const [searchQuery, setSearchQuery] = useState(''); // Novo estado para armazenar a busca
+  function handleDecrement() {
+    if(amount === 1) {
+      return alert("O número mínimo de itens por pedido é um.")
 
-  
+    } else {
+      setAmount(prevState => prevState - 1);
+    }
+  };
+
+  function handleIncrement() {
+      setAmount(prevState => prevState + 1);
+  };
+
+  function handleIncludeNewItem() {
+    const unit_price = data.price
+
+     const newItem = {
+      id: data.id,
+      title: data.title,
+      photo: imageDish,
+      amount,
+      unit_price,
+      total_price: amount * unit_price,
+     }
+
+     setCart(prevState => [...prevState, newItem])
+     setAmount(1)
+    }
+
+    useEffect(() => {
+    async function fetchImageDish () {
+        if(image) {
+            setImageDish(`${api.defaults.baseURL}/files/${image}`);
+        }
+    }
+    fetchImageDish();
+}, [image])
+
   function handleBack() {
     navigate(-1); 
   }
@@ -122,6 +163,7 @@ useEffect(() => {
                   />
                   <Button
                   title="pedir - R$ 25,00"
+                  onClick={handleIncludeNewItem}
                   />
                 </div>
               </div>

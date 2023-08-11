@@ -60,11 +60,20 @@ export const Container = styled.div`
     grid-area: footer;
     width: 100%;
   }
+
+  .loader {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
 `;
 
 export const Content = styled.div`
   max-width: 100%;
   height: 100vh;
+
+  animation: leftRight 0.4s ease;
 
  > .Banner {
     margin: 0 auto;
@@ -213,19 +222,39 @@ export const Content = styled.div`
 `;
 
 export const Arrow = styled.button`
-    position: absolute;
-    top: 53.5%;
-    transform: translateY(-50%);
-    border: none;
-    filter: opacity(0.7);
-    height: 33.5rem;
-    color: ${({ theme }) => theme.COLORS.WHITE_100};
-    font-size: 3.5rem;
-    background: transparent;
-   
-    ${({ direction }) => direction === 'prev' ? ` 
-        left: -2rem;
-    `: ` 
-        right: -2rem;
-`}
+  position: absolute;
+  top: 53.5%;
+  transform: translateY(-50%);
+  border: none;
+  filter: opacity(0.7);
+  height: 33.5rem;
+  color: ${({ theme }) => theme.COLORS.WHITE_100};
+  font-size: 3.5rem;
+  background: transparent;
+  
+  ${({ direction }) => direction === 'prev' ? ` 
+      left: -2rem;
+  `: ` 
+      right: -2rem;
+  `}
+
+  @keyframes leftRight {
+        0% {
+            transform: translateX(-360px)
+        }
+
+        100% {
+            transform: translateX(0)
+        }
+    }
+    
+    @keyframes lowOpacity {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
 `;

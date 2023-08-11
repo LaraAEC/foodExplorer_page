@@ -5,27 +5,27 @@ import { useCart } from '../../hooks/cart'
 
 import { useMediaQuery } from 'react-responsive';
 
-import LikeSvg from '../../assets/like.svg';
 import LessSvg from '../../assets/less.svg';
 import MoreSvg from '../../assets/more.svg';
-import { FiChevronRight } from 'react-icons/fi';
+import { FiChevronRight, FiHeart } from 'react-icons/fi';
+import { FaHeart } from "react-icons/fa";
 
 import { Container, Content } from './styles';
 import { Button } from '../../components/Button';
 import { TextArea } from '../TextArea';
 
 
-export function UserDishCard({ title, onClick, value, price, data, visibility, readyOnly, image, ...rest  }) {
+export function UserDishCard({ title, onClick, isFavorite=false, value, price, data, visibility, readyOnly, image, ...rest  }) {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const dishDescription = isMobile ? "" : <TextArea/>;
-
-  const [imageDish, setImageDish] = useState(null);
   
   const  { cart, setCart } = useCart();
-
-  const navigate = useNavigate();
-
+  const [ imageDish, setImageDish ] = useState(null);
   const [ amount, setAmount ] = useState(1);
+
+  const { id } = data;
+  
+  const navigate = useNavigate();
 
   function handleDecrement() {
     if(amount === 1) {
@@ -56,8 +56,6 @@ export function UserDishCard({ title, onClick, value, price, data, visibility, r
      setAmount(1)
     }
 
-    console.log(cart);
-
     useEffect(() => {
     async function fetchImageDish () {
         if(image) {
@@ -66,6 +64,10 @@ export function UserDishCard({ title, onClick, value, price, data, visibility, r
     }
     fetchImageDish();
 }, [image])
+
+function handleDetails() {
+  navigate(`/details/${id}`); 
+}
 
 
   return (
@@ -78,7 +80,7 @@ export function UserDishCard({ title, onClick, value, price, data, visibility, r
               alt="Imagem do prato."
             />
 
-            <button type="button" className="titleDishButton" onClick={onClick}>
+            <button type="button" className="titleDishButton" onClick={handleDetails}>
               <h2 className="titleDish">
                 {title}
                 <FiChevronRight />
@@ -119,15 +121,12 @@ export function UserDishCard({ title, onClick, value, price, data, visibility, r
                 </div>
               </div>
               <Button title="incluir" onClick={handleIncludeNewItem} />
-            </div>
-          
+            </div>         
         </Content>
 
-        <img
-          className="heart"
-          src={ LikeSvg }
-          alt="Imagem de 'coração de 'curtidas''."
-        />
+        <button  onClick={onClick}>
+          {isFavorite ? <FaHeart className="redHeart"/> : <FiHeart/>} 
+        </button>
       </main>
     </Container>
   )

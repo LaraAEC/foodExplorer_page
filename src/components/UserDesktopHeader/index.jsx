@@ -17,6 +17,10 @@ export function UserDesktopHeader({ onChange }) {
 
   const { cart } = useCart();
 
+  function handleButtonFavorites() { 
+    navigate("/favorites"); 
+  }
+
   function handleButtonRequest() { 
     navigate("/request"); 
   }
@@ -52,7 +56,7 @@ export function UserDesktopHeader({ onChange }) {
         <button 
         type="button" 
         className="favoritesButton" 
-        //onClick={handleFavorites}
+        onClick={handleButtonFavorites}
         >
           <p>Favoritos</p>
         </button>

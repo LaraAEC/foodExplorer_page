@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../../services/api';
+import { useAuth } from '../../../hooks/auth';
 
 import { useRef } from 'react';
 
 import { useMediaQuery } from 'react-responsive';
 
-
 import { Container, Content, Arrow } from './styles';
+import { Section } from '../../../components/Section';
+import { UserDishCard } from '../../../components/UserDishCard'; 
+import { Footer } from '../../../components/Footer'; 
 
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
@@ -17,33 +20,25 @@ import DesktopBannerPng from '../../../assets/desktopBanner.png';
 import { UserMobileHeader } from '../../../components/UserMobileHeader';
 import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
 
-import { Section } from '../../../components/Section';
-import { UserDishCard } from '../../../components/UserDishCard'; 
-import { Footer } from '../../../components/Footer'; 
+import { toast } from "react-toastify";
+import { Rings } from "react-loader-spinner";
 
 
 export function UserHome() {
-  const scrollMealList = useRef(null);
-  const scrollDrinkList = useRef(null);
-  const scrollDessertList = useRef(null);
-
   const isMobile = useMediaQuery({ maxWidth: 1023 });
   const imageUrl = isMobile ? MobileBannerPng : DesktopBannerPng;
 
   const navigate = useNavigate();
+  const { user, isLoading, setIsLoading } = useAuth();
 
-  const [dishes, setDishes] = useState([]); 
+  const scrollMealList = useRef(null);
+  const scrollDrinkList = useRef(null);
+  const scrollDessertList = useRef(null);
+
   const [search, setSearch] = useState("");
+  const [dishes, setDishes] = useState([]); 
+  const [favorites, setFavorites] = useState([]);
 
-
-  useEffect(() => {
-    async function fetchDishes() {
-      const response = await api.get(`/dishes?title=${search}&ingredients=${search}`);
-      setDishes(response.data);
-    }
-    fetchDishes();
-  }, [search]);
- 
   const handlePrevMealList = () => {
     scrollMealList.current.scrollBy({
     left: -120,
@@ -86,9 +81,59 @@ export function UserHome() {
     });
   }
 
-  function handleDetails(id) {
-  navigate(`/details/${id}`); 
-}
+ 
+  async function handleAddFavorites (dishId) {
+    try {
+      const response = await api.get(`favorites/${user.id}`);
+      const dishesFavorites = response.data;
+      const isFavorite = dishesFavorites.filter(item => item.id === dishId).length;
+
+      if(isFavorite) {
+        await api.delete(`favorites/${dishId}`);
+        setFavorites(favorites.filter(dish => dish !== dishId));
+        toast.success("Este prato já não faz parte da sua lista de favoritos.", {
+          position: toast.POSITION.TOP_RIGHT
+        });
+
+      } else {
+        await api.post("favorites", {
+          dish_id : dishId,
+          user_id: user.id
+        });
+
+        setFavorites([...favorites, dishId]);
+        toast.success("Pronto! Este prato já está salvo em seus favoritos.", {
+          position: toast.POSITION.TOP_RIGHT
+        });
+      }
+
+  } catch (error) {
+    console.error(error)
+    toast.error("Internal server error", {
+      position: toast.POSITION.TOP_CENTER
+    });
+  }
+  }
+
+  useEffect(() => {
+    async function fetchDishes() {
+      const response = await api.get(`/dishes?title=${search}&ingredients=${search}`);
+      setDishes(response.data);
+    }
+    fetchDishes();
+  }, [search]);
+
+  useEffect(() => {
+    async function fetchFavorites () {
+      setIsLoading(true);
+      const response = await api.get(`favorites/${user.id}`);
+      const listFavorites = response.data.map(item => item.id);
+      setFavorites(listFavorites);
+      setIsLoading(false);
+    }
+
+    fetchFavorites();
+  }, []);
 
 
   return (
@@ -111,7 +156,20 @@ export function UserHome() {
               </div>
             </div>
 
-
+            {
+              isLoading ? 
+              (
+              <div className="loader">
+                <Rings
+                color="#065E7C"
+                width="90"
+                height="90"
+                />
+              </div>
+              )
+              :
+              (
+            <>
             <Section title="Refeições">  
               <div ref={scrollMealList}>
                 {
@@ -119,13 +177,14 @@ export function UserHome() {
                     <UserDishCard 
                     key={String(dish.id)}
                     data={dish}
-                    onClick={() => handleDetails(dish.id)}
                     title={dish.title}
                     value={dish.description}
                     price={`R$ ${dish.price}`}
                     type="text"
                     visibility="not-visible"
                     image={dish.photo}
+                    onClick={() => handleAddFavorites(dish.id)}
+                    isFavorite={favorites.includes(dish.id)}
                     />
                   )
                 )
@@ -154,13 +213,14 @@ export function UserHome() {
                     <UserDishCard 
                     key={String(dish.id)}
                     data={dish}
-                    onClick={() => handleDetails(dish.id)}
                     title={dish.title}
                     value={dish.description}
                     price={`R$ ${dish.price}`}
                     type="text"
                     visibility="not-visible"
                     image={dish.photo}
+                    onClick={() => handleAddFavorites(dish.id)}
+                    isFavorite={favorites.includes(dish.id)}
                     />
                   )
                 )
@@ -188,14 +248,15 @@ export function UserHome() {
                   dishes.filter(dish => dish.category === "Bebidas").map(dish => (
                     <UserDishCard 
                     key={String(dish.id)}
-                    data={dish}
-                    onClick={() => handleDetails(dish.id)}
+                    data={dish}              
                     title={dish.title}
                     value={dish.description}
                     price={`R$ ${dish.price}`}
                     type="text"
                     visibility="not-visible"
                     image={dish.photo}
+                    onClick={() => handleAddFavorites(dish.id)}
+                    isFavorite={favorites.includes(dish.id)}
                     />
                   )
                 )
@@ -216,6 +277,11 @@ export function UserHome() {
                 <FiChevronRight />
               </Arrow>
             </Section>
+
+            </>
+          )
+        }
+
 
           </Content>
 

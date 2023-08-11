@@ -58,6 +58,10 @@ export function UserMenu() {
       navigate("/"); 
     }
 
+    function handleShowFavorites() { 
+      navigate("/favorites"); 
+    }
+
     function handleCloseSearch() { 
       setDishes(false); 
     }
@@ -147,7 +151,7 @@ export function UserMenu() {
 
           <button className="buttonFavorites"
           type="button"
-          //onClick={handleFavorites}
+          onClick={handleShowFavorites}
           >
             Favoritos
           </button>

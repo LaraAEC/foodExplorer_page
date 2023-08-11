@@ -12,7 +12,11 @@ export const Container = styled.div`
     max-width: 28rem;
     }
 
-  .heart {
+  > main {
+  > button {
+    border: none;
+    background: transparent;
+
     position: absolute;
     top: 7%;
     right: 5%;
@@ -20,10 +24,24 @@ export const Container = styled.div`
     width: 2.4rem;
     height: 2.2rem;
 
+    svg {
+            width: 2.6rem;
+            height: 2.6rem;
+            color: ${({ theme }) => theme.COLORS.WHITE_100};
+        }
+        .redHeart {
+            color: ${({ theme }) => theme.COLORS.RED_100};
+        }
+
     @media (min-width: 1024px) {
       width: 3rem;
       height: 3rem;
     }
+  }
+}
+
+  .heart {
+   
   }
 
   @media (min-width: 1024px) {
