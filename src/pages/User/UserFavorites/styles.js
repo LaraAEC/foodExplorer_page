@@ -22,7 +22,7 @@ export const Container = styled.main`
             animation: lowOpacity 0.4s linear;
         }
 
-        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        color: ${({ theme }) => theme.COLORS.WHITE_300};
 
         ul {
             overflow: auto;
@@ -46,7 +46,7 @@ export const Container = styled.main`
         }
         
         ::-webkit-scrollbar-thumb {
-            background-color: ${({ theme }) => theme.COLORS.LIGHT_700};
+            background-color: ${({ theme }) => theme.COLORS.GRAY_700};
             border-radius: 1rem;
         }
         }

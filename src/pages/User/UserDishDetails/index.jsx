@@ -3,40 +3,46 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../../services/api';
 
-import { useCart } from "../../../hooks/cart";
-import { useAuth } from "../../../hooks/auth";
+import { useCart } from '../../../hooks/cart'
+
+import { useMediaQuery } from 'react-responsive';
 
 import { Container, Content } from './styles';
+
+import { FiChevronLeft } from 'react-icons/fi';
+
+import ReceiptSvg from '../../../assets/receipt.svg';
+import LessSvg from '../../../assets/less.svg';
+import MoreSvg from '../../../assets/more.svg';
+
+import { UserMobileHeader } from '../../../components/UserMobileHeader';
+import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
+
 import { ButtonText } from '../../../components/ButtonText';
 import { Ingredient } from '../../../components/Ingredient';
 import { Footer } from '../../../components/Footer'; 
-import { ButtonAmount } from './../../../components/ButtonAmount';
 import { Button } from '../../../components/Button';
 import { TextArea } from '../../../components/TextArea';
-
-import { FiChevronLeft } from 'react-icons/fi';
-import ReceiptSvg from '../../../assets/receipt.svg';
-
-import { useMediaQuery } from 'react-responsive';
-import { UserMobileHeader } from '../../../components/UserMobileHeader';
-import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
 
 import { toast } from "react-toastify";
 import { Rings } from "react-loader-spinner";
 
 
-export function UserDishDetails({ ...rest }) {
+export function UserDishDetails() {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
 
-  const { isLoading, setIsLoading } = useAuth();
-
   const  { cart, setCart } = useCart();
+
   const [data, setData] = useState(null);
   const [image, setImage] = useState(null);
-  const [dishes, setDishes] = useState([]); 
+  const [ amount, setAmount ] = useState(1);
 
   const navigate = useNavigate();
   const params = useParams(); 
+
+  function handleBack() {
+    navigate(-1); 
+  }
 
   function handleDecrement() {
     if(amount === 1) {
@@ -51,13 +57,14 @@ export function UserDishDetails({ ...rest }) {
       setAmount(prevState => prevState + 1);
   };
 
+
   function handleIncludeNewItem() {
     const unit_price = data.price
 
      const newItem = {
       id: data.id,
       title: data.title,
-      photo: imageDish,
+      photo: image,
       amount,
       unit_price,
       total_price: amount * unit_price,
@@ -67,18 +74,6 @@ export function UserDishDetails({ ...rest }) {
      setAmount(1)
     }
 
-    useEffect(() => {
-    async function fetchImageDish () {
-        if(image) {
-            setImageDish(`${api.defaults.baseURL}/files/${image}`);
-        }
-    }
-    fetchImageDish();
-}, [image])
-
-  function handleBack() {
-    navigate(-1); 
-  }
 
   useEffect(() => {
     async function fetchDishes() {
@@ -95,7 +90,6 @@ useEffect(() => {
             setImage(`${api.defaults.baseURL}/files/${data.photo}`);
         }
     }
-
     fetchImage();
 }, [data]);
 
@@ -155,7 +149,22 @@ useEffect(() => {
               </div>
 
               <div className="order">
-                <ButtonAmount />
+                <div className="counter">
+                  <button onClick={() => handleDecrement()}>
+                    <img
+                      src={ LessSvg }
+                      alt="Imagem 'símbolo de subtração."
+                    />
+                  </button>
+                  <input readOnly value={amount.toString().padStart(2, '0')} />
+                  <button onClick={() => handleIncrement()}>
+                    <img
+                      src={ MoreSvg }
+                      alt="Imagem 'símbolo de adição."
+                      />
+                  </button>
+                </div>
+
                 <div className="wrapperButton">
                   <img className="receipt"
                     src={ ReceiptSvg }
@@ -169,7 +178,7 @@ useEffect(() => {
               </div>
 
             </div>
-          }
+          }               
         
         </Content>
     

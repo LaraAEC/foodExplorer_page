@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../hooks/cart';
 
 import { Container } from './styles';
 
@@ -7,10 +8,11 @@ import LogoSvg from '../../assets/logo.svg';
 import ReceiptSvg from '../../assets/receipt.svg';
 
 export function UserMobileHeader() {
+  const { cart } = useCart();
   const navigate = useNavigate();
 
-  function handleOpenMenu() { //funcionalidade de voltar com o botão 'voltar'
-    navigate("/menu"); //para ser usado no botão de voltar e colocar o usuário na rota anterior
+  function handleOpenMenu() { 
+    navigate("/menu"); 
   }
 
   function handleButtonRequest() { 
@@ -37,16 +39,11 @@ export function UserMobileHeader() {
             <h1>Food explorer</h1>
 
         </div> 
-
-        <button className="requestButton"
-        type="button"
-        onClick={handleButtonRequest}
-        >
-          <img className="receiptSvg"
-          src={ ReceiptSvg }
-          alt="Imagem de 'recibo'."
-        />
-        </button> 
+       
+         <button className="requestButton" type="button" onClick={handleButtonRequest}>
+          {cart.length > 0 && <span className="badge">{cart.length}</span>}
+          <img className="receiptSvg" src={ReceiptSvg} alt="Imagem de 'recibo'." />
+        </button>   
        
       </div>
     </Container>

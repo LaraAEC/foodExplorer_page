@@ -181,7 +181,6 @@ export const Content = styled.div`
       @media (min-width: 412px) {
         font-size: 2rem;      
       }
-
     }
 
     > .wrapperTags {
@@ -200,20 +199,46 @@ export const Content = styled.div`
   }
   
     > .order {
+    display: flex;
+  
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+
+
+    > .counter {
+      display: flex;
+
+      button {
+      border: none;
+      background: transparent;
+
+      > img {
+        width: 2rem;
+        height: 2rem;      
+      }
+    }
+
+    > input {
+      color: ${({ theme }) => theme.COLORS.WHITE_300};
+      font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+      font-weight: 400;
+      font-size: 1.6rem;
+
+      width: 4rem;
+      height: 2rem;
+
       display: flex;
       align-items: center;
-      justify-content: start;
 
-      gap: 1.6rem;
+      text-align: center;
 
-      padding-bottom: 2rem;
-      padding-left: 1.5rem;
+      border: none;
+      background: transparent;
+    }     
+  }
 
-      @media (min-width: 820px) {
-        margin-bottom: 4rem;     
-      }
-
-      > .wrapperButton {
+  > .wrapperButton {
         display: flex;
         justify-content: center;
         align-items: center; 
@@ -248,12 +273,16 @@ export const Content = styled.div`
           font-size: 1.2rem;
           line-height: 2px;
         }
+        
+        @media (min-width: 425px) {
+          max-width: 2rem;
+          height: 2rem;
+        }
         }
 
         > button {
         text-align: center;
-        font-size: 10px;
-        
+        font-size: 10px;        
         font-weight: 500;
 
         line-height: 2.6px;
@@ -263,13 +292,18 @@ export const Content = styled.div`
         @media (max-width: 306px) {
           line-height: 12px;
         }
+
         @media (min-width: 370px) {
           font-size: 1.2rem;
         }
 
+        @media (min-width: 425px) {
+          font-size: 1.6rem;
+        }
+
       }
     }
-  }
-}  
+ }    
+} 
 `;
 

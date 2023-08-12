@@ -22,10 +22,37 @@ export const Container = styled.header`
     justify-content: space-between;
 
     > button {
-      border:none;
-      background:transparent;
+      border: none;
+      background: transparent;
+      padding: 0; 
+      cursor: pointer;
+      
+      position: relative;
     }
 
+    > button:nth-child(3) {     
+      position: relative;
+    }
+
+    > button .badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      border-radius: 50%;
+
+      background: ${({ theme }) => theme.COLORS.RED_300};
+      color: white;
+     
+      width: 1.6rem;
+      height: 1.6rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+   
     > .title {
       display: flex;
       flex-direction: row;
