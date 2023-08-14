@@ -80,10 +80,18 @@ export const Container = styled.div`
       background: transparent;
       border: none;
       position: absolute;
-      top: 33%;
-      right: 2rem;
+      top: 23%;
+      right: 3.6rem;
       transform: translateY(-50%);
       z-index: 1;
+
+      @media (min-width: 400px) {
+        right: 4rem;
+      }
+      
+      @media (min-width: 500px) {
+        right: 3rem;
+      }
 
       > .buttonCloseSearch {
         background: transparent;
@@ -117,7 +125,7 @@ export const Container = styled.div`
 
 export const Arrow = styled.button`
   position: absolute;
-  top: 45.5%;
+  top: 35.5%;
   transform: translateY(-50%);
   border: none;
   filter: opacity(0.7);
@@ -127,18 +135,35 @@ export const Arrow = styled.button`
   background: transparent;
   
   ${({ direction }) => direction === 'prev' ? ` 
-      left: -2rem;
+      left: 2rem;
   `: ` 
-      right: -2rem;
+      right: 2rem;
 `}
+     
+  @media (min-width: 600px) {
+    top: 35.5%;
 
-   @media (min-width: 768px) {
     ${({ direction }) => direction === 'prev' ? ` 
-      left: 13rem;
+      left: 2rem;
     ` : ` 
-      right: 13rem;
-    `}
+      right: 2rem;
+    `}     
+  }
+
+  @media (min-width: 800px) {
+
+    ${({ direction }) => direction === 'prev' ? ` 
+      left: 2rem;
+    ` : ` 
+      right: 2rem;
+    `}         
+  }
+
+  @media (min-width: 1000px) {
+    ${({ direction }) => direction === 'prev' ? ` 
+      left: 1rem;
+    ` : ` 
+      right: 1rem;
+    `} 
   }
 `;
-
-

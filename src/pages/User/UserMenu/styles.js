@@ -72,19 +72,38 @@ export const Container = styled.div`
 
       border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
     }
-   }
-
-   > .closeSearch {
+    > .closeSearch {
       display: flex;
       align-items: center;
       justify-content: center;
       background: transparent;
       border: none;
       position: absolute;
-      top: 39%;
-      right: 2rem;
+      top: 23%;
+      right: 3.6rem;
       transform: translateY(-50%);
       z-index: 1;
+
+      @media (min-width: 400px) {
+        right: 4rem;
+      }
+      
+         
+      @media (min-width: 600px) {
+        right: 10rem;
+      }
+
+      @media (min-width: 800px) {
+        right: 18rem;
+      }
+
+      @media (min-width: 900px) {
+        right: 23rem;
+      }
+
+      @media (min-width: 1000px) {
+        right: 26rem;
+      }
 
       > .buttonCloseSearch {
         background: transparent;
@@ -113,11 +132,12 @@ export const Container = styled.div`
       }
     }
   }
+}
 `;
 
 export const Arrow = styled.button`
   position: absolute;
-  top: 65.5%;
+  top: 40.5%;
   transform: translateY(-50%);
   border: none;
   filter: opacity(0.7);
@@ -127,17 +147,48 @@ export const Arrow = styled.button`
   background: transparent;
   
   ${({ direction }) => direction === 'prev' ? ` 
-      left: 1rem;
+      left: 3rem;
   `: ` 
-      right: 1rem;
+      right: 3rem;
 `}
- 
- @media (min-width: 768px) {
+     
+  @media (min-width: 600px) {
+    top: 40.5%;
+
     ${({ direction }) => direction === 'prev' ? ` 
-      left: 13rem;
+      left: 10rem;
     ` : ` 
-      right: 13rem;
-    `}
+      right: 10rem;
+    `}     
+  }
+
+  @media (min-width: 800px) {
+    top: 40.5%;
+
+    ${({ direction }) => direction === 'prev' ? ` 
+      left: 18rem;
+    ` : ` 
+      right: 18rem;
+    `}         
+  }
+
+  @media (min-width: 900px) {
+    top: 40.5%;
+
+    ${({ direction }) => direction === 'prev' ? ` 
+      left: 22rem;
+    ` : ` 
+      right: 22rem;
+    `} 
+  }
+
+  @media (min-width: 1000px) {
+    top: 40.5%;
+
+    ${({ direction }) => direction === 'prev' ? ` 
+      left: 26rem;
+    ` : ` 
+      right: 26rem;
+    `} 
   }
 `;
-

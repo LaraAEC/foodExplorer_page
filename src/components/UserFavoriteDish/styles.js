@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     align-items: center;    
-    
-background: red;
+
     > span {
         img {
             width: 10rem;
