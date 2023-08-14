@@ -14,7 +14,6 @@ import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
 import { Container } from './styles';
 import { Section } from '../../../components/Section';
 import { ButtonText } from '../../../components/ButtonText';
-import { Button } from '../../../components/Button'; 
 import { Footer } from '../../../components/Footer'; 
 import { UserFavoriteDish } from './../../../components/UserFavoriteDish';
 
@@ -87,8 +86,8 @@ async function handleRemoveFavorites (deleted) {
                     <div className="loader">
                         <Rings
                             color="#065E7C"
-                            width="90"
-                            height="90"
+                            width="110"
+                            height="110"
                         />
                     </div>
                     )

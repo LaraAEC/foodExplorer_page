@@ -71,6 +71,10 @@ export function AdminMenu() {
     setDishes(false); 
   }
 
+  function handleDetails(id) {
+    navigate(`/details/${id}`); 
+  }
+
   
    return (
       <Container>

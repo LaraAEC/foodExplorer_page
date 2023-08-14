@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: stretch;
 
   width:100%;
-  height: 100%;
+  height: 100vh;
 
   max-width: 42.8rem;
 
@@ -76,15 +76,15 @@ export const Container = styled.div`
 
    > .closeSearch {
       display: flex;
-        align-items: center;
-        justify-content: center;
-        background: transparent;
-        border: none;
-        position: absolute;
-        top: 39%;
-        right: 2rem;
-        transform: translateY(-50%);
-        z-index: 1;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      position: absolute;
+      top: 39%;
+      right: 2rem;
+      transform: translateY(-50%);
+      z-index: 1;
 
       > .buttonCloseSearch {
         background: transparent;
@@ -113,7 +113,6 @@ export const Container = styled.div`
       }
     }
   }
-}
 `;
 
 export const Arrow = styled.button`

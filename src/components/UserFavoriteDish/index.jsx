@@ -14,39 +14,24 @@ export function UserFavoriteDish ({ data, onClick, loading, ...rest }) {
                     alt="imagem da refeição" 
                     />
                 }
-
                 </span>
 
-                <main>
-                    <div>
-                        {
-                            data.amount &&
-                    <h1>
-                        {`${data.amount}x`}
-                    </h1>
-                        }
-
+                <main>    
                     <h2>
                     {data.title}
                     </h2>
 
-                        {
-                            data.price && 
-                    <span>
-                        {`R$: ${data.price}`}
-                    </span>
-                        }
-
-                    </div>
+                   
 
                     <footer>
-                    <ButtonText
-                    icon={AiOutlineDelete}
-                    title="Remover prato"
-                    onClick={onClick}
-                    disabled={loading}
-                    />
+                        <ButtonText
+                        icon={AiOutlineDelete}
+                        title="Remover prato"
+                        onClick={onClick}
+                        disabled={loading}
+                        />
                     </footer>
+                
                 </main>               
         </Container>
     )

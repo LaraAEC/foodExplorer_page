@@ -17,6 +17,10 @@ export function UserMenu() {
   const [search, setSearch] = useState("")
   const [dishes, setDishes] = useState([])
   const scrollMealList = useRef(null);
+
+  const [favorites, setFavorites] = useState([]);
+
+  const { user } = useAuth();
   
   const handlePrevMealList = () => {
     scrollMealList.current.scrollBy({
@@ -45,6 +49,38 @@ export function UserMenu() {
   }
   }, [search]);
 
+  async function handleAddFavorites (dishId) {
+    try {
+      const response = await api.get(`favorites/${user.id}`);
+      const dishesFavorites = response.data;
+      const isFavorite = dishesFavorites.filter(item => item.id === dishId).length;
+
+      if(isFavorite) {
+        await api.delete(`favorites/${dishId}`);
+        setFavorites(favorites.filter(dish => dish !== dishId));
+        toast.success("Este prato já não faz parte da sua lista de favoritos.", {
+          position: toast.POSITION.TOP_RIGHT
+        });
+
+      } else {
+        await api.post("favorites", {
+          dish_id : dishId,
+          user_id: user.id
+        });
+
+        setFavorites([...favorites, dishId]);
+        toast.success("Pronto! Este prato já está salvo em seus favoritos.", {
+          position: toast.POSITION.TOP_RIGHT
+        });
+      }
+
+  } catch (error) {
+    console.error(error)
+    toast.error("Internal server error", {
+      position: toast.POSITION.TOP_CENTER
+    });
+  }
+  }
 
   const { signOut } = useAuth(); 
     const navigate = useNavigate();
@@ -112,16 +148,17 @@ export function UserMenu() {
                   { dishes && (
                     <div className="cards">
                       {dishes.map(dish => (
-                        <UserDishCard
-                          key={String(dish.id)}
-                          data={dish}
-                          onClick={() => handleDetails(dish.id)}
-                          title={dish.title}
-                          value={dish.description}
-                          price={`R$ ${dish.price}`}
-                          type="text"
-                          visibility="not-visible"
-                          image={dish.photo}
+                        <UserDishCard 
+                        key={String(dish.id)}
+                        data={dish}
+                        title={dish.title}
+                        value={dish.description}
+                        price={`R$ ${dish.price}`}
+                        type="text"
+                        visibility="not-visible"
+                        image={dish.photo}
+                        onClick={() => handleAddFavorites(dish.id)}
+                        isFavorite={favorites.includes(dish.id)}
                         />
                       ))}
                   </div>
@@ -142,7 +179,7 @@ export function UserMenu() {
           )}        
          </div>
 
-         <button className="buttonRequest"
+         <button className="buttonRequests"
           type="button"
           //onClick={handleHistoricRequest}
           >

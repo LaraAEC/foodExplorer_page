@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../../services/api';
+
 import { useAuth } from '../../../hooks/auth';
 
 import { useRef } from 'react';
@@ -162,8 +163,8 @@ export function UserHome() {
               <div className="loader">
                 <Rings
                 color="#065E7C"
-                width="90"
-                height="90"
+                width="110"
+                height="110"
                 />
               </div>
               )

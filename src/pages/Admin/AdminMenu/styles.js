@@ -8,7 +8,7 @@ export const Container = styled.div`
   position: relative;
 
   width:100%;
-  height: 100%;
+  height: 100vh;
 
   max-width: 42.8rem;
 
@@ -75,15 +75,15 @@ export const Container = styled.div`
 
     > .closeSearch {
       display: flex;
-        align-items: center;
-        justify-content: center;
-        background: transparent;
-        border: none;
-        position: absolute;
-        top: 33%;
-        right: 2rem;
-        transform: translateY(-50%);
-        z-index: 1;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      position: absolute;
+      top: 33%;
+      right: 2rem;
+      transform: translateY(-50%);
+      z-index: 1;
 
       > .buttonCloseSearch {
         background: transparent;
