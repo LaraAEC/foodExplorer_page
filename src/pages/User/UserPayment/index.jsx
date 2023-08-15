@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../../services/api';
 
 import { useCart } from '../../../hooks/cart';
+import { useAuth } from "../../../hooks/auth";
 
 import { useRef } from 'react';
 
@@ -16,6 +17,7 @@ import ImageQrCodePng from '../../../assets/qrcode.png';
 import { UserMobileHeader } from '../../../components/UserMobileHeader';
 import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
 
+
 import { Container, Content } from './styles';
 import { Section } from '../../../components/Section';
 import { ButtonText } from '../../../components/ButtonText';
@@ -23,27 +25,101 @@ import { Button } from '../../../components/Button';
 import { Footer } from '../../../components/Footer'; 
 import { UserRequestCard } from './../../../components/UserRequestCard';
 
+import { AiOutlineCheckCircle } from "react-icons/ai";
+
+import { toast } from "react-toastify";
+import { Rings } from "react-loader-spinner";
+
 
 export function UserPayment() {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
   const isDesktop = useMediaQuery({ minWidth: 768 });
 
+  const { user, isLoading, setIsLoading } = useAuth();
+  const { cart, setCart } = useCart();
+
   const [showQrCode, setShowQrCode] = useState(false);
 
-  const { cart, setCart } = useCart();
+  const [validity, setValidity] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cvcCode, setCvcCode] = useState("");
   const [totalPrice, setTotalPrice] = useState("")
+
+  const [whenFinish, setWhenFinish] = useState(true);
+  const [finish, isFinish] = useState(false);
 
   const navigate = useNavigate();
 
   function handleBack() {
-    navigate(-1); 
+    if(!finish) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
   }
+
+  function handleClickReturn() {
+    setWhenFinish(true);
+    navigate("/");
+}
 
   function handleShowQrCode(boolean) {
     setShowQrCode(boolean);
   }
-  
 
+  function handleWhenFinish () {
+    if(cart.length <= 0) {
+        return alert("Não há itens no carrinho.")
+    }
+
+    if(!cardNumber || !cvcCode || !validity) {
+        return toast.error("Preencha todos os campos (simulação)", {
+            position: toast.POSITION.TOP_RIGHT
+        });
+    }
+
+    handleNewOrder();
+}
+
+async function handleNewOrder () {
+
+  try{
+    setIsLoading(true);
+    const response = await api.post("/orders", { user_id: user.id });
+    const newOrder = response.data;
+
+    if(newOrder) {
+        await api.post("order_items", {
+            order_id: newOrder.id,
+            items: cart.map(item => ({
+                amount: item.amount,
+                dish_id: item.id,
+                unit_price: item.unit_price,
+                total_price: item.amount * item.unit_price
+
+            }))
+        });
+        setIsLoading(false);
+        setCart([]);
+        setWhenFinish(false);
+        isFinish(true);
+        return toast.success("Pedido confirmado! Você pode acompanhe seu pedido em 'Histórico de pedidos'.", {
+            position: toast.POSITION.TOP_CENTER
+        });
+    }
+    setIsLoading(false);
+
+  } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+      setWhenFinish(true);
+      isFinish(false);
+      return toast.error("Você não encontra-se logado, faça o login novamente para então navegar.", {
+          position: toast.POSITION.TOP_RIGHT
+      });
+  }
+}
+ 
   function handleButtonCompletePayment() {
     navigate("/");
   }
@@ -68,6 +144,19 @@ export function UserPayment() {
 
         <main>
 
+        {
+          isLoading ? 
+          (
+          <div className="loader">
+            <Rings
+            color="#065E7C"
+            width="110"
+            height="110"
+            />
+          </div>
+          )
+          :
+          (
           <Content>
             <div className="page">
 
@@ -109,7 +198,7 @@ export function UserPayment() {
             </Section> 
 
                 <div className="total">
-                  <h2>Total: R$ 103,30</h2>
+                  <h2>{`Total: R$ ${totalPrice}`}</h2>
                 </div>               
 
               </div>
@@ -150,62 +239,94 @@ export function UserPayment() {
                       {showQrCode ? (
                             <img src={ImageQrCodePng} alt="Imagem de 'QRcode'." />
                           ) : (
-                            <form className="cardDetails">
-                              <div className="divCardInputs">
-                                <label htmlFor="cardName">
-                                Nome no Cartão
-                                </label>
-                                <input
-                                  type="text"
-                                  id="cardName"
-                                  placeholder="Marina V Andrade"
-                                />
-                              </div>
-                              
-                              <div className="divCardInputs">
-                                <label htmlFor="cardNumber">
-                                Número do Cartão
-                                </label>
-                                <input
-                                  type="number"
-                                  id="cardNumber"
-                                  placeholder="0000 0000 0000 0000"
-                                />
-                              </div>
-                              
-                              <div className="expirationAndCvc">
-                                <div className="divExpirationAndCvc">
-                                  <label htmlFor="expirationDate">
-                                  Validade
+                            <div>
+                            {
+                              whenFinish?
+                              (
+                                <form className="cardDetails">
+                                <div className="divCardInputs">
+                                  <label htmlFor="cardName">
+                                  Nome no Cartão
                                   </label>
                                   <input
                                     type="text"
-                                    id="expirationDate"
-                                    placeholder="07/25"
+                                    id="cardName"
+                                    placeholder="Marina V Andrade"
                                   />
                                 </div>
-                              <div className="divExpirationAndCvc">
-                                <label htmlFor="cvc">
-                                  CVC
-                                </label>
-                                <input
-                                  type="number"
-                                  id="cvc"
-                                  placeholder="000"
-                                />
+                                
+                                <div className="divCardInputs">
+                                  <label htmlFor="cardNumber">
+                                  Número do Cartão
+                                  </label>
+                                  <input
+                                    type="number"
+                                    id="cardNumber"
+                                    placeholder="0000 0000 0000 0000"
+                                    onChange={e => setCardNumber(e.target.value)}
+                                    onKeyPress={e => {
+                                        if (e.target.value.length >= 16) {
+                                            e.preventDefault();
+                                        }
+                                      }}
+                                  />
                                 </div>
-                              </div>
-                
-                              <div className="wrapperButtonCompletePayment">
-                                <Button
-                                type="button"
-                                className="buttonPayment"
-                                title="Finalizar pagamento"
-                                onClick={handleButtonCompletePayment}
-                                >
-                                </Button>
-                              </div>
-                            </form>
+                                
+                                <div className="expirationAndCvc">
+                                  <div className="divExpirationAndCvc">
+                                    <label htmlFor="validity">
+                                    Validade
+                                    </label>
+                                    <input
+                                      type="data"
+                                      id="validity"
+                                      placeholder="07/25"
+                                      onChange={e => setValidity(e.target.value)}
+                                      maxLength="4"
+                                    />
+                                  </div>
+                                <div className="divExpirationAndCvc">
+                                  <label htmlFor="cvcCode">
+                                    CVC
+                                  </label>
+                                  <input
+                                    type="number"
+                                    id="cvcCode"
+                                    placeholder="000"
+                                    onChange={e => setCvcCode(e.target.value)}
+                                    onKeyPress={e => {
+                                        if (e.target.value.length >= 3) {
+                                            e.preventDefault();
+                                        }
+                                        }}
+                                  />
+                                  </div>
+                                </div>
+                  
+                                <div className="wrapperButtonCompletePayment">
+                                  <Button
+                                  type="button"
+                                  className="buttonPayment"
+                                  title="Finalizar pagamento"
+                                  onClick={handleWhenFinish}
+                                  >
+                                  </Button>
+                                </div>
+                              </form>
+                              ) : 
+                              (
+                                <div className="paymentFinalize">
+                                    <AiOutlineCheckCircle/>
+                                    <p>Pagamento aprovado!</p>
+    
+                                    <Button 
+                                    onClick={handleClickReturn}
+                                    title="Voltar"
+                                    />
+                                </div>
+                            )
+                            }
+                            </div>
                           )}
                       </td>
                     </tr>
@@ -215,7 +336,10 @@ export function UserPayment() {
 
             </div>
           </Content>
-        </main>
+          )
+        }
+
+         </main>
         <Footer />
       </Container>    
   )

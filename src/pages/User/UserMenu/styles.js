@@ -87,8 +87,7 @@ export const Container = styled.div`
       @media (min-width: 400px) {
         right: 4rem;
       }
-      
-         
+        
       @media (min-width: 600px) {
         right: 10rem;
       }
