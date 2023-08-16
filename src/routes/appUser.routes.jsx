@@ -6,6 +6,7 @@ import { UserMenu } from '../pages/User/UserMenu';
 import { UserRequest } from '../pages/User/UserRequest';
 import { UserPayment } from '../pages/User/UserPayment';
 import { UserFavorites } from '../pages/User/UserFavorites';
+import { UserHistoric } from '../pages/User/UserHistoric';
 
 
 
@@ -22,6 +23,7 @@ export function AppUserRoutes() {
       <Route path="/menu" element={ <UserMenu />} /> 
       <Route path="/request" element={ <UserRequest />} />
       <Route path="/payment" element={ <UserPayment />} />
+      <Route path="/historic" element={ <UserHistoric />} />
       
     </Routes>
   )

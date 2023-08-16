@@ -19,13 +19,14 @@ export function UserDishCard({ title, onClick, isFavorite=false, value, price, d
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const dishDescription = isMobile ? "" : <TextArea/>;
   
-  const  { cart, setCart } = useCart();
+  const { cart, setCart } = useCart();
   const [ imageDish, setImageDish ] = useState(null);
   const [ amount, setAmount ] = useState(1);
 
   const { id } = data;
   
   const navigate = useNavigate();
+
 
   function handleDecrement() {
     if(amount === 1) {
@@ -40,6 +41,7 @@ export function UserDishCard({ title, onClick, isFavorite=false, value, price, d
       setAmount(prevState => prevState + 1);
   };
 
+
   function handleIncludeNewItem() {
     const unit_price = data.price
 
@@ -52,10 +54,10 @@ export function UserDishCard({ title, onClick, isFavorite=false, value, price, d
       total_price: amount * unit_price,
      }
 
-     setCart(prevState => [...prevState, newItem])
-     setAmount(1)
-    }
-
+     setCart(prevState => [...prevState, newItem]);
+     setAmount(1);
+   }
+   
     useEffect(() => {
     async function fetchImageDish () {
         if(image) {
@@ -65,10 +67,10 @@ export function UserDishCard({ title, onClick, isFavorite=false, value, price, d
     fetchImageDish();
 }, [image])
 
-function handleDetails() {
-  navigate(`/details/${id}`); 
-}
-
+  
+  function handleDetails() {
+    navigate(`/details/${id}`); 
+  }
 
   return (
     <Container>

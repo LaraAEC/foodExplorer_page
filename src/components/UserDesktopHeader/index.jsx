@@ -12,7 +12,7 @@ import SignOutSvg from '../../assets/signOut.svg';
 
 
 export function UserDesktopHeader({ onChange }) {
-  const { signOut } = useAuth(); 
+  const { signOut, user } = useAuth(); 
   const navigate = useNavigate();
 
   const { cart } = useCart();
@@ -24,6 +24,11 @@ export function UserDesktopHeader({ onChange }) {
   function handleButtonRequest() { 
     navigate("/request"); 
   }
+
+  function handleButtonHistoric() { 
+    navigate(`/historic/:${user.id}`); 
+  }
+  
 
   function handleSignOut() { 
     navigate("/"); 
@@ -64,7 +69,7 @@ export function UserDesktopHeader({ onChange }) {
         <button 
         type="button" 
         className="historicButton" 
-        //onClick={handleHistoric}
+        onClick={handleButtonHistoric}
         >
           <p>Histórico de pedidos</p>
         </button>

@@ -18,7 +18,7 @@ export function AppAdminRoutes() {
       <Route path="/edit/:id" element={ <AdminDishEdit />} />
       <Route path="/details/:id" element={ <AdminDishDetails />} />
       <Route path="/menu" element={ <AdminMenu />} />
-      <Route path="/orders/:id" element={ <AdminOrders />} />
+      <Route path="/orders" element={ <AdminOrders />} />
     
     </Routes>
   )

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import{ useNavigate } from 'react-router-dom';
 
+import { api } from "../../services/api";
 import { useAuth } from '../../hooks/auth';
 
 
@@ -12,12 +13,14 @@ import SearchSvg from '../../assets/search.svg';
 import SignOutSvg from '../../assets/signOut.svg';
 
 
-export function AdminDesktopHeader({ onChange }) {
+export function AdminDesktopHeader({ onChange, ...rest }) {
   const { signOut } = useAuth(); 
+
+  const [ordersAmount, setOrdersAmount] = useState([]);
+
   const navigate = useNavigate();
 
   
-
   function handleSignOut() {
     navigate("/"); 
     signOut(); 
@@ -30,6 +33,14 @@ export function AdminDesktopHeader({ onChange }) {
   function handleAllOrdersButton() { 
     navigate("/orders"); 
   }
+
+  useEffect(() => {
+    async function fetchOrders () {
+        const response = await api.get("/orders");
+        setOrdersAmount(response.data);
+    }
+    fetchOrders();
+}, [ordersAmount.length]);
 
   return (
     <Container>
@@ -78,7 +89,7 @@ export function AdminDesktopHeader({ onChange }) {
           type="button"
           onClick={handleAllOrdersButton}
           >
-            <p>Pedidos (0)</p>
+            <p>Pedidos ({ordersAmount.length})</p>
           </button> 
         </div>
        

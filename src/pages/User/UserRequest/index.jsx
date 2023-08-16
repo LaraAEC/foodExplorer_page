@@ -48,9 +48,15 @@ export function UserRequest() {
     navigate("/payment");
     }
 
-  function handleRemoveItem(deleted) {
-    setCart(state => state.filter(item => item.id !== deleted))
-  }
+    function handleRemoveItem(deletedItemId) {
+      setCart((prevState) =>
+        prevState.map((item) =>
+          item.id === deletedItemId
+            ? { ...item, amount: item.amount - 1 }
+            : item
+        ).filter((item) => item.amount > 0)
+      );
+    }
 
   useEffect(() => {
     const carts = cart.map(item => item.total_price);

@@ -82,7 +82,6 @@ export function UserHome() {
     });
   }
 
- 
   async function handleAddFavorites (dishId) {
     try {
       const response = await api.get(`favorites/${user.id}`);

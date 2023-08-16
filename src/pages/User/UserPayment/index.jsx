@@ -45,7 +45,7 @@ export function UserPayment() {
   const [cvcCode, setCvcCode] = useState("");
   const [totalPrice, setTotalPrice] = useState("")
 
-  const [whenFinish, setWhenFinish] = useState(true);
+  const [isNotFinished, setIsNotFinished] = useState(true);
   const [finish, isFinish] = useState(false);
 
   const navigate = useNavigate();
@@ -59,7 +59,7 @@ export function UserPayment() {
   }
 
   function handleClickReturn() {
-    setWhenFinish(true);
+    setIsNotFinished(true);
     navigate("/");
 }
 
@@ -67,22 +67,19 @@ export function UserPayment() {
     setShowQrCode(boolean);
   }
 
-  function handleWhenFinish () {
+  function  handleCompletePayment () {
     if(cart.length <= 0) {
         return alert("Não há itens no carrinho.")
     }
-
     if(!cardNumber || !cvcCode || !validity) {
         return toast.error("Preencha todos os campos (simulação)", {
             position: toast.POSITION.TOP_RIGHT
         });
     }
-
     handleNewOrder();
 }
 
 async function handleNewOrder () {
-
   try{
     setIsLoading(true);
     const response = await api.post("/orders", { user_id: user.id });
@@ -96,37 +93,38 @@ async function handleNewOrder () {
                 dish_id: item.id,
                 unit_price: item.unit_price,
                 total_price: item.amount * item.unit_price
-
             }))
         });
         setIsLoading(false);
         setCart([]);
-        setWhenFinish(false);
+        setIsNotFinished(false);
         isFinish(true);
-        return toast.success("Pedido confirmado! Você pode acompanhe seu pedido em 'Histórico de pedidos'.", {
+        return toast.success("Pedido confirmado! Acompanhe seu pedido em 'Histórico de pedidos'.", {
             position: toast.POSITION.TOP_CENTER
         });
     }
     setIsLoading(false);
-
   } catch (error) {
       setIsLoading(false);
       console.log(error);
-      setWhenFinish(true);
+      setIsNotFinished(true);
       isFinish(false);
-      return toast.error("Você não encontra-se logado, faça o login novamente para então navegar.", {
+      return toast.error("Você não se encontra logado, faça o login novamente para então navegar.", {
           position: toast.POSITION.TOP_RIGHT
       });
   }
 }
  
-  function handleButtonCompletePayment() {
-    navigate("/");
-  }
-
-  function handleRemoveItem(deleted) {
-    setCart(state => state.filter(item => item.id !== deleted))
-  }
+ 
+function handleRemoveItem(deletedItemId) {
+  setCart((prevState) =>
+    prevState.map((item) =>
+      item.id === deletedItemId
+        ? { ...item, amount: item.amount - 1 }
+        : item
+    ).filter((item) => item.amount > 0)
+  );
+}
 
   useEffect(() => {
     const carts = cart.map(item => item.total_price);
@@ -135,9 +133,7 @@ async function handleNewOrder () {
   }, [cart]);
   
  
-  
   return (
-
       <Container>
 
         {isMobile ? <UserMobileHeader /> : <UserDesktopHeader onChange={e => setSearch(e.target.value)} />}
@@ -189,7 +185,7 @@ async function handleNewOrder () {
                         price: item.unit_price,
                         amount: item.amount
                       }}
-                    onClick = {() => handleRemoveItem(item.id)}
+                      onClick = {() => handleRemoveItem(item.id)}
                     />
                   )) 
                 }            
@@ -239,9 +235,9 @@ async function handleNewOrder () {
                       {showQrCode ? (
                             <img src={ImageQrCodePng} alt="Imagem de 'QRcode'." />
                           ) : (
-                            <div>
+                            <div className="cardPayment">
                             {
-                              whenFinish?
+                              isNotFinished?
                               (
                                 <form className="cardDetails">
                                 <div className="divCardInputs">
@@ -308,14 +304,14 @@ async function handleNewOrder () {
                                   type="button"
                                   className="buttonPayment"
                                   title="Finalizar pagamento"
-                                  onClick={handleWhenFinish}
+                                  onClick={handleCompletePayment}
                                   >
                                   </Button>
                                 </div>
                               </form>
                               ) : 
                               (
-                                <div className="paymentFinalize">
+                                <div className="paymentFinalized">
                                     <AiOutlineCheckCircle/>
                                     <p>Pagamento aprovado!</p>
     

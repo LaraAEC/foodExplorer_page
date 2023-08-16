@@ -320,9 +320,25 @@ export const Content = styled.div`
               > .wrapperButtonCompletePayment{
                   width: 100%;
                   height: 4.6rem;
-                }
-              
+                }             
            }
+           > .cardPayment {
+            > .paymentFinalized {
+                > svg {
+                  width: 10rem;
+                  height: 10rem;
+                }
+                > p {
+                  font-size: 20px;
+                  margin-bottom: 1rem;
+                }
+                > button {         
+                  padding: 1.2rem;                 
+                }
+              }
+
+           }
+           
           }
         }
       }

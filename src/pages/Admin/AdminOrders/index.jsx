@@ -7,7 +7,7 @@ import { useRef } from 'react';
 
 import { useMediaQuery } from 'react-responsive';
 
-import { FiChevronLeft } from 'react-icons/fi';
+import { FiChevronLeft, FiArrowLeft } from 'react-icons/fi';
 import { AdminMobileHeader } from '../../../components/AdminMobileHeader';
 import { AdminDesktopHeader } from '../../../components/AdminDesktopHeader';
 
@@ -18,8 +18,8 @@ import { Button } from '../../../components/Button';
 import { Footer } from '../../../components/Footer';
 import { StatusOrders } from "../../../components/StatusOrders";
 
-import { ThreeCircles } from "react-loader-spinner";
 import { toast } from "react-toastify";
+import { Rings } from "react-loader-spinner";
 
 
 export function AdminOrders() {
@@ -69,18 +69,18 @@ export function AdminOrders() {
       {isMobile ? <AdminMobileHeader /> : <AdminDesktopHeader onChange={e => setSearch(e.target.value)} />}
 
       {
-            isLoading ?
-            (
-            <div className="loader">
-                <ThreeCircles
-                color="#126b37"
-                width="120"
-                height="100"
-                />
-            </div>
-            )
-            :
-            (
+        isLoading ?
+        (
+        <div className="loader">              
+          <Rings
+          color="#065E7C"
+          width="110"
+          height="110"
+          /> 
+        </div>
+        )
+        :
+        (
     
         <Content>
 

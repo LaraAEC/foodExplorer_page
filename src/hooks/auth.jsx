@@ -10,6 +10,7 @@ const AuthContext = createContext({});
 //Crio o provedor do contexto
 function AuthProvider({ children }) {
   const [data, setData] = useState({}); 
+
   const [dataDishes, setDishes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -69,7 +70,6 @@ function AuthProvider({ children }) {
 
       });
     }
-
   }, []);
 
   async function fetchDishes () {
