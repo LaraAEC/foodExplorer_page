@@ -26,7 +26,7 @@ export function UserDesktopHeader({ onChange }) {
   }
 
   function handleButtonHistoric() { 
-    navigate(`/historic/:${user.id}`); 
+    navigate(`/historic/${user.id}`); 
   }
   
 
