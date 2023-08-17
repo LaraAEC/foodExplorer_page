@@ -7,11 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from 'react-responsive';
 
 import { FiChevronLeft } from 'react-icons/fi';
+import { BsHeartbreak } from "react-icons/bs";
+import { TbMoodCry } from "react-icons/tb";
 
 import { UserMobileHeader } from '../../../components/UserMobileHeader';
 import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
 
-import { Container } from './styles';
+import { Container, StyledLink } from './styles';
 import { Section } from '../../../components/Section';
 import { ButtonText } from '../../../components/ButtonText';
 import { Footer } from '../../../components/Footer'; 
@@ -93,36 +95,44 @@ async function handleRemoveFavorites (deleted) {
                     )
                 :
                 (
-                <>
-            {
-                favorites &&
-                <ul>
-                    <li>
-                    {
-                        favorites.map((dish, index) => (
-                            <UserFavoriteDish
-                            key={String(index)}
-                            data={{
-                                title: dish.title,
-                                imageDish: image[dish.id],
-                            }}
-                            onClick={() => handleRemoveFavorites(dish.id)}
-                            />
-                        ))
-                    }
-                    </li>
-                </ul>
-            }
+                    <>
+                    { favorites.length === 0 ? (
+                        <div className="emptyList">
+                            <div>
+                                <p>Lista de Favoritos vazia</p>
+                                < TbMoodCry />
+                            </div>
 
+                            <div>                                                            
+                                <p>Em <StyledLink to="/">Home</StyledLink> você pode criar uma lista do seu gosto para facilitar na hora de pedir!</p>
+                                < BsHeartbreak />
+                            </div>                
+                        </div>
+                    ) : (
+                        <ul>
+                            <li>
+                                {favorites.map((dish, index) => (
+                                    <UserFavoriteDish
+                                        key={String(index)}
+                                        data={{
+                                            title: dish.title,
+                                            imageDish: image[dish.id],
+                                        }}
+                                        onClick={() => handleRemoveFavorites(dish.id)}
+                                    />
+                                ))}
+                            </li>
+                        </ul>
+                    )}
                     <footer>
-                    <ButtonText
+                        <ButtonText
                         title="Voltar"
-                        icon={FiChevronLeft }
-                        onClick={handleBack} 
-                    />
+                        icon={FiChevronLeft}
+                        onClick={handleBack}
+                        />
                     </footer>
-                    </>
-                    )
+                </>
+                )
             }
             </Section>
 

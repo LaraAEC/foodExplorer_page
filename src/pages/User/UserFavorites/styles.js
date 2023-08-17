@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const Container = styled.main`
     display: grid;
@@ -43,7 +44,75 @@ export const Container = styled.main`
 
         color: ${({ theme }) => theme.COLORS.WHITE_300};
 
-        ul {
+        > .emptyList {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            
+
+            > div:nth-child(1) {
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+
+                > p {
+                    font-weight: 400;
+                    font-size: 1.6rem;
+                    line-height: 100%; 
+                    white-space: nowrap;
+
+                    @media (min-width: 500px) {
+                        font-size: 2rem;
+                    }
+                }
+
+                > svg {
+                    color: ${({ theme }) => theme.COLORS.BLUE_100};
+                }
+            }
+
+            > div:nth-child(2) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+
+                padding: 2rem;
+
+                max-width: 70%;
+               
+
+                border: solid 1px ${({ theme }) => theme.COLORS.BLUE_100};
+
+                > p {
+                    font-weight: 300;
+                    font-size: 1.4rem;
+                    line-height: 140%; 
+
+                   
+
+                    @media (min-width: 500px) {
+                        font-size: 1.6rem;
+                    }
+                }
+
+                > svg {
+                    width: 10rem;
+                    height: 20rem;
+
+                    color: ${({ theme }) => theme.COLORS.BLUE_100};
+
+                    @media (min-width: 500px) {
+                        width: 20rem;
+                        height: 30rem;
+                    }
+                }
+            }
+        }
+
+        > ul {
             max-height: 60vh;
             margin-top: 1rem;
 
@@ -62,7 +131,7 @@ export const Container = styled.main`
               
             animation: lowOpacity 0.4s linear;
 
-        li {
+        > li {
             > div {
                 margin: 2rem;
             }
@@ -70,20 +139,22 @@ export const Container = styled.main`
 
     }
 
-        > footer {
+    > footer {
+        
+        button {
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             
-            button {
-                margin: 0 auto;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                
-                max-width: 40%;
-                gap: 0.5rem;
-                font-size: 1.6rem;
-            }
+            max-width: 40%;
+            gap: 0.5rem;
+            font-size: 1.6rem;
+
+            margin-top: 2rem;
         }
     }
+ }
 
     > header {
         grid-area: header;
@@ -177,4 +248,10 @@ export const Container = styled.main`
             opacity: 1;
         }
     }
-`
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.COLORS.BLUE_100};
+  font-weight: bold; 
+`;

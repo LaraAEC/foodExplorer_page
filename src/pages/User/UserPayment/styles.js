@@ -231,6 +231,14 @@ export const Content = styled.div`
                 justify-content: start;
                 align-items: start;
 
+                input {
+                  &::-webkit-inner-spin-button,
+                  &::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                  }
+                }
+
                 @media (min-width: 768px) {
                   width: 20rem;              
                 }

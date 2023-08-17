@@ -105,14 +105,14 @@ export function AdminNewDish() {
 
 
 
-  function handleAddIngredient() { //funcionalidade que adiciona a nova Tag, digita pelo usuário, na lista de tags
-    setIngredients(prevState => [...prevState, newIngredient]); //Setando meu array estado tags - mantenho o que tinha antes, mais a nova Tag, e com o spread operator tudo fica dentro de um único array, mesmo nível
-    setNewIngredient("");//Após usar o estado newTag na linha superior, eu zero ele para receber depois outra Tag, sem acúmulo nesta linha.
+  function handleAddIngredient() {
+    setIngredients(prevState => [...prevState, newIngredient]); 
+    setNewIngredient("");
   }
 
   function handleRemoveIngredient(deleted) { //funcionalidade para remover tag, recebe como parâmetro o tag que deseja remover
     setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted)); //filtrando na lista de tags atual (atual = prevState) a partir do tag que quero deletar, refazer a lista com todos os itens que são diferentes do tag que estou deletando
-    //Tudo sendo feito dentro de setTags, pois ele já vai me devolver a nova lista
+  
   }
 
   

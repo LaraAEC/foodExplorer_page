@@ -292,18 +292,28 @@ export const Content = styled.div`
       flex-direction: row;
     }
 
-    .wrapperIngredients, .wrapperPrice {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
+    > .wrapperIngredients, .wrapperPrice {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
 
-      color: ${({ theme}) => theme.COLORS.GRAY_400};
+        color: ${({ theme}) => theme.COLORS.GRAY_400};
 
-      font-family: ${({ theme}) => theme.FONTS.FONT_SECONDARY};
-      font-size: 1.6rem;
-      font-weight: 400;
-      line-height: 100%;
-    }
+        font-family: ${({ theme}) => theme.FONTS.FONT_SECONDARY};
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 100%;
+      }
+
+      > .wrapperPrice {
+        input {
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+        }
+      }
 
       > .wrapperIngredients {
         width: 100%;

@@ -278,7 +278,7 @@ function handleRemoveItem(deletedItemId) {
                                       id="validity"
                                       placeholder="07/25"
                                       onChange={e => setValidity(e.target.value)}
-                                      maxLength="4"
+                                      maxLength="5"
                                     />
                                   </div>
                                 <div className="divExpirationAndCvc">

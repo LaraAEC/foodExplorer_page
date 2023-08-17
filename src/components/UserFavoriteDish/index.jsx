@@ -2,7 +2,7 @@ import { Container } from "./styles";
 import { ButtonText } from "../../components/ButtonText";
 import { AiOutlineDelete } from "react-icons/ai";
 
-export function UserFavoriteDish ({ data, onClick, loading, ...rest }) {
+export function UserFavoriteDish ({ data, loading, ...rest }) {
 
     return (
         <Container {...rest}>
@@ -19,18 +19,9 @@ export function UserFavoriteDish ({ data, onClick, loading, ...rest }) {
                 <main>    
                     <h2>
                     {data.title}
-                    </h2>
+                    </h2>                  
 
-                   
-
-                    <footer>
-                        <ButtonText
-                        icon={AiOutlineDelete}
-                        title="Remover prato"
-                        onClick={onClick}
-                        disabled={loading}
-                        />
-                    </footer>
+                 
                 
                 </main>               
         </Container>
