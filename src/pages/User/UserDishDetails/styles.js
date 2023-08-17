@@ -120,6 +120,8 @@ export const Content = styled.div`
       height: 18rem;
       padding: 2rem;
 
+      border-radius: 50%; 
+
       @media (min-width: 412px) {
         width: 26.4rem;
         height: 22.4rem;

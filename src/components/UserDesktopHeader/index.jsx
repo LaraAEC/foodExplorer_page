@@ -1,5 +1,5 @@
-import{ useNavigate } from 'react-router-dom';
-
+import{ useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../../hooks/auth';
 import { useCart } from '../../hooks/cart';
 
@@ -13,9 +13,14 @@ import SignOutSvg from '../../assets/signOut.svg';
 
 export function UserDesktopHeader({ onChange }) {
   const { signOut, user } = useAuth(); 
+  
+  const { cart } = useCart();
+
   const navigate = useNavigate();
 
-  const { cart } = useCart();
+  const location = useLocation();
+
+  const [searchVisible, setSearchVisible] = useState(false);
 
   function handleButtonFavorites() { 
     navigate("/favorites"); 
@@ -36,7 +41,8 @@ export function UserDesktopHeader({ onChange }) {
 
   return (
     <Container>
-      <div className="box">
+      <div className={`box ${searchVisible ? 'centered' : 'spaced'}`}>
+
         <div className="title">
           <img
             src={ LogoSvg }
@@ -45,17 +51,27 @@ export function UserDesktopHeader({ onChange }) {
           <h1>Food explorer</h1>
         </div> 
 
-        <div className="search">
-          <img
-            src={ SearchSvg }
-            alt="Imagem de 'lupa'."
-          />
-          <Search
-            type="text"
-            placeholder="Busque por pratos ou ingredientes."
-            onChange={onChange}
-          />
-        </div>
+        {
+          (location.pathname === "/" || location.pathname === "/menu") ? (
+            <div className="search">
+              <img
+                src={ SearchSvg }
+                alt="Imagem de 'lupa'."
+              />
+              <Search
+                type="text"
+                placeholder="Busque por pratos ou ingredientes."
+                onChange={onChange}
+              />
+            </div>
+          )
+          :
+          (
+            <div className="replacementForSearch">
+            </div>
+          )
+        }
+
 
         <button 
         type="button" 

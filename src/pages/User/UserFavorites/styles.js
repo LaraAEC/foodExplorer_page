@@ -51,7 +51,6 @@ export const Container = styled.main`
             align-items: center;
             justify-content: center;
             
-
             > div:nth-child(1) {
                 display: flex;
                 align-items: center;
@@ -89,9 +88,7 @@ export const Container = styled.main`
                 > p {
                     font-weight: 300;
                     font-size: 1.4rem;
-                    line-height: 140%; 
-
-                   
+                    line-height: 140%;                   
 
                     @media (min-width: 500px) {
                         font-size: 1.6rem;

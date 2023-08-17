@@ -151,6 +151,9 @@ export const Content = styled.div`
       width: 26.4rem;
       height: 26.4rem;
 
+      border-radius: 50%; 
+      overflow: hidden; 
+
       @media (min-width: 1024px) {
         width: 36.0rem;
         height: 32.9rem;

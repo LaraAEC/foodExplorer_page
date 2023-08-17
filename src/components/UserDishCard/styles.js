@@ -79,6 +79,8 @@ export const Content = styled.div`
   > .dish {
     width: 8.8rem;
     height: 8.8rem;
+
+    border-radius: 50%; 
     
     @media (min-width: 1024px) {
       width: 17.6rem;

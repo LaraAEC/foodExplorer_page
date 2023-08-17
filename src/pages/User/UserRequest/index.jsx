@@ -10,11 +10,14 @@ import { useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import { FiChevronLeft } from 'react-icons/fi';
+import { TbMoodEmpty } from "react-icons/tb";
+import { BsCartX } from "react-icons/bs";
+
 
 import { UserMobileHeader } from '../../../components/UserMobileHeader';
 import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
 
-import { Container, Content } from './styles';
+import { Container, Content, StyledLink } from './styles';
 import { Section } from '../../../components/Section';
 import { ButtonText } from '../../../components/ButtonText';
 import { Button } from '../../../components/Button'; 
@@ -81,26 +84,55 @@ export function UserRequest() {
             <div className="pageTitle">
                 <h1>Meu pedido</h1>
             </div>
+
             <Section>
-              {cart && 
-              <ul className="request">
-                {
-                  cart.map((item, index) => (
-                    <UserRequestCard
-                      key={index}
-                      data={{
-                        title: item.title,
-                        imageDish: item.photo,
-                        price: item.unit_price,
-                        amount: item.amount
-                      }}
-                    onClick = {() => handleRemoveItem(item.id)}
+              {
+                isLoading ?
+                (
+                <div className="loader">
+                    <Rings
+                        color="#065E7C"
+                        width="110"
+                        height="110"
                     />
-                  )) 
-                }            
-              </ul>                          
-              }                          
+                </div>
+                )
+            :
+            (
+              <>
+               { cart.length === 0 ? (
+                 <div className="emptyList">
+                 <div>
+                     <p>Lista de Pedidos vazia</p>
+                     < TbMoodEmpty  />
+                 </div>
+
+                 <div>                                                            
+                     <p>Em <StyledLink to="/">Home</StyledLink> você pode selecionar seus pratos e incluí-los em seu pedido!</p>
+                     < BsCartX />
+                 </div>                
+             </div>
+          ) : (
+                  <ul className="request">
+                    { cart.map((item, index) => (
+                        <UserRequestCard
+                          key={index}
+                          data={{
+                            title: item.title,
+                            imageDish: item.photo,
+                            price: item.unit_price,
+                            amount: item.amount
+                          }}
+                        onClick = {() => handleRemoveItem(item.id)}
+                        />
+                      ))}            
+                  </ul>                          
+                  )} 
+              </>
+                )             
+              }            
             </Section> 
+
             <div className="total">
               <h2>{`Total: R$ ${totalPrice}`}</h2>
             </div>                                    
