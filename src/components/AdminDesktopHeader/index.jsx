@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import{ useNavigate } from 'react-router-dom';
+import{ useNavigate, useLocation } from 'react-router-dom';
 
 import { api } from "../../services/api";
 import { useAuth } from '../../hooks/auth';
@@ -16,11 +16,14 @@ import SignOutSvg from '../../assets/signOut.svg';
 export function AdminDesktopHeader({ onChange, ...rest }) {
   const { signOut } = useAuth(); 
 
+  const location = useLocation();
+
   const [ordersAmount, setOrdersAmount] = useState([]);
 
   const navigate = useNavigate();
 
-  
+  const [searchVisible, setSearchVisible] = useState(false);
+
   function handleSignOut() {
     navigate("/"); 
     signOut(); 
@@ -44,7 +47,7 @@ export function AdminDesktopHeader({ onChange, ...rest }) {
 
   return (
     <Container>
-      <div className="box">
+      <div className={`box ${searchVisible ? 'centered' : 'spaced'}`}>
 
         <div className="title">
           <img className="logoSvg"
@@ -56,20 +59,29 @@ export function AdminDesktopHeader({ onChange, ...rest }) {
             <h1>Food explorer</h1>
             <p>admin</p>
           </div>
-        </div> 
-
-
-        <div className="search">
-          <img
-            src={ SearchSvg }
-            alt="Imagem de 'lupa'."
-          />
-          <Search
-            type="text"
-            placeholder="Busque por pratos ou ingredientes."
-            onChange={onChange}
-          />
         </div>
+
+      
+        {
+          (location.pathname === "/" || location.pathname === "/menu") ? (
+            <div className="search">
+              <img
+                src={ SearchSvg }
+                alt="Imagem de 'lupa'."
+              />
+              <Search
+                type="text"
+                placeholder="Busque por pratos ou ingredientes."
+                onChange={onChange}
+              />
+            </div>
+          )
+          :
+          (
+            <div className="replacementForSearch">
+            </div>
+          )
+        }
 
         <button 
         type="button"

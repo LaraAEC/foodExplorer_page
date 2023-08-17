@@ -8,7 +8,16 @@ export const Container = styled.header`
   padding: 5.6rem 2.8rem 2.4rem 2.8rem;
 
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
-  
+
+  > .box.centered {
+    justify-content: center;
+  }
+
+  > .box.spaced {
+    justify-content: start;
+  }
+
+
  > .box {
     display: flex;
     flex-direction: row;
@@ -66,6 +75,13 @@ export const Container = styled.header`
         color: ${({ theme }) => theme.COLORS.BLUE_100};
       }
     }
+  }
+
+  > .replacementForSearch {
+    height: 4.5rem;
+    width: 45%;
+
+    padding: 1.2rem 1.4rem;
   }
 
   > .search {

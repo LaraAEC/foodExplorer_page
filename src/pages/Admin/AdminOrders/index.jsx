@@ -32,6 +32,7 @@ export function AdminOrders() {
 
   const [itemsOrder, setItemsOrder] = useState([]);
 
+
   function handleBack() {
     navigate(-1); 
   }
@@ -59,7 +60,6 @@ export function AdminOrders() {
 
     fetchOrders();
   }, []);
-
 
 
   return (
