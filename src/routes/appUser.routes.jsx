@@ -23,7 +23,7 @@ export function AppUserRoutes() {
       <Route path="/menu" element={ <UserMenu />} /> 
       <Route path="/request" element={ <UserRequest />} />
       <Route path="/payment" element={ <UserPayment />} />
-      <Route path="/historic" element={ <UserHistoric />} />
+      <Route path="/historic/:id" element={ <UserHistoric />} />
       
     </Routes>
   )

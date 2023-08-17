@@ -98,6 +98,10 @@ export function UserMenu() {
       navigate("/favorites"); 
     }
 
+    function handleButtonHistoric() { 
+      navigate(`/historic/${user.id}`); 
+    }
+
     function handleCloseSearch() { 
       setDishes(false); 
     }
@@ -181,7 +185,7 @@ export function UserMenu() {
 
          <button className="buttonRequests"
           type="button"
-          //onClick={handleHistoricRequest}
+          onClick={handleButtonHistoric}
           >
             Histórico de Pedidos
           </button>

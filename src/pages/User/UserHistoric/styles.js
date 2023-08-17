@@ -45,7 +45,7 @@ export const Content = styled.main`
         font-family: "Poppins", "serif";
         font-size: 3.2rem;
         font-weight: 500;
-        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        color: ${({ theme }) => theme.COLORS.WHITE_300};
         margin-top: 3rem;
         padding: 0;
         gap: 2rem;
@@ -70,7 +70,7 @@ export const Content = styled.main`
             }
             
             ::-webkit-scrollbar-thumb {
-                background-color: ${({ theme }) => theme.COLORS.LIGHT_700};
+                background-color: ${({ theme }) => theme.COLORS.GRAY_700};
                 border-radius: 1rem;
 
             }
@@ -85,9 +85,9 @@ export const Content = styled.main`
                     display: inline;
                     font-size: 1.5rem;
                     font-weight: bold;
-                    font-family: "Roboto", "serif";
-                    color: ${({ theme }) => theme.COLORS.LIGHT_300};
-                    border: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
+                    font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+                    color: ${({ theme }) => theme.COLORS.WHITE_300};
+                    border: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
                     padding: 2.5rem;
                 }
 
@@ -109,7 +109,7 @@ export const Content = styled.main`
             ul {
 
                 li {
-                    border: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
+                    border: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
                     border-top: none;
                     width: 100%;
                     padding: 2.5rem;
@@ -121,10 +121,9 @@ export const Content = styled.main`
     }
 
     > span {
-        font-family: "Poppins", "serif";
         font-weight: 500;
         font-size: 2rem;
-        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        color: ${({ theme }) => theme.COLORS.WHITE_300};
     }
 
     @keyframes leftright {

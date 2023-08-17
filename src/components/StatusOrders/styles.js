@@ -22,7 +22,7 @@ export const Container = styled.ul`
     gap: 1rem;
     display: flex;
     margin-bottom: 2rem;
-    background-color: ${({ theme }) => theme.COLORS. BACKGROUND_900};
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
     max-width: 31.5rem;
     margin: 0 auto;
     margin-bottom: 2rem;

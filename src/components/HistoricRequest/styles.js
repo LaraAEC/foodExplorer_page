@@ -11,7 +11,7 @@ export const Container = styled.ul`
     "code status date"
     "details details details"
     ;
-    border: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
+    border: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
     margin-bottom: 2.4rem;
     border-radius: 1rem;
 
@@ -46,7 +46,7 @@ export const Container = styled.ul`
     justify-content: center;
     width: 100%;
     padding: 0 2.5rem;
-    border: 2px solid ${({ theme }) => theme.COLORS.DARK_1000};
+    border: 2px solid ${({ theme }) => theme.COLORS.BACKGROUND_1000};
     border-top: none;
     gap: 1.5rem;
     min-width: 15rem;
@@ -55,14 +55,14 @@ export const Container = styled.ul`
       font-size: 4.3rem;
       left: 23%;
 
-      color: ${({ value, theme }) => value === "Preparando" && theme.COLORS.CARROT_100};
-      color: ${({ value, theme }) => value === "Pendente" && theme.COLORS.TOMATO_100};
-      color: ${({ value, theme }) => value === "Entregue" && theme.COLORS.MINT};
+      color: ${({ value, theme }) => value === "Preparando" && theme.COLORS.ORANGE};
+      color: ${({ value, theme }) => value === "Pendente" && theme.COLORS.RED_100};
+      color: ${({ value, theme }) => value === "Entregue" && theme.COLORS.GREEN};
     }
 
     span {
       font-size: 1.4rem;
-      color: ${({ theme }) => theme.COLORS.LIGHT_400};
+      color: ${({ theme }) => theme.COLORS.GRAY_400};
       font-weight: 400;
     }
 
@@ -86,7 +86,7 @@ export const Container = styled.ul`
     gap: 6rem;
     flex-direction: column;
 
-    font-family: "Roboto", "serif";
+    font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
     font-size: 1.5rem;
     font-weight: 400;
 

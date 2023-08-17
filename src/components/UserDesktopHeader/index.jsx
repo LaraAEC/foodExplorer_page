@@ -29,7 +29,6 @@ export function UserDesktopHeader({ onChange }) {
     navigate(`/historic/${user.id}`); 
   }
   
-
   function handleSignOut() { 
     navigate("/"); 
     signOut(); 

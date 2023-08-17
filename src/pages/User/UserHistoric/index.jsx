@@ -9,8 +9,8 @@ import { useAuth } from "../../../hooks/auth";
 import { useMediaQuery } from 'react-responsive';
 
 import { FiChevronLeft, FiArrowLeft } from 'react-icons/fi';
-import { AdminMobileHeader } from '../../../components/AdminMobileHeader';
-import { AdminDesktopHeader } from '../../../components/AdminDesktopHeader';
+import { UserMobileHeader } from '../../../components/UserMobileHeader';
+import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
 import { ButtonText } from "../../../components/ButtonText";
 
 import { useNavigate } from "react-router-dom";
@@ -33,7 +33,6 @@ export function UserHistoric() {
         navigate(-1)
     }
 
-
     useEffect(() => {
         async function fetchRequests () {
             setIsLoading(true);
@@ -47,7 +46,7 @@ export function UserHistoric() {
 
     return (
         <Container>
-           {isMobile ? <AdminMobileHeader /> : <AdminDesktopHeader onChange={e => setSearch(e.target.value)} />}
+           {isMobile ? <UserMobileHeader /> : <UserDesktopHeader onChange={e => setSearch(e.target.value)} />}
             
             <Content>
                 
@@ -110,7 +109,7 @@ export function UserHistoric() {
                                 created_at: item.created_at
                             }}
                             value={item.status}
-                            details={item.items.map((i, index) => `${i.amount} x ${i.dish_name}${index > item.items.length -2 ? '': ', '}  `)}
+                            details={item.items.map((i, index) => `${i.amount} x ${i.dish_title}${index > item.items.length -2 ? '': ', '}  `)}
                         />
                 ))
             }
