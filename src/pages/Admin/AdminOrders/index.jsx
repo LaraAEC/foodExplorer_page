@@ -143,7 +143,7 @@ export function AdminOrders() {
             </form>
             }
           </Section>
-
+            
           <Button 
           title="Atualizar pedidos"
           onClick={() => handleUpdateStatus(itemsOrder.map(item => item.id))}

@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const Container = styled.ul`
   display: flex;
   width: 100%;
+  min-width: 5rem;
 
-  @media(max-width: 820px) {
+  @media(max-width: 1023px) {
     display: grid;
     position: relative;
     grid-template-areas: 
@@ -23,7 +24,8 @@ export const Container = styled.ul`
     display: flex;
     margin-bottom: 2rem;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-    max-width: 31.5rem;
+   
+    max-width: 28rem;
     margin: 0 auto;
     margin-bottom: 2rem;
     height: 5rem;
@@ -49,8 +51,8 @@ export const Container = styled.ul`
     border: none;
     min-width: 5rem;
     max-width: 50rem;
-    overflow-y: hidden;
     margin: 0 auto;
+    overflow-y: hidden;
   }
 
   .date {
@@ -59,7 +61,14 @@ export const Container = styled.ul`
   }
 }
 
-  > div {
+@media(min-width: 821px) {
+  .selectStatus {
+    width: 100%;
+    padding: 0 2rem;
+  }
+
+}
+  > .selectStatus{
     position: relative;
     display: flex;
     align-items: center;
@@ -92,6 +101,10 @@ export const Container = styled.ul`
       font-weight: 400;
      
       font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+   
+      @media(min-width: 821px) {
+        font-size: 1.4rem; 
+      }
 
       @media(max-width: 820px) {
         border: none;
@@ -99,7 +112,8 @@ export const Container = styled.ul`
 
       :hover {
         cursor: pointer;
-      }
+      }     
+
     }
 
   }

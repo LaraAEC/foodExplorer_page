@@ -42,7 +42,7 @@ export const Content = styled.main`
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        font-family: "Poppins", "serif";
+       
         font-size: 3.2rem;
         font-weight: 500;
         color: ${({ theme }) => theme.COLORS.WHITE_300};
