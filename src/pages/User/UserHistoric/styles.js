@@ -47,7 +47,7 @@ export const Content = styled.main`
         font-weight: 500;
         color: ${({ theme }) => theme.COLORS.WHITE_300};
         margin-top: 3rem;
-        padding: 0;
+      
         gap: 2rem;
 
         @media(max-width: 820px) {

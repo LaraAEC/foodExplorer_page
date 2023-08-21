@@ -171,7 +171,7 @@ useEffect(() => {
                     alt="Imagem de 'recibo/recebido/pedido'."
                   />
                   <Button
-                  title="pedir - R$ 25,00"
+                  title={`Pedir - R$${data.price}`}
                   onClick={handleIncludeNewItem}
                   />
                 </div>
