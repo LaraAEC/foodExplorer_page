@@ -173,18 +173,6 @@ export const Content = styled.div`
       }
     }
 
-    > textarea {
-      text-align: start; 
-
-      padding-left: 1.5rem;
-
-      font-size: 1.2rem; 
-
-      @media (min-width: 412px) {
-        font-size: 2rem;      
-      }
-    }
-
     > .wrapperTags {
       display: flex;
       flex-wrap: wrap;
