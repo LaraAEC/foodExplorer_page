@@ -14,9 +14,8 @@ export const Container = styled.header`
   }
 
   > .box.spaced {
-    justify-content: start;
+    justify-content: space-between;
   }
-
 
  > .box {
     display: flex;
@@ -114,54 +113,60 @@ export const Container = styled.header`
       height: 3.0rem;
     }
 
-    > .newDishButton {
-    background-color: transparent;
-    color: ${({ theme }) => theme.COLORS.WHITE_100};
-
-    font-size: 1.4rem;
-    font-weight: 400;
-    font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
-
-    white-space: nowrap;
-
-    border: none; 
-    cursor: pointer
-    }
-
-
-    > .ordersButton {
+    > div {
       display: flex;
-      align-items: center;
+      gap: 4rem;
+      > .newDishButton {
+        background-color: transparent;
+        color: ${({ theme }) => theme.COLORS.WHITE_100};
 
-      gap: 12px;
+        font-size: 1.4rem;
+        font-weight: 400;
+        font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
 
-      padding: 1.2rem;
+        white-space: nowrap;
 
-      border-radius: 0.5rem;
-      background-color: ${({ theme }) => theme.COLORS.RED_100};
+        border: none; 
+        cursor: pointer
+        }
 
-      > .ordersButtonButton {
-      padding: 0rem auto;
 
-      font-size: 1.4rem;
-      font-weight: 500;
+        > .ordersButton {
+          display: flex;
+          align-items: center;
 
-      white-space: nowrap;
-  
-      border: none; 
-      cursor: pointer;
+          gap: 12px;
 
-      background-color: ${({ theme }) => theme.COLORS.RED_100};
-      color: ${({ theme }) => theme.COLORS.WHITE_100};
-      }
+          padding: 1.2rem;
+
+          border-radius: 0.5rem;
+          background-color: ${({ theme }) => theme.COLORS.RED_100};
+
+          > .ordersButtonButton {
+          padding: 0rem auto;
+
+          font-size: 1.4rem;
+          font-weight: 500;
+
+          white-space: nowrap;
+      
+          border: none; 
+          cursor: pointer;
+
+          background-color: ${({ theme }) => theme.COLORS.RED_100};
+          color: ${({ theme }) => theme.COLORS.WHITE_100};
+          }
+        }
+
+        > .signOutButton{
+          border: none;
+          background: transparent;
+
+          cursor: pointer;
+        }  
+
     }
 
-    > .signOutButton{
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-    }  
 }
 `;
 

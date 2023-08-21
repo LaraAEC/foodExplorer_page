@@ -14,7 +14,7 @@ export const Container = styled.header`
   }
 
   > .box.spaced {
-    justify-content: start;
+    justify-content: space-between;
   }
 
  > .box {
@@ -41,7 +41,6 @@ export const Container = styled.header`
       width: 75%;
     }
   }
-
 
     > .search {
       display: flex;
@@ -97,53 +96,58 @@ export const Container = styled.header`
 
     }
 
-    > .favoritesButton, .historicButton {
-    background-color: transparent;
-    color: ${({ theme }) => theme.COLORS.WHITE_100};
-
-    font-size: 1.4rem;
-    font-weight: 400;
-    font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
-
-    white-space: nowrap;
-
-    border: none; 
-    cursor: pointer
-    }
-
-    > .requestButton {
+    > div {
       display: flex;
-      align-items: center;
+      gap: 4rem;
 
-      gap: 12px;
-
-      padding: 1.2rem;
-
-      border-radius: 0.5rem;
-      background-color: ${({ theme }) => theme.COLORS.RED_100};
-
-      > .requestButtonButton {
-      background-color: ${({ theme }) => theme.COLORS.RED_100};
+      > .favoritesButton, .historicButton {
+      background-color: transparent;
       color: ${({ theme }) => theme.COLORS.WHITE_100};
 
-      padding: 0rem auto;
-
       font-size: 1.4rem;
-      font-weight: 500;
+      font-weight: 400;
+      font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
 
       white-space: nowrap;
-  
-      border: none; 
-      cursor: pointer;
-      }
-    }
-    
-    > .signOutButton{
-      border: none;
-      background: transparent;
 
-      cursor: pointer;
-    }  
+      border: none; 
+      cursor: pointer
+      }
+
+      > .requestButton {
+        display: flex;
+        align-items: center;
+
+        gap: 12px;
+
+        padding: 1.2rem;
+
+        border-radius: 0.5rem;
+        background-color: ${({ theme }) => theme.COLORS.RED_100};
+
+        > .requestButtonButton {
+        background-color: ${({ theme }) => theme.COLORS.RED_100};
+        color: ${({ theme }) => theme.COLORS.WHITE_100};
+
+        padding: 0rem auto;
+
+        font-size: 1.4rem;
+        font-weight: 500;
+
+        white-space: nowrap;
+    
+        border: none; 
+        cursor: pointer;
+        }
+      }
+      
+      > .signOutButton{
+        border: none;
+        background: transparent;
+
+        cursor: pointer;
+      }  
+    }
 }
 `;
 

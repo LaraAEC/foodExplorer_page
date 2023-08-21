@@ -124,7 +124,8 @@ export const Content = styled.div`
 
   > .textArea {
     width: 100%;
-    height: 4.7rem;
+    height: 9.4rem;
+    margin: -2rem;
 
     white-space: nowrap;
     overflow: hidden;

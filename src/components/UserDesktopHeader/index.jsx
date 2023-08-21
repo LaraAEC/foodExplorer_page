@@ -72,7 +72,7 @@ export function UserDesktopHeader({ onChange }) {
           )
         }
 
-
+      <div>
         <button 
         type="button" 
         className="favoritesButton" 
@@ -108,6 +108,8 @@ export function UserDesktopHeader({ onChange }) {
             alt="Imagem de 'colchete com seta indicando para fora'."
           />
         </button>
+      </div>
+        
       </div>
     </Container>
   );

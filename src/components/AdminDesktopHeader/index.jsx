@@ -59,7 +59,6 @@ export function AdminDesktopHeader({ onChange, ...rest }) {
             <p>admin</p>
           </div>
         </div>
-
       
         {
           (location.pathname === "/" || location.pathname === "/menu") ? (
@@ -81,38 +80,39 @@ export function AdminDesktopHeader({ onChange, ...rest }) {
             </div>
           )
         }
-
-        <button 
-        type="button"
-        className="newDishButton" 
-        onClick={handleNewDishButton} 
-        >
-          <p>Novo prato</p>
-        </button>
-        
-    
-        <div className="ordersButton">
-          <img className="receiptSvg"
-            src={ ReceiptSvg }
-            alt="Imagem de 'recibo/recebido'."
-          />
-          <button className="ordersButtonButton"
+        <div>
+          <button 
           type="button"
-          onClick={handleAllOrdersButton}
+          className="newDishButton" 
+          onClick={handleNewDishButton} 
           >
-            <p>Pedidos ({ordersAmount.length})</p>
-          </button> 
+            <p>Novo prato</p>
+          </button>
+          
+          <div className="ordersButton">
+            <img className="receiptSvg"
+              src={ ReceiptSvg }
+              alt="Imagem de 'recibo/recebido'."
+            />
+            <button className="ordersButtonButton"
+            type="button"
+            onClick={handleAllOrdersButton}
+            >
+              <p>Pedidos ({ordersAmount.length})</p>
+            </button> 
+          </div>
+        
+          <button
+          type="button"
+          className="signOutButton"
+          onClick={handleSignOut}>
+            <img className="signOutSvg"
+              src={SignOutSvg}
+              alt="Imagem de 'colchete com seta indicando para fora'."
+            />
+          </button>
         </div>
-       
-        <button
-        type="button"
-        className="signOutButton"
-        onClick={handleSignOut}>
-          <img className="signOutSvg"
-            src={SignOutSvg}
-            alt="Imagem de 'colchete com seta indicando para fora'."
-          />
-        </button>
+
       </div>
     </Container>
   );
