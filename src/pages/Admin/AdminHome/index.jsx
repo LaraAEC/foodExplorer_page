@@ -35,7 +35,7 @@ export function AdminHome() {
 
   useEffect(() => {
     async function fetchDishes() {
-      const response = await api.get(`/dishes?title=${search}&ingredients=${search}`);
+      const response = await api.get(`/dishes?title=${search.toUpperCase()}&ingredients=${search.toUpperCase()}`);
       setDishes(response.data);
     }
     fetchDishes();

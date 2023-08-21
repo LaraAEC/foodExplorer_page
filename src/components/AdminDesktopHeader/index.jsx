@@ -4,7 +4,6 @@ import{ useNavigate, useLocation } from 'react-router-dom';
 import { api } from "../../services/api";
 import { useAuth } from '../../hooks/auth';
 
-
 import { Container, Search } from './styles';
 
 import LogoSvg from '../../assets/logo.svg';
