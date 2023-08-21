@@ -71,8 +71,7 @@ export const Content = styled.div`
     
     @media (min-width: 1024px) {
       width: 17.6rem;
-      height: 17.6rem;
-        
+      height: 17.6rem;  
     }
   }
 

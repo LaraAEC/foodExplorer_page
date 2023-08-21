@@ -55,10 +55,11 @@ export function UserRequest() {
       setCart((prevState) =>
         prevState.map((item) =>
           item.id === deletedItemId
-            ? { ...item, amount: item.amount - 1 }
+            ? { ...item, amount: item.amount - 1, total_price: item.total_price - item.unit_price }
             : item
         ).filter((item) => item.amount > 0)
       );
+      
     }
 
   useEffect(() => {
@@ -67,7 +68,6 @@ export function UserRequest() {
     setTotalPrice(sum.toFixed(2));
   }, [cart]);
   
-
   
   return (
       <Container>

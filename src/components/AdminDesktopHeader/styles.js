@@ -82,6 +82,10 @@ export const Container = styled.header`
     width: 45%;
 
     padding: 1.2rem 1.4rem;
+
+    @media (min-width: 1300px) {
+      width: 75%;
+    }
   }
 
   > .search {

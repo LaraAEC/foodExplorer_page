@@ -1,39 +1,42 @@
 import styled from 'styled-components';
 
 export const Container = styled.textarea`
-text-align: justify;
-overflow-wrap: break-word;
-      
-width: 100%;
-height: auto;
 
-padding: 1rem;
+  text-align: justify;
+  overflow-wrap: break-word;
 
-font-size: 1.6rem;
-font-weight: 400;
-line-height: 160%;
+   
+  width: 100%;
+  height: auto;
 
-border: none;
-box-shadow: none;
-outline: none;
+  padding: 1rem;
 
-resize: none;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 160%;
 
-color: ${({ theme}) => theme.COLORS.WHITE_300};
-background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
 
-overflow: hidden;
+  resize: none;
 
-rows: 1;
+  color: ${({ theme }) => theme.COLORS.WHITE_300};
+  background: transparent;
 
-pointer-events: none;
-user-select: none;
-cursor: default;
+  overflow: hidden;
 
+  rows: 1;
 
+  pointer-events: none;
+  user-select: none;
+  cursor: default;
+  
+  padding: 3rem;
 
-@media (min-width: 1024px) {
-   padding: 0rem;
+  @media (min-width: 1024px) {
+    padding: 1.2rem;
   }
+
 
 `;

@@ -107,8 +107,8 @@ export const Content = styled.div`
       width: 100rem;
       height: 48rem;
 
-      padding: 0 10rem 0 14rem;
-      margin-top: -10rem;
+      padding: 0 6rem 0 8rem;
+      margin-top: -18rem;
     }
 
     @media (min-width: 1280px) {
@@ -122,7 +122,7 @@ export const Content = styled.div`
       height: 77rem;
 
       padding: 0 20rem 0 22rem; 
-      margin-top: -16rem;
+      margin-top: -26rem;
  
       align-items: center;
     }
@@ -153,12 +153,7 @@ export const Content = styled.div`
 
       border-radius: 50%; 
       overflow: hidden; 
-
-      @media (min-width: 1024px) {
-        width: 36.0rem;
-        height: 32.9rem;
-    }
-    }
+    }  
   }
 
   > .versionDesktopColumnTwo {
@@ -169,7 +164,7 @@ export const Content = styled.div`
     height: 32.0rem;
 
     @media (min-width: 1024px) {
-      width: 58.7rem;
+      width: 100%;
       height: 30.0rem;
     }
 
@@ -187,14 +182,14 @@ export const Content = styled.div`
     }
 
     @media (min-width: 1300px) {
-      width: 60rem;
+      width: 100%;
       height: 40.0rem; 
 
       gap: 0rem;
   }
 
     > h2 {
-      font-size: 2.7rem;
+      font-size: 2.4rem;
       font-weight: 500;
       line-height: 140%;
 

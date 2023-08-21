@@ -27,23 +27,23 @@ export function AdminNewDish() {
 
    const { isLoading, setIsLoading } = useAuth();
 
-  const [photoFile, setPhotoFile] = useState(null); ////criando o estado do arquivo selecionado, setando como nulo para receber avatar selecionado. Guarda o arquivo selecionado.
+  const [photoFile, setPhotoFile] = useState(null); 
 
-  const [title, setTitle] = useState(""); //hook que cria um estado, o de nome
-  const [category, setCategory] = useState("Refeições"); //hook que cria o estado da categoria do prato
-  const [price, setPrice] = useState(0); //hook que cria o estado do preço do prato
+  const [title, setTitle] = useState(""); 
+  const [category, setCategory] = useState("Refeições"); 
+  const [price, setPrice] = useState(0); 
   const [description, setDescription] = useState("");
 
-  const [ ingredients, setIngredients ] = useState([]); //Criando nosso estado que armazena as Tags digitados, ele começa como um array vazio.
-  const [ newIngredient, setNewIngredient ] = useState(""); //Criando nosso estado que armazena a nova Tag, apenas um, o digitado da vez, inicializa como string vazia.
+  const [ ingredients, setIngredients ] = useState([]); 
+  const [ newIngredient, setNewIngredient ] = useState(""); 
 
   const navigate = useNavigate();
   
-  function handleBack() { //funcionalidade de voltar com o botão 'voltar'
-    navigate(-1); //para ser usado no botão de voltar e colocar o usuário na rota anterior
+  function handleBack() { 
+    navigate(-1); 
   }
 
-  async function handleCreateDish(){ //Função que envia os dados cadastrados do prato para a tabela Dishes
+  async function handleCreateDish(){ 
     
     if (!title) { 
       return toast.error("Precisa inserir um nome. Por favor, informe o nome do Prato.", {
@@ -84,8 +84,6 @@ export function AdminNewDish() {
     formData.append("description", description);
     formData.append("photo", photoFile);
 
-
-
     try{
           setIsLoading(true);
           await api.post("/dishes", formData); 
@@ -104,15 +102,13 @@ export function AdminNewDish() {
       }
 
 
-
   function handleAddIngredient() {
     setIngredients(prevState => [...prevState, newIngredient]); 
     setNewIngredient("");
   }
 
-  function handleRemoveIngredient(deleted) { //funcionalidade para remover tag, recebe como parâmetro o tag que deseja remover
-    setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted)); //filtrando na lista de tags atual (atual = prevState) a partir do tag que quero deletar, refazer a lista com todos os itens que são diferentes do tag que estou deletando
-  
+  function handleRemoveIngredient(deleted) { 
+    setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted)); 
   }
 
   
@@ -221,7 +217,6 @@ export function AdminNewDish() {
               <p>Descrição</p>
                 <textarea
                   type="text"
-                  //value=""
                   readOnly={false}
                   placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
                   onChange={e => setDescription(e.target.value)}>
