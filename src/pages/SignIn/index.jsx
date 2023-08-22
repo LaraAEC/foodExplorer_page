@@ -10,12 +10,13 @@ import { HeaderSign } from '../../components/HeaderSign'
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
+import { Rings } from "react-loader-spinner";
+
 export function SignIn() {
-  //estruturando, criando estados, capturando os dados do input
-  const [email, setEmail] = useState(""); //nome do estado, função que o modifica e valor do estado inicial.
-  const [password, setPassword] = useState("");  //nome do estado, função que o modifica e valor do estado inicial.
+  const [email, setEmail] = useState(""); 
+  const [password, setPassword] = useState("");
   
-  const { signIn } = useAuth(); //hook criado para inicializar e selecionar contexto e desestruturação da function SigIn de dentro do contexto inicializado e selecionado. Retirando dele a função que foi passada no provider.
+  const { signIn, isLoading } = useAuth();
 
   const navigate = useNavigate();
 
@@ -46,7 +47,7 @@ export function SignIn() {
                   <Input
                     placeholder="Exemplo: exemplo@exemplo.com.br"
                     type="text"
-                    onChange={e => setEmail(e.target.value)} // capturando a mudança no 'e' e colocando o valor dela no método que configura estado como parâmetro e executando ele
+                    onChange={e => setEmail(e.target.value)}
                   /> 
               </div>
 
@@ -58,12 +59,29 @@ export function SignIn() {
                       onChange={e => setPassword(e.target.value)}
                   />
                </div>
-               
+
+               {
+                isLoading ? 
+                (
+                <div className="loader">
+                  <Rings
+                  color="#065E7C"
+                  width="110"
+                  height="110"
+                  />
+                </div>
+                )
+                :
+                (
+              <>              
                 <Button title="Entrar"  onClick={handleSignIn} /> 
                
                 <button type="button" className="buttonSignUp" onClick={handleRegister}>
                   Criar uma conta
                 </button>
+                </>
+                )
+            }
               </div>
             </Form>
           </div> 

@@ -13,7 +13,6 @@ export const Container = styled.div`
 
   padding: 15.8rem 4.7rem 30.0rem 4.7rem;
 
- 
 @media (min-width: 1024px) {
   max-width: 102.4rem;
 
@@ -54,6 +53,13 @@ export const Form = styled.form `
 
     background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
    }
+
+   .loader {
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
   .wrap {
     display: flex;
