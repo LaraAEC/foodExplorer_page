@@ -54,13 +54,6 @@ export const Form = styled.form `
     background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
    }
 
-   .loader {
-        margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
   .wrap {
     display: flex;
     flex-direction: column;
@@ -78,6 +71,13 @@ export const Form = styled.form `
       margin: 0 auto;
       margin-top: 3rem;
       margin-bottom: 2rem;
+    }
+
+    .loader {
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     > .buttonSignUp {
