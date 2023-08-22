@@ -1,6 +1,4 @@
 import { Container } from "./styles";
-import { ButtonText } from "../../components/ButtonText";
-import { AiOutlineDelete } from "react-icons/ai";
 
 export function UserFavoriteDish ({ data, loading, ...rest }) {
 

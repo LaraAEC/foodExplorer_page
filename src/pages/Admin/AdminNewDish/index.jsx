@@ -5,7 +5,6 @@ import { api } from "../../../services/api";
 
 import { useAuth } from "../../../hooks/auth";
 import { toast } from "react-toastify";
-import { ThreeCircles } from "react-loader-spinner";
 
 import { Container, Content, DishImgInput } from './styles';
 

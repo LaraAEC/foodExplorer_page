@@ -24,9 +24,6 @@ import { Footer } from '../../../components/Footer';
 import { Button } from '../../../components/Button';
 import { TextArea } from '../../../components/TextArea';
 
-import { toast } from "react-toastify";
-import { Rings } from "react-loader-spinner";
-
 
 export function UserDishDetails() {
   const isMobile = useMediaQuery({ maxWidth: 1023 });

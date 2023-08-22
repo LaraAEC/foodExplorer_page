@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { api } from '../../../services/api';
 
 import { useCart } from '../../../hooks/cart';
 import { useAuth } from "../../../hooks/auth";
-
-import { useRef } from 'react';
 
 import { useMediaQuery } from 'react-responsive';
 

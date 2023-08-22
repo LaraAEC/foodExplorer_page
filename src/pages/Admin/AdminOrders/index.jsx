@@ -3,11 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { api } from "../../../services/api";
 import { useAuth } from "../../../hooks/auth";
 
-import { useRef } from 'react';
-
 import { useMediaQuery } from 'react-responsive';
 
-import { FiChevronLeft, FiArrowLeft } from 'react-icons/fi';
+import { FiArrowLeft } from 'react-icons/fi';
 import { AdminMobileHeader } from '../../../components/AdminMobileHeader';
 import { AdminDesktopHeader } from '../../../components/AdminDesktopHeader';
 

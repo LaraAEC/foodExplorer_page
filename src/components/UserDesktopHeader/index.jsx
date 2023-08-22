@@ -1,5 +1,5 @@
 import{ useNavigate, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAuth } from '../../hooks/auth';
 import { useCart } from '../../hooks/cart';
 

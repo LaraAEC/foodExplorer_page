@@ -19,7 +19,6 @@ import { ButtonText } from '../../../components/ButtonText';
 import { Footer } from '../../../components/Footer'; 
 import { UserFavoriteDish } from './../../../components/UserFavoriteDish';
 
-
 import { toast } from "react-toastify";
 import { Rings } from "react-loader-spinner";
 

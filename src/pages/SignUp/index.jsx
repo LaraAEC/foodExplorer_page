@@ -1,4 +1,4 @@
-import { useState } from 'react'; //importando o hook de estado
+import { useState } from 'react'; 
 
 import{ useNavigate } from 'react-router-dom';
 
@@ -11,9 +11,9 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
 export function SignUp() {
-  const [name, setName] = useState(""); //hook que cria um estado, o de nome. Inicia com string vazia.
-  const [email, setEmail] = useState(""); //hook que cria um estado, o de email. Inicia com string vazia.
-  const [password, setPassword] = useState(""); //hook que cria um estado, o de senha. Inicia com string vazia.
+  const [name, setName] = useState(""); 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
@@ -21,9 +21,9 @@ export function SignUp() {
     navigate(-1);
   }
 
-  function handleSignUp(){ //Função que envia os dados cadastrados para o BD, utilizada no Button Criar Conta
+  function handleSignUp(){
     if(!name || !email || !password) {
-      return alert("Preencha todos os campos"); //return além do alerta pois preciso parar a função caso não tenha sido preenchido algum campo
+      return alert("Preencha todos os campos");
     }
 
     if (password.length < 6) {
@@ -33,7 +33,7 @@ export function SignUp() {
     api.post("/users", { name, email, password })
     .then(() => {
       alert("Usuário cadastrado com sucesso!");
-      navigate("/"); //levando o usuário para a tela de login
+      navigate("/");
     })
     .catch(error => {
       if(error.response){ //se o erro tiver uma resposta do backend

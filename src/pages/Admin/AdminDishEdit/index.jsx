@@ -4,7 +4,6 @@ import { useAuth } from "../../../hooks/auth";
 import { api } from "../../../services/api";
 
 import { toast } from "react-toastify";
-import { ThreeCircles } from "react-loader-spinner";
 
 import { useMediaQuery } from 'react-responsive';
 import { FiChevronLeft, FiShare } from 'react-icons/fi';

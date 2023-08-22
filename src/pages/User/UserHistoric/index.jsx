@@ -8,7 +8,7 @@ import { useAuth } from "../../../hooks/auth";
 
 import { useMediaQuery } from 'react-responsive';
 
-import { FiChevronLeft, FiArrowLeft } from 'react-icons/fi';
+import { FiArrowLeft } from 'react-icons/fi';
 import { UserMobileHeader } from '../../../components/UserMobileHeader';
 import { UserDesktopHeader } from '../../../components/UserDesktopHeader';
 import { ButtonText } from "../../../components/ButtonText";
