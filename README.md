@@ -61,8 +61,9 @@ Compete ao Usuário:
 
 
 ## 🔗 Links
-- Link do Deploy: rocketfood2023.netlify.app
+- Link do Deploy: https://rocketfood2023.netlify.app/
 
+[![deploy](https://img.shields.io/badge/deploy-00BFFF?style=for-the-badge&logo=cloud&logoColor=white)](https://rocketfood2023.netlify.app/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
 
 
