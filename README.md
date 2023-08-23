@@ -43,10 +43,20 @@ Considering the two personas that can log in, here are the following considerati
 - JavaScript
 - HTML
 - CSS
-- Axios
-- Vite
-- Styled-components
+
 - Utilized techniques include Components, Contexts, Hooks, LocalStorage, Global Styling, and Theming.
+# Libraries used
+- axios: ^1.4.0
+- react: ^18.2.0
+- react-dom: ^18.2.0
+- react-icons: ^4.9.0
+- react-loader-spinner: ^5.3.4
+- react-responsive: ^9.0.2
+- react-router-dom: ^6.14.2
+- react-slick: ^0.29.0
+- react-toastify: ^9.1.3
+- styled-components: ^6.0.0-rc.3
+- Vite
 
 # Usage Guidelines
 - To install the project dependencies and initiate its functionality, execute the command npm i or yarn i in the terminal. It's important to run this command to ensure that all necessary dependencies are installed correctly.
