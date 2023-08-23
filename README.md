@@ -57,10 +57,12 @@ Compete ao Usuário:
 - As rotas para o administrador são diferentes das rotas apresentadas para o usuário, pois autorizações para uso do Menu são diferentes, vide "Funcionalidades".
 
 - O administrador e o usuário são identificados através da lógica isAdmin que retorna um boolean em sendo "1" é administrador, em sendo "0" é usuário´. Esse valor já deve ser configurado direto no Banco de dados, apontando-se com o número "1" o administrador.
-# Preview
-- Link Deploy: rocketfood2023.netlify.app
+# Previews
+
 
 ## 🔗 Links
+- Link do Deploy: rocketfood2023.netlify.app
+
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
 
 
