@@ -51,9 +51,9 @@ Considering the two personas that can log in, here are the following considerati
 - Utilized techniques include Components, Contexts, Hooks, LocalStorage, Global Styling, and Theming.
 
 # Usage Guidelines
-- After downloading this project to your machine, run 'npm install' in your integrated terminal.
+- To install the project dependencies and initiate its functionality, execute the command npm i or yarn i in the terminal. It's important to run this command to ensure that all necessary dependencies are installed correctly.
 
-- It's necessary to register and then proceed with the login. Only registered users can view the Menu and place orders..
+- It's necessary to register and then proceed with the login. Only registered users can view the Menu and place orders.
 
 - The routes for the administrator differ from those presented to the user, as the authorizations for Menu usage vary. Refer to "Features" section.
 
@@ -66,6 +66,6 @@ Considering the two personas that can log in, here are the following considerati
 
 ## 🔗 Links
 [![deploy](https://img.shields.io/badge/deploy-00BFFF?style=for-the-badge&logo=cloud&logoColor=white)](https://rocketfood2023.netlify.app)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/larissa-adler-ewertoncoelho1000)
 
 
