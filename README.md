@@ -59,10 +59,17 @@ Considering the two personas that can log in, here are the following considerati
 
 - The administrator and the user are identified through the isAdmin logic developed in the backend to be consumed. This logic returns a boolean value; if it's "1," it indicates an administrator, and if it's "0," it signifies a user. This value should already be configured directly in the database, with "1" indicating an administrator role.
 # Previews
-
-
-
-
+![signin](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/7d48f1e9-6151-4aa3-8bab-d9f69b45a15c)
+![home1](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/82efd1e5-1114-4527-b955-af6bfda85ca9)
+![home2](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/70fcb680-3528-4b6f-98d1-23708df45198)
+![favorites2](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/b119d421-5a92-4e3a-bf51-f1a1b204f43e)
+![favorites](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/81761577-fc87-4b43-8220-98f2099134d8)
+![request](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/7c691bb7-74a5-4b1b-95a6-dd0fb4faf3a1)
+![payment](https://github.com/LaraAEC/api
+_foodExplorer/assets/91379960/b489c0df-8112-4947-9c14-bbd31cc5c085)
+![newdish](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/9db1a087-f4ec-4c57-8dc3-8f64c0d120d1)
+![admindetails](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/0f39672b-802a-4ccb-b5a5-0d87d535a8cb)
+![adminstatus](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/bf642e47-62d1-4ea5-bc6f-7e47f6458b98)
 
 ## 🔗 Links
 [![deploy](https://img.shields.io/badge/deploy-00BFFF?style=for-the-badge&logo=cloud&logoColor=white)](https://rocketfood2023.netlify.app)
