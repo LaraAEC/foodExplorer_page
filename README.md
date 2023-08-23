@@ -10,7 +10,7 @@ This frontend application is packed with carefully crafted pages to consume the 
 - Authentication and authorization through forms
 - Support for HTTP requests: GET, POST, PUT, PATCH, and DELETE
 
-# Funcionalidades
+# Functionalities
 Considering the two personas that can log in, here are the following considerations.
 ### Administrator's Responsibilities
 - Create, view, edit, and delete dishes from the menu of the administered restaurant
