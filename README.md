@@ -93,10 +93,15 @@ In the integrated terminal, run the command: 'npm run dev'
 After starting the project, open a web browser and access the local address indicated in the terminal output. It might be something like http://localhost:3000
 
 ## 🔗 Links
+- Deploy:
 [![deploy](https://img.shields.io/badge/deploy-00BFFF?style=for-the-badge&logo=cloud&logoColor=white)](https://rocketfood2023.netlify.app)
+
+- LinKedIn:
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/larissa-adler-ewertoncoelho1000)
+
 # Previews
 Here are just a few of the pages of this Application.
+
 - SingIn
 ![signin](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/7d48f1e9-6151-4aa3-8bab-d9f69b45a15c)
 
@@ -106,6 +111,7 @@ Here are just a few of the pages of this Application.
 
 - Favorites Screen
 ![favorites2](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/b119d421-5a92-4e3a-bf51-f1a1b204f43e)
+
 ![favorites](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/81761577-fc87-4b43-8220-98f2099134d8)
 
 - "User's 'My Order' Screen"
