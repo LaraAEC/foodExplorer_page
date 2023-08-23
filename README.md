@@ -9,7 +9,6 @@ This frontend application is packed with carefully crafted pages to consume the 
 - Clear routes
 - Authentication and authorization through forms
 - Support for HTTP requests: GET, POST, PUT, PATCH, and DELETE
-- Suporte às requisições HTTP: GET, POST, PUT, PATCH e DELETE
 
 # Funcionalidades
 Considering the two personas that can log in, here are the following considerations.
