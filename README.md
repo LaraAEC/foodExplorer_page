@@ -63,22 +63,23 @@ Considering the two personas that can log in, here are the following considerati
 - The administrator and the user are identified through the isAdmin logic developed in the backend to be consumed. This logic returns a boolean value; if it's "1," it indicates an administrator, and if it's "0," it signifies a user. This value should already be configured directly in the database, with "1" indicating an administrator role.
 
 - Steps to Run the Project:
-1 - Clone the Repository:
+
+1 Clone the Repository:
 Open the terminal or command prompt and navigate to the directory where you want to clone the project. Then, execute the command: 'git clone <REPOSITORY_URL_TO_CLONE>'
 
-2 - Access the Project Directory:
+2 Access the Project Directory:
 Use the 'cd' command in the integrated terminal to enter the cloned project directory.
 
-3 - Install Dependencies:
+3 Install Dependencies:
 Ensure that you have Node.js installed on your machine. Run the following command to install the project's dependencies listed in the package.json file: 'npm install'
 
-4 - Configure Environment Variables:
+4 Configure Environment Variables:
 Set up environment variables as per the .env.example file.
 
-5 - Run the Project:
+5 Run the Project:
 In the integrated terminal, run the command: 'npm run dev'
 
-6 - Access the Application:
+6 Access the Application:
 After starting the project, open a web browser and access the local address indicated in the terminal output. It might be something like http://localhost:3000
 
 ## 🔗 Links
