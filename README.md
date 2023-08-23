@@ -19,7 +19,6 @@ Considering the two personas that can log in, here are the following considerati
 
 - Search for dishes by title or ingredient
 ### User's Responsibilities
-
 - View dishes listed in the Menu, click on a chosen dish, and navigate to the Details screen with its complete description
 
 - Add items to the cart by clicking the "Add" button. The quantity is controlled by the "-" and "+" buttons.
@@ -55,6 +54,29 @@ Considering the two personas that can log in, here are the following considerati
 - It's necessary to register and then proceed with the login. Only registered users can view the Menu and place orders.
 
 - The routes for the administrator differ from those presented to the user, as the authorizations for Menu usage vary. Refer to "Features" section.
+
+- The administrator and the user are identified through the isAdmin logic developed in the backend to be consumed. This logic returns a boolean value; if it's "1," it indicates an administrator, and if it's "0," it signifies a user. This value should already be configured directly in the database, with "1" indicating an administrator role.
+
+# Usage Guidelines
+- Steps to Run the Project:
+1 - Clone the Repository:
+Open the terminal or command prompt and navigate to the directory where you want to clone the project. Then, execute the command: 'git clone <REPOSITORY_URL_TO_CLONE>'
+2 - Access the Project Directory:
+Use the 'cd' command in the integrated terminal to enter the cloned project directory.
+
+3 - Install Dependencies:
+Ensure that you have Node.js installed on your machine. Run the following command to install the project's dependencies listed in the package.json file: 'npm install'
+
+4 - Configure Environment Variables:
+Set up environment variables as per the .env.example file.
+
+5 - Run the Project:
+In the integrated terminal, run the command: 'npm run dev'
+
+6 - Access the Application:
+After starting the project, open a web browser and access the local address indicated in the terminal output. It might be something like http://localhost:3000
+
+- To install the project dependencies and initiate its functionality, execute the command npm i or yarn i in the terminal. It's important to run this command to ensure that all necessary dependencies are installed correctly.
 
 - The administrator and the user are identified through the isAdmin logic developed in the backend to be consumed. This logic returns a boolean value; if it's "1," it indicates an administrator, and if it's "0," it signifies a user. This value should already be configured directly in the database, with "1" indicating an administrator role.
 
