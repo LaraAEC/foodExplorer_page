@@ -93,10 +93,10 @@ In the integrated terminal, run the command: 'npm run dev'
 After starting the project, open a web browser and access the local address indicated in the terminal output. It might be something like http://localhost:3000
 
 ## 🔗 Links
-- Deploy:
+
 [![deploy](https://img.shields.io/badge/deploy-00BFFF?style=for-the-badge&logo=cloud&logoColor=white)](https://rocketfood2023.netlify.app)
 
-- LinKedIn:
+
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/larissa-adler-ewertoncoelho1000)
 
 # Previews
