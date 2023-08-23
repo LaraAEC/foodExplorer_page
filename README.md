@@ -14,28 +14,28 @@ This frontend application is packed with carefully crafted pages to consume the 
 # Funcionalidades
 Considering the two personas that can log in, here are the following considerations.
 ### Administrator's Responsibilities:
-- Create, view, edit, and delete dishes from the menu of the administered restaurant.
+- Create, view, edit, and delete dishes from the menu of the administered restaurant
 
-- Track all orders placed by customers on the Orders page and assign a status to each order until its delivery, keeping the user informed about the order's progress.
+- Track all orders placed by customers on the Orders page and assign a status to each order until its delivery, keeping the user informed about the order's progress
 
-- Search for dishes by title or ingredient.
+- Search for dishes by title or ingredient
 ### User's Responsibilities:
 
-- View dishes listed in the Menu, click on a chosen dish, and navigate to the Details screen with its complete description.
+- View dishes listed in the Menu, click on a chosen dish, and navigate to the Details screen with its complete description
 
 - Add items to the cart by clicking the "Add" button. The quantity is controlled by the "-" and "+" buttons.
 
-- Clicking the "My Order" button redirects the user to a screen where they can view their order, the total sum, and payment methods.
+- Clicking the "My Order" button redirects the user to a screen where they can view their order, the total sum, and payment methods
 
-- Remove a dish from the cart, and the total order value should automatically update.
+- Remove a dish from the cart, and the total order value should automatically update
 
-- Mark a dish as a favorite by clicking the heart icon next to each dish.
+- Mark a dish as a favorite, simply click on the heart icon that appears next to each one, as well as remove it from favorites in the same manner.
 
-- Make payments via Pix or card (simulation).
+- Make payments via Pix or card (simulation)
 
-- Track their order and view its status at any moment.
+- Track their order and view its status at any moment
 
-- Search for dishes by title or ingredient.
+- Search for dishes by title or ingredient
 # Code Versioning
 - Git
 - Github
@@ -53,11 +53,11 @@ Considering the two personas that can log in, here are the following considerati
 # Usage Guidelines
 - After downloading this project to your machine, run 'npm install' in your integrated terminal.
 
-- Registration is required, followed by login. Only registered users can view the Menu and place orders.
+- It's necessary to register and then proceed with the login. Only registered users can view the Menu and place orders..
 
 - The routes for the administrator differ from those presented to the user, as the authorizations for Menu usage vary. Refer to "Features" section.
 
-- The administrator and user are identified through the isAdmin logic, which returns a boolean. If "1," it's an administrator; if "0," it's a user. This value should already be configured directly in the database, assigning "1" to administrators.
+- The administrator and the user are identified through the isAdmin logic developed in the backend to be consumed. This logic returns a boolean value; if it's "1," it indicates an administrator, and if it's "0," it signifies a user. This value should already be configured directly in the database, with "1" indicating an administrator role.
 # Previews
 
 
