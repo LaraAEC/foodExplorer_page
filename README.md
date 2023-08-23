@@ -1,47 +1,46 @@
 
 # RocketFood ![restaurant](https://cdn-icons-png.flaticon.com/128/2311/2311475.png)
-Uma aplicação completa que simula um Menu virtual de um restaurante. Nela existem dois tipos de "persona": o administrador do restaurante e o usuário (cliente).
-Esta aplicação Frontend está recheada de páginas cuidadosamente elaboradas para consumirem a API Backend, executando de modo eficiente toda a transação do Protocolo HTTP, enviando as solicitações e recebendo as respostas, bem como renderizando essas respostas na interface.
-- Renderização das imagens dos pratos e todos os seus demais dados, como preço, descrição e ingredientes
-- Aplicação responsiva, com base no modelo "mobile first"
-- Possui animações, transições de tela, loader e alertas estilizados
-- Dados em formato JSON
-- Rotas claras
-- Autenticação e autorização através de formulários
+A comprehensive application that simulates a virtual restaurant menu. It features two types of personas: the restaurant administrator and the user (customer).
+This frontend application is packed with carefully crafted pages to consume the backend API, efficiently handling all HTTP Protocol transactions, sending requests, receiving responses, and rendering these responses on the interface.
+- Rendering images of dishes along with all their details such as price, description, and ingredients
+- Responsive application, following the "mobile-first" design approach
+- Includes animations, screen transitions, loaders, and stylized alerts
+- Data in JSON format
+- Clear routes
+- Authentication and authorization through forms
+- Support for HTTP requests: GET, POST, PUT, PATCH, and DELETE
 - Suporte às requisições HTTP: GET, POST, PUT, PATCH e DELETE
 
 # Funcionalidades
-Diante das duas "personas" que podem fazer login temos as seguintes considerações.
+Considering the two personas that can log in, here are the following considerations.
+### Administrator's Responsibilities:
+- Create, view, edit, and delete dishes from the menu of the administered restaurant.
 
-Compete ao Administrador:
-- Criar, visualizar, editar e apagar os pratos do menu do restaurante o qual administra.
+- Track all orders placed by customers on the Orders page and assign a status to each order until its delivery, keeping the user informed about the order's progress.
 
-- Acompanhar todos os pedidos realizados pelos clientes na página Pedidos, e, conferir um status para cada pedido até o momento de sua entrega, mantendo o usuário informado da situação do seu pedido.
+- Search for dishes by title or ingredient.
+### User's Responsibilities:
 
-- Fazer busca pelo título ou apenas pelo ingrediente do prato.
+- View dishes listed in the Menu, click on a chosen dish, and navigate to the Details screen with its complete description.
 
-Compete ao Usuário:
-- Visualizar os pratos cadastrados no Menu, clicar no prato escolhido e ir para tela de Detalhes com sua descrição completa.
+- Add items to the cart by clicking the "Add" button. The quantity is controlled by the "-" and "+" buttons.
 
-- Incluir itens no carrinho, clicando no botão incluir. Já a quantidade é controlada pelos botões “-” e “+”.
+- Clicking the "My Order" button redirects the user to a screen where they can view their order, the total sum, and payment methods.
 
-- Ao clicar no botão meu pedido, o usuário será redirecionado para uma tela onde irá ver o seu pedido, a soma e os métodos de pagamento.
+- Remove a dish from the cart, and the total order value should automatically update.
 
-- Excluir um prato do carrinho e o valor total do pedido deve ser atualizado automaticamente.
+- Mark a dish as a favorite by clicking the heart icon next to each dish.
 
-- Marcar um prato como favorito, basta clicar no coração que aparece ao lado de cada um;
+- Make payments via Pix or card (simulation).
 
-- Realizar o pagamento via pix ou cartão (simulação).
+- Track their order and view its status at any moment.
 
-- Acompanhar seu pedido visualizando seu status a qualquer instante.
-
-- Fazer busca pelo título ou apenas pelo ingrediente do prato.
-
+- Search for dishes by title or ingredient.
 # Code Versioning
 - Git
 - Github
 
-# Tecnologias utilizadas
+# Technologies Used
 - ReactJs
 - JavaScript
 - HTML
@@ -49,16 +48,16 @@ Compete ao Usuário:
 - Axios
 - Vite
 - Styled-components
-- Utilizamos das técnicas de Componentes, Contextos, Hooks, LocalStorage, Style Global e Theme.
+- Utilized techniques include Components, Contexts, Hooks, LocalStorage, Global Styling, and Theming.
 
-# Orientações de uso
-- Ao baixar em sua máquina este projeto rode em seu terminal integrado 'npm install'
+# Usage Guidelines
+- After downloading this project to your machine, run 'npm install' in your integrated terminal.
 
-- É necessário se cadastrar e depois fazer no login. Apenas usuários cadastrados olham o Menu e fazem pedidos.
+- Registration is required, followed by login. Only registered users can view the Menu and place orders.
 
-- As rotas para o administrador são diferentes das rotas apresentadas para o usuário, pois autorizações para uso do Menu são diferentes, vide "Funcionalidades".
+- The routes for the administrator differ from those presented to the user, as the authorizations for Menu usage vary. Refer to "Features" section.
 
-- O administrador e o usuário são identificados através da lógica isAdmin que retorna um boolean em sendo "1" é administrador, em sendo "0" é usuário´. Esse valor já deve ser configurado direto no Banco de dados, apontando-se com o número "1" o administrador.
+- The administrator and user are identified through the isAdmin logic, which returns a boolean. If "1," it's an administrator; if "0," it's a user. This value should already be configured directly in the database, assigning "1" to administrators.
 # Previews
 
 
