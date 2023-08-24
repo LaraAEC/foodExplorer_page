@@ -1,4 +1,4 @@
-# ![restaurant](https://cdn-icons-png.flaticon.com/128/2311/2311475.png) RocketFood
+# ![restaurant](https://cdn-icons-png.flaticon.com/128/2311/2311475.png)RocketFood
 A comprehensive application that simulates a virtual restaurant menu. It features two types of personas: the restaurant administrator and the user (customer).
 This frontend application is packed with carefully crafted pages to consume the backend API, efficiently handling all HTTP Protocol transactions, sending requests, receiving responses, and rendering these responses on the interface.
 - Rendering images of dishes along with all their details such as price, description, and ingredients
