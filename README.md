@@ -103,7 +103,7 @@ Here are just a few of the pages of this Application.
 - Favorites Screen
 ![favorites2](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/b119d421-5a92-4e3a-bf51-f1a1b204f43e)
 
-![favorites](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/81761577-fc87-4b43-8220-98f2099134d8)
+![favorites](https://github.com/LaraAEC/foodExplorer_page/assets/91379960/b5ff5ab4-dd16-42c0-b914-464a388226db)
 
 - "User's 'My Order' Screen"
 ![request](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/7c691bb7-74a5-4b1b-95a6-dd0fb4faf3a1)
