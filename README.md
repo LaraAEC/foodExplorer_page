@@ -61,15 +61,6 @@ Considering the two personas that can log in, here are the following considerati
 # Usage Guidelines
 - To install the project dependencies and initiate its functionality, execute the command npm i or yarn i in the terminal. It's important to run this command to ensure that all necessary dependencies are installed correctly.
 
-- It's necessary to register and then proceed with the login. Only registered users can view the Menu and place orders.
-
-- The routes for the administrator differ from those presented to the user, as the authorizations for Menu usage vary. Refer to "Features" section.
-
-- The administrator and the user are identified through the isAdmin logic developed in the backend to be consumed. This logic returns a boolean value; if it's "1," it indicates an administrator, and if it's "0," it signifies a user. This value should already be configured directly in the database, with "1" indicating an administrator role.
-
-# Usage Guidelines
-- To install the project dependencies and initiate its functionality, execute the command npm i or yarn i in the terminal. It's important to run this command to ensure that all necessary dependencies are installed correctly.
-
 - The administrator and the user are identified through the isAdmin logic developed in the backend to be consumed. This logic returns a boolean value; if it's "1," it indicates an administrator, and if it's "0," it signifies a user. This value should already be configured directly in the database, with "1" indicating an administrator role.
 
 - Steps to Run the Project:
