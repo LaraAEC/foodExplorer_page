@@ -78,7 +78,6 @@ export const Container = styled.ul`
     border-top: none;
     min-width: 15rem;
 
-
     p {
       position: absolute;
       font-size: 4.3rem;
@@ -86,7 +85,11 @@ export const Container = styled.ul`
 
       color: ${({ value, theme }) => value === "Preparando" && theme.COLORS.ORANGE};
       color: ${({ value, theme }) => value === "Pendente" && theme.COLORS.RED_100};
-      color: ${({ value, theme }) => value === "Entregue" && theme.COLORS.GREEN};
+      color: ${({ value, theme }) => value === "Entregue" && theme.COLORS.GREEN}; 
+    
+      @media(min-width: 1300px) {
+        left: 11%;
+        }
     }
 
     select {

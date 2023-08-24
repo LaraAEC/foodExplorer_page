@@ -54,7 +54,6 @@ export const Content = styled.main`
             font-size: 2.4rem;
         }
 
-
         > form {
             width: 100%;
             margin-top: 3.4rem;

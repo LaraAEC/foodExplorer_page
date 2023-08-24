@@ -39,7 +39,6 @@ export const Container = styled.ul`
 }
 
 
-  
   > div {
     display: flex;
     align-items: center;
@@ -91,6 +90,4 @@ export const Container = styled.ul`
     font-weight: 400;
 
   }
-
-
-`
+`;

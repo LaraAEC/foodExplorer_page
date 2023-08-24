@@ -73,6 +73,7 @@ export const Content = styled.main`
         flex-direction: column;
         justify-content: flex-start;
 
+        max-width: 136.6rem;
         margin: 0 auto;
         width: 100%;
      
@@ -80,7 +81,11 @@ export const Content = styled.main`
         font-weight: 500;
         margin-top: 2rem;
         color: ${({ theme }) => theme.COLORS.WHITE_300};
-
+        
+        @media(max-width: 820px) {
+            font-size: 2.4rem;
+        }
+        
         > form {
             display: grid;
 
