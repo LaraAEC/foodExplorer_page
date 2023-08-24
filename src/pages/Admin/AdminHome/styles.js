@@ -14,8 +14,7 @@ export const Container = styled.div`
   "footer";
   
   overflow-y: hidden;
-  
-
+ 
   > main { 
     grid-area: main;
 
@@ -61,6 +60,13 @@ export const Container = styled.div`
     grid-area: footer;
     width: 100%;
   }
+
+  .loader {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
 `;
 
 export const Content = styled.div`

@@ -170,118 +170,116 @@ export function UserHome() {
               :
               (
             <>
-            <Section title="Refeições">  
-              <div ref={scrollMealList}>
+              <Section title="Refeições">  
+                <div ref={scrollMealList}>
+                  {
+                    dishes.filter(dish => dish.category === "Refeições").map(dish => (
+                      <UserDishCard 
+                      key={String(dish.id)}
+                      data={dish}
+                      title={dish.title}
+                      value={dish.description}
+                      price={`R$ ${dish.price}`}
+                      type="text"
+                      visibility="not-visible"
+                      image={dish.photo}
+                      onClick={() => handleAddFavorites(dish.id)}
+                      isFavorite={favorites.includes(dish.id)}
+                      />
+                    )
+                  )
+                } 
+                </div>
+
+                <Arrow
+                  direction="prev"
+                  onClick={handlePrevMealList}
+                >
+                  <FiChevronLeft />
+                </Arrow>
+
+                <Arrow
+                  direction="next"
+                  onClick={handleNextMealList}
+                >
+                  <FiChevronRight />
+                </Arrow>
+              </Section>
+
+              <Section title="Sobremesas">
+                <div ref={scrollDessertList}>
                 {
-                  dishes.filter(dish => dish.category === "Refeições").map(dish => (
-                    <UserDishCard 
-                    key={String(dish.id)}
-                    data={dish}
-                    title={dish.title}
-                    value={dish.description}
-                    price={`R$ ${dish.price}`}
-                    type="text"
-                    visibility="not-visible"
-                    image={dish.photo}
-                    onClick={() => handleAddFavorites(dish.id)}
-                    isFavorite={favorites.includes(dish.id)}
-                    />
+                    dishes.filter(dish => dish.category === "Sobremesas").map(dish => (
+                      <UserDishCard 
+                      key={String(dish.id)}
+                      data={dish}
+                      title={dish.title}
+                      value={dish.description}
+                      price={`R$ ${dish.price}`}
+                      type="text"
+                      visibility="not-visible"
+                      image={dish.photo}
+                      onClick={() => handleAddFavorites(dish.id)}
+                      isFavorite={favorites.includes(dish.id)}
+                      />
+                    )
                   )
-                )
-              } 
-              </div>
+                } 
+                </div>
 
-              <Arrow
-                direction="prev"
-                onClick={handlePrevMealList}
-              >
-                <FiChevronLeft />
-              </Arrow>
+                <Arrow
+                  direction="prev"
+                  onClick={handlePrevDessertList}
+                >
+                  <FiChevronLeft />
+                </Arrow>
 
-              <Arrow
+                <Arrow
+                  direction="next"
+                  onClick={handleNextDessertList}
+                >
+                  <FiChevronRight />
+                </Arrow>
+              </Section>
+
+              <Section title="Bebidas">
+                <div ref={scrollDrinkList}>
+                {
+                    dishes.filter(dish => dish.category === "Bebidas").map(dish => (
+                      <UserDishCard 
+                      key={String(dish.id)}
+                      data={dish}              
+                      title={dish.title}
+                      value={dish.description}
+                      price={`R$ ${dish.price}`}
+                      type="text"
+                      visibility="not-visible"
+                      image={dish.photo}
+                      onClick={() => handleAddFavorites(dish.id)}
+                      isFavorite={favorites.includes(dish.id)}
+                      />
+                    )
+                  )
+                } 
+                </div>
+
+                <Arrow
+                  direction="prev"
+                  onClick={handlePrevDrinkList}
+                >
+                  <FiChevronLeft />
+                </Arrow>
+
+                <Arrow
                 direction="next"
-                onClick={handleNextMealList}
-              >
-                <FiChevronRight />
-              </Arrow>
-            </Section>
-
-            <Section title="Sobremesas">
-              <div ref={scrollDessertList}>
-              {
-                  dishes.filter(dish => dish.category === "Sobremesas").map(dish => (
-                    <UserDishCard 
-                    key={String(dish.id)}
-                    data={dish}
-                    title={dish.title}
-                    value={dish.description}
-                    price={`R$ ${dish.price}`}
-                    type="text"
-                    visibility="not-visible"
-                    image={dish.photo}
-                    onClick={() => handleAddFavorites(dish.id)}
-                    isFavorite={favorites.includes(dish.id)}
-                    />
-                  )
-                )
-              } 
-              </div>
-
-              <Arrow
-                direction="prev"
-                onClick={handlePrevDessertList}
-              >
-                <FiChevronLeft />
-              </Arrow>
-
-              <Arrow
-                direction="next"
-                onClick={handleNextDessertList}
-              >
-                <FiChevronRight />
-              </Arrow>
-            </Section>
-
-            <Section title="Bebidas">
-              <div ref={scrollDrinkList}>
-              {
-                  dishes.filter(dish => dish.category === "Bebidas").map(dish => (
-                    <UserDishCard 
-                    key={String(dish.id)}
-                    data={dish}              
-                    title={dish.title}
-                    value={dish.description}
-                    price={`R$ ${dish.price}`}
-                    type="text"
-                    visibility="not-visible"
-                    image={dish.photo}
-                    onClick={() => handleAddFavorites(dish.id)}
-                    isFavorite={favorites.includes(dish.id)}
-                    />
-                  )
-                )
-              } 
-              </div>
-
-              <Arrow
-                direction="prev"
-                onClick={handlePrevDrinkList}
-              >
-                <FiChevronLeft />
-              </Arrow>
-
-              <Arrow
-              direction="next"
-              onClick={handleNextDrinkList}
-              >
-                <FiChevronRight />
-              </Arrow>
-            </Section>
-
+                onClick={handleNextDrinkList}
+                >
+                  <FiChevronRight />
+                </Arrow>
+              </Section>
             </>
           )
         }
-
 
           </Content>
 

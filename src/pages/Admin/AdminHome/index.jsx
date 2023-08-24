@@ -18,6 +18,8 @@ import { Section } from '../../../components/Section';
 import { AdminDishCard } from '../../../components/AdminDishCard'; 
 import { Footer } from '../../../components/Footer'; 
 
+import { useAuth } from '../../../hooks/auth';
+import { Rings } from "react-loader-spinner";
 
 
 export function AdminHome() {
@@ -29,6 +31,8 @@ export function AdminHome() {
   const imageUrl = isMobile ? MobileBannerPng : DesktopBannerPng;
 
   const navigate = useNavigate();
+
+  const { isLoading, setIsLoading } = useAuth();
 
   const [dishes, setDishes] = useState([]); 
   const [search, setSearch] = useState("");
@@ -107,113 +111,130 @@ export function AdminHome() {
             </div>
           </div>
 
-          <Section title="Refeições">  
-            <div ref={scrollMealList}>
-            {
-                dishes.filter(dish => dish.category === "Refeições").map(dish => (
-                  <AdminDishCard 
-                  key={String(dish.id)}
-                  data={dish}
-                  onClick={() => handleDetails(dish.id)}
-                  title={dish.title}
-                  value={dish.description}
-                  price={`R$ ${dish.price}`}
-                  type="text"
-                  visibility="not-visible"
-                  image={dish.photo}
-                  />
-                )
+          {
+              isLoading ? 
+              (
+              <div className="loader">
+                <Rings
+                color="#065E7C"
+                width="110"
+                height="110"
+                />
+              </div>
               )
-            } 
-            </div>
+              :
+              (
+            <>
+              <Section title="Refeições">  
+                <div ref={scrollMealList}>
+                {
+                    dishes.filter(dish => dish.category === "Refeições").map(dish => (
+                      <AdminDishCard 
+                      key={String(dish.id)}
+                      data={dish}
+                      onClick={() => handleDetails(dish.id)}
+                      title={dish.title}
+                      value={dish.description}
+                      price={`R$ ${dish.price}`}
+                      type="text"
+                      visibility="not-visible"
+                      image={dish.photo}
+                      />
+                    )
+                  )
+                } 
+                </div>
 
-            <Arrow
-              direction="prev"
-              onClick={handlePrevMealList}
-            >
-              <FiChevronLeft />
-            </Arrow>
+                <Arrow
+                  direction="prev"
+                  onClick={handlePrevMealList}
+                >
+                  <FiChevronLeft />
+                </Arrow>
 
-            <Arrow
-              direction="next"
-              onClick={handleNextMealList}
-            >
-              <FiChevronRight />
-            </Arrow>
-          </Section>
+                <Arrow
+                  direction="next"
+                  onClick={handleNextMealList}
+                >
+                  <FiChevronRight />
+                </Arrow>
+              </Section>
 
-          <Section title="Sobremesas">
-            <div ref={scrollDessertList}>
-            {
-                dishes.filter(dish => dish.category === "Sobremesas").map(dish => (
-                  <AdminDishCard 
-                  key={String(dish.id)}
-                  data={dish}
-                  onClick={() => handleDetails(dish.id)}
-                  title={dish.title}
-                  value={dish.description}
-                  price={`R$ ${dish.price}`}
-                  type="text"
-                  visibility="not-visible"
-                  image={dish.photo}
-                  />
-                )
-              )
-            } 
-            </div>
+              <Section title="Sobremesas">
+                <div ref={scrollDessertList}>
+                {
+                    dishes.filter(dish => dish.category === "Sobremesas").map(dish => (
+                      <AdminDishCard 
+                      key={String(dish.id)}
+                      data={dish}
+                      onClick={() => handleDetails(dish.id)}
+                      title={dish.title}
+                      value={dish.description}
+                      price={`R$ ${dish.price}`}
+                      type="text"
+                      visibility="not-visible"
+                      image={dish.photo}
+                      />
+                    )
+                  )
+                } 
+                </div>
 
-            <Arrow
-              direction="prev"
-              onClick={handlePrevDessertList}
-            >
-              <FiChevronLeft />
-            </Arrow>
+                <Arrow
+                  direction="prev"
+                  onClick={handlePrevDessertList}
+                >
+                  <FiChevronLeft />
+                </Arrow>
 
-            <Arrow
-              direction="next"
-              onClick={handleNextDessertList}
-            >
-              <FiChevronRight />
-            </Arrow>
-          </Section>
+                <Arrow
+                  direction="next"
+                  onClick={handleNextDessertList}
+                >
+                  <FiChevronRight />
+                </Arrow>
+              </Section>
 
-          <Section title="Bebidas">
-            <div ref={scrollDrinkList}>
-            {
-                dishes.filter(dish => dish.category === "Bebidas").map(dish => (
-                  <AdminDishCard 
-                  key={String(dish.id)}
-                  data={dish}
-                  onClick={() => handleDetails(dish.id)}
-                  title={dish.title}
-                  value={dish.description}
-                  price={`R$ ${dish.price}`}
-                  type="text"
-                  visibility="not-visible"
-                  image={dish.photo}
-                  />
-                )
-              )
-            } 
-            </div>
+              <Section title="Bebidas">
+                <div ref={scrollDrinkList}>
+                {
+                    dishes.filter(dish => dish.category === "Bebidas").map(dish => (
+                      <AdminDishCard 
+                      key={String(dish.id)}
+                      data={dish}
+                      onClick={() => handleDetails(dish.id)}
+                      title={dish.title}
+                      value={dish.description}
+                      price={`R$ ${dish.price}`}
+                      type="text"
+                      visibility="not-visible"
+                      image={dish.photo}
+                      />
+                    )
+                  )
+                } 
+                </div>
 
-            <Arrow
-              direction="prev"
-              onClick={handlePrevDrinkList}
-            >
-              <FiChevronLeft />
-            </Arrow>
+                <Arrow
+                  direction="prev"
+                  onClick={handlePrevDrinkList}
+                >
+                  <FiChevronLeft />
+                </Arrow>
 
-            <Arrow
-            direction="next"
-            onClick={handleNextDrinkList}
-            >
-              <FiChevronRight />
-            </Arrow>
-          </Section>
+                <Arrow
+                direction="next"
+                onClick={handleNextDrinkList}
+                >
+                  <FiChevronRight />
+                </Arrow>
+              </Section>
+          </>
+          )
+        }
 
         </Content>
-
+        
       </main>
 
       <Footer />

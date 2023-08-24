@@ -135,10 +135,10 @@ function handleRemoveItem(deletedItemId) {
       <Container>
 
         {isMobile ? <UserMobileHeader /> : <UserDesktopHeader onChange={e => setSearch(e.target.value)} />}
-
+    
         <main>
-
-        {
+          <Content>
+          {
           isLoading ? 
           (
           <div className="loader">
@@ -151,7 +151,7 @@ function handleRemoveItem(deletedItemId) {
           )
           :
           (
-          <Content>
+            <>
             <div className="page">
 
               <div className="wrapperBack">
@@ -329,10 +329,10 @@ function handleRemoveItem(deletedItemId) {
               </div> 
 
             </div>
+            </>
+              )
+            }
           </Content>
-          )
-        }
-
          </main>
         <Footer />
       </Container>    
