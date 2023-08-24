@@ -42,10 +42,15 @@ export const Container = styled.div`
       max-width: 102.4rem;
     }
 
+    @media (min-width: 1280px) {
+      padding-top: 15rem;
+    }
+
     @media (min-width: 1300px) {
       padding-top: 14.5rem;
       max-width: 140.0rem;
     }
+
   }
 
   > header {
@@ -70,6 +75,7 @@ export const Content = styled.div`
     gap: 1.6rem;
 
     padding-bottom: 0;
+    padding-top: 1rem;
     width: 30rem;
 
     align-items: center;
@@ -96,7 +102,7 @@ export const Content = styled.div`
       padding-bottom: 1rem;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 820px) {
       display: flex;
       flex-direction: row;
 
@@ -114,7 +120,6 @@ export const Content = styled.div`
     @media (min-width: 1280px) {
       width: 110rem;
       height: 43rem;
-  
     }
 
     @media (min-width: 1400px) {
@@ -217,26 +222,26 @@ export const Content = styled.div`
     }
   }
 
-    > .buttonEdit {
-      padding-bottom: 4rem;
-      
-      > button {
-        text-align: center;
-        font-size: 1.4rem;
-        font-weight: 500;
+     
+  > .buttonEdit {
+    padding-bottom: 4rem;
+    margin: 0 auto; 
 
-        line-height: 2.4px;
+    > button { 
+      width: 18.6rem;  
+      margin: 0 auto; 
+      line-height: 2.4px;
+      padding: 2.4rem;
+      border-radius: 0.5rem; 
 
+      @media (min-width: 1024px) {
+        width: 13.6rem;
+        height: 4rem;
         padding: 2.4rem;
-
-        @media (min-width: 1024px) {
-          width: 13.6rem;
-          height: 4rem;
-          padding: 2.4rem;
-        }
       }
-    } 
+    }
   }
 } 
+}
 `;
 

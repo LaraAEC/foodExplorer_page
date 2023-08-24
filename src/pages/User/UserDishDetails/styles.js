@@ -85,18 +85,29 @@ export const Content = styled.div`
     @media (min-width: 360px) {
       padding-top: 1rem;
     }
+
+    @media (max-width: 360px) and (max-height: 740px) {
+      padding-top: 8rem;
+    }
   
     @media (min-width: 375px) and (min-height: 532px) {
       padding-top: 8rem;  
     }
 
     @media (min-width: 375px) and (min-height: 667px) {
-      padding-top: 1rem;
-   
+      padding-top: 8rem;
+    }
+
+    @media (min-width: 425px) {
+      padding: 9rem;
     }
 
     @media (min-width: 820px) {
       padding: 1rem;
+    }
+
+    @media (min-width: 1024px) and (min-height: 600px) {
+      padding-top: 8rem;
     }
   }
    
@@ -140,8 +151,8 @@ export const Content = styled.div`
     
     justify-content: center; 
 
-    grid-area: two;  
-  
+    grid-area: two; 
+    
     > .details {
     display: flex;
     flex-direction: column;
@@ -192,9 +203,12 @@ export const Content = styled.div`
     display: flex;
   
     align-items: center;
-    justify-content: start;
+    justify-content: center;
     gap: 1rem;
 
+    @media (min-width: 820px) {
+      justify-content: start;    
+    } 
 
     > .counter {
       display: flex;
