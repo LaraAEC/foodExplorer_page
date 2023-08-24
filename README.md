@@ -83,6 +83,8 @@ In the integrated terminal, run the command: 'npm run dev'
 After starting the project, open a web browser and access the local address indicated in the terminal output. It might be something like http://localhost:3000
 
 # 🔗 Links
+Este Projeto está hospedado no Netlify.
+Netlify é uma plataforma de hospedagem e implantação de sites, que oferece uma série de recursos, tais como, hospedagem e gerenciamento de projetos frontend. Oferece uma implantação contínua, o que significa que você pode conectar o seu Repositório Git ao Netlify. Ao fazer um push para o repositório, o Netlify automaticamente detecta as alterações e implanta automaticamente uma nova versão do seu frontend.
 
 [![deploy](https://img.shields.io/badge/deploy-00BFFF?style=for-the-badge&logo=cloud&logoColor=white)](https://rocketfood2023.netlify.app)
 
