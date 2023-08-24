@@ -1,5 +1,4 @@
-
-# RocketFood ![restaurant](https://cdn-icons-png.flaticon.com/128/2311/2311475.png)
+# ![restaurant](https://cdn-icons-png.flaticon.com/128/2311/2311475.png) RocketFood
 A comprehensive application that simulates a virtual restaurant menu. It features two types of personas: the restaurant administrator and the user (customer).
 This frontend application is packed with carefully crafted pages to consume the backend API, efficiently handling all HTTP Protocol transactions, sending requests, receiving responses, and rendering these responses on the interface.
 - Rendering images of dishes along with all their details such as price, description, and ingredients
@@ -10,7 +9,7 @@ This frontend application is packed with carefully crafted pages to consume the 
 - Authentication and authorization through forms
 - Support for HTTP requests: GET, POST, PUT, PATCH, and DELETE
 
-# Functionalities
+# 🎯 Functionalities 
 Considering the two personas that can log in, here are the following considerations.
 ### Administrator's Responsibilities
 - Create, view, edit, and delete dishes from the menu of the administered restaurant
@@ -34,18 +33,18 @@ Considering the two personas that can log in, here are the following considerati
 - Track their order and view its status at any moment
 
 - Search for dishes by title or ingredient
-# Code Versioning
+ # 🐱 Code Versioning
 - Git
 - Github
 
-# Technologies Used
+# 🚀 Technologies Used 
 - ReactJs
 - JavaScript
 - HTML
 - CSS
 
 - Utilized techniques include Components, Contexts, Hooks, LocalStorage, Global Styling, and Theming.
-# Libraries used
+# 📚 Libraries used 
 - axios: ^1.4.0
 - react: ^18.2.0
 - react-dom: ^18.2.0
@@ -58,7 +57,7 @@ Considering the two personas that can log in, here are the following considerati
 - styled-components: ^6.0.0-rc.3
 - Vite
 
-# Usage Guidelines
+# 🧭 Usage Guidelines 
 - To install the project dependencies and initiate its functionality, execute the command npm i or yarn i in the terminal. It's important to run this command to ensure that all necessary dependencies are installed correctly.
 
 - The administrator and the user are identified through the isAdmin logic developed in the backend to be consumed. This logic returns a boolean value; if it's "1," it indicates an administrator, and if it's "0," it signifies a user. This value should already be configured directly in the database, with "1" indicating an administrator role.
@@ -83,14 +82,14 @@ In the integrated terminal, run the command: 'npm run dev'
 6 Access the Application:
 After starting the project, open a web browser and access the local address indicated in the terminal output. It might be something like http://localhost:3000
 
-## 🔗 Links
+# 🔗 Links
 
 [![deploy](https://img.shields.io/badge/deploy-00BFFF?style=for-the-badge&logo=cloud&logoColor=white)](https://rocketfood2023.netlify.app)
 
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/larissa-adler-ewertoncoelho1000)
 
-# Previews
+# ⏯️ Previews
 Here are just a few of the pages of this Application.
 
 - SingIn
@@ -103,6 +102,7 @@ Here are just a few of the pages of this Application.
 - Favorites Screen
 ![favorites2](https://github.com/LaraAEC/api_foodExplorer/assets/91379960/b119d421-5a92-4e3a-bf51-f1a1b204f43e)
 
+- Favorites Screen
 ![favorites](https://github.com/LaraAEC/foodExplorer_page/assets/91379960/b5ff5ab4-dd16-42c0-b914-464a388226db)
 
 - "User's 'My Order' Screen"
