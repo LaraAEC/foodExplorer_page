@@ -53,7 +53,7 @@ export const Form = styled.form `
     border-radius: 1rem;
 
     background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
-   }
+  }
 
   .wrap {
     display: flex;
@@ -96,6 +96,8 @@ export const Form = styled.form `
       padding: 0rem;
 
       background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+  
+      gap: 1.3rem;
     }
 }
 
