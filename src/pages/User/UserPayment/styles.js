@@ -98,7 +98,7 @@ export const Content = styled.div`
 
       > section {
         width: 100%;
-        height: 80%;
+        height: 40rem;
 
         overflow-x: hidden;
         overflow-y: auto;
