@@ -116,9 +116,11 @@ export function UserHome() {
   }
 
   useEffect(() => {
+    setIsLoading(true);
     async function fetchDishes() {
       const response = await api.get(`/dishes?title=${search}&ingredients=${search}`);
       setDishes(response.data);
+      setIsLoading(false);
     }
     fetchDishes();
   }, [search]);

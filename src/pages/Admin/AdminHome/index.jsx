@@ -38,9 +38,11 @@ export function AdminHome() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
+    setIsLoading(true);
     async function fetchDishes() {
       const response = await api.get(`/dishes?title=${search.toUpperCase()}&ingredients=${search.toUpperCase()}`);
       setDishes(response.data);
+      setIsLoading(false);
     }
     fetchDishes();
   }, [search]);
