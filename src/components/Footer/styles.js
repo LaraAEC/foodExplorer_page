@@ -17,6 +17,14 @@ export const Container = styled.footer`
   
   background: ${({ theme }) => theme.COLORS.BACKGROUND_600};
 
+  @media (min-width: 425px) {
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    gap: 28rem;
+  }
+
   @media (min-width: 1024px) {
     justify-content: space-between;
   }   
@@ -29,27 +37,44 @@ export const Container = styled.footer`
     
     > p {
       font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
-      font-weight: 700;
-      font-size: 1.52rem;
+      font-weight: 600;
+      font-size: 1.2rem;
       line-height: 1.4rem;
 
       color: ${({ theme }) => theme.COLORS.GRAY_700};
+    
+      @media (min-width: 375px) {
+        font-weight: 700;
+        font-size: 1.52rem;
+      }
     }
   }
 
   img {
-      width: 2.2rem;
-      height: 1.8rem;
+      width: 2rem;
+      height: 1.1rem;
+
+      @media (min-width: 375px) {
+        width: 2rem;
+        height: 1.6rem;
+      }
   } 
 
   #copyright {  
     > p {
       font-family: ${({ theme }) => theme.FONTS.FONT_COPYRIGHT};
       font-weight: 400;
-      font-size: 1.2rem;
+      font-size: 1rem;
       line-height: 1.4rem;
 
       color: ${({ theme }) => theme.COLORS.WHITE_200};
+    
+      @media (min-width: 375px) {
+        font-weight: 400;
+        font-size: 1.2rem;
+        white-space: nowrap;
+      }
+    
     }
   }
 `;

@@ -14,7 +14,7 @@ export function AdminMobileHeader() {
 
   return (
     <Container>
-      <div className="box">
+      
         <button>
           <img className="menuSvg"
             src={ MenuSvg }
@@ -33,10 +33,8 @@ export function AdminMobileHeader() {
             <h1>Food explorer</h1>
             <p>admin</p>
           </div>
-
         </div> 
-
-      </div>
+      
     </Container>
   );
 }

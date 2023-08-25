@@ -21,7 +21,7 @@ export function UserMobileHeader() {
 
   return (
     <Container>
-      <div className="box">
+  
        <button className="buttonMenu">
           <img className="menuSvg"
             src={ MenuSvg }
@@ -45,7 +45,6 @@ export function UserMobileHeader() {
           <img className="receiptSvg" src={ReceiptSvg} alt="Imagem de 'recibo'." />
         </button>   
        
-      </div>
     </Container>
   );
 }

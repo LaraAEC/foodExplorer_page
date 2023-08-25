@@ -21,7 +21,7 @@ export const Container = styled.div`
 
     margin: 0 auto;
 
-    padding-top: 4.4rem;
+    padding-top: 4.2rem;
     
     overflow-x: hidden;
     overflow-y: auto;
@@ -30,11 +30,6 @@ export const Container = styled.div`
 
     &::-webkit-scrollbar {
         background: transparent;
-    }
-
-    @media (max-width: 320px) {
-      width: 32.0rem;
-      padding: 2rem;
     }
 
     @media (min-width: 768px) {
@@ -82,9 +77,6 @@ export const Content = styled.div`
 
   animation: leftRight 0.4s ease;
 
-  @media (max-width: 320px) {
-     width: 26rem;
-    }
 
  > .Banner {
     margin: 0 auto;
@@ -92,33 +84,41 @@ export const Content = styled.div`
     display: flex;
     align-items: end;
   
-    width: 38rem;
     height: 12.0rem; 
 
     background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
 
     border-radius: 3px;
 
-    @media (max-width: 320px) {
-     width: 30rem;
+    @media (min-width: 280px) {
+     max-width: 25rem;
+    }
+
+    @media (min-width: 320px) {
+     max-width: 32rem;
+    }
+
+    
+    @media (min-width: 425px) {
+     max-width: 38rem;
     }
   
     @media (min-width: 768px) {
-      width: 69.5rem;
+      max-width: 69.5rem;
       height: 16.5rem;
 
       gap: 5rem;
     }
 
     @media (min-width: 1024px) {
-      width: 93rem;
+      max-width: 93rem;
       height: 21.0rem;
 
       gap: 6rem;
     }
 
     @media (min-width: 1300px) {
-      width: 127.0rem;
+      max-width: 127.0rem;
       height: 30rem;
 
       gap: 8rem;
@@ -126,6 +126,10 @@ export const Content = styled.div`
 
     img {  
       margin-left: -3rem; 
+
+      @media (min-width: 280px) {
+        width: 12.0rem;
+      }
       
       @media (max-width: 320px) {
         width: 14.0rem;
@@ -170,6 +174,10 @@ export const Content = styled.div`
 
         color: ${({ theme }) => theme.COLORS.WHITE_300};
         
+        @media (max-width: 280px) {
+          font-size: 1.3rem;
+        }
+       
         @media (max-width: 320px) {
           font-size: 1.4rem;
         }
@@ -197,6 +205,10 @@ export const Content = styled.div`
 
         color: ${({ theme }) => theme.COLORS.WHITE_300};
        
+        @media (max-width: 280px) {
+          font-size: 1rem;
+        }
+        
         @media (max-width: 320px) {
           font-size: 1rem;
         }
@@ -221,11 +233,19 @@ export const Content = styled.div`
   > section {
     position: relative;
     margin: 0 auto;
-    max-width: 36rem;
+  
+    @media (max-width: 280px) {
+      padding: 0 2rem;
+      max-width: 25rem;
+    }
 
-    padding: 2rem;
+    @media (min-width: 320px) {
+      padding: 0 2rem;
+      max-width: 25rem;
+    }
 
     @media (min-width: 768px) {
+      padding: 0 4rem;
       max-width: 67rem;
     }
 
@@ -261,20 +281,27 @@ export const Arrow = styled.button`
   font-size: 3.5rem;
   background: transparent;
 
- 
-  @media (max-width: 375px) {
+  ${({ direction }) => direction === 'prev' ? ` 
+      left: 1rem;
+    `: ` 
+      right: 2rem;
+    `}
+
+ @media (min-width: 320px) {
     ${({ direction }) => direction === 'prev' ? ` 
       left: -1rem;
-  `: ` 
-      right: -1rem;
-  `}
-    }
+    `: ` 
+      right: 1rem;
+    `}
+  }
   
-  ${({ direction }) => direction === 'prev' ? ` 
-      left: -2rem;
-  `: ` 
-      right: -2rem;
-  `}
+  @media (min-width: 375px) {
+    ${({ direction }) => direction === 'prev' ? ` 
+      left: -1rem;
+    `: ` 
+      right: -1rem;
+    `}
+  }
 
   @keyframes leftRight {
         0% {

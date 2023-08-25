@@ -21,7 +21,7 @@ export const Container = styled.div`
     margin: 0 auto;
 
     padding: 0;
-    padding-top: 2rem;
+    padding-top: 4.2rem;
     
     overflow-x: hidden;
     overflow-y: auto;
@@ -29,7 +29,7 @@ export const Container = styled.div`
     scrollbar-color: transparent transparent; 
 
     &::-webkit-scrollbar {
-        background: transparent;
+      background: transparent;
     }
   
     @media (min-width: 768px) {
@@ -89,6 +89,10 @@ export const Content = styled.div`
 
     border-radius: 3px;
 
+    @media (min-width: 280px) {
+     max-width: 25rem;
+    }
+
     @media (min-width: 320px) {
      max-width: 32rem;
     }
@@ -120,6 +124,10 @@ export const Content = styled.div`
 
     img {  
       margin-left: -3rem;  
+
+      @media (min-width: 280px) {
+        width: 12.0rem;
+      }
 
       @media (min-width: 320px) {
         width: 14.0rem;
@@ -164,6 +172,10 @@ export const Content = styled.div`
 
         color: ${({ theme }) => theme.COLORS.WHITE_300};
 
+        @media (max-width: 280px) {
+          font-size: 1.3rem;
+        }
+
         @media (max-width: 320px) {
           font-size: 1.4rem;
         }
@@ -191,6 +203,11 @@ export const Content = styled.div`
 
         color: ${({ theme }) => theme.COLORS.WHITE_300};
 
+        
+        @media (max-width: 280px) {
+          font-size: 1rem;
+        }
+
         @media (max-width: 320px) {
           font-size: 1rem;
         }
@@ -216,17 +233,18 @@ export const Content = styled.div`
     position: relative;
     margin: 0 auto;
 
+    @media (max-width: 280px) {
+      padding: 0 2rem;
+      max-width: 25rem;
+    }
+
     @media (min-width: 320px) {
       padding: 0 2rem;
       max-width: 25rem;
     }
 
-    @media (min-width: 375px) {
-      padding: 0 3rem;
-      max-width: 36rem;
-    }
-
     @media (min-width: 768px) {
+      padding: 0 4rem;
       max-width: 67rem;
     }
 
@@ -262,30 +280,35 @@ export const Arrow = styled.button`
   font-size: 3.5rem;
   background: transparent;
 
+  ${({ direction }) => direction === 'prev' ? ` 
+      left: 2rem;
+    `: ` 
+      right: 1rem;
+    `}
+
  @media (min-width: 320px) {
     ${({ direction }) => direction === 'prev' ? ` 
-      left: -2rem;
-  `: ` 
+      left: -1rem;
+    `: ` 
       right: 1rem;
-  `}
-    }
+    `}
+  }
   
   @media (min-width: 375px) {
     ${({ direction }) => direction === 'prev' ? ` 
       left: 1rem;
-  `: ` 
+    `: ` 
       right: -1rem;
-  `}
-    }
-  
+    `}
+  }
   
   @media (min-width: 768px) {
     ${({ direction }) => direction === 'prev' ? ` 
       left: -1rem;
-  `: ` 
-      right: -1rem;
-  `}
-    }
+    `: ` 
+        right: -1rem;
+    `}
+  }
 
   @keyframes leftRight {
         0% {
