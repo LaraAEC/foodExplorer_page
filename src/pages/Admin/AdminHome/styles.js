@@ -23,6 +23,7 @@ export const Container = styled.div`
 
     padding: 0;
     padding-top: 2rem;
+    margin-left: 0;
     
     overflow-x: hidden;
     overflow-y: auto;
