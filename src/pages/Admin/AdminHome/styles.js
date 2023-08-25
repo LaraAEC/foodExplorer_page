@@ -38,7 +38,7 @@ export const Container = styled.div`
     margin-left: 0;
     }
 
-    @media (min-width: 376px) {
+    @media (min-width: 425px) {
       margin: 0 auto;
     }
 
