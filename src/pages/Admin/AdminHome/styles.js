@@ -33,6 +33,15 @@ export const Container = styled.div`
         background: transparent;
     }
 
+    @media (min-width: 320px) {
+    padding: 0;
+    margin-left: 0;
+    }
+
+    @media (min-width: 376px) {
+      margin: 0 auto;
+    }
+
    
     @media (min-width: 768px) {
       padding-top: 7rem;
