@@ -32,21 +32,7 @@ export const Container = styled.div`
         background: transparent;
     }
 
-    @media (max-width: 320px) {
-      width: 32.0rem;
-      padding: 2rem;
-    }
-
-    @media (max-width: 375px) {
-     width: 37.5rem;
-     padding: 2rem;
-    }
-
-    @media (min-width: 425px) {
-     width: 42.5rem;
-     padding: 2rem;
-    }
-
+   
     @media (min-width: 768px) {
       padding-top: 7rem;
     }
@@ -92,12 +78,9 @@ export const Content = styled.div`
 
   animation: leftRight 0.4s ease;
 
-  @media (max-width: 320px) {
-     width: 26rem;
-    }
-
  > .Banner {
     margin: 0 auto;
+  
 
     display: flex;
     align-items: end;
@@ -235,10 +218,15 @@ export const Content = styled.div`
   > section {
     position: relative;
     margin: 0 auto;
-    max-width: 36rem;
 
-    @media (max-width: 320px) {
+    @media (min-width: 320px) {
+      padding: 0 2rem;
+      max-width: 25rem;
+    }
+
+    @media (min-width: 375px) {
       padding: 0 3rem;
+      max-width: 36rem;
     }
 
     @media (min-width: 768px) {
@@ -276,12 +264,31 @@ export const Arrow = styled.button`
   color: ${({ theme }) => theme.COLORS.WHITE_100};
   font-size: 3.5rem;
   background: transparent;
+
+ @media (min-width: 320px) {
+    ${({ direction }) => direction === 'prev' ? ` 
+      left: -2rem;
+  `: ` 
+      right: 1rem;
+  `}
+    }
   
-  ${({ direction }) => direction === 'prev' ? ` 
+  @media (min-width: 375px) {
+    ${({ direction }) => direction === 'prev' ? ` 
+      left: 1rem;
+  `: ` 
+      right: -1rem;
+  `}
+    }
+  
+  
+  @media (min-width: 376px) {
+    ${({ direction }) => direction === 'prev' ? ` 
       left: -2rem;
   `: ` 
       right: -2rem;
   `}
+    }
 
   @keyframes leftRight {
         0% {
