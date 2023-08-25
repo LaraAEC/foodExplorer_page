@@ -21,7 +21,7 @@ export const Container = styled.div`
 
     margin: 0 auto;
 
-    padding-top: 4.4rem;
+   
     
     overflow-x: hidden;
     overflow-y: auto;
