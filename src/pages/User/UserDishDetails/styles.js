@@ -205,9 +205,12 @@ export const Content = styled.div`
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    margin-bottom: 4rem;
+    
 
     @media (min-width: 820px) {
-      justify-content: start;    
+      justify-content: start; 
+     
     } 
 
     > .counter {
