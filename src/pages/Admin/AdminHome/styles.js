@@ -23,7 +23,6 @@ export const Container = styled.div`
 
     padding: 0;
     padding-top: 2rem;
-    margin-left: 0;
     
     overflow-x: hidden;
     overflow-y: auto;
@@ -87,7 +86,7 @@ export const Content = styled.div`
 
     @media (min-width: 400px) {
     padding: 0;
-    margin-left: 0rem;
+    margin: 0 auto;
     }
  
 
