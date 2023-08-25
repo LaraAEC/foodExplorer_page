@@ -81,10 +81,14 @@ export const Content = styled.div`
   
     @media (min-width: 320px) {
     padding: 2rem;
-    margin-left: 1rem;
+    margin-left: 5rem;
     }
 
-    
+    @media (min-width: 375px) {
+    padding: 0;
+    margin: 0 auto;
+    }
+ 
 
  > .Banner {
     margin: 0 auto;
