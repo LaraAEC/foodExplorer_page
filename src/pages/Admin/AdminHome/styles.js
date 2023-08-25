@@ -80,7 +80,7 @@ export const Content = styled.div`
 
   animation: leftRight 0.4s ease;
   
-  @media (max-width: 320px) {
+  @media (max-width: 374px) {
     padding: 0;
     margin-left: 4rem;
     }
