@@ -81,7 +81,7 @@ export const Content = styled.div`
   
     @media (min-width: 320px) {
     padding: 2rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
     }
 
     @media (min-width: 375px) {
