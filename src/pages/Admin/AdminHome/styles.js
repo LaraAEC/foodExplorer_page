@@ -80,10 +80,11 @@ export const Content = styled.div`
 
   animation: leftRight 0.4s ease;
 
-  padding: 0;
-  margin-left: 5rem;
+ 
 
  > .Banner {
+  padding: 0;
+  margin-left: 3.5rem;
     margin: 0 auto;
   
     display: flex;
@@ -97,10 +98,9 @@ export const Content = styled.div`
     border-radius: 3px;
 
     @media (min-width: 320px) {
-     width: 33rem;
+     width: 32rem;
     }
 
-  
     @media (min-width: 768px) {
       width: 69.5rem;
       height: 16.5rem;
