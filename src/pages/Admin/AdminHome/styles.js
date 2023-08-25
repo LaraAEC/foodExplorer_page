@@ -79,17 +79,7 @@ export const Content = styled.div`
 
   animation: leftRight 0.4s ease;
   
-    @media (min-width: 320px) {
-    padding: 2rem;
-    margin-left: 5rem;
-    }
-
-    @media (min-width: 375px) {
-      padding: 2rem;
-    margin-left: 5rem;
-    }
- 
-
+   
  > .Banner {
     margin: 0 auto;
   
