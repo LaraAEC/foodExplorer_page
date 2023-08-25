@@ -79,7 +79,7 @@ export const Content = styled.div`
 
   animation: leftRight 0.4s ease;
   
-    @media (min-width: 320px) {
+    @media (min-width: 375px) {
     padding: 2rem;
     margin-left: 1rem;
     }
