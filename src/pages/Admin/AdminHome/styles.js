@@ -92,13 +92,10 @@ export const Content = styled.div`
 
     border-radius: 3px;
 
-    @media (max-width: 320px) {
-     width: 30rem;
+    @media (min-width: 320px) {
+     width: 33rem;
     }
 
-    @media (max-width: 375px) {
-      width: 32rem;
-    }
   
     @media (min-width: 768px) {
       width: 69.5rem;
@@ -124,7 +121,7 @@ export const Content = styled.div`
     img {  
       margin-left: -3rem;  
 
-      @media (max-width: 320px) {
+      @media (min-width: 320px) {
         width: 14.0rem;
       }
 
@@ -282,7 +279,7 @@ export const Arrow = styled.button`
     }
   
   
-  @media (min-width: 376px) {
+  @media (min-width: 768px) {
     ${({ direction }) => direction === 'prev' ? ` 
       left: -2rem;
   `: ` 
