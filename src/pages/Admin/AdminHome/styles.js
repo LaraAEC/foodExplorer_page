@@ -33,16 +33,7 @@ export const Container = styled.div`
         background: transparent;
     }
 
-    @media (min-width: 320px) {
-    padding: 0;
-    margin-left: 0;
-    }
-
-    @media (min-width: 425px) {
-      margin: 0 auto;
-    }
-
-   
+  
     @media (min-width: 768px) {
       padding-top: 7rem;
     }
@@ -89,11 +80,11 @@ export const Content = styled.div`
   animation: leftRight 0.4s ease;
   
     @media (min-width: 320px) {
-    padding: 0;
-    margin-left: 4rem;
+    padding: 2rem;
+    margin-left: 2rem;
     }
 
-    @media (min-width: 400px) {
+    @media (min-width: 375px) {
     padding: 0;
     margin: 0 auto;
     }
