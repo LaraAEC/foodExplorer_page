@@ -14,7 +14,8 @@ export const Container = styled.div`
   "footer";
   
   overflow-y: hidden;
-  
+  overflow-x: hidden;
+
   > main { 
     grid-area: main;
 
@@ -30,7 +31,12 @@ export const Container = styled.div`
     &::-webkit-scrollbar {
         background: transparent;
     }
-    
+
+    @media (max-width: 320px) {
+      width: 32.0rem;
+      padding: 2rem;
+    }
+
     @media (min-width: 768px) {
       padding-top: 7rem;
     }
@@ -46,6 +52,7 @@ export const Container = styled.div`
     @media (min-width: 1024px) {
       max-width: 102.4rem;
     }
+    
     @media (min-width: 1300px) {
       max-width: 140.0rem;
     }
@@ -75,6 +82,10 @@ export const Content = styled.div`
 
   animation: leftRight 0.4s ease;
 
+  @media (max-width: 320px) {
+     width: 26rem;
+    }
+
  > .Banner {
     margin: 0 auto;
 
@@ -87,6 +98,10 @@ export const Content = styled.div`
     background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
 
     border-radius: 3px;
+
+    @media (max-width: 320px) {
+     width: 30rem;
+    }
   
     @media (min-width: 768px) {
       width: 69.5rem;
@@ -110,7 +125,11 @@ export const Content = styled.div`
     }
 
     img {  
-      margin-left: -3rem;  
+      margin-left: -3rem; 
+      
+      @media (max-width: 320px) {
+        width: 14.0rem;
+      }
 
       @media (min-width: 768px) {
         width: 28.0rem;
@@ -150,6 +169,10 @@ export const Content = styled.div`
         line-height: 140%;
 
         color: ${({ theme }) => theme.COLORS.WHITE_300};
+        
+        @media (max-width: 320px) {
+          font-size: 1.4rem;
+        }
 
         @media (min-width: 768px) {
           font-weight: 500;
@@ -173,6 +196,10 @@ export const Content = styled.div`
         line-height: 140%;
 
         color: ${({ theme }) => theme.COLORS.WHITE_300};
+       
+        @media (max-width: 320px) {
+          font-size: 1rem;
+        }
 
         @media (min-width: 768px) {
           font-weight: 400;
@@ -195,6 +222,8 @@ export const Content = styled.div`
     position: relative;
     margin: 0 auto;
     max-width: 36rem;
+
+    padding: 2rem;
 
     @media (min-width: 768px) {
       max-width: 67rem;
@@ -231,6 +260,15 @@ export const Arrow = styled.button`
   color: ${({ theme }) => theme.COLORS.WHITE_100};
   font-size: 3.5rem;
   background: transparent;
+
+ 
+  @media (max-width: 375px) {
+    ${({ direction }) => direction === 'prev' ? ` 
+      left: -1rem;
+  `: ` 
+      right: -1rem;
+  `}
+    }
   
   ${({ direction }) => direction === 'prev' ? ` 
       left: -2rem;

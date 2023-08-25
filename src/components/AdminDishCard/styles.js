@@ -19,10 +19,11 @@ export const Container = styled.div`
     
     position: absolute;
     top: 7%;
-    right: 5%;
+    right: 8%;
 
     width: 2.4rem;
     height: 2.2rem;
+    
 
     @media (min-width: 1024px) {
       width: 3rem;

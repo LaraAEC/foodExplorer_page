@@ -13,7 +13,8 @@ export const Container = styled.div`
   "main"
   "footer";
 
-  overflow-y: hidden;
+  overflow-y: hidden;  
+  overflow-x: hidden;
 
   > main { 
     grid-area: main;
@@ -28,11 +29,7 @@ export const Container = styled.div`
     &::-webkit-scrollbar {
         background: transparent;
     }
-
-    @media (min-width: 400px) {
-      padding-top: 0rem;
-    } 
-    
+       
     @media (min-width: 768px) {
       padding-top: 7rem;
     }
@@ -67,7 +64,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   max-width: 100%;
   height:100vh;
-  
+
   > .box {
     display: flex;
     flex-direction: column;

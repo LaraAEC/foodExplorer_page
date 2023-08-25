@@ -14,7 +14,8 @@ export const Container = styled.div`
   "footer";
   
   overflow-y: hidden;
- 
+  overflow-x: hidden;
+
   > main { 
     grid-area: main;
 
@@ -26,7 +27,26 @@ export const Container = styled.div`
     overflow-y: auto;
 
     scrollbar-color: transparent transparent; 
-    
+
+    &::-webkit-scrollbar {
+        background: transparent;
+    }
+
+    @media (max-width: 320px) {
+      width: 32.0rem;
+      padding: 2rem;
+    }
+
+    @media (max-width: 375px) {
+     width: 37.5rem;
+     padding: 2rem;
+    }
+
+    @media (min-width: 425px) {
+     width: 42.5rem;
+     padding: 2rem;
+    }
+
     @media (min-width: 768px) {
       padding-top: 7rem;
     }
@@ -39,13 +59,10 @@ export const Container = styled.div`
       padding-top: 14.5rem;
     }
 
-    &::-webkit-scrollbar {
-        background: transparent;
-    }
-
     @media (min-width: 1024px) {
       max-width: 102.4rem;
     }
+    
     @media (min-width: 1300px) {
       max-width: 140.0rem;
     }
@@ -73,6 +90,12 @@ export const Content = styled.div`
   max-width: 100%;
   height: 100vh;
 
+  animation: leftRight 0.4s ease;
+
+  @media (max-width: 320px) {
+     width: 26rem;
+    }
+
  > .Banner {
     margin: 0 auto;
 
@@ -85,6 +108,14 @@ export const Content = styled.div`
     background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
 
     border-radius: 3px;
+
+    @media (max-width: 320px) {
+     width: 30rem;
+    }
+
+    @media (max-width: 375px) {
+      width: 32rem;
+    }
   
     @media (min-width: 768px) {
       width: 69.5rem;
@@ -109,6 +140,10 @@ export const Content = styled.div`
 
     img {  
       margin-left: -3rem;  
+
+      @media (max-width: 320px) {
+        width: 14.0rem;
+      }
 
       @media (min-width: 768px) {
         width: 28.0rem;
@@ -149,6 +184,10 @@ export const Content = styled.div`
 
         color: ${({ theme }) => theme.COLORS.WHITE_300};
 
+        @media (max-width: 320px) {
+          font-size: 1.4rem;
+        }
+
         @media (min-width: 768px) {
           font-weight: 500;
           font-size: 3rem;
@@ -172,6 +211,10 @@ export const Content = styled.div`
 
         color: ${({ theme }) => theme.COLORS.WHITE_300};
 
+        @media (max-width: 320px) {
+          font-size: 1rem;
+        }
+
         @media (min-width: 768px) {
           font-weight: 400;
           font-size: 1.4rem;
@@ -193,6 +236,10 @@ export const Content = styled.div`
     position: relative;
     margin: 0 auto;
     max-width: 36rem;
+
+    @media (max-width: 320px) {
+      padding: 0 3rem;
+    }
 
     @media (min-width: 768px) {
       max-width: 67rem;
@@ -220,19 +267,39 @@ export const Content = styled.div`
 `;
 
 export const Arrow = styled.button`
-    position: absolute;
-    top: 53.5%;
-    transform: translateY(-50%);
-    border: none;
-    filter: opacity(0.7);
-    height: 33.5rem;
-    color: ${({ theme }) => theme.COLORS.WHITE_100};
-    font-size: 3.5rem;
-    background: transparent;
-   
-    ${({ direction }) => direction === 'prev' ? ` 
-        left: -2rem;
-    `: ` 
-        right: -2rem;
-`}
+  position: absolute;
+  top: 53.5%;
+  transform: translateY(-50%);
+  border: none;
+  filter: opacity(0.7);
+  height: 33.5rem;
+  color: ${({ theme }) => theme.COLORS.WHITE_100};
+  font-size: 3.5rem;
+  background: transparent;
+  
+  ${({ direction }) => direction === 'prev' ? ` 
+      left: -2rem;
+  `: ` 
+      right: -2rem;
+  `}
+
+  @keyframes leftRight {
+        0% {
+            transform: translateX(-360px)
+        }
+
+        100% {
+            transform: translateX(0)
+        }
+    }
+    
+    @keyframes lowOpacity {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
 `;
