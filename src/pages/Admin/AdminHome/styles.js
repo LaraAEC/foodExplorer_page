@@ -81,12 +81,11 @@ export const Content = styled.div`
   animation: leftRight 0.4s ease;
 
   padding: 0;
-  margin-left: 3rem;
+  margin-left: 5rem;
 
  > .Banner {
     margin: 0 auto;
   
-
     display: flex;
     align-items: end;
   
