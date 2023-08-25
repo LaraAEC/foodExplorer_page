@@ -14,7 +14,7 @@ export const Container = styled.div`
   "footer";
   
   overflow-y: hidden;
- 
+
   > main { 
     grid-area: main;
 
@@ -31,7 +31,6 @@ export const Container = styled.div`
     &::-webkit-scrollbar {
         background: transparent;
     }
-
   
     @media (min-width: 768px) {
       padding-top: 7rem;
@@ -77,7 +76,6 @@ export const Content = styled.div`
   height: 100vh;
 
   animation: leftRight 0.4s ease;
-  
    
  > .Banner {
     margin: 0 auto;
@@ -85,7 +83,6 @@ export const Content = styled.div`
     display: flex;
     align-items: end;
   
-    width: 38rem;
     height: 12.0rem; 
 
     background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
@@ -93,25 +90,29 @@ export const Content = styled.div`
     border-radius: 3px;
 
     @media (min-width: 320px) {
-     width: 32rem;
+     max-width: 32rem;
+    }
+
+    @media (min-width: 425px) {
+     max-width: 38rem;
     }
 
     @media (min-width: 768px) {
-      width: 69.5rem;
+      max-width: 69.5rem;
       height: 16.5rem;
 
       gap: 5rem;
     }
 
     @media (min-width: 1024px) {
-      width: 93rem;
+      max-width: 93rem;
       height: 21.0rem;
 
       gap: 6rem;
     }
 
     @media (min-width: 1300px) {
-      width: 127.0rem;
+      max-width: 127.0rem;
       height: 30rem;
 
       gap: 8rem;
@@ -280,9 +281,9 @@ export const Arrow = styled.button`
   
   @media (min-width: 768px) {
     ${({ direction }) => direction === 'prev' ? ` 
-      left: -2rem;
+      left: -1rem;
   `: ` 
-      right: -2rem;
+      right: -1rem;
   `}
     }
 

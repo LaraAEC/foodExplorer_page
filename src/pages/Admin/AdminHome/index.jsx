@@ -42,7 +42,7 @@ export function AdminHome() {
     async function fetchDishes() {
       const response = await api.get(`/dishes?title=${search.toUpperCase()}&ingredients=${search.toUpperCase()}`);
       setDishes(response.data);
-      setIsLoading(false);
+       setIsLoading(false);
     }
     fetchDishes();
   }, [search]);
