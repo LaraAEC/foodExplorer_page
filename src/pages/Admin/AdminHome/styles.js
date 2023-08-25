@@ -79,12 +79,14 @@ export const Content = styled.div`
   height: 100vh;
 
   animation: leftRight 0.4s ease;
-
+  
+  @media (max-width: 320px) {
+    padding: 0;
+    margin-left: 4rem;
+    }
  
 
  > .Banner {
-  padding: 0;
-  margin-left: 3.5rem;
     margin: 0 auto;
   
     display: flex;
