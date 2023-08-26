@@ -8,7 +8,6 @@ import { useCart } from '../../../hooks/cart'
 import { useMediaQuery } from 'react-responsive';
 
 import { Container, Content } from './styles';
-
 import { FiChevronLeft } from 'react-icons/fi';
 
 import ReceiptSvg from '../../../assets/receipt.svg';

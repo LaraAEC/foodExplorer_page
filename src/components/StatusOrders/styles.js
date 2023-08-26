@@ -7,7 +7,6 @@ export const Container = styled.ul`
 
   @media(max-width: 1023px) {
     display: grid;
-    position: relative;
     grid-template-areas: 
     "code date date"
     "details details details"
@@ -17,12 +16,15 @@ export const Container = styled.ul`
     margin-bottom: 2.4rem;
     border-radius: 1rem;
 
+    position: relative;
+
     .selectStatus {
     grid-area: selectStatus;
-    border: none;
     gap: 1rem;
     display: flex;
     margin-bottom: 2rem;
+
+    border: none;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
    
     max-width: 28rem;

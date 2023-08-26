@@ -13,6 +13,8 @@ export const Container = styled.div`
 
   padding: 15.8rem 4.7rem 30.0rem 4.7rem;
 
+  white-space: nowrap;
+
 @media (min-width: 1024px) {
   max-width: 102.4rem;
 
