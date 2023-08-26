@@ -36,9 +36,9 @@ export function UserDishDetails() {
   const navigate = useNavigate();
   const params = useParams(); 
 
-  function handleBack() {
-    navigate(-1); 
-  }
+  function handleBack () {
+    navigate(-1)
+};
 
   function handleDecrement() {
     if(amount === 1) {
@@ -98,26 +98,25 @@ useEffect(() => {
       <main>
 
         <Content>
-
-          <div className="wrapperBack">
-            <ButtonText
-              title="Voltar"
-              icon={FiChevronLeft }
-              onClick={handleBack} 
-            />
-          </div>
-
-          {
+        <div className="box">
+        {
             data &&
-            
-            <div className="versionDesktopColumnOne">              
-              <img
-              className="photoDish"
-              src={image}
-              alt="Foto do prato escolhido." 
-              />
-            </div>
 
+            <div className="versionDesktopColumnOne">
+              <div className="wrapperBack">
+                  <ButtonText
+                    title="Voltar"
+                    icon={FiChevronLeft }
+                    onClick={handleBack} 
+                  />
+                </div>
+
+                <img
+                className="photoDish"
+                src={image}
+                alt="Foto do prato escolhido." 
+                />
+          </div>
           }
 
           {
@@ -175,7 +174,7 @@ useEffect(() => {
 
             </div>
           }               
-        
+        </div>
         </Content>
     
       </main>

@@ -16,7 +16,7 @@ import { TextArea } from '../TextArea';
 
 
 export function UserDishCard({ title, onClick, isFavorite=false, value, price, data, visibility, readyOnly, image, ...rest  }) {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isMobile = useMediaQuery({ maxWidth: 912 });
   const dishDescription = isMobile ? "" : <TextArea/>;
   
   const { cart, setCart } = useCart();

@@ -57,260 +57,286 @@ export const Content = styled.div`
   max-width: 100%;
   height:100vh;
 
-  padding: 2rem;
+    > .box {
+      display: flex;
+      flex-direction: column;
 
-  @media (min-width: 820px) {
-    display: grid;
-    grid-template-columns: 2fr  3fr;
-    grid-template-rows: 2vh auto;
-    grid-template-areas:
-    "back back"
-    "one two";
+      gap: 1.6rem;
 
-    gap: 4rem;
-  }
-
-  > .wrapperBack {
-    grid-area: back;
-    display: flex;
-    align-items: start;
-    justify-content: start;
-    
-    padding-top: 8rem;
-
-    @media (max-width: 280px) and (max-height: 653px) {
+      padding-bottom: 0;
       padding-top: 1rem;
-    }
+      width: 30rem;
 
-    @media (min-width: 360px) {
-      padding-top: 1rem;
-    }
+      align-items: center;
+      justify-content: center;
 
-    @media (max-width: 360px) and (max-height: 740px) {
-      padding-top: 8rem;
-    }
-  
-    @media (min-width: 375px) and (min-height: 532px) {
-      padding-top: 8rem;  
-    }
+      @media (min-width: 280px) {
+        margin-top: 7rem;
+      }
 
-    @media (min-width: 375px) and (min-height: 667px) {
-      padding-top: 8rem;
-    }
+      @media (min-width: 320px) {
+        margin-top: 1rem;
+      }
 
-    @media (min-width: 425px) {
-      padding: 9rem;
-    }
+      @media (min-width: 360px) {
+        margin-top: 5rem;
+      }
 
-    @media (min-width: 820px) {
-      padding: 1rem;
-    }
-
-    @media (min-width: 1024px) and (min-height: 600px) {
-      padding-top: 8rem;
-    }
-  }
-   
-  > .versionDesktopColumnOne {
-    display: flex;
-    flex-direction: column;
-
-    gap: 1.6rem;
-
-    align-items: center;
-    justify-content: center; 
-
-    grid-area: one;
-
-    @media (min-width: 1024px) {
-      gap: 6rem;
-    }
-
-    > .photoDish {
-      width: 18rem;
-      height: 18rem;
-      padding: 2rem;
-
-      border-radius: 50%; 
+      @media (min-width: 390px) {
+        margin-top: 2rem;
+      }
 
       @media (min-width: 412px) {
-        width: 26.4rem;
-        height: 22.4rem;
+        margin-top: 2rem;
       }
+
+      @media (min-width: 500px) {
+        align-items: start;
+        justify-content: start;
+        margin-top: 8rem;
+      }
+
+      @media (min-width: 820px) {
+        display: flex;
+        flex-direction: row;
+
+        align-items: end;
+
+        gap: 5.6rem;
+      
+        width: 100rem;
+        height: 48rem;
+
+        padding: 0 6rem 0 8rem;
+        margin-top: -5rem;
+      }
+
+    
 
       @media (min-width: 1024px) {
-        width: 36.0rem;
-        height: 32.9rem;
+        width: 90rem;
+        margin-top: -50rem;
       }
-    }
-  }
 
-  > .versionDesktopColumnTwo {
-    display: flex;
-    flex-direction: column;  
-    
-    justify-content: center; 
+      @media (min-width: 1024px) and (min-height: 600px) {
+        width: 90rem;
+        margin-top: -4rem;
+      }
+ 
+      @media (min-width: 1280px) and (max-height: 800px) {
+        width: 110rem;
+      }
 
-    grid-area: two; 
-    
-    > .details {
-    display: flex;
-    flex-direction: column;
-
-    align-items: center; 
-    
-    gap: 1rem;
+      @media (min-width: 1400px) {
+        width: 140rem; 
+     
+        padding: 0 20rem 0 22rem; 
+        margin-top: 6rem;
   
-    @media (min-width: 412px) {
-      align-items: start;
-      gap: 1rem;
+        align-items: center;
+      }
+
+
+      > .versionDesktopColumnOne {
+        display: flex;
+        flex-direction: column;
+
+        gap: 1.6rem;
+
+        align-items: center;
+
+        @media (min-width: 1024px) {
+          gap: 6rem;
+        }
+
+        > .wrapperBack {
+        width: 31.6rem;
+      
+        display: flex;
+        justify-content: start;
+        }
+
+        > .photoDish {
+          width: 26.4rem;
+          height: 26.4rem;
+
+          border-radius: 50%; 
+          overflow: hidden; 
+        }  
+      }
+      > .versionDesktopColumnTwo {
+        display: flex;
+        flex-direction: column;
+      
+        width: 31.6rem;
+        height: 32.0rem;
+
+        @media (min-width: 1024px) {
+        width: 100%;
+        height: 30.0rem;
+      }
+
+        > .details {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center; 
+        
+        gap: 1.5rem;
+      
+        @media (min-width: 1024px) {
+        align-items: start;
+        gap: 0.5rem;
+      }
+
+      @media (min-width: 1300px) {
+        width: 100%;
+        height: 40.0rem; 
+
+        gap: 0rem;
     }
 
     > h2 {
-      font-size: 2rem;
-      font-weight: 500;
-      line-height: 100%;
-
-      padding-top: 1rem;
-      
-      padding-left: 1.5rem;
-
-      color: ${({ theme}) => theme.COLORS.WHITE_300};
-
-      @media (min-width: 412px) {
-        font-size: 2.8rem;
+        font-size: 2.4rem;
         font-weight: 500;
-        line-height: 140%;       
-      }
-    }
+        line-height: 140%;
 
-    > .wrapperTags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-
-      padding-left: 1.5rem;
+        color: ${({ theme}) => theme.COLORS.WHITE_300};
       
-      margin-bottom: 2rem;
-
-      @media (min-width: 820px) {
-        margin-bottom: 3rem;     
-      }    
-    }
-  }
-  
-    > .order {
-    display: flex;
-  
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 4rem;
-    
-
-    @media (min-width: 820px) {
-      justify-content: start; 
-     
-    } 
-
-    > .counter {
-      display: flex;
-
-      button {
-      border: none;
-      background: transparent;
-
-      > img {
-        width: 2rem;
-        height: 2rem;      
+        @media (min-width: 1300px) {
+          margin-bottom: 2rem;
       }
-    }
+    }  
 
-    > input {
-      color: ${({ theme }) => theme.COLORS.WHITE_300};
-      font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
-      font-weight: 400;
-      font-size: 1.6rem;
-
-      width: 4rem;
-      height: 2rem;
-
-      display: flex;
-      align-items: center;
-
-      text-align: center;
-
-      border: none;
-      background: transparent;
-    }     
-  }
-
-  > .wrapperButton {
+      > .wrapperTags {
         display: flex;
-        justify-content: center;
-        align-items: center; 
+        flex-wrap: wrap;
+        gap: 1rem;
 
-        gap: 0.8rem;
+        padding-left: 1.5rem;
        
-        padding: 1.2rem 2rem;
-        
-        font-size: 1.2rem;
-        font-weight: 500;
+        margin-bottom: 4.8rem;
 
-        line-height: 2px;
-
-        border-radius: 5px;
-
-        background-color: ${({ theme }) => theme.COLORS.RED_100};
-        color: ${({ theme }) => theme.COLORS.WHITE_100};
-        display: flex;
-
-        @media (min-width: 768px) {
-          max-width: 22.8rem;
-          height: 1.39rem;
-
-          padding: 2rem 3rem;
-        }
-
-        > .receipt {
-          max-width: 1.6rem;
-          height: 1.6rem;
-
-          @media (min-width: 370px) {
-          font-size: 1.2rem;
-          line-height: 2px;
-        }
-        
-        @media (min-width: 425px) {
-          max-width: 2rem;
-          height: 2rem;
-        }
-        }
-
-        > button {
-        text-align: center;
-        font-size: 10px;        
-        font-weight: 500;
-
-        line-height: 2.6px;
-      
-        white-space: wrap;
-
-        @media (max-width: 306px) {
-          line-height: 12px;
-        }
-
-        @media (min-width: 370px) {
-          font-size: 1.2rem;
-        }
-
-        @media (min-width: 425px) {
-          font-size: 1.6rem;
-        }
+        @media (min-width: 1024px) {
+          margin-bottom: 3rem;
+          padding-left: 0rem;
+      }
 
       }
     }
- }    
-} 
+      
+        > .order {
+        display: flex;
+      
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 4rem;
+        
+        @media (min-width: 820px) {
+          justify-content: start; 
+        
+        } 
+
+        > .counter {
+          display: flex;
+
+          button {
+          border: none;
+          background: transparent;
+
+          > img {
+            width: 2rem;
+            height: 2rem;      
+          }
+        }
+
+        > input {
+          color: ${({ theme }) => theme.COLORS.WHITE_300};
+          font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
+          font-weight: 400;
+          font-size: 1.6rem;
+
+          width: 4rem;
+          height: 2rem;
+
+          display: flex;
+          align-items: center;
+
+          text-align: center;
+
+          border: none;
+          background: transparent;
+        }     
+      }
+
+      > .wrapperButton {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+
+            gap: 0.8rem;
+          
+            padding: 1.2rem 2rem;
+            
+            font-size: 1.2rem;
+            font-weight: 500;
+
+            line-height: 2px;
+
+            border-radius: 5px;
+
+            background-color: ${({ theme }) => theme.COLORS.RED_100};
+            color: ${({ theme }) => theme.COLORS.WHITE_100};
+            display: flex;
+
+            @media (min-width: 768px) {
+              max-width: 22.8rem;
+              height: 1.39rem;
+
+              padding: 2rem 3rem;
+            }
+
+            > .receipt {
+              max-width: 1.6rem;
+              height: 1.6rem;
+
+              @media (min-width: 370px) {
+              font-size: 1.2rem;
+              line-height: 2px;
+            }
+            
+            @media (min-width: 425px) {
+              max-width: 2rem;
+              height: 2rem;
+            }
+            }
+
+            > button {
+            text-align: center;
+            font-size: 10px;        
+            font-weight: 500;
+
+            line-height: 2.6px;
+          
+            white-space: wrap;
+
+            @media (max-width: 306px) {
+              line-height: 12px;
+            }
+
+            @media (min-width: 370px) {
+              font-size: 1.2rem;
+            }
+
+            @media (min-width: 425px) {
+              font-size: 1.6rem;
+            }
+
+          }
+        }
+    }    
+  } 
+}
 `;
 

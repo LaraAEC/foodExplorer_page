@@ -40,10 +40,6 @@ export const Container = styled.div`
   }
 }
 
-  .heart {
-   
-  }
-
   @media (min-width: 1024px) {
     display: flex;
     height: 46.2rem;
@@ -160,6 +156,11 @@ export const Content = styled.div`
 
     font-family: ${({ theme }) => theme.FONTS.FONT_SECONDARY};
     color: ${({ theme }) => theme.COLORS.BLUE_100};
+
+    @media (min-width: 912px) and (min-height:1368px){
+      font-size: 2.6rem;
+      line-height: 160%;
+    }
     
     @media (min-width: 1024px) {
       font-size: 2.6rem;

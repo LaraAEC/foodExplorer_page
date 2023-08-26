@@ -81,7 +81,6 @@ useEffect(() => {
               alt="Foto do prato escolhido." 
               />
           </div>
-
           }
            
           {
